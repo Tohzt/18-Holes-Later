@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://deggr2h1rdxc2"]
+
+[ext_resource type="PackedScene" uid="uid://8myncep5g8dc" path="res://player/player.tscn" id="1_udih8"]
+[ext_resource type="PackedScene" uid="uid://4ge043sfnb0l" path="res://tree/tree.tscn" id="2_616uf"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="3_w20ah"]
+[ext_resource type="Script" path="res://Label_Discs.gd" id="4_e4ybu"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_udih8")]
+position = Vector2(87, 360)
+
+[node name="Trees" type="Node" parent="."]
+
+[node name="Tree" parent="Trees" instance=ExtResource("2_616uf")]
+
+[node name="Tree4" parent="Trees" instance=ExtResource("2_616uf")]
+position = Vector2(318, 108)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("2_616uf")]
+position = Vector2(398, 514)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("2_616uf")]
+position = Vector2(548, 188)
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+anchor_mode = 0
+script = ExtResource("3_w20ah")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label_Discs" type="Label" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 620.0
+offset_right = 33.0
+offset_bottom = 643.0
+text = "Discs:"
+script = ExtResource("4_e4ybu")

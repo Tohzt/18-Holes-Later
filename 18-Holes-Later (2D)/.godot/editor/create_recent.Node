@@ -1,0 +1,10 @@
+Label
+HBoxContainer
+CenterContainer
+CanvasLayer
+Camera2D
+Node
+Sprite2D
+CollisionShape2D
+StaticBody2D
+CharacterBody2D
