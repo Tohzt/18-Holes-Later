@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="3d Dungeon Strikers"
+config/name="18 Holes Later"
 run/main_scene="res://World/World.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
@@ -21,6 +21,19 @@ Global="*res://global.gd"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/ultimate_character/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Ball/": "gray",
+"res://Discs/": "red",
+"res://Player/": "blue",
+"res://World/": "green",
+"res://addons/": "gray",
+"res://demo/": "gray",
+"res://scenes/": "teal"
+}
 
 [input]
 
@@ -109,3 +122,7 @@ action_block={
 3d_physics/layer_1="Solid"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Object"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
