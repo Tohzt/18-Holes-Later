@@ -10,6 +10,8 @@ var anim := ""
 
 func _ready():
 	anim_type = "Idle"
+	anim_dir = "D"
+	anim_dir_prev = "D"
 	anim = "Idle_D"
 
 func _unhandled_input(event):
@@ -18,23 +20,26 @@ func _unhandled_input(event):
 			play("Attack_Side")
 
 func _process(_delta):
-	if anim_dir == "":
+	print(animation + " :: " + anim + " :: " + anim_dir)
+	if anim == "":
+		anim = anim_type
+	if anim_type != "Idle":
 		_update_animation()
 		
+	anim = anim_type + "_" + anim_dir
 	if animation != anim:
-	
-		if anim == "Idle_":
-			anim = anim + "D"
 		play(anim)
-	print(animation + " :: " + anim)
 
 func _update_animation():
-	anim = anim_type + "_"
+	# TODO: Replace with player velocity
 	var h_axis = Input.get_axis("move_left", "move_right")
 	var v_axis = Input.get_axis("move_backward", "move_forward")
 	if v_axis:
 		var dir = "U" if v_axis == 1 else "D"
-		anim = anim + dir
+		anim_dir = anim_dir + dir
 	if h_axis:
 		var dir = "R" if h_axis == 1 else "L"
-		anim = anim + dir
+		anim_dir = anim_dir + dir
+	
+	if anim_dir != "":
+		anim_dir_prev = anim_dir

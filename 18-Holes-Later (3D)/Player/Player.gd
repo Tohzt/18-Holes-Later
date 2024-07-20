@@ -32,8 +32,10 @@ func initiate_state_machine():
 
 func idle_start():
 	AC.anim_type = "Idle"
+	AC.anim_dir = AC.anim_dir_prev
 	
 func idle_update(delta: float):
+	AC.anim_dir = AC.anim_dir_prev
 	if velocity.length() >= 0.5:
 		sm_main.dispatch(&"walking")
 
@@ -42,6 +44,7 @@ func walk_start():
 	AC.anim_dir = ""
 	
 func walk_update(delta: float):
+	AC.anim_dir = ""
 	if velocity.length() < 0.5:
 		sm_main.dispatch(&"state_ended")
 
