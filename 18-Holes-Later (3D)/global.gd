@@ -11,7 +11,6 @@ const angle_limit_up = 20
 const angle_limit_down = 5
 
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Player = get_tree().get_first_node_in_group("Player")
 	Player_Camera = Player.get_node("Head").get_node("Camera")
 
@@ -25,6 +24,10 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("toggle_camera"):
 		# TODO: Move perspective to global variable
 		Player.first_person = !Player.first_person
+		if Player.first_person : 
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Player.camera_node.current = !Player.camera_node.current
 	
 	# Throw Disc
