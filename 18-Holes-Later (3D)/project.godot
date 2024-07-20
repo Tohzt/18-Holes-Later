@@ -27,11 +27,11 @@ enabled=PackedStringArray("res://addons/ultimate_character/plugin.cfg")
 folder_colors={
 "res://Assets/": "orange",
 "res://Ball/": "gray",
+"res://Basket/": "red",
 "res://Discs/": "red",
 "res://Player/": "blue",
 "res://World/": "green",
 "res://addons/": "gray",
-"res://demo/": "gray",
 "res://scenes/": "teal"
 }
 
