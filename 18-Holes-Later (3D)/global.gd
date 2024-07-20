@@ -3,18 +3,30 @@ const DISC = preload("res://Discs/disc.tscn")
 @onready var ROOT = get_tree()
 
 var Player : MovementMechanics
-var Camera : Camera3D
+var Player_Camera : Camera3D
 var mouse_pos := Vector2.ZERO
 var mouse_offset := Vector2.ZERO
 
-const camera_angle_limit = 0
+const angle_limit_up = 20
+const angle_limit_down = 5
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Player = get_tree().get_first_node_in_group("Player")
-	Camera = Player.get_node("Head").get_node("Camera")
-	print(Camera)
+	Player_Camera = Player.get_node("Head").get_node("Camera")
 
 func _unhandled_input(event):
+	# Close Game
+	if Input.is_action_just_released("ui_cancel"):
+		get_tree().quit()
+	
+	# Toggl Camera
+	if Input.is_action_just_pressed("toggle_camera"):
+		# TODO: Move perspective to global variable
+		Player.first_person = !Player.first_person
+		Player.camera_node.current = !Player.camera_node.current
+	
+	# Throw Disc
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.pressed:
@@ -24,12 +36,16 @@ func _unhandled_input(event):
 				var disc = DISC.instantiate()
 				disc.position = Player.position
 				disc.position.y = Player.height
-				#1152x648
-				var player_pos = Vector2(Player.position.x, Player.position.z)
-				disc.dir = mouse_offset.normalized()
-				disc.power = mouse_offset.length()/33
-				print(disc.power)
-				#var throw_force : Vector3
-				#throw_force = Player.camera_node.rotation
-				#throw_force.x = Player.tilt
+				if Player.first_person:
+					var camera_transform = Player_Camera.global_transform
+					var forward_vector = -camera_transform.basis.z
+					var normalized_forward = forward_vector.normalized()
+					var velocity = normalized_forward
+					print("first person")
+					disc.dir = Vector2(velocity.x,velocity.z)
+					disc.power = 20
+				else:
+					print("third person")
+					disc.dir = mouse_offset.normalized()
+					disc.power = mouse_offset.length()/33
 				get_tree().root.add_child(disc)

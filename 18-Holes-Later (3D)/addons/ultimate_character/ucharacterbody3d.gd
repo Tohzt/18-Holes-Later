@@ -149,7 +149,7 @@ func _input(event):
 		if event is InputEventMouseMotion and !is_sliding:
 			rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENSITIVITY))
 			head_node.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENSITIVITY))
-			head_node.rotation.x = clampf(head_node.rotation.x, deg_to_rad(-Global.camera_angle_limit), deg_to_rad(Global.camera_angle_limit))
+			head_node.rotation.x = clampf(head_node.rotation.x, deg_to_rad(-Global.angle_limit_down), deg_to_rad(Global.angle_limit_up))
 
 func _physics_process(delta):
 	if !Engine.is_editor_hint():
