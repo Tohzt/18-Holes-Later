@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csflfcox4enp3"
-path.s3tc="res://.godot/imported/Idle_D.png-eabab77c6c6580fbf2943d7e301b392b.s3tc.ctex"
+path="res://.godot/imported/Idle_D.png-eabab77c6c6580fbf2943d7e301b392b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Player/Idle/Idle_D.png"
-dest_files=["res://.godot/imported/Idle_D.png-eabab77c6c6580fbf2943d7e301b392b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Idle_D.png-eabab77c6c6580fbf2943d7e301b392b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
