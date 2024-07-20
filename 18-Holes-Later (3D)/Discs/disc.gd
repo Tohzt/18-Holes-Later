@@ -5,7 +5,7 @@ const LIFT = .1
 const JUMP_VELOCITY = 4.5
 
 var height = 0.0
-#var dir = Vector3(1,0,0)
+var dir := Vector2.ZERO
 var velocity := Vector3.ZERO
 var power = 0.0
 
@@ -13,8 +13,11 @@ var tilt := 0.0
 var grounded = false
 
 func _ready():
+	dir *= power
+	apply_central_impulse(Vector3(dir.x,0,dir.y))
+	pass
 	# TODO: Get direction from player
-	rotation.z = deg_to_rad(tilt)
+	#rotation.z = deg_to_rad(tilt)
 	
 	#var direction = (transform.basis * dir).normalized()
 	#if direction:
