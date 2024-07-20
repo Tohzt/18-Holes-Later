@@ -2,13 +2,16 @@ extends MovementMechanics
 
 @onready var AC := $AnimationController
 
-var height = 1
+var height = 0.5
 var tilt = 90
 var power = 50
 
 # State Machine
 var sm_main: LimboHSM
 func _ready(): initiate_state_machine()
+
+func _process(_delta):
+	if position.y < -100: position = Vector3(10,10,10)
 
 func initiate_state_machine():
 	sm_main = LimboHSM.new()

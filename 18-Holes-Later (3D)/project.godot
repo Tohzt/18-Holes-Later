@@ -35,6 +35,7 @@ folder_colors={
 "res://Basket/": "red",
 "res://Discs/": "red",
 "res://Player/": "blue",
+"res://Trees/": "green",
 "res://World/": "green",
 "res://addons/": "gray",
 "res://scenes/": "teal"

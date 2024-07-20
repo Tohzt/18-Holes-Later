@@ -1,4 +1,4 @@
-[gd_scene load_steps=1021 format=3 uid="uid://ce7au3d43jyaa"]
+[gd_scene load_steps=1023 format=3 uid="uid://ce7au3d43jyaa"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ksao8"]
 [ext_resource type="Texture2D" uid="uid://csflfcox4enp3" path="res://Assets/Player/Idle/Idle_D.png" id="2_yrt6p"]
@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://c8psx3kse8ead" path="res://Assets/Player/Walk/Walk_U.png" id="10_ga06f"]
 [ext_resource type="Script" path="res://Player/AnimationController.gd" id="10_yjl37"]
 [ext_resource type="Texture2D" uid="uid://puqjiach7ifc" path="res://Assets/Player/Walk/Walk_UR.png" id="11_tb6jv"]
+[ext_resource type="CameraAttributesPractical" uid="uid://de5hb7c23m561" path="res://World/DOFBlue.tres" id="13_pe0ru"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_m0riv"]
+radius = 0.05
+height = 0.05
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apb2e"]
 atlas = ExtResource("2_yrt6p")
@@ -7132,6 +7137,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oboil"]
+radius = 0.39516
 height = 1.10933
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_005xo"]
@@ -7141,9 +7147,17 @@ height = 1.3
 collision_layer = 2
 script = ExtResource("1_ksao8")
 
+[node name="Hand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.550415, -1.01766)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hand"]
+mesh = SubResource("SphereMesh_m0riv")
+
 [node name="AnimationController" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1.505, 0, 0, 0, 1.505, 0, 0, 0, 1.505, 0, 0, 0)
-billboard = 1
+billboard = 2
+shaded = true
+alpha_cut = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_yqlkx")
 animation = &"Walk_L"
@@ -7164,6 +7178,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555, 2.827, 2.23)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.959314, 0.282341, 0, -0.282341, 0.959314, 0, 0, 0)
+attributes = ExtResource("13_pe0ru")
+current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)

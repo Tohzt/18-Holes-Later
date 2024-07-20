@@ -2,24 +2,29 @@ extends Node
 const DISC = preload("res://Discs/disc.tscn")
 const BALL = preload("res://Ball/ball.tscn")
 @onready var ROOT = get_tree().root
+var disc : RigidBody3D
 
 var Player : MovementMechanics
 var Player_Camera : Camera3D
 var mouse_pos := Vector2.ZERO
 var mouse_offset := Vector2.ZERO
+var mouse_pressed := false
+var mouse_hold_time := 0.0
 
-const angle_limit_up = 10
+# TODO: Fix Camera Tilt
+const angle_limit_up = 0
 const angle_limit_down = 0
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Player = get_tree().get_first_node_in_group("Player")
 	Player_Camera = Player.get_node("Head").get_node("Camera")
 
+func _process(delta):
+	if mouse_pressed:
+		mouse_hold_time += delta
+
 func _spawn_ball():
-	pass
-		
-		
-func _unhandled_input(event):
 	if Input.is_action_just_released("ui_accept"):
 		var ball = BALL.instantiate()
 		ball.position = Vector3(5,5,5)
@@ -28,6 +33,9 @@ func _unhandled_input(event):
 		ball.set_collision_mask_value(2, true)
 		ball.set_collision_mask_value(3, true)
 		ROOT.get_node("World").get_node("Balls").add_child(ball)
+
+func _unhandled_input(event):
+	_spawn_ball()
 	
 	# Close Game
 	if Input.is_action_just_released("ui_cancel"):
@@ -48,22 +56,24 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.pressed:
+				mouse_pressed = true
 				mouse_pos = event.position
 				mouse_offset = mouse_pos - Vector2(1152/2, 648/2)
+				
 			else:
-				var disc = DISC.instantiate()
-				disc.position = Player.position
-				disc.position.y = Player.height
+				disc = DISC.instantiate()
+				disc.position = Player.get_node("Hand").global_position
+				
 				if Player.first_person:
 					var camera_transform = Player_Camera.global_transform
 					var forward_vector = -camera_transform.basis.z
 					var normalized_forward = forward_vector.normalized()
 					var velocity = normalized_forward
-					print("first person")
 					disc.dir = Vector2(velocity.x,velocity.z)
-					disc.power = 20
 				else:
-					print("third person")
 					disc.dir = mouse_offset.normalized()
-					disc.power = mouse_offset.length()/33
+				disc.power = floor(mouse_hold_time * 10)
 				ROOT.add_child(disc)
+				
+				mouse_hold_time = 0.0
+				mouse_pressed = false

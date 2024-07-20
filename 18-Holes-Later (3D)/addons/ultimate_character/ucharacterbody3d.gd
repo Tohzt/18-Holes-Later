@@ -23,7 +23,7 @@ var standing_height : float #= 2
 @export var head_bob_crouching_speed : float = 10.0
 ## The head bob intensity is for crouching, where walking is multiplied by 2, and sprinting is multiplied by 4
 @export var head_bob_intensity : float = 0.05
-@export var first_person:bool = false
+@export var first_person:bool = true
 
 @export_group("Controls")
 ## The InputMap action string to be used for LEFT movement
