@@ -20,18 +20,16 @@ func _unhandled_input(event):
 			play("Attack_Side")
 
 func _process(_delta):
-	print(animation + " :: " + anim + " :: " + anim_dir)
-	if anim == "":
-		anim = anim_type
-	if anim_type != "Idle":
+	anim = ""
+	if anim_dir == "":
 		_update_animation()
 		
 	anim = anim_type + "_" + anim_dir
 	if animation != anim:
 		play(anim)
+	print(animation)
 
 func _update_animation():
-	# TODO: Replace with player velocity
 	var h_axis = Input.get_axis("move_left", "move_right")
 	var v_axis = Input.get_axis("move_backward", "move_forward")
 	if v_axis:

@@ -1,21 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://daitrpp32eayq"]
+[gd_scene load_steps=10 format=3 uid="uid://daitrpp32eayq"]
 
 [ext_resource type="Script" path="res://World/World.gd" id="1_agl72"]
 [ext_resource type="PackedScene" uid="uid://ce7au3d43jyaa" path="res://Player/Player.tscn" id="1_icw0h"]
+[ext_resource type="Texture2D" uid="uid://box467kyrgx6y" path="res://Assets/Textures/autumn_forest.jpg" id="2_xx12u"]
 [ext_resource type="Script" path="res://World/Camera3D.gd" id="3_p43ln"]
 [ext_resource type="PackedScene" uid="uid://c5epuka2eu5mr" path="res://Ball/ball.tscn" id="8_bi0xs"]
 [ext_resource type="PackedScene" uid="uid://7l77eubqfwqj" path="res://scenes/arena.tscn" id="9_obg0k"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmtf"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tkhos"]
+panorama = ExtResource("2_xx12u")
 
 [sub_resource type="Sky" id="Sky_bd8eu"]
-sky_material = SubResource("ProceduralSkyMaterial_mmmtf")
+sky_material = SubResource("PanoramaSkyMaterial_tkhos")
 
 [sub_resource type="Environment" id="Environment_vxoxy"]
 background_mode = 2
 sky = SubResource("Sky_bd8eu")
+sky_custom_fov = 40.1
 tonemap_mode = 2
 glow_enabled = true
 

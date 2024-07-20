@@ -4865,10 +4865,10 @@ collision_layer = 2
 script = ExtResource("1_ksao8")
 
 [node name="AnimationController" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.459246, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.314777, 0.794131, -0.0223389)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_yqlkx")
-animation = &"Walk_UL"
+animation = &"Walk_D"
 script = ExtResource("10_yjl37")
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
