@@ -9,6 +9,7 @@ height = 1.3
 
 [node name="Entity" type="CharacterBody3D"]
 script = ExtResource("1_l1y3d")
+first_person = false
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
