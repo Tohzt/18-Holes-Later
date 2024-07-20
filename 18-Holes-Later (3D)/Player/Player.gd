@@ -21,7 +21,7 @@ func initiate_state_machine():
 	sm_main.add_child(idle_state)
 	sm_main.add_child(walk_state)
 	sm_main.add_child(throw_state)
-	
+#test comment
 	sm_main.initial_state = idle_state
 	
 	sm_main.add_transition(idle_state, walk_state, &"walking")
