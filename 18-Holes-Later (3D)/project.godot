@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 
 Global="*res://global.gd"
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/ultimate_character/plugin.cfg")
