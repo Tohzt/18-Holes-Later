@@ -21,7 +21,7 @@ func initiate_state_machine():
 	sm_main.add_child(idle_state)
 	sm_main.add_child(walk_state)
 	sm_main.add_child(throw_state)
-#test comment
+	
 	sm_main.initial_state = idle_state
 	
 	sm_main.add_transition(idle_state, walk_state, &"walking")
@@ -35,7 +35,6 @@ func idle_start():
 	AC.anim_dir = AC.anim_dir_prev
 	
 func idle_update(delta: float):
-	print("Idle")
 	AC.anim_dir = AC.anim_dir_prev
 	if velocity.length() >= 0.5:
 		sm_main.dispatch(&"walking")
@@ -45,7 +44,6 @@ func walk_start():
 	AC.anim_dir = ""
 	
 func walk_update(delta: float):
-	print("Walk")
 	AC.anim_dir = ""
 	if velocity.length() < 0.5:
 		sm_main.dispatch(&"state_ended")

@@ -24,10 +24,14 @@ func _process(_delta):
 	if anim_dir == "":
 		_update_animation()
 		
+	if anim_dir == "": anim_dir = anim_dir_prev
 	anim = anim_type + "_" + anim_dir
 	if animation != anim:
 		play(anim)
-	print(animation)
+	
+	flip_h = false
+	if anim_dir.contains("L"):	
+		flip_h = true
 
 func _update_animation():
 	var h_axis = Input.get_axis("move_left", "move_right")
