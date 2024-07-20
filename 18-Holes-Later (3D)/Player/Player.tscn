@@ -3174,27 +3174,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": true,
 "name": &"Idle_D1",
