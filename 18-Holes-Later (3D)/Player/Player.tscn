@@ -340,27 +340,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": true,
 "name": &"Idle_D",
@@ -3210,7 +3189,7 @@ script = ExtResource("1_ksao8")
 transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0, 0, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_yqlkx")
-animation = &"Idle_UR"
+animation = &"Idle_D"
 script = ExtResource("10_yjl37")
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
