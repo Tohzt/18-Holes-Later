@@ -43,11 +43,13 @@ fov = 44.8
 size = 16.323
 script = ExtResource("3_p43ln")
 
-[node name="Ball" parent="." instance=ExtResource("8_bi0xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2.78002, 9.897)
-collision_layer = 4
-collision_mask = 7
-
 [node name="Arena" parent="." instance=ExtResource("9_obg0k")]
 
 [node name="Basket" parent="." instance=ExtResource("7_ihbvn")]
+
+[node name="Balls" type="Node3D" parent="."]
+
+[node name="Ball" parent="Balls" instance=ExtResource("8_bi0xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2.78002, 9.897)
+collision_layer = 4
+collision_mask = 7

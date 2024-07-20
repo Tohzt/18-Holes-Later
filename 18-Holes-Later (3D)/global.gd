@@ -1,20 +1,34 @@
 extends Node
 const DISC = preload("res://Discs/disc.tscn")
-@onready var ROOT = get_tree()
+const BALL = preload("res://Ball/ball.tscn")
+@onready var ROOT = get_tree().root
 
 var Player : MovementMechanics
 var Player_Camera : Camera3D
 var mouse_pos := Vector2.ZERO
 var mouse_offset := Vector2.ZERO
 
-const angle_limit_up = 20
-const angle_limit_down = 5
+const angle_limit_up = 10
+const angle_limit_down = 0
 
 func _ready():
 	Player = get_tree().get_first_node_in_group("Player")
 	Player_Camera = Player.get_node("Head").get_node("Camera")
 
+func _spawn_ball():
+	pass
+		
+		
 func _unhandled_input(event):
+	if Input.is_action_just_released("ui_accept"):
+		var ball = BALL.instantiate()
+		ball.position = Vector3(5,5,5)
+		ball.set_collision_layer_value(1, false)
+		ball.set_collision_layer_value(3, true)
+		ball.set_collision_mask_value(2, true)
+		ball.set_collision_mask_value(3, true)
+		ROOT.get_node("World").get_node("Balls").add_child(ball)
+	
 	# Close Game
 	if Input.is_action_just_released("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -52,4 +66,4 @@ func _unhandled_input(event):
 					print("third person")
 					disc.dir = mouse_offset.normalized()
 					disc.power = mouse_offset.length()/33
-				get_tree().root.add_child(disc)
+				ROOT.add_child(disc)
