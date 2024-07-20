@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://daitrpp32eayq"]
+[gd_scene load_steps=11 format=3 uid="uid://daitrpp32eayq"]
 
 [ext_resource type="Script" path="res://World/World.gd" id="1_agl72"]
 [ext_resource type="PackedScene" uid="uid://ce7au3d43jyaa" path="res://Player/Player.tscn" id="1_icw0h"]
 [ext_resource type="Texture2D" uid="uid://box467kyrgx6y" path="res://Assets/Textures/autumn_forest.jpg" id="2_xx12u"]
 [ext_resource type="Script" path="res://World/Camera3D.gd" id="3_p43ln"]
+[ext_resource type="PackedScene" uid="uid://dpv006lj0vjml" path="res://Basket/basket.tscn" id="7_ihbvn"]
 [ext_resource type="PackedScene" uid="uid://c5epuka2eu5mr" path="res://Ball/ball.tscn" id="8_bi0xs"]
 [ext_resource type="PackedScene" uid="uid://7l77eubqfwqj" path="res://scenes/arena.tscn" id="9_obg0k"]
 
@@ -31,6 +32,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_icw0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.75, 0, 13.75)
 platform_floor_layers = 4294901762
 platform_wall_layers = 5
 
@@ -42,8 +44,10 @@ size = 16.323
 script = ExtResource("3_p43ln")
 
 [node name="Ball" parent="." instance=ExtResource("8_bi0xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78002, -3.353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2.78002, 9.897)
 collision_layer = 4
 collision_mask = 7
 
 [node name="Arena" parent="." instance=ExtResource("9_obg0k")]
+
+[node name="Basket" parent="." instance=ExtResource("7_ihbvn")]
