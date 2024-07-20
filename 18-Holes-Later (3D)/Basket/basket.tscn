@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpv006lj0vjml"]
+
+[ext_resource type="Texture2D" uid="uid://cxi83marbvams" path="res://Assets/Basket/Basket.png" id="1_iw5rj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6uknb"]
+
+[node name="Basket" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_6uknb")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_iw5rj")

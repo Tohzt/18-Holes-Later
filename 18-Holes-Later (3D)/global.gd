@@ -18,6 +18,7 @@ func _ready():
 func _unhandled_input(event):
 	# Close Game
 	if Input.is_action_just_released("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().quit()
 	
 	# Toggl Camera
