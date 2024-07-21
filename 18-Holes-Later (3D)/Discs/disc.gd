@@ -4,36 +4,29 @@ const SPEED = 5
 const LIFT = .1
 const JUMP_VELOCITY = 4.5
 
-var height = 0.0
 var dir := Vector2.ZERO
 var velocity := Vector3.ZERO
 var power = 0.0
-
 var tilt := 0.0
+var spin := 0.0
+var game_disc = false
 var grounded = false
+var in_hand = true
 
 func _ready():
-	dir *= power
-	apply_central_impulse(Vector3(dir.x,0,dir.y))
+	# TODO: Set Rotatation from Tilt
 	pass
-	# TODO: Get direction from player
-	#rotation.z = deg_to_rad(tilt)
-	
-	#var direction = (transform.basis * dir).normalized()
-	#if direction:
-		#velocity = Vector3(
-			#direction.x * SPEED,
-			#tilt * LIFT, 
-			#direction.z * SPEED)
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-		#velocity.z = move_toward(velocity.z, 0, SPEED)
-	#
-	#apply_central_impulse(velocity)
 
 func _physics_process(_delta):
+	if in_hand and power != 0:
+		in_hand = false
+		dir *= power
+		
+		# Spin on the discs Normal
+		apply_torque(Vector3(0,spin,0))
+		apply_central_impulse(Vector3(dir.x,tilt,dir.y))
+		
 	detect_collision()
-
 
 func detect_collision():
 	var collison = move_and_collide(velocity, true)
@@ -43,3 +36,4 @@ func detect_collision():
 			grounded = true
 			return true
 	return false
+

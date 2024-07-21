@@ -23,7 +23,7 @@ var standing_height : float #= 2
 @export var head_bob_crouching_speed : float = 10.0
 ## The head bob intensity is for crouching, where walking is multiplied by 2, and sprinting is multiplied by 4
 @export var head_bob_intensity : float = 0.05
-@export var first_person:bool = false
+@export var first_person:bool = true
 
 @export_group("Controls")
 ## The InputMap action string to be used for LEFT movement
@@ -43,6 +43,7 @@ var standing_height : float #= 2
 ## A default value of 0.4 is a good starting point, stay between 0.01 and 1.0
 @export var MOUSE_SENSITIVITY : float = 0.4
 
+var sm_main: LimboHSM
 var is_walking = false
 var is_sprinting = false
 var is_crouching = false
@@ -77,7 +78,7 @@ func _enter_tree():
 	
 	if !Engine.is_editor_hint():
 		collision_shape_normal = $CollisionShapeNormal
-		collision_shape_crouch = $CollisionShapeCrouch
+		#collision_shape_crouch = $CollisionShapeCrouch
 		head_node = $Head
 		standing_height = head_node.position.y
 		camera_node = $Head/Camera
@@ -157,12 +158,13 @@ func _physics_process(delta):
 		var input_dir = Input.get_vector(LEFT, RIGHT, FORWARD, BACKWARD)
 		
 		# Handle crouch, sprint, walk speed.
-		if Input.is_action_pressed(CROUCH) or is_sliding:
+		#if Input.is_action_pressed(CROUCH) or is_sliding:
+		if Global.mouse_hold_time > 0:
 			current_speed = lerpf(current_speed, crouch_speed, delta * 10.0)
 			if first_person:
 				head_node.position.y = lerpf(head_node.position.y, crouching_height, delta * 10.0)
-			collision_shape_normal.disabled = true
-			collision_shape_crouch.disabled = false
+			#collision_shape_normal.disabled = true
+			#collision_shape_crouch.disabled = false
 			
 			# Handle sliding
 			# TODO: Buggy in Third-Person
@@ -179,7 +181,7 @@ func _physics_process(delta):
 			if first_person:
 				head_node.position.y = lerpf(head_node.position.y, standing_height, delta * 10.0)
 			collision_shape_normal.disabled = false
-			collision_shape_crouch.disabled = true
+			#collision_shape_crouch.disabled = true
 			
 			if Input.is_action_pressed(SPRINT):
 				current_speed = lerpf(current_speed, sprint_speed, delta * 10.0)
@@ -270,6 +272,8 @@ func _physics_process(delta):
 		
 		last_velocity = velocity
 		
+		var state = sm_main.get_active_state().name
+		if "DRIVE THROW RELEASE".contains(state): return
 		move_and_slide()
 		
 		if velocity.length() < 0.5:
