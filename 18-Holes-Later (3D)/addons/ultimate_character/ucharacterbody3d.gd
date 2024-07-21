@@ -163,7 +163,7 @@ func _physics_process(delta):
 			current_speed = lerpf(current_speed, crouch_speed, delta * 10.0)
 			if first_person:
 				head_node.position.y = lerpf(head_node.position.y, crouching_height, delta * 10.0)
-			collision_shape_normal.disabled = true
+			#collision_shape_normal.disabled = true
 			#collision_shape_crouch.disabled = false
 			
 			# Handle sliding

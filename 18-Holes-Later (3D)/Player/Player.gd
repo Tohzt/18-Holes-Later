@@ -13,7 +13,6 @@ var hole_score := 0
 func _ready(): initiate_state_machine()
 
 func _process(_delta):
-	print("golfing" if golfing else "Not")
 	if position.y < -100: position = Vector3(10,10,10)
 
 func initiate_state_machine():
