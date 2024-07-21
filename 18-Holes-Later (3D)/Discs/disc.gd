@@ -6,9 +6,9 @@ const JUMP_VELOCITY = 4.5
 
 var dir := Vector2.ZERO
 var velocity := Vector3.ZERO
-var power = 0
-
+var power = 0.0
 var tilt := 0.0
+var spin := 0.0
 var grounded = false
 var in_hand = true
 
@@ -20,8 +20,8 @@ func _physics_process(_delta):
 		in_hand = false
 		dir *= power
 		#rotate_x(deg_to_rad(power))
-		apply_torque(Vector3(0,200,0))
-		apply_central_impulse(Vector3(dir.x,power/2,dir.y))
+		apply_torque(Vector3(0,spin,0))
+		apply_central_impulse(Vector3(dir.x,tilt,dir.y))
 		
 	detect_collision()
 
