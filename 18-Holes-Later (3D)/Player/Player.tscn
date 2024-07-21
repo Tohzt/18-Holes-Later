@@ -1,4 +1,4 @@
-[gd_scene load_steps=1113 format=3 uid="uid://ce7au3d43jyaa"]
+[gd_scene load_steps=1106 format=3 uid="uid://ce7au3d43jyaa"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ksao8"]
 [ext_resource type="Texture2D" uid="uid://csflfcox4enp3" path="res://Assets/Player/Idle/Idle_D.png" id="2_yrt6p"]
@@ -2775,10 +2775,6 @@ region = Rect2(1280, 1536, 256, 256)
 atlas = ExtResource("7_b5xim")
 region = Rect2(1536, 1536, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cxtl1"]
-atlas = ExtResource("7_b5xim")
-region = Rect2(1792, 1536, 256, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vt7gl"]
 atlas = ExtResource("7_b5xim")
 region = Rect2(2048, 1536, 256, 256)
@@ -2786,10 +2782,6 @@ region = Rect2(2048, 1536, 256, 256)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wady"]
 atlas = ExtResource("7_b5xim")
 region = Rect2(2304, 1536, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wtg1"]
-atlas = ExtResource("7_b5xim")
-region = Rect2(2560, 1536, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_odfpj"]
 atlas = ExtResource("7_b5xim")
@@ -2799,10 +2791,6 @@ region = Rect2(0, 1792, 256, 256)
 atlas = ExtResource("7_b5xim")
 region = Rect2(256, 1792, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cdj8k"]
-atlas = ExtResource("7_b5xim")
-region = Rect2(512, 1792, 256, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_juy6r"]
 atlas = ExtResource("7_b5xim")
 region = Rect2(768, 1792, 256, 256)
@@ -2810,10 +2798,6 @@ region = Rect2(768, 1792, 256, 256)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dk0s7"]
 atlas = ExtResource("7_b5xim")
 region = Rect2(1024, 1792, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1h4ni"]
-atlas = ExtResource("7_b5xim")
-region = Rect2(1280, 1792, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0diwi"]
 atlas = ExtResource("7_b5xim")
@@ -2823,21 +2807,9 @@ region = Rect2(1536, 1792, 256, 256)
 atlas = ExtResource("7_b5xim")
 region = Rect2(1792, 1792, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k4qq5"]
-atlas = ExtResource("7_b5xim")
-region = Rect2(2048, 1792, 256, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy2je"]
 atlas = ExtResource("7_b5xim")
 region = Rect2(2304, 1792, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_epb20"]
-atlas = ExtResource("7_b5xim")
-region = Rect2(2560, 1792, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bbbq6"]
-atlas = ExtResource("7_b5xim")
-region = Rect2(0, 2048, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjct0"]
 atlas = ExtResource("7_b5xim")
@@ -6507,16 +6479,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_xeb66")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cxtl1")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_vt7gl")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4wady")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5wtg1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_odfpj")
@@ -6525,16 +6491,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_uru32")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cdj8k")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_juy6r")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dk0s7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1h4ni")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0diwi")
@@ -6543,16 +6503,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kt36g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k4qq5")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_wy2je")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_epb20")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bbbq6")
 }],
 "loop": false,
 "name": &"Release_U",
@@ -7800,7 +7751,8 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_yqlkx")
 animation = &"Release_U"
-frame = 3
+frame = 16
+frame_progress = 1.0
 script = ExtResource("10_yjl37")
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]

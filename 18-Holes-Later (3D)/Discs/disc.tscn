@@ -17,7 +17,7 @@ radius = 0.200845
 [node name="Disc" type="RigidBody3D" groups=["Disc"]]
 collision_layer = 4
 collision_mask = 7
-can_sleep = false
+continuous_cd = true
 script = ExtResource("1_s36ig")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
