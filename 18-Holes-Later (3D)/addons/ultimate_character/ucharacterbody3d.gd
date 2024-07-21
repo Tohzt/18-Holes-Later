@@ -43,6 +43,7 @@ var standing_height : float #= 2
 ## A default value of 0.4 is a good starting point, stay between 0.01 and 1.0
 @export var MOUSE_SENSITIVITY : float = 0.4
 
+var sm_main: LimboHSM
 var is_walking = false
 var is_sprinting = false
 var is_crouching = false
@@ -271,8 +272,10 @@ func _physics_process(delta):
 		
 		last_velocity = velocity
 		
-		if Global.mouse_hold_time <= 0.0:
-			move_and_slide()
+		var state = sm_main.get_active_state().name
+		print(state)
+		if "DRIVE THROW RELEASE".contains(state): return
+		move_and_slide()
 		
 		if velocity.length() < 0.5:
 			is_walking = false
