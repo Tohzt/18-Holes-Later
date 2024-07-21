@@ -14,6 +14,10 @@ var mouse_hold_time := 0.0
 # TODO: Fix Camera Tilt
 const angle_limit_up = 0
 const angle_limit_down = 0
+var tilt = 0.0
+var tilt_amount := 1.0
+var spin = 0.0
+var spin_amount := 0.0
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -22,7 +26,7 @@ func _ready():
 
 func _process(delta):
 	if mouse_pressed:
-		mouse_hold_time += delta
+		mouse_hold_time = min(2, mouse_hold_time + delta)
 
 func _spawn_ball():
 	if Input.is_action_just_released("ui_accept"):
@@ -34,8 +38,52 @@ func _spawn_ball():
 		ball.set_collision_mask_value(3, true)
 		ROOT.get_node("World").get_node("Balls").add_child(ball)
 
+func _throw_disc(event):
+	# Throw Disc
+	if event is InputEventMouseButton:
+		# Set Tilt
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			tilt -= tilt_amount 
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			tilt += tilt_amount 
+			
+		# Set Spin
+		if event.button_index == MOUSE_BUTTON_WHEEL_LEFT and event.pressed:
+			spin -= spin_amount
+		if event.button_index == MOUSE_BUTTON_WHEEL_RIGHT and event.pressed:
+			spin += spin_amount
+		
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			# Init Charge
+			if event.pressed:
+				mouse_pressed = true
+				mouse_pos = event.position
+				mouse_offset = mouse_pos - Vector2(1152/2, 648/2)
+			
+			# Release Disc
+			else:
+				disc = DISC.instantiate()
+				disc.position = Player.get_node("Hand").global_position
+				disc.tilt = tilt
+				disc.spin = spin
+				
+				if Player.first_person:
+					var camera_transform = Player_Camera.global_transform
+					var forward_vector = -camera_transform.basis.z
+					var normalized_forward = forward_vector.normalized()
+					var velocity = normalized_forward
+					disc.dir = Vector2(velocity.x,velocity.z)
+				else:
+					disc.dir = mouse_offset.normalized()
+				disc.power = floor(mouse_hold_time * 10)
+				ROOT.add_child(disc)
+				
+				mouse_hold_time = 0.0
+				mouse_pressed = false
+
 func _unhandled_input(event):
 	_spawn_ball()
+	_throw_disc(event)
 	
 	# Close Game
 	if Input.is_action_just_released("ui_cancel"):
@@ -52,28 +100,3 @@ func _unhandled_input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Player.camera_node.current = !Player.camera_node.current
 	
-	# Throw Disc
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_RIGHT:
-			if event.pressed:
-				mouse_pressed = true
-				mouse_pos = event.position
-				mouse_offset = mouse_pos - Vector2(1152/2, 648/2)
-				
-			else:
-				disc = DISC.instantiate()
-				disc.position = Player.get_node("Hand").global_position
-				
-				if Player.first_person:
-					var camera_transform = Player_Camera.global_transform
-					var forward_vector = -camera_transform.basis.z
-					var normalized_forward = forward_vector.normalized()
-					var velocity = normalized_forward
-					disc.dir = Vector2(velocity.x,velocity.z)
-				else:
-					disc.dir = mouse_offset.normalized()
-				disc.power = floor(mouse_hold_time * 10)
-				ROOT.add_child(disc)
-				
-				mouse_hold_time = 0.0
-				mouse_pressed = false

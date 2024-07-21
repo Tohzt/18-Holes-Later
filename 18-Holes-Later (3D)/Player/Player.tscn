@@ -1,4 +1,4 @@
-[gd_scene load_steps=1023 format=3 uid="uid://ce7au3d43jyaa"]
+[gd_scene load_steps=1022 format=3 uid="uid://ce7au3d43jyaa"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_ksao8"]
 [ext_resource type="Texture2D" uid="uid://csflfcox4enp3" path="res://Assets/Player/Idle/Idle_D.png" id="2_yrt6p"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://c8psx3kse8ead" path="res://Assets/Player/Walk/Walk_U.png" id="10_ga06f"]
 [ext_resource type="Script" path="res://Player/AnimationController.gd" id="10_yjl37"]
 [ext_resource type="Texture2D" uid="uid://puqjiach7ifc" path="res://Assets/Player/Walk/Walk_UR.png" id="11_tb6jv"]
-[ext_resource type="CameraAttributesPractical" uid="uid://de5hb7c23m561" path="res://World/DOFBlue.tres" id="13_pe0ru"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_m0riv"]
 radius = 0.05
@@ -7154,7 +7153,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5
 mesh = SubResource("SphereMesh_m0riv")
 
 [node name="AnimationController" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1.505, 0, 0, 0, 1.505, 0, 0, 0, 1.505, 0, 0, 0)
+transform = Transform3D(1.505, 0, 0, 0, 1.505, 0, 0, 0, 1.505, 0, 0.0110168, 0)
 billboard = 2
 shaded = true
 alpha_cut = 2
@@ -7178,7 +7177,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555, 2.827, 2.23)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.959314, 0.282341, 0, -0.282341, 0.959314, 0, 0, 0)
-attributes = ExtResource("13_pe0ru")
 current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="."]

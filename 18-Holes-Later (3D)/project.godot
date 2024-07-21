@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="18 Holes Later"
+config/version="0.0.1"
 run/main_scene="res://World/World.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 0)
+boot_splash/image="res://Assets/Icons/logo.png"
+config/icon="res://Assets/Icons/logo_circle.png"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
@@ -35,7 +40,6 @@ folder_colors={
 "res://Basket/": "red",
 "res://Discs/": "red",
 "res://Player/": "blue",
-"res://Trees/": "green",
 "res://World/": "green",
 "res://addons/": "gray",
 "res://scenes/": "teal"
