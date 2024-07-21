@@ -7726,12 +7726,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oboil"]
-radius = 0.39516
-height = 1.10933
+radius = 0.3
+height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nowh5"]
-radius = 0.39787
-height = 1.1153
+radius = 0.3
+height = 1.0
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -7757,7 +7757,7 @@ frame_progress = 1.0
 script = ExtResource("10_yjl37")
 
 [node name="CollisionShapeNormal" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545537, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_oboil")
 
 [node name="Head" type="Node3D" parent="."]
@@ -7775,7 +7775,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.545295, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_nowh5")
 
 [connection signal="area_entered" from="Pickup" to="." method="_on_pickup"]

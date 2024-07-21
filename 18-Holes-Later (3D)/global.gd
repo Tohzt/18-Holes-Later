@@ -60,6 +60,7 @@ func _throw_disc(event):
 		if Player.discs_in_bag > 0 and event.button_index == MOUSE_BUTTON_RIGHT:
 			# Init Charge
 			if event.pressed:
+				Player.golfing = true
 				HUD.show()
 				mouse_pressed = true
 				mouse_pos = event.position
