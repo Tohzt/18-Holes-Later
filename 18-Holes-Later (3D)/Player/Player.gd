@@ -1,15 +1,19 @@
 extends MovementMechanics
 
+@export var discs_in_bag = 3
 @onready var AC := $AnimationController
 
 var height = 0.5
 var tilt = 90
 var power = 50
+var golfing = false
+var hole_score := 0
 
 # State Machine
 func _ready(): initiate_state_machine()
 
 func _process(_delta):
+	print("golfing" if golfing else "Not")
 	if position.y < -100: position = Vector3(10,10,10)
 
 func initiate_state_machine():
@@ -32,7 +36,8 @@ func initiate_state_machine():
 	
 	sm_main.add_transition(idle_state, walk_state, &"walk")
 	sm_main.add_transition(idle_state, throw_state, &"throw")
-	sm_main.add_transition(walk_state, drive_state, &"throw")
+	sm_main.add_transition(idle_state, drive_state, &"drive")
+	sm_main.add_transition(walk_state, drive_state, &"drive")
 	sm_main.add_transition(drive_state, throw_state, &"throw")
 	sm_main.add_transition(throw_state, release_state, &"release")
 	sm_main.add_transition(sm_main.ANYSTATE, idle_state, &"state_ended")
@@ -49,6 +54,8 @@ func idle_update(_delta: float):
 		sm_main.dispatch(&"walk")
 	if Global.mouse_hold_time > 0.0:
 		sm_main.dispatch(&"throw")
+	if golfing: 
+		sm_main.dispatch(&"drive")
 
 func walk_start():
 	AC.anim_type = "Walk"
@@ -59,8 +66,11 @@ func walk_update(_delta: float):
 		sm_main.dispatch(&"state_ended")
 	if Global.mouse_hold_time > 0.0:
 		sm_main.dispatch(&"throw")
+	if golfing: 
+		sm_main.dispatch(&"drive")
 
 func drive_start():
+	golfing = true
 	AC.anim_type = "Idle"
 	AC.anim_dir = "U"
 func drive_update(_delta: float):
@@ -80,3 +90,12 @@ func release_start():
 func release_update(_delta: float):
 	if !AC.is_playing():
 		sm_main.dispatch(&"state_ended")
+
+
+func _on_pickup(area):
+	var pickup = area.get_parent()
+	if pickup.is_in_group("Disc"):
+		if pickup.game_disc:
+			golfing = true
+		discs_in_bag += 1
+		pickup.queue_free()

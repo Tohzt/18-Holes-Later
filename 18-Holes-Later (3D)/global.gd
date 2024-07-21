@@ -4,7 +4,8 @@ const BALL = preload("res://Ball/ball.tscn")
 @onready var ROOT = get_tree().root
 var disc : RigidBody3D
 
-var HUD : CanvasLayer
+# TODO: Clean up HUD
+var HUD #: CanvasLayer
 var Player : MovementMechanics
 var Player_Camera : Camera3D
 var mouse_pos := Vector2.ZERO
@@ -22,8 +23,8 @@ var spin_amount := 10.0
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	HUD = get_tree().root.get_node("World").get_node("HUD")
-	HUD.hide()
+	HUD = get_tree().root.get_node("World").get_node("HUD").get_node("MarginContainer").get_node("HBoxContainer")
+	#HUD.hide()
 	Player = get_tree().get_first_node_in_group("Player")
 	Player_Camera = Player.get_node("Head").get_node("Camera")
 
@@ -32,7 +33,7 @@ func _process(delta):
 		mouse_hold_time = min(2, mouse_hold_time + delta)
 
 func _spawn_ball():
-	if Input.is_action_just_released("ui_accept"):
+	if Input.is_action_just_released("select"):
 		var ball = BALL.instantiate()
 		ball.position = Vector3(5,5,5)
 		ball.set_collision_layer_value(1, false)
@@ -42,7 +43,6 @@ func _spawn_ball():
 		ROOT.get_node("World").get_node("Balls").add_child(ball)
 
 func _throw_disc(event):
-	# Throw Disc
 	if event is InputEventMouseButton:
 		# Set Tilt
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
@@ -56,7 +56,8 @@ func _throw_disc(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_RIGHT and event.pressed:
 			spin += spin_amount
 		
-		if event.button_index == MOUSE_BUTTON_RIGHT:
+		# Throw Disc
+		if Player.discs_in_bag > 0 and event.button_index == MOUSE_BUTTON_RIGHT:
 			# Init Charge
 			if event.pressed:
 				HUD.show()
@@ -66,7 +67,7 @@ func _throw_disc(event):
 			
 			# Release Disc
 			else:
-				HUD.hide()
+				#HUD.hide()
 				disc = DISC.instantiate()
 				disc.position = Player.get_node("Hand").global_position
 				disc.power = floor(mouse_hold_time * 10)
@@ -83,6 +84,11 @@ func _throw_disc(event):
 					disc.dir = mouse_offset.normalized()
 					
 				ROOT.add_child(disc)
+				Player.discs_in_bag -= 1
+				if Player.golfing:
+					Player.hole_score += 1
+					Player.golfing = false
+					disc.game_disc = true
 				
 				mouse_hold_time = 0.0
 				mouse_pressed = false

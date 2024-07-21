@@ -5,5 +5,6 @@ func _process(_delta):
 	if collision:
 		var collider = collision.get_collider()
 		if collider.is_in_group("Disc"):
+			collider.game_disc = false
 			collider.freeze = true
 			print("SCORE!")

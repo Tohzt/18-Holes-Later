@@ -9,6 +9,7 @@ var velocity := Vector3.ZERO
 var power = 0.0
 var tilt := 0.0
 var spin := 0.0
+var game_disc = false
 var grounded = false
 var in_hand = true
 
@@ -35,3 +36,4 @@ func detect_collision():
 			grounded = true
 			return true
 	return false
+
