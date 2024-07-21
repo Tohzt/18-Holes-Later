@@ -4,6 +4,10 @@ var wiggle = false
 var wiggle_dur = 1.0
 var wiggle_time = 0.0
 
+func _ready():
+	var size = 1+randf()
+	scale *= size
+
 func start_wiggle():
 	wiggle = true
 	wiggle_time = wiggle_dur

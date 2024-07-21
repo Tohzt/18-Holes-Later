@@ -29,6 +29,7 @@ shape = SubResource("CylinderShape3D_l72e4")
 
 [node name="Leaves" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0)
+collision_layer = 4
 collision_mask = 4
 script = ExtResource("3_lg7o8")
 

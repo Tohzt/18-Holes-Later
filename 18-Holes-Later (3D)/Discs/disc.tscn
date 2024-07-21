@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqmpdj2656nrr"]
+[gd_scene load_steps=6 format=3 uid="uid://bqmpdj2656nrr"]
 
 [ext_resource type="Script" path="res://Discs/disc.gd" id="1_s36ig"]
 
@@ -14,10 +14,15 @@ height = 0.75
 height = 0.105377
 radius = 0.200845
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_2uvt8"]
+radius = 0.214098
+
 [node name="Disc" type="RigidBody3D" groups=["Disc"]]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 5
 continuous_cd = true
+max_contacts_reported = 10
+contact_monitor = true
 script = ExtResource("1_s36ig")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -26,3 +31,10 @@ mesh = SubResource("CapsuleMesh_uh7hq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_7siin")
+
+[node name="Disc_Pickup" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Disc_Pickup"]
+shape = SubResource("SphereShape3D_2uvt8")
