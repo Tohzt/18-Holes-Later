@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Discs/disc.gd" id="1_s36ig"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4j23"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yji1b"]
 albedo_color = Color(0.858824, 0.160784, 0.176471, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_uh7hq"]
-material = SubResource("StandardMaterial3D_w4j23")
+material = SubResource("StandardMaterial3D_yji1b")
 radius = 0.25
 height = 0.75
 

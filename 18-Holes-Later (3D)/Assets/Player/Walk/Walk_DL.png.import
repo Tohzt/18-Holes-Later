@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kumpq5uu2ofu"
-path="res://.godot/imported/Walk_DL.png-a4180f979785b9e82eb537e2a8ffe3bf.ctex"
+path.bptc="res://.godot/imported/Walk_DL.png-a4180f979785b9e82eb537e2a8ffe3bf.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Player/Walk/Walk_DL.png"
-dest_files=["res://.godot/imported/Walk_DL.png-a4180f979785b9e82eb537e2a8ffe3bf.ctex"]
+dest_files=["res://.godot/imported/Walk_DL.png-a4180f979785b9e82eb537e2a8ffe3bf.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

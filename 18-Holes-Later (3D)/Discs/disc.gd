@@ -13,13 +13,15 @@ var grounded = false
 var in_hand = true
 
 func _ready():
+	# TODO: Set Rotatation from Tilt
 	pass
 
 func _physics_process(_delta):
 	if in_hand and power != 0:
 		in_hand = false
 		dir *= power
-		#rotate_x(deg_to_rad(power))
+		
+		# Spin on the discs Normal
 		apply_torque(Vector3(0,spin,0))
 		apply_central_impulse(Vector3(dir.x,tilt,dir.y))
 		

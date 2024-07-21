@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbsyv616n0t7n"
-path.bptc="res://.godot/imported/Idle_DL.png-f91b494fd207642f4a3eb26cc275dde7.bptc.ctex"
+uid="uid://bakd2w0vqgfhv"
+path.s3tc="res://.godot/imported/Throw_U.png-2517aa0f0eb7373cf38b2f89a8c1efa8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Player/Idle/Idle_DL.png"
-dest_files=["res://.godot/imported/Idle_DL.png-f91b494fd207642f4a3eb26cc275dde7.bptc.ctex"]
+source_file="res://Assets/Player/Throw/Throw_U.png"
+dest_files=["res://.godot/imported/Throw_U.png-2517aa0f0eb7373cf38b2f89a8c1efa8.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

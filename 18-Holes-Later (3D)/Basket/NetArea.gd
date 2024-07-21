@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-func _process(delta):
+func _process(_delta):
 	var collision = move_and_collide(Vector3.ZERO, true)
 	if collision:
 		var collider = collision.get_collider()
