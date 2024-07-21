@@ -20,14 +20,19 @@ func initiate_state_machine():
 	var idle_state  = LimboState.new().named("IDLE").call_on_enter(idle_start).call_on_update(idle_update)
 	var walk_state  = LimboState.new().named("WALK").call_on_enter(walk_start).call_on_update(walk_update)
 	var throw_state = LimboState.new().named("THROW").call_on_enter(throw_start).call_on_update(throw_update)
+	var release_state = LimboState.new().named("RELEASE").call_on_enter(release_start).call_on_update(release_update)
 	
 	sm_main.add_child(idle_state)
 	sm_main.add_child(walk_state)
 	sm_main.add_child(throw_state)
+	sm_main.add_child(release_state)
 	
 	sm_main.initial_state = idle_state
 	
-	sm_main.add_transition(idle_state, walk_state, &"walking")
+	sm_main.add_transition(idle_state, walk_state, &"walk")
+	sm_main.add_transition(idle_state, throw_state, &"throw")
+	sm_main.add_transition(walk_state, throw_state, &"throw")
+	sm_main.add_transition(throw_state, release_state, &"release")
 	sm_main.add_transition(sm_main.ANYSTATE, idle_state, &"state_ended")
 	
 	sm_main.initialize(self)
@@ -37,22 +42,38 @@ func idle_start():
 	AC.anim_type = "Idle"
 	AC.anim_dir = AC.anim_dir_prev
 	
-func idle_update(delta: float):
+func idle_update(_delta: float):
 	AC.anim_dir = AC.anim_dir_prev
 	if velocity.length() >= 0.5:
-		sm_main.dispatch(&"walking")
+		sm_main.dispatch(&"walk")
+	if Global.mouse_hold_time > 0.0:
+		sm_main.dispatch(&"throw")
 
 func walk_start():
 	AC.anim_type = "Walk"
 	AC.anim_dir = ""
 	
-func walk_update(delta: float):
+func walk_update(_delta: float):
 	AC.anim_dir = ""
 	if velocity.length() < 0.5:
 		sm_main.dispatch(&"state_ended")
+	if Global.mouse_hold_time > 0.0:
+		sm_main.dispatch(&"throw")
 
 func throw_start():
-	pass
+	AC.anim_type = "Throw"
+	AC.anim_dir = "U"
 	
-func throw_update(delta: float):
-	pass
+func throw_update(_delta: float):
+	velocity = Vector3.ZERO
+	if Global.mouse_hold_time <= 0.0:
+		sm_main.dispatch(&"release")
+
+func release_start():
+	AC.anim_type = "Release"
+	AC.anim_dir = "U"
+	
+func release_update(_delta: float):
+	velocity = Vector3.ZERO
+	if !AC.is_playing():
+		sm_main.dispatch(&"state_ended")

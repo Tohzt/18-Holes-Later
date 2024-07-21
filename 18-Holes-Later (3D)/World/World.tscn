@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://daitrpp32eayq"]
+[gd_scene load_steps=13 format=3 uid="uid://daitrpp32eayq"]
 
 [ext_resource type="Script" path="res://World/World.gd" id="1_agl72"]
 [ext_resource type="PackedScene" uid="uid://ce7au3d43jyaa" path="res://Player/Player.tscn" id="1_icw0h"]
@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dpv006lj0vjml" path="res://Basket/basket.tscn" id="7_ihbvn"]
 [ext_resource type="PackedScene" uid="uid://c5epuka2eu5mr" path="res://Ball/ball.tscn" id="8_bi0xs"]
 [ext_resource type="PackedScene" uid="uid://0fca8eh40f7k" path="res://Trees/tree.tscn" id="8_rvexl"]
-[ext_resource type="Script" path="res://World/HUD.gd" id="9_h2vva"]
 [ext_resource type="PackedScene" uid="uid://7l77eubqfwqj" path="res://scenes/arena.tscn" id="9_obg0k"]
+[ext_resource type="PackedScene" uid="uid://bme51y6kb8x3i" path="res://World/hud.tscn" id="9_wkbbt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tkhos"]
 panorama = ExtResource("2_xx12u")
@@ -31,16 +31,6 @@ fog_sun_scatter = 0.13
 fog_sky_affect = 0.72
 fog_height = -867.39
 volumetric_fog_density = 0.0382
-
-[sub_resource type="Gradient" id="Gradient_crqdm"]
-offsets = PackedFloat32Array(0, 0.684211, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.310617, 0.310617, 0.310617, 1, 0.309804, 0.309804, 0.309804, 0.717647)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qywir"]
-gradient = SubResource("Gradient_crqdm")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ltgwh"]
-diffuse_texture = SubResource("GradientTexture2D_qywir")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_agl72")
@@ -188,42 +178,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 6.5)
 [node name="Tree28" parent="Trees" instance=ExtResource("8_rvexl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 6.5)
 
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource("9_h2vva")
-
-[node name="TextureRect" type="TextureRect" parent="HUD"]
-offset_right = 146.0
-offset_bottom = 121.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = SubResource("CanvasTexture_ltgwh")
-
-[node name="CenterContainer" type="CenterContainer" parent="HUD"]
-offset_right = 98.0
-offset_bottom = 117.0
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/CenterContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="VBoxContainer" parent="HUD/CenterContainer/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label_Power" type="Label" parent="HUD/CenterContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 4.13
-text = "Power: "
-
-[node name="Label_Tilt" type="Label" parent="HUD/CenterContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Tilt: "
-
-[node name="Label_Spin" type="Label" parent="HUD/CenterContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Spin: "
+[node name="HUD" parent="." instance=ExtResource("9_wkbbt")]

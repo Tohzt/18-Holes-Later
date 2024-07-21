@@ -4,6 +4,7 @@ const BALL = preload("res://Ball/ball.tscn")
 @onready var ROOT = get_tree().root
 var disc : RigidBody3D
 
+var HUD : CanvasLayer
 var Player : MovementMechanics
 var Player_Camera : Camera3D
 var mouse_pos := Vector2.ZERO
@@ -17,10 +18,12 @@ const angle_limit_down = 0
 var tilt = 0.0
 var tilt_amount := 1.0
 var spin = 0.0
-var spin_amount := 0.0
+var spin_amount := 10.0
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	HUD = get_tree().root.get_node("World").get_node("HUD")
+	HUD.hide()
 	Player = get_tree().get_first_node_in_group("Player")
 	Player_Camera = Player.get_node("Head").get_node("Camera")
 
@@ -56,14 +59,17 @@ func _throw_disc(event):
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			# Init Charge
 			if event.pressed:
+				HUD.show()
 				mouse_pressed = true
 				mouse_pos = event.position
-				mouse_offset = mouse_pos - Vector2(1152/2, 648/2)
+				mouse_offset = mouse_pos - Vector2(576, 324)
 			
 			# Release Disc
 			else:
+				HUD.hide()
 				disc = DISC.instantiate()
 				disc.position = Player.get_node("Hand").global_position
+				disc.power = floor(mouse_hold_time * 10)
 				disc.tilt = tilt
 				disc.spin = spin
 				
@@ -75,7 +81,7 @@ func _throw_disc(event):
 					disc.dir = Vector2(velocity.x,velocity.z)
 				else:
 					disc.dir = mouse_offset.normalized()
-				disc.power = floor(mouse_hold_time * 10)
+					
 				ROOT.add_child(disc)
 				
 				mouse_hold_time = 0.0

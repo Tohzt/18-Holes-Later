@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bme51y6kb8x3i"]
+
+[ext_resource type="Script" path="res://World/HUD.gd" id="1_5ax74"]
+
+[sub_resource type="Gradient" id="Gradient_crqdm"]
+offsets = PackedFloat32Array(0.105263, 0.807018, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.101961, 0.101961, 0.101961, 0.917647, 0, 0, 0, 0.807843)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qywir"]
+gradient = SubResource("Gradient_crqdm")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ltgwh"]
+diffuse_texture = SubResource("GradientTexture2D_qywir")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_5ax74")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_right = -109.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -1.5708
+scale = Vector2(0.806664, 1.62483)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("CanvasTexture_ltgwh")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -51.0
+offset_right = 122.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 22
+alignment = 2
+
+[node name="Label_Power" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+size_flags_stretch_ratio = 4.13
+text = "Power: "
+
+[node name="Label_Tilt" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Tilt: "
+
+[node name="Label_Spin" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Spin: "

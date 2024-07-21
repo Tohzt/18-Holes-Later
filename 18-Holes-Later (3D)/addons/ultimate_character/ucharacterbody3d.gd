@@ -157,7 +157,8 @@ func _physics_process(delta):
 		var input_dir = Input.get_vector(LEFT, RIGHT, FORWARD, BACKWARD)
 		
 		# Handle crouch, sprint, walk speed.
-		if Input.is_action_pressed(CROUCH) or is_sliding:
+		#if Input.is_action_pressed(CROUCH) or is_sliding:
+		if Global.mouse_hold_time > 0:
 			current_speed = lerpf(current_speed, crouch_speed, delta * 10.0)
 			if first_person:
 				head_node.position.y = lerpf(head_node.position.y, crouching_height, delta * 10.0)
@@ -270,7 +271,8 @@ func _physics_process(delta):
 		
 		last_velocity = velocity
 		
-		move_and_slide()
+		if Global.mouse_hold_time <= 0.0:
+			move_and_slide()
 		
 		if velocity.length() < 0.5:
 			is_walking = false
