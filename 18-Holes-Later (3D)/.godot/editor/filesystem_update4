@@ -1,0 +1,8 @@
+res://World/World.tscn
+res://Player/Player.gd
+res://scenes/arena.tscn
+res://Discs/disc.tscn
+res://Player/Player.tscn
+res://Zombie/zombie.tscn
+res://Menu/main_menu.tscn
+res://World/hud.tscn

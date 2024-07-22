@@ -1,0 +1,14 @@
+Node
+MarginContainer
+Button
+VBoxContainer
+CenterContainer
+RigidBody3D
+AnimatedSprite3D
+CollisionShape3D
+CharacterBody3D
+UCharacterBody3D
+HBoxContainer
+Label
+Area3D
+VSplitContainer
