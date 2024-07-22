@@ -12,7 +12,7 @@ config_version=5
 
 config/name="18 Holes Later"
 config/version="0.0.1"
-run/main_scene="res://World/World.tscn"
+run/main_scene="res://Scenes/Menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 0)
 boot_splash/image="res://Assets/Icons/logo.png"
@@ -35,14 +35,20 @@ enabled=PackedStringArray("res://addons/ultimate_character/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://Assets/": "orange",
-"res://Ball/": "gray",
-"res://Basket/": "red",
-"res://Discs/": "red",
-"res://Player/": "blue",
+"res://Assets/": "purple",
+"res://Entities/": "orange",
+"res://Entities/Player/": "blue",
+"res://Objects/": "red",
+"res://Objects/Ball/": "gray",
+"res://Objects/Basket/": "red",
+"res://Objects/Discs/": "red",
+"res://Objects/Trees/": "teal",
+"res://Objects/Zombie/": "green",
+"res://Scenes/": "blue",
 "res://World/": "green",
-"res://addons/": "gray",
-"res://scenes/": "teal"
+"res://_Blocks/": "gray",
+"res://_Shaders/": "gray",
+"res://addons/": "gray"
 }
 
 [input]

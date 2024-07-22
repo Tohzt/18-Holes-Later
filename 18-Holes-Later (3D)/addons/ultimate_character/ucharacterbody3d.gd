@@ -159,7 +159,7 @@ func _physics_process(delta):
 		
 		# Handle crouch, sprint, walk speed.
 		#if Input.is_action_pressed(CROUCH) or is_sliding:
-		if Global.mouse_hold_time > 0:
+		if Global.Player and Global.Player.GC.mouse_hold_time > 0:
 			current_speed = lerpf(current_speed, crouch_speed, delta * 10.0)
 			if first_person:
 				head_node.position.y = lerpf(head_node.position.y, crouching_height, delta * 10.0)
