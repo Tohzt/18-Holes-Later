@@ -1,0 +1,170 @@
+[gd_scene load_steps=22 format=3 uid="uid://cnuf5kwxagd23"]
+
+[ext_resource type="Texture2D" uid="uid://gty4sw61qktn" path="res://Assets/Zombie/Walk.png" id="2_51fxq"]
+[ext_resource type="Texture2D" uid="uid://vxqgmjbi8a6k" path="res://Assets/Zombie/Idle.png" id="2_ah21j"]
+
+[sub_resource type="GDScript" id="GDScript_xxct3"]
+script/source = "extends RigidBody3D
+@onready var animated_sprite_3d = $AnimatedSprite3D
+
+const SPEED = 2.5
+var target : MovementMechanics
+
+func _ready():
+	target = Global.Player
+	animated_sprite_3d.play(\"Walk\")
+
+func _physics_process(delta):
+	
+	# Follow Target
+	if target:
+		var direction = global_position.direction_to(target.position)
+		var velocity = direction * SPEED * delta
+		move_and_collide(velocity)
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nym5o"]
+radius = 0.3
+height = 1.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bokwn"]
+atlas = ExtResource("2_ah21j")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34bvk"]
+atlas = ExtResource("2_ah21j")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f57an"]
+atlas = ExtResource("2_ah21j")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30eu6"]
+atlas = ExtResource("2_ah21j")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0q7p"]
+atlas = ExtResource("2_ah21j")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51nqi"]
+atlas = ExtResource("2_ah21j")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vgsj"]
+atlas = ExtResource("2_ah21j")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v7q6"]
+atlas = ExtResource("2_ah21j")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucafu"]
+atlas = ExtResource("2_51fxq")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkq1w"]
+atlas = ExtResource("2_51fxq")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ich8x"]
+atlas = ExtResource("2_51fxq")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlv3s"]
+atlas = ExtResource("2_51fxq")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jjl3"]
+atlas = ExtResource("2_51fxq")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b568q"]
+atlas = ExtResource("2_51fxq")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pj5c"]
+atlas = ExtResource("2_51fxq")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otwjn"]
+atlas = ExtResource("2_51fxq")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h34kw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bokwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34bvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f57an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30eu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0q7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51nqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vgsj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v7q6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucafu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkq1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ich8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlv3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jjl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b568q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pj5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otwjn")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="Zombie" type="RigidBody3D"]
+collision_mask = 7
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = SubResource("GDScript_xxct3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+shape = SubResource("CapsuleShape3D_nym5o")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.967345, 0)
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_h34kw")
+animation = &"Walk"
