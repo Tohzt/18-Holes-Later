@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://btvondrom5r2m"]
+
+[ext_resource type="Script" path="res://Objects/Trees/tree.gd" id="1_t1lbn"]
+[ext_resource type="Texture2D" uid="uid://b4f2fqkh5jm3x" path="res://Objects/Trees/src/tree31000.png" id="2_l6imh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jitgc"]
+height = 13.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4kmr7"]
+radius = 3.87901
+
+[node name="Tree" type="StaticBody3D"]
+collision_layer = 5
+script = ExtResource("1_t1lbn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
+shape = SubResource("CylinderShape3D_jitgc")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+offset = Vector2(0, 600)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("2_l6imh")
+
+[node name="Bush" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.70891, 0)
+shape = SubResource("SphereShape3D_4kmr7")
