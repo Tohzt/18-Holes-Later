@@ -1,32 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyoiejbn46jc5"]
+[gd_scene load_steps=3 format=3 uid="uid://2qqrnls6qqtk"]
 
-[ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_ky1vy"]
-[ext_resource type="Texture2D" uid="uid://dbjojxba8b767" path="res://Scenes/Main_Menu/src/Background.jpg" id="2_nt4en"]
-[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="3_emysa"]
+[ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_menu.gd" id="1_c82d8"]
+[ext_resource type="Texture2D" uid="uid://b283b7j1hvh8h" path="res://Styles/UI Assets/Pause menu/PAUSE PRESET.png" id="2_s3ewj"]
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_ky1vy")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -378.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_nt4en")
+[node name="Pause_Menu" type="CanvasLayer" groups=["PauseMenu"]]
+script = ExtResource("1_c82d8")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,12 +16,12 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
 modulate = Color(1, 1, 1, 0.964706)
 layout_mode = 2
-theme_override_constants/margin_top = 200
+theme_override_constants/margin_bottom = 300
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("3_emysa")
+texture = ExtResource("2_s3ewj")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/TextureRect"]
 layout_mode = 1
@@ -61,13 +41,13 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Btn_Start" type="Button" parent="CenterContainer/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
+[node name="Btn_Resume" type="Button" parent="CenterContainer/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Start Game"
+text = "Resume Game"
 
 [node name="Btn_Exit" type="Button" parent="CenterContainer/MarginContainer/TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit Game"
 
-[connection signal="pressed" from="CenterContainer/MarginContainer/TextureRect/MarginContainer/VBoxContainer/Btn_Start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/TextureRect/MarginContainer/VBoxContainer/Btn_Resume" to="." method="_on_btn_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/MarginContainer/TextureRect/MarginContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]

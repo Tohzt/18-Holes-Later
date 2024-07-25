@@ -16,9 +16,10 @@ func _process(_delta):
 	pass
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		Player.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENSITIVITY))
-		Cam.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENSITIVITY))
-		var angle_limit_down = 80
-		var angle_limit_up = 20
-		Cam.rotation.x = clampf(Cam.rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseMotion:
+			Player.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENSITIVITY))
+			Cam.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENSITIVITY))
+			var angle_limit_down = 80
+			var angle_limit_up = 20
+			Cam.rotation.x = clampf(Cam.rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))
