@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cps8t8jud0qmb"]
+[gd_scene load_steps=9 format=3 uid="uid://cps8t8jud0qmb"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_yq8si"]
 [ext_resource type="Texture2D" uid="uid://cipu5bushnsn8" path="res://Scenes/Game/src/autumn_forest.jpg" id="2_0nm5b"]
 [ext_resource type="PackedScene" uid="uid://diwrpg7or38xp" path="res://Scenes/Holes/Hole_01/hole_01.tscn" id="2_l2e0p"]
 [ext_resource type="PackedScene" uid="uid://mgaxgwqsomw8" path="res://Entities/Player/player.tscn" id="4_ybx2f"]
+[ext_resource type="PackedScene" uid="uid://2qqrnls6qqtk" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="5_660yf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rhvo6"]
 panorama = ExtResource("2_0nm5b")
@@ -33,3 +34,5 @@ environment = SubResource("Environment_6yuuf")
 
 [node name="Player" parent="." instance=ExtResource("4_ybx2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90659, -1.90735e-06, 20.594)
+
+[node name="Pause_Menu" parent="." instance=ExtResource("5_660yf")]

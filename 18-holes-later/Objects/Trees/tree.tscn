@@ -13,7 +13,7 @@ radius = 3.87901
 collision_layer = 5
 script = ExtResource("1_t1lbn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Trunk" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
 shape = SubResource("CylinderShape3D_jitgc")
 
