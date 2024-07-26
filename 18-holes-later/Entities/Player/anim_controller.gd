@@ -9,10 +9,12 @@ func _ready():
 func _process(_delta):
 	_update_anim()
 	if animation != current_anim:
+		print("AC: " + current_anim)
 		play(current_anim)
 
 func _update_anim():
-	current_anim = Master.State_Controller.state_next + "_"
+	var anim_base = Master.State_Controller.state_next
+	current_anim = anim_base + Master.State_Controller.state_suffix + "_"
 	
 	#if Master.is_moving:
 	var h_axis = Input.get_axis("move_left", "move_right")
@@ -23,5 +25,5 @@ func _update_anim():
 	elif h_axis:
 		dir += "R" if h_axis == 1 else "L"
 	
-	if dir == "": dir = "D"
+	if dir == "": dir = "U"
 	current_anim += dir

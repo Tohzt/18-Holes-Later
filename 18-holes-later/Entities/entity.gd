@@ -10,7 +10,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var CollisionMask : CollisionShape3D = $CollisionShape3D
 
 var is_moving = false
-var is_
 
 var state: String = "Idle"
 
