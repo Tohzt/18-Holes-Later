@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyoiejbn46jc5"]
+
+[sub_resource type="GDScript" id="GDScript_mo3l3"]
+script/source = "extends Control
+const WORLD = \"res://World/World.tscn\"
+
+func _on_btn_start_pressed():
+	get_tree().change_scene_to_file(WORLD)
+
+func _on_btn_exit_pressed():
+	get_tree().quit()
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_mo3l3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Btn_Start" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Btn_Exit" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
+
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Btn_Start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]

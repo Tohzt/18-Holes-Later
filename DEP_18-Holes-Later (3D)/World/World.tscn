@@ -1,0 +1,200 @@
+[gd_scene load_steps=15 format=3 uid="uid://daitrpp32eayq"]
+
+[ext_resource type="PackedScene" uid="uid://ce7au3d43jyaa" path="res://Entities/Player/Player.tscn" id="1_icw0h"]
+[ext_resource type="Script" path="res://World/game.gd" id="2_nyxke"]
+[ext_resource type="Texture2D" uid="uid://box467kyrgx6y" path="res://Assets/Textures/autumn_forest.jpg" id="2_xx12u"]
+[ext_resource type="Script" path="res://World/Camera3D.gd" id="3_p43ln"]
+[ext_resource type="PackedScene" uid="uid://dpv006lj0vjml" path="res://Objects/Basket/basket.tscn" id="7_ihbvn"]
+[ext_resource type="PackedScene" uid="uid://c5epuka2eu5mr" path="res://Objects/Ball/ball.tscn" id="8_bi0xs"]
+[ext_resource type="PackedScene" uid="uid://0fca8eh40f7k" path="res://Objects/Trees/tree.tscn" id="8_rvexl"]
+[ext_resource type="PackedScene" uid="uid://7l77eubqfwqj" path="res://Scenes/arena.tscn" id="9_obg0k"]
+[ext_resource type="PackedScene" uid="uid://bme51y6kb8x3i" path="res://World/hud.tscn" id="9_wkbbt"]
+[ext_resource type="PackedScene" uid="uid://drj72qa1i30c0" path="res://Entities/Zombie/enemy_limbo.tscn" id="10_2vda5"]
+[ext_resource type="PackedScene" uid="uid://cnuf5kwxagd23" path="res://Entities/Zombie/zombie.tscn" id="10_sctc2"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tkhos"]
+panorama = ExtResource("2_xx12u")
+
+[sub_resource type="Sky" id="Sky_bd8eu"]
+sky_material = SubResource("PanoramaSkyMaterial_tkhos")
+
+[sub_resource type="Environment" id="Environment_vxoxy"]
+background_mode = 2
+sky = SubResource("Sky_bd8eu")
+sky_custom_fov = 43.2
+tonemap_mode = 3
+ssao_enabled = true
+ssil_enabled = true
+glow_intensity = 1.55
+glow_blend_mode = 0
+fog_light_color = Color(0.517647, 0.552941, 0.607843, 1)
+fog_light_energy = 0.25
+fog_sun_scatter = 0.13
+fog_sky_affect = 0.72
+fog_height = -867.39
+volumetric_fog_density = 0.0382
+
+[node name="World" type="Node3D"]
+
+[node name="GameController" type="Node" parent="."]
+script = ExtResource("2_nyxke")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vxoxy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.612372, 0.353553, 1.99637e-09, 0.5, 0.866025, -0.707107, -0.612373, 0.353553, 0, 11.5, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_icw0h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.5, 0.262356, 0)
+platform_floor_layers = 4294901762
+platform_wall_layers = 5
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.25, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 7.25)
+fov = 44.8
+size = 16.323
+script = ExtResource("3_p43ln")
+
+[node name="Arena" parent="." instance=ExtResource("9_obg0k")]
+
+[node name="Basket" parent="." instance=ExtResource("7_ihbvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.25, 1.19521, 4)
+
+[node name="Balls" type="Node3D" parent="."]
+
+[node name="Ball" parent="Balls" instance=ExtResource("8_bi0xs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 2.78002, 9.897)
+collision_layer = 4
+collision_mask = 7
+
+[node name="Trees" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.2859, 0)
+
+[node name="Tree" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.75, -13.0243, 11.75)
+
+[node name="Tree29" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -13.0243, -14)
+
+[node name="Tree30" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -13.0243, -11.5)
+
+[node name="Tree31" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -13.0243, -12.5)
+
+[node name="Tree32" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75, -13.0243, -10.75)
+
+[node name="Tree33" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -13.0243, -13.5)
+
+[node name="Tree34" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25, -13.0243, -6.75)
+
+[node name="Tree35" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.75, -13.0243, -9.5)
+
+[node name="Tree36" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, -13.0243, -7.25)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -13.0243, 12.75)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.75, -13.0243, 16)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -13.0243, 12.5)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -13.0243, 15.75)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.25, -13.0243, 3.25)
+
+[node name="Tree7" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -13.0243, 4.75)
+
+[node name="Tree8" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -13.0243, 6.5)
+
+[node name="Tree9" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -13.0243, 5.25)
+
+[node name="Tree10" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, -13.0243, 2.25)
+
+[node name="Tree11" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25, -13.0243, -1)
+
+[node name="Tree12" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, -13.0243, 0)
+
+[node name="Tree13" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -13.0243, 1.25)
+
+[node name="Tree14" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75, -13.0243, 3)
+
+[node name="Tree15" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -13.0243, -2.75)
+
+[node name="Tree16" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, -13.0243, 4)
+
+[node name="Tree17" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -13.0243, 7.25)
+
+[node name="Tree18" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, -13.0243, 10.5)
+
+[node name="Tree19" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.25, -13.0243, 11.25)
+
+[node name="Tree20" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -13.0243, 13.25)
+
+[node name="Tree21" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.75, -13.0243, 9.25)
+
+[node name="Tree22" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -13.0243, 12.5)
+
+[node name="Tree23" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -13.0243, 15.75)
+
+[node name="Tree24" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75, -13.0243, 15.75)
+
+[node name="Tree25" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -13.0243, 12)
+
+[node name="Tree26" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -13.0243, 9)
+
+[node name="Tree27" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -13.0243, 8.75)
+
+[node name="Tree28" parent="Trees" instance=ExtResource("8_rvexl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -13.0243, 6.5)
+
+[node name="HUD" parent="." instance=ExtResource("9_wkbbt")]
+
+[node name="Zombies" type="Node" parent="."]
+
+[node name="Enemy_Limbo" parent="Zombies" instance=ExtResource("10_2vda5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.0129859, -4)
+
+[node name="Zombie" parent="Zombies" instance=ExtResource("10_sctc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0, -8.25)
+
+[node name="Zombie2" parent="Zombies" instance=ExtResource("10_sctc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -12)
+
+[node name="Zombie3" parent="Zombies" instance=ExtResource("10_sctc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, 0, -13.5)
