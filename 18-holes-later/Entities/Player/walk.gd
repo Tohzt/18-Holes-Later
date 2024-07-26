@@ -1,6 +1,8 @@
+# WALK STATE
 extends State
 
 func init_state():
+	#name = "Walk"
 	State_Controller.state_options = state_options
 	Master.is_moving = true
 
