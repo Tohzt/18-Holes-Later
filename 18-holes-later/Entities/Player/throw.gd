@@ -17,7 +17,7 @@ func update_state():
 	
 	if State_Controller.state_suffix == "_Release":
 		if !Master.AnimController.is_playing():
-			exit_state("Idle")
+			exit_state("Throw")
 			return
 	
 	if Input.is_action_just_pressed("left_click"):
@@ -27,7 +27,8 @@ func update_state():
 		State_Controller.state_suffix = "_Release"
 		var disc = Global.DISC.instantiate()
 		disc.position = Master.Hand.global_position
-		disc.power = Master.MAX_POWER/2
+		# TODO: Get power on charge time
+		disc.power = Master.MAX_POWER
 		disc.target_dir = Master.get_node("SpringArm3D").get_node("Camera3D").get_global_transform().basis.z
 		disc.target_dir.y -= deg_to_rad(20)
 		Global.Scene.add_child(disc)

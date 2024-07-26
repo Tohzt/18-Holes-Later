@@ -21,9 +21,11 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			rotate_y(deg_to_rad(-event.relative.x * Global.MOUSE_SENSITIVITY))
-			if !is_throwing:
-				Camera.rotate_x(deg_to_rad(-event.relative.y * Global.MOUSE_SENSITIVITY))
 			var angle_limit_down = 80
 			var angle_limit_up = 20
 			Camera.rotation.x = clampf(Camera.rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))
+			
+			if !is_throwing:
+				Camera.rotate_x(deg_to_rad(-event.relative.y * Global.MOUSE_SENSITIVITY))
+			elif State_Controller.state_suffix == "_Charge": return
+			rotate_y(deg_to_rad(-event.relative.x * Global.MOUSE_SENSITIVITY))

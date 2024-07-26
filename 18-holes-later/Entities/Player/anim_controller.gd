@@ -7,9 +7,8 @@ func _ready():
 	play(current_anim)
 
 func _process(_delta):
-	_update_anim()
+	if !Master.is_throwing: _update_anim()
 	if animation != current_anim:
-		print("AC: " + current_anim)
 		play(current_anim)
 
 func _update_anim():
@@ -21,7 +20,7 @@ func _update_anim():
 	var v_axis = Input.get_axis("move_down", "move_up")
 	var dir = ""
 	if v_axis:
-		dir += "U" if v_axis == 1 else "D"
+		dir += "U" if v_axis == 1 else "U"
 	elif h_axis:
 		dir += "R" if h_axis == 1 else "L"
 	

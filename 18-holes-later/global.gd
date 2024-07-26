@@ -5,6 +5,8 @@ const DISC = preload("res://Objects/Disc/disc.tscn")
 var Player : CharacterBody3D
 var Scene : Node
 
+var debug_stats = [13,5,-1,3]
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Scene = get_tree().root.get_child(1)
