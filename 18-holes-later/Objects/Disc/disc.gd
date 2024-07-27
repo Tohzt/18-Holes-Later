@@ -19,8 +19,7 @@ var grounded = false
 var handedness = 1
 
 func _ready():
-	print("Disc Stats: ", stats)
-	apply_central_impulse((power * -target_dir)/2)
+	apply_central_impulse(power/3 * -target_dir)
 
 func _process(_delta):
 	power -= stats["Resistance"] if power > 0.0 else 0.0
@@ -32,10 +31,9 @@ func _process(_delta):
 	else:
 		var pre_curve = linear_velocity.rotated(Vector3(0,1,0), deg_to_rad(10 * stats["Turn"] * handedness))
 		apply_central_force(pre_curve)
-		
 	
 	if stats["Glide"]:
-		var glide_amt = stats["Glide"]
+		var glide_amt = stats["Glide"]/2
 		apply_central_force(Vector3(0,glide_amt,0))
 
 	var collison = move_and_collide(Vector3.ZERO, true)

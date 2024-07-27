@@ -8,6 +8,7 @@ func _physics_process(_delta):
 
 func _handle_throw_input():
 	if Input.is_action_just_pressed("right_click"):
+		Master.Camera.rotation.x = -0.1
 		Master.State_Controller.popup_state = "Throw"
 
 func _handle_movement_input():
