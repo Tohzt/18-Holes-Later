@@ -1,11 +1,13 @@
 extends RigidBody3D
 
 @export_category("Stats")
+var disc_name = Global.Bag[Global.game_disc_index][0]
+var disc_type = Global.Bag[Global.game_disc_index][1]
 var stats = {
-	"Speed": Global.debug_stats[0],  # (1-14) Minimum power to throw stable
-	"Glide": Global.debug_stats[1],  # (1-7)  How long it stays in the air (gravity delta)
-	"Turn":  Global.debug_stats[2],  # (1--5) Expected distance before curve at perfect speed
-	"Fade":  Global.debug_stats[3],  # (0-5)  How hard it wants to curve
+	"Speed": Global.Bag[Global.game_disc_index][2],  # (1-14) Minimum power to throw stable
+	"Glide": Global.Bag[Global.game_disc_index][3],  # (1-7)  How long it stays in the air (gravity delta)
+	"Turn":  Global.Bag[Global.game_disc_index][4],  # (1--5) Expected distance before curve at perfect speed
+	"Fade":  Global.Bag[Global.game_disc_index][5],  # (0-5)  How hard it wants to curve
 	"Resistance": .5  # Rate that disc loses power
 	}
 
@@ -17,7 +19,7 @@ var grounded = false
 var handedness = 1
 
 func _ready():
-	print(stats)
+	print("Disc Stats: ", stats)
 	apply_central_impulse((power * -target_dir)/2)
 
 func _process(_delta):

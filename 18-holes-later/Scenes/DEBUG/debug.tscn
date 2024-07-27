@@ -24,13 +24,14 @@ LineEdit/styles/normal = SubResource("StyleBoxTexture_tlhxo")
 script = ExtResource("1_eatab")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.556863)
 texture_filter = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 3.0
 offset_top = -165.0
-offset_right = 163.0
+offset_right = 245.0
 offset_bottom = 50.0
 grow_vertical = 2
 scale = Vector2(1.29682, 1.31723)
@@ -132,7 +133,7 @@ layout_mode = 2
 theme = SubResource("Theme_qnt12")
 text = "+"
 
-[node name="Label" type="Label" parent="."]
+[node name="Name_Label" type="Label" parent="."]
 offset_left = 78.0
 offset_top = 178.0
 offset_right = 125.0
