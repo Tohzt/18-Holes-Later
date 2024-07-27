@@ -10,15 +10,14 @@ func monitor_state():
 	pass
 
 func update_state():
-	
 	if Input.is_action_just_released("right_click"):
 		exit_state("Idle") 
 		return
 	
-	if State_Controller.state_suffix == "_Release":
-		if !Master.AnimController.is_playing():
-			exit_state("Throw")
-			return
+	#if State_Controller.state_suffix == "_Release":
+		#if !Master.AnimController.is_playing():
+			#exit_state("Throw")
+			#return
 	
 	if Input.is_action_just_pressed("left_click"):
 		State_Controller.state_suffix = "_Charge"

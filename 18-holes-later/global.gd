@@ -40,6 +40,7 @@ func add_disc(_disc):
 	check_bag()
 
 func check_bag():
-	print("Bag Content: ", Bag)
+	pass
+	#print("Bag Content: ", Bag)
 
 
