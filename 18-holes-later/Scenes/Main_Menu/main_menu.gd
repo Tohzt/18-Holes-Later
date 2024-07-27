@@ -1,5 +1,5 @@
 extends Control
-const GAME = "res://Scenes/Game/game.tscn"
+const GAME = "res://Scenes/Clubhouse/Clubhouse.tscn"
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
