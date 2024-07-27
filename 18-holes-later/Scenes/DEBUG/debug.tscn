@@ -1,0 +1,159 @@
+[gd_scene load_steps=7 format=3 uid="uid://7rlcql4vwvnn"]
+
+[ext_resource type="Script" path="res://Scenes/DEBUG/debug.gd" id="1_eatab"]
+[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="2_yx2jv"]
+[ext_resource type="Texture2D" uid="uid://bo8315j1f4iwx" path="res://Styles/UI Assets/Main menu/Button BG.png" id="3_gqwcc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlhxo"]
+texture = ExtResource("3_gqwcc")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_xocyg"]
+LineEdit/styles/normal = SubResource("StyleBoxTexture_tlhxo")
+
+[sub_resource type="Theme" id="Theme_qnt12"]
+
+[node name="DEBUG" type="CanvasLayer"]
+script = ExtResource("1_eatab")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.556863)
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -165.0
+offset_right = 245.0
+offset_bottom = 50.0
+grow_vertical = 2
+scale = Vector2(1.29682, 1.31723)
+texture = ExtResource("2_yx2jv")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -101.0
+offset_right = 151.0
+offset_bottom = 101.0
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+modulate = Color(1, 1, 1, 0.964706)
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBC_Speed" type="HBoxContainer" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 27
+alignment = 2
+
+[node name="Speed_Label" type="Label" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Speed"]
+layout_mode = 2
+text = "Speed:"
+
+[node name="Speed_Data" type="Label" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Speed"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_xocyg")
+text = "0"
+
+[node name="add_speed" type="Button" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Speed"]
+layout_mode = 2
+theme = SubResource("Theme_qnt12")
+text = "+"
+
+[node name="HBC_Glide" type="HBoxContainer" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 31
+alignment = 2
+
+[node name="Glide_Label" type="Label" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Glide"]
+layout_mode = 2
+text = "Glide:"
+
+[node name="Glide_Data" type="Label" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Glide"]
+layout_mode = 2
+text = "0"
+
+[node name="add_glide" type="Button" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Glide"]
+layout_mode = 2
+theme = SubResource("Theme_qnt12")
+text = "+"
+
+[node name="HBC_Turn" type="HBoxContainer" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 2
+
+[node name="Turn_Label" type="Label" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Turn"]
+layout_mode = 2
+text = "Turn:"
+
+[node name="Turn_Data" type="Label" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Turn"]
+layout_mode = 2
+text = "0"
+
+[node name="add_turn" type="Button" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Turn"]
+layout_mode = 2
+theme = SubResource("Theme_qnt12")
+text = "+"
+
+[node name="HBC_Fade" type="HBoxContainer" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 2
+
+[node name="Fade_Label" type="Label" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Fade"]
+layout_mode = 2
+text = "Fade:"
+
+[node name="Fade_Data" type="Label" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Fade"]
+layout_mode = 2
+text = "0"
+
+[node name="add_data" type="Button" parent="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Fade"]
+layout_mode = 2
+theme = SubResource("Theme_qnt12")
+text = "+"
+
+[node name="Name_Label" type="Label" parent="."]
+offset_left = 78.0
+offset_top = 178.0
+offset_right = 125.0
+offset_bottom = 201.0
+text = "STATS
+"
+
+[node name="Reset" type="Button" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 47.0
+offset_top = 136.0
+offset_right = 67.0
+offset_bottom = 156.0
+grow_vertical = 2
+text = "Reset Stat"
+
+[connection signal="pressed" from="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Speed/add_speed" to="." method="_on_add_speed_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Glide/add_glide" to="." method="_on_add_glide_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Turn/add_turn" to="." method="_on_add_turn_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/MarginContainer/VBoxContainer/HBC_Fade/add_data" to="." method="_on_add_data_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

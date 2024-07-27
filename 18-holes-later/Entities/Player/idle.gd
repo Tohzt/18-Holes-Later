@@ -1,3 +1,4 @@
+# IDLE STATE
 extends State
 
 func init_state():
