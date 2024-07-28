@@ -7,9 +7,12 @@ var MOUSE_SENSITIVITY : float = 0.4
 const SCENE_GAME      = "res://Scenes/Game/game.tscn"
 const SCENE_LOADING   = "res://Scenes/Loading/loading.tscn"
 const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/Clubhouse.tscn"
+const SCENE_HOLE_01   = "res://Scenes/Holes/Hole_01/hole_01.tscn"
 var scene_selected: String
 var scene_current:  String
 var Scene:  Node
+
+var current_hole: Node3D
 
 # Player Stats
 var Profile: String = ""
