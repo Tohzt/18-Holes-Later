@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://2qqrnls6qqtk"]
+[gd_scene load_steps=4 format=3 uid="uid://2qqrnls6qqtk"]
 
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_menu.gd" id="1_c82d8"]
+[ext_resource type="PackedScene" uid="uid://7rlcql4vwvnn" path="res://Scenes/DEBUG/debug.tscn" id="2_pua4g"]
 [ext_resource type="Texture2D" uid="uid://b283b7j1hvh8h" path="res://Styles/UI Assets/Pause menu/PAUSE PRESET.png" id="2_s3ewj"]
 
 [node name="Pause_Menu" type="CanvasLayer" groups=["PauseMenu"]]
 script = ExtResource("1_c82d8")
+
+[node name="DEBUG" parent="." instance=ExtResource("2_pua4g")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
