@@ -10,7 +10,8 @@ func _on_btn_new_game_pressed():
 	Global.go_to_scene(Global.SCENE_CLUBHOUSE)
 
 func _on_btn_continue_pressed():
-	pass
+	Global.Profile = "Profile 1"
+	Global.go_to_scene(Global.SCENE_GAME)
 
 func _on_btn_load_pressed():
 	if profile_container.visible:

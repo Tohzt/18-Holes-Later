@@ -2,7 +2,6 @@ extends Entity
 @onready var Camera = $SpringArm3D
 @onready var Hand = $Hand
 
-
 const MAX_POWER = 20
 
 var is_throwing = false
