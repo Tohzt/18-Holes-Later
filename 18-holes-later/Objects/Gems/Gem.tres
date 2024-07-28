@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=2 format=3 uid="uid://b4c32ia0fii4v"]
+
+[ext_resource type="Script" path="res://Objects/Gems/Gems.gd" id="1_ts40p"]
+
+[resource]
+script = ExtResource("1_ts40p")
+name = null
+type = null
+gem_slot = null
