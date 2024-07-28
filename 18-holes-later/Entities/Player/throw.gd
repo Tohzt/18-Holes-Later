@@ -30,6 +30,15 @@ func update_state():
 		disc.power = Master.MAX_POWER
 		disc.target_dir = Master.get_node("SpringArm3D").get_node("Camera3D").get_global_transform().basis.z
 		disc.target_dir.y -= deg_to_rad(20)
+		disc.disc_name = Global.Scene.Bag[Global.Scene.game_disc_index][0]
+		disc.disc_type = Global.Scene.Bag[Global.Scene.game_disc_index][1]
+		disc.stats = {
+			"Speed": Global.Scene.Bag[Global.Scene.game_disc_index][2],  # (1-14) Minimum power to throw stable
+			"Glide": Global.Scene.Bag[Global.Scene.game_disc_index][3],  # (1-7)  How long it stays in the air (gravity delta)
+			"Turn":  Global.Scene.Bag[Global.Scene.game_disc_index][4],  # (1--5) Expected distance before curve at perfect speed
+			"Fade":  Global.Scene.Bag[Global.Scene.game_disc_index][5],  # (0-5)  How hard it wants to curve
+			"Resistance": .5  # Rate that disc loses power
+			}
 		Global.Scene.add_child(disc)
 
 func exit_state(next_state: String):

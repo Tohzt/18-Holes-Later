@@ -6,7 +6,9 @@ func _process(_delta):
 	else:
 		show()
 
-func _on_btn_exit_pressed(): 
+func _on_btn_exit_pressed():
+	# WARNING: This couls close before save is complete 
+	Global.Scene.save_game()
 	get_tree().quit()
 
 func _on_btn_resume_pressed():
