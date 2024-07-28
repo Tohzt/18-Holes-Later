@@ -1,136 +1,289 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxpgafd4d185u"]
 
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Clubhouse.gd" id="1_1aqk5"]
-[ext_resource type="Texture2D" uid="uid://dbjojxba8b767" path="res://Scenes/Main_Menu/src/Background.jpg" id="2_bud6u"]
+[ext_resource type="Texture2D" uid="uid://brgeyidw7tiiq" path="res://Scenes/Clubhouse/src/bg_clubhouse.jpg" id="2_5w7vb"]
+[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="3_c7wgc"]
 
-[sub_resource type="Gradient" id="Gradient_64rtw"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_k3lgs"]
-gradient = SubResource("Gradient_64rtw")
-width = 144
-height = 214
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_crgry"]
+width = 117
+height = 1
 
 [node name="Clubhouse" type="CanvasLayer"]
 script = ExtResource("1_1aqk5")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 texture_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -378.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bud6u")
+texture = ExtResource("2_5w7vb")
+expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 385.0
-offset_top = 217.0
-offset_right = 825.0
-offset_bottom = 431.0
-theme_override_constants/separation = 120
+[node name="HeaderBackground" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.5
+offset_top = 30.0
+offset_right = 156.5
+offset_bottom = 90.0
+grow_horizontal = 2
+scale = Vector2(1, 1.12)
+texture = ExtResource("3_c7wgc")
+expand_mode = 1
 
-[node name="HB_CardContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HeaderContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -146.5
+offset_right = 146.5
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 48
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HeaderContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Btn_Select_Disc" type="Button" parent="HeaderContainer/HBoxContainer"]
+layout_mode = 2
+text = "DISC
+"
+
+[node name="Btn_Select_Character" type="Button" parent="HeaderContainer/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "CHARACTER
+"
+
+[node name="Btn_Select_Course" type="Button" parent="HeaderContainer/HBoxContainer"]
+layout_mode = 2
+text = "COURSE
+"
+
+[node name="DiscSelectionContainer" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Disc_Driver" type="TextureRect" parent="VBoxContainer/HB_CardContainer"]
+[node name="Driver" type="Control" parent="DiscSelectionContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_k3lgs")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HB_CardContainer/Disc_Driver"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 4.0
+[node name="Disc_Driver" type="TextureRect" parent="DiscSelectionContainer/Driver"]
+modulate = Color(0, 0, 0, 0.6)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -107.0
+offset_right = 58.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_crgry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DiscSelectionContainer/Driver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -107.0
+offset_right = 53.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 18
 
-[node name="Labe_Glide" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Driver/VBoxContainer"]
+[node name="Labe_Glide" type="Label" parent="DiscSelectionContainer/Driver/VBoxContainer"]
 layout_mode = 2
 text = "Glide:"
 
-[node name="Label_Speed" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Driver/VBoxContainer"]
+[node name="Label_Speed" type="Label" parent="DiscSelectionContainer/Driver/VBoxContainer"]
 layout_mode = 2
 text = "Speed:"
 
-[node name="Label_Turn" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Driver/VBoxContainer"]
+[node name="Label_Turn" type="Label" parent="DiscSelectionContainer/Driver/VBoxContainer"]
 layout_mode = 2
 text = "Turn:"
 
-[node name="Label_Fade" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Driver/VBoxContainer"]
+[node name="Label_Fade" type="Label" parent="DiscSelectionContainer/Driver/VBoxContainer"]
 layout_mode = 2
 text = "Fade:"
 
-[node name="Btn_Select_Driver" type="Button" parent="VBoxContainer/HB_CardContainer/Disc_Driver/VBoxContainer"]
+[node name="Btn_Select_Driver" type="Button" parent="DiscSelectionContainer/Driver/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Select Driver"
 
-[node name="Disc_Hybrid" type="TextureRect" parent="VBoxContainer/HB_CardContainer"]
+[node name="Hybrid" type="Control" parent="DiscSelectionContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_k3lgs")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HB_CardContainer/Disc_Hybrid"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 4.0
+[node name="Disc_Driver" type="TextureRect" parent="DiscSelectionContainer/Hybrid"]
+modulate = Color(0, 0, 0, 0.6)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -107.0
+offset_right = 58.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_crgry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DiscSelectionContainer/Hybrid"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -97.5
+offset_right = 53.0
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 18
 
-[node name="Labe_Glide" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Hybrid/VBoxContainer"]
+[node name="Labe_Glide" type="Label" parent="DiscSelectionContainer/Hybrid/VBoxContainer"]
 layout_mode = 2
 text = "Glide:"
 
-[node name="Label_Speed" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Hybrid/VBoxContainer"]
+[node name="Label_Speed" type="Label" parent="DiscSelectionContainer/Hybrid/VBoxContainer"]
 layout_mode = 2
 text = "Speed:"
 
-[node name="Label_Turn" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Hybrid/VBoxContainer"]
+[node name="Label_Turn" type="Label" parent="DiscSelectionContainer/Hybrid/VBoxContainer"]
 layout_mode = 2
 text = "Turn:"
 
-[node name="Label_Fade" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Hybrid/VBoxContainer"]
+[node name="Label_Fade" type="Label" parent="DiscSelectionContainer/Hybrid/VBoxContainer"]
 layout_mode = 2
 text = "Fade:"
 
-[node name="Btn_Select_Hybrid" type="Button" parent="VBoxContainer/HB_CardContainer/Disc_Hybrid/VBoxContainer"]
+[node name="Btn_Select_Hybrid" type="Button" parent="DiscSelectionContainer/Hybrid/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Select Hybrd"
 
-[node name="Disc_Putter" type="TextureRect" parent="VBoxContainer/HB_CardContainer"]
+[node name="Putter" type="Control" parent="DiscSelectionContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_k3lgs")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HB_CardContainer/Disc_Putter"]
-layout_mode = 2
-offset_left = 4.0
-offset_right = 4.0
+[node name="Disc_Driver" type="TextureRect" parent="DiscSelectionContainer/Putter"]
+modulate = Color(0, 0, 0, 0.6)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -107.0
+offset_right = 58.5
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_crgry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DiscSelectionContainer/Putter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -97.5
+offset_right = 53.5
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 18
 
-[node name="Labe_Glide" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Putter/VBoxContainer"]
+[node name="Labe_Glide" type="Label" parent="DiscSelectionContainer/Putter/VBoxContainer"]
 layout_mode = 2
 text = "Glide:"
 
-[node name="Label_Speed" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Putter/VBoxContainer"]
+[node name="Label_Speed" type="Label" parent="DiscSelectionContainer/Putter/VBoxContainer"]
 layout_mode = 2
 text = "Speed:"
 
-[node name="Label_Turn" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Putter/VBoxContainer"]
+[node name="Label_Turn" type="Label" parent="DiscSelectionContainer/Putter/VBoxContainer"]
 layout_mode = 2
 text = "Turn:"
 
-[node name="Label_Fade" type="Label" parent="VBoxContainer/HB_CardContainer/Disc_Putter/VBoxContainer"]
+[node name="Label_Fade" type="Label" parent="DiscSelectionContainer/Putter/VBoxContainer"]
 layout_mode = 2
 text = "Fade:"
 
-[node name="Btn_Select_Putter" type="Button" parent="VBoxContainer/HB_CardContainer/Disc_Putter/VBoxContainer"]
+[node name="Btn_Select_Putter" type="Button" parent="DiscSelectionContainer/Putter/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Select Putter"
+
+[node name="CourseSelectionContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -29.0
+offset_right = 33.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="Btn_Hole_01" type="Button" parent="CourseSelectionContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Hole 01"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.5
+offset_top = -31.0
+offset_right = 42.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 120
 
 [node name="Btn_Next_Hole" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -138,7 +291,10 @@ size_flags_vertical = 8
 text = "Next Hole
 "
 
-[connection signal="pressed" from="VBoxContainer/HB_CardContainer/Disc_Driver/VBoxContainer/Btn_Select_Driver" to="." method="_select_driver_pressed"]
-[connection signal="pressed" from="VBoxContainer/HB_CardContainer/Disc_Hybrid/VBoxContainer/Btn_Select_Hybrid" to="." method="_select_hybrid_pressed"]
-[connection signal="pressed" from="VBoxContainer/HB_CardContainer/Disc_Putter/VBoxContainer/Btn_Select_Putter" to="." method="_select_putter_pressed"]
+[connection signal="pressed" from="HeaderContainer/HBoxContainer/Btn_Select_Disc" to="." method="_on_btn_select_disc_pressed"]
+[connection signal="pressed" from="HeaderContainer/HBoxContainer/Btn_Select_Course" to="." method="_on_btn_select_course_pressed"]
+[connection signal="pressed" from="DiscSelectionContainer/Driver/VBoxContainer/Btn_Select_Driver" to="." method="_select_driver_pressed"]
+[connection signal="pressed" from="DiscSelectionContainer/Hybrid/VBoxContainer/Btn_Select_Hybrid" to="." method="_select_hybrid_pressed"]
+[connection signal="pressed" from="DiscSelectionContainer/Putter/VBoxContainer/Btn_Select_Putter" to="." method="_select_putter_pressed"]
+[connection signal="pressed" from="CourseSelectionContainer/Btn_Hole_01" to="." method="_on_btn_hole_01_pressed"]
 [connection signal="pressed" from="VBoxContainer/Btn_Next_Hole" to="." method="_on_btn_next_hole_pressed"]

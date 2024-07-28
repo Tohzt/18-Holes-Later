@@ -30,6 +30,8 @@ func _ready():
 	apply_central_impulse(power/3 * -target_dir)
 
 func _process(_delta):
+	_self_cull()
+	
 	power -= stats["Resistance"] if power > 0.0 else 0.0
 	
 	if power < stats["Speed"]: 
@@ -50,3 +52,6 @@ func _process(_delta):
 		if collider.is_in_group("Solid"):
 			grounded = true
 
+func _self_cull():
+	if position.y < -100:
+		queue_free()
