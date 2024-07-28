@@ -58,7 +58,6 @@ text = "New Game"
 
 [node name="Btn_Continue" type="Button" parent="MenuContainer/HBoxContainer"]
 layout_mode = 2
-disabled = true
 text = "CONTINUE"
 
 [node name="Btn_Load" type="Button" parent="MenuContainer/HBoxContainer"]

@@ -1,13 +1,21 @@
 extends RigidBody3D
 
-@export_category("Stats")
-var disc_name = Global.Bag[Global.game_disc_index][0]
-var disc_type = Global.Bag[Global.game_disc_index][1]
+#@onready var disc_name = Global.Scene.Bag[Global.Scene.game_disc_index][0]
+#@onready var disc_type = Global.Scene.Bag[Global.Scene.game_disc_index][1]
+#@onready var stats = {
+	#"Speed": Global.Scene.Bag[Global.Scene.game_disc_index][2],  # (1-14) Minimum power to throw stable
+	#"Glide": Global.Scene.Bag[Global.Scene.game_disc_index][3],  # (1-7)  How long it stays in the air (gravity delta)
+	#"Turn":  Global.Scene.Bag[Global.Scene.game_disc_index][4],  # (1--5) Expected distance before curve at perfect speed
+	#"Fade":  Global.Scene.Bag[Global.Scene.game_disc_index][5],  # (0-5)  How hard it wants to curve
+	#"Resistance": .5  # Rate that disc loses power
+	#}
+var disc_name = ""
+var disc_type = ""
 var stats = {
-	"Speed": Global.Bag[Global.game_disc_index][2],  # (1-14) Minimum power to throw stable
-	"Glide": Global.Bag[Global.game_disc_index][3],  # (1-7)  How long it stays in the air (gravity delta)
-	"Turn":  Global.Bag[Global.game_disc_index][4],  # (1--5) Expected distance before curve at perfect speed
-	"Fade":  Global.Bag[Global.game_disc_index][5],  # (0-5)  How hard it wants to curve
+	"Speed": 0,  # (1-14) Minimum power to throw stable
+	"Glide": 0,  # (1-7)  How long it stays in the air (gravity delta)
+	"Turn":  0,  # (1--5) Expected distance before curve at perfect speed
+	"Fade":  0,  # (0-5)  How hard it wants to curve
 	"Resistance": .5  # Rate that disc loses power
 	}
 

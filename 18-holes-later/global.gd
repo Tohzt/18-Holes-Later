@@ -7,28 +7,32 @@ var MOUSE_SENSITIVITY : float = 0.4
 const SCENE_GAME      = "res://Scenes/Game/game.tscn"
 const SCENE_LOADING   = "res://Scenes/Loading/loading.tscn"
 const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/Clubhouse.tscn"
+const SCENE_HOLE_01   = "res://Scenes/Holes/Hole_01/hole_01.tscn"
 var scene_selected: String
 var scene_current:  String
-
-const DISC = preload("res://Objects/Disc/disc.tscn")
-var Player: CharacterBody3D
 var Scene:  Node
 
+var current_hole: Node3D
+
 # Player Stats
+var Profile: String = ""
+var Player: CharacterBody3D
 # TODO: Should be in player or game object
-var game_disc_index: int
+
+const DISC = preload("res://Objects/Disc/disc.tscn")
 var Bag: Array
+var game_disc_index: int
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Scene = get_tree().root.get_child(1)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("tab"):
-		game_disc_index += 1
-		if game_disc_index >= Bag.size():
-			game_disc_index = 0
-		check_bag()
+	#if Input.is_action_just_pressed("tab"):
+		#game_disc_index += 1
+		#if game_disc_index >= Bag.size():
+			#game_disc_index = 0
+		#_check_bag()
 	
 	if !Player: 
 		Player = get_tree().get_first_node_in_group("Player")
@@ -50,10 +54,9 @@ func go_to_scene(scene):
 
 func add_disc(_disc):
 	Bag.append(_disc)
-	check_bag()
+	_check_bag()
 
-func check_bag():
-	pass
-	#print("Bag Content: ", Bag)
+func _check_bag():
+	print("Bag Content: ", Bag)
 
 

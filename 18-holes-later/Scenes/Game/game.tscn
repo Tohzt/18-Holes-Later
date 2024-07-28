@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cps8t8jud0qmb"]
+[gd_scene load_steps=13 format=3 uid="uid://cps8t8jud0qmb"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_yq8si"]
 [ext_resource type="Texture2D" uid="uid://cipu5bushnsn8" path="res://Scenes/Game/src/autumn_forest.jpg" id="2_0nm5b"]
+[ext_resource type="Script" path="res://Scenes/Game/SaveController.gd" id="2_85vk6"]
 [ext_resource type="PackedScene" uid="uid://diwrpg7or38xp" path="res://Scenes/Holes/Hole_01/hole_01.tscn" id="2_l2e0p"]
+[ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_v61p6"]
 [ext_resource type="PackedScene" uid="uid://mgaxgwqsomw8" path="res://Entities/Player/player.tscn" id="4_ybx2f"]
 [ext_resource type="PackedScene" uid="uid://2qqrnls6qqtk" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="5_660yf"]
+[ext_resource type="Script" path="res://Scenes/Game/Holes.gd" id="5_phiio"]
 [ext_resource type="PackedScene" uid="uid://7rlcql4vwvnn" path="res://Scenes/DEBUG/debug.tscn" id="6_1iqi1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rhvo6"]
@@ -21,6 +24,12 @@ glow_enabled = true
 [node name="Game" type="Node3D"]
 script = ExtResource("1_yq8si")
 
+[node name="Save" parent="." instance=ExtResource("2_v61p6")]
+is_game = true
+
+[node name="SaveController" type="Node" parent="."]
+script = ExtResource("2_85vk6")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.651671, -0.661777, 0.370642, 0.311576, 0.679076, 0.664662, -0.691552, -0.317658, 0.648729, 0, 6.33541, 0)
 shadow_enabled = true
@@ -29,9 +38,10 @@ directional_shadow_split_1 = 1.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6yuuf")
 
-[node name="Current Hole" type="Node" parent="."]
+[node name="Holes" type="Node" parent="."]
+script = ExtResource("5_phiio")
 
-[node name="Hole_01" parent="Current Hole" instance=ExtResource("2_l2e0p")]
+[node name="Hole_01" parent="Holes" instance=ExtResource("2_l2e0p")]
 
 [node name="Player" parent="." instance=ExtResource("4_ybx2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90659, -1.90735e-06, 20.594)
