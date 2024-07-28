@@ -10,7 +10,6 @@ func _process(_delta):
 	#if !Master.is_throwing: _update_anim()
 	_update_anim()
 	if animation != current_anim:
-		print("CurAnim: ", current_anim)
 		play(current_anim)
 
 func _update_anim():

@@ -28,12 +28,6 @@ func _ready():
 	Scene = get_tree().root.get_child(1)
 
 func _process(_delta):
-	#if Input.is_action_just_pressed("tab"):
-		#game_disc_index += 1
-		#if game_disc_index >= Bag.size():
-			#game_disc_index = 0
-		#_check_bag()
-	
 	if !Player: 
 		Player = get_tree().get_first_node_in_group("Player")
 		if  Player:
@@ -54,9 +48,5 @@ func go_to_scene(scene):
 
 func add_disc(_disc):
 	Bag.append(_disc)
-	_check_bag()
-
-func _check_bag():
-	print("Bag Content: ", Bag)
 
 

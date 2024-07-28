@@ -2,9 +2,14 @@ extends Node
 
 @onready var Master: Entity = get_parent()
 
-func _physics_process(_delta):
+func _process(_delta):
 	_handle_movement_input()
 	_handle_throw_input()
+	
+	if Input.is_action_just_pressed("tab"):
+		Global.Scene.game_disc_index += 1
+		if Global.Scene.game_disc_index >= Global.Scene.Bag.size():
+			Global.Scene.game_disc_index = 0
 
 func _handle_throw_input():
 	if Input.is_action_just_pressed("right_click"):
