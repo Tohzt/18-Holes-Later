@@ -4786,6 +4786,7 @@ height = 0.6
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_j03p0")
+save_entity = true
 
 [node name="MoveController" type="Node" parent="."]
 script = ExtResource("2_oj378")
