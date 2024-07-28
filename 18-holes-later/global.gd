@@ -42,6 +42,7 @@ func _unhandled_input(_event):
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+
 func go_to_scene(scene):
 	scene_current = scene
 	get_tree().change_scene_to_file(Global.SCENE_LOADING)

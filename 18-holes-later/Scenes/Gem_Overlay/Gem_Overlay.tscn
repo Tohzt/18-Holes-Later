@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://i30yt8hxuh12"]
+
+[ext_resource type="Texture2D" uid="uid://b5vivsuksamy" path="res://Scenes/Main_Menu/src/Background.png" id="1_4rvnk"]
+[ext_resource type="Script" path="res://Scenes/Gem_Overlay/Gem_Overlay.gd" id="1_bsbip"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_bsbip")
+
+[node name="Overlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Overlay"]
+visible = false
+texture_filter = 2
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -372.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4rvnk")
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 77.0
+offset_right = 847.0
+offset_bottom = 509.0
+metadata/_edit_lock_ = true
+
+[node name="TabContainer" type="TabContainer" parent="Overlay/PanelContainer"]
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="Overlay/PanelContainer/TabContainer"]
+layout_mode = 2
+
+[node name="TabBar2" type="TabBar" parent="Overlay/PanelContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Overlay/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="Overlay/PanelContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "A"
+alignment = 1
+icon_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Overlay/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="Overlay/PanelContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_stretch_ratio = 10.9
+text = "B"
+alignment = 1
+icon_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Overlay/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="Overlay/PanelContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_stretch_ratio = 10.9
+text = "C"
+alignment = 1
+icon_alignment = 1
+
+[node name="CheckBox2" type="CheckBox" parent="Overlay"]
+layout_mode = 2
+anchor_left = 0.413
+anchor_top = 0.309
+anchor_right = 0.413
+anchor_bottom = 0.309
+offset_left = -161.776
+offset_top = 320.768
+offset_right = 373.224
+offset_bottom = 370.768
+text = "Choose"
+alignment = 1
+icon_alignment = 1
