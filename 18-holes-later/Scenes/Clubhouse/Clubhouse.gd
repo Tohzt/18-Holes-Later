@@ -20,7 +20,7 @@ func _on_btn_next_hole_pressed():
 	Global.add_disc(disc_02)
 	Global.add_disc(disc_03)
 	Global.game_disc_index = selected_index
-	get_tree().change_scene_to_file(Global.GAME_SCENE)
+	Global.go_to_scene(Global.SCENE_GAME)
 
 
 func _select_putter_pressed():
