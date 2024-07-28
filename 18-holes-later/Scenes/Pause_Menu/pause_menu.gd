@@ -2,8 +2,10 @@ extends CanvasLayer
 
 func _process(_delta):
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		$DEBUG.hide()
 		hide()
 	else:
+		$DEBUG.show()
 		show()
 
 func _on_btn_exit_pressed():
