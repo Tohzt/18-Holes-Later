@@ -1,0 +1,108 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1722143839
+global.gd::GDScript::-1::1722143096::0::1::::<>Node<>::
+icon.svg::CompressedTexture2D::491860938262669454::1721968097::1721968097::1::::<><>::
+save.gd::GDScript::-1::1722143732::0::1::::<>Node<>::
+::res://Entities/::1721976080
+entity.gd::GDScript::-1::1721976080::0::1::::Entity<>CharacterBody3D<>::
+::res://Entities/Player/::1722143096
+anim_controller.gd::GDScript::-1::1722074979::0::1::::<>AnimatedSprite3D<>::
+idle.gd::GDScript::-1::1721976080::0::1::::<>State<>::
+move_controller.gd::GDScript::-1::1722075207::0::1::::<>Node<>::
+player.gd::GDScript::-1::1722075207::0::1::::<>Entity<>::
+player.tscn::PackedScene::854693813317943629::1722143096::0::1::::<><>::uid://csflfcox4enp3::::res://Entities/Player/src/Idle/Idle_D.png<>res://Entities/Player/player.gd<>uid://bakd2w0vqgfhv::::res://Entities/Player/src/Throw/Throw_U.png<>res://Entities/Player/move_controller.gd<>uid://dtn1sx81tmus5::::res://Entities/Player/src/Walk/Walk_D.png<>uid://bp50a2ukg1fxu::::res://Entities/StateMachine/state_controller.tscn<>res://Entities/Player/throw.gd<>res://Entities/Player/walk.gd<>res://Entities/Player/idle.gd<>res://Entities/Player/anim_controller.gd<>uid://c1j70pd88sbks::::res://Entities/Player/src/Idle/Idle_L.png<>uid://b44yro1wo8tfx::::res://Entities/Player/src/Idle/Idle_R.png<>uid://duy1a252cxokv::::res://Entities/Player/src/Idle/Idle_U.png<>uid://e6gulsovknow::::res://Entities/Player/src/Walk/Walk_L.png<>uid://dkrwc6j84nsg5::::res://Entities/Player/src/Walk/Walk_R.png<>uid://c8psx3kse8ead::::res://Entities/Player/src/Walk/Walk_U.png
+throw.gd::GDScript::-1::1722075272::0::1::::<>State<>::
+walk.gd::GDScript::-1::1721976080::0::1::::<>State<>::
+::res://Entities/Player/src/::1721968097
+::res://Entities/Player/src/Idle/::1721968097
+Idle_D.png::CompressedTexture2D::6047239385288942878::1721968097::1721968097::1::::<><>::
+Idle_DL.png::CompressedTexture2D::7268106073604454929::1721968097::1721968097::1::::<><>::
+Idle_DR.png::CompressedTexture2D::4557468560734481790::1721968097::1721968097::1::::<><>::
+Idle_L.png::CompressedTexture2D::6618319084406573802::1721968097::1721968097::1::::<><>::
+Idle_R.png::CompressedTexture2D::4483252446897976117::1721968097::1721968097::1::::<><>::
+Idle_U.png::CompressedTexture2D::8614164097454249561::1721968097::1721968097::1::::<><>::
+Idle_UL.png::CompressedTexture2D::3776770807732933991::1721968097::1721968097::1::::<><>::
+Idle_UR.png::CompressedTexture2D::2854404800794051665::1721968097::1721968097::1::::<><>::
+::res://Entities/Player/src/Throw/::1721968097
+Throw_U.png::CompressedTexture2D::2407296023757011111::1721968097::1721968097::1::::<><>::
+::res://Entities/Player/src/Walk/::1721968097
+Walk_D.png::CompressedTexture2D::8521299037329717602::1721968097::1721968097::1::::<><>::
+Walk_DL.png::CompressedTexture2D::743932269937537934::1721968097::1721968097::1::::<><>::
+Walk_DR.png::CompressedTexture2D::8734277186277965112::1721968097::1721968097::1::::<><>::
+Walk_L.png::CompressedTexture2D::345151708990577926::1721968097::1721968097::1::::<><>::
+Walk_R.png::CompressedTexture2D::7897585898373064138::1721968097::1721968097::1::::<><>::
+Walk_U.png::CompressedTexture2D::7121174339808109211::1721968097::1721968097::1::::<><>::
+Walk_UL.png::CompressedTexture2D::674768634605176445::1721968097::1721968097::1::::<><>::
+Walk_UR.png::CompressedTexture2D::1095108173969382268::1721968097::1721968097::1::::<><>::
+::res://Entities/StateMachine/::1721976080
+state.gd::GDScript::-1::1721976080::0::1::::State<>Node<>::
+state_controller.gd::GDScript::-1::1721976080::0::1::::StateController<>Node<>::
+state_controller.tscn::PackedScene::3502704045194484646::1721968097::0::1::::<><>::res://Entities/StateMachine/state_controller.gd
+::res://Objects/::1721968097
+::res://Objects/Disc/::1722143096
+disc.gd::GDScript::-1::1722074871::0::1::::<>RigidBody3D<>::
+disc.tscn::PackedScene::179060103529754072::1722143096::0::1::::<><>::res://Objects/Disc/disc.gd
+::res://Objects/Disc/src/::1721789041
+::res://Objects/Trees/::1722143096
+tree.gd::GDScript::-1::1721976080::0::1::::<>StaticBody3D<>::
+tree.tscn::PackedScene::3764234083355522966::1722143096::0::1::::<><>::res://Objects/Trees/tree.gd<>uid://b4f2fqkh5jm3x::::res://Objects/Trees/src/tree31000.png<>res://Styles/Shaders/tree_shake.gdshader<>uid://b24frdg5yer6d::::res://Objects/Trees/src/Tree21000.png
+::res://Objects/Trees/src/::1721968097
+Tree21000.png::CompressedTexture2D::4341720528482114117::1721968097::1721968097::1::::<><>::
+tree31000.png::CompressedTexture2D::4433868181920711175::1721968097::1721968097::1::::<><>::
+::res://Save/::1722143839
+::res://Scenes/::1722138406
+18HL load screen.png::CompressedTexture2D::6181914641155993661::1721968097::1721968097::1::::<><>::
+::res://Scenes/Clubhouse/::1722143097
+Clubhouse.gd::GDScript::-1::1722140899::0::1::::<>CanvasLayer<>::
+Clubhouse.tscn::PackedScene::4032094324209202676::1722143097::0::1::::<><>::res://Scenes/Clubhouse/Clubhouse.gd<>uid://dbjojxba8b767::::res://Scenes/Main_Menu/src/Background.jpg
+::res://Scenes/DEBUG/::1722143096
+debug.gd::GDScript::-1::1722071247::0::1::::<>CanvasLayer<>::
+debug.tscn::PackedScene::2281809735457324027::1722143096::0::1::::<><>::res://Scenes/DEBUG/debug.gd<>uid://ctncpjw0ys652::::res://Styles/UI Assets/Pause menu/BG.png<>uid://bo8315j1f4iwx::::res://Styles/UI Assets/Main menu/Button BG.png
+::res://Scenes/Game/::1722143096
+game.gd::GDScript::-1::1722143096::0::1::::<>Node3D<>::
+game.tscn::PackedScene::5864872160462763665::1722143096::0::1::::<><>::res://Scenes/Game/game.gd<>uid://cipu5bushnsn8::::res://Scenes/Game/src/autumn_forest.jpg<>uid://diwrpg7or38xp::::res://Scenes/Holes/Hole_01/hole_01.tscn<>uid://mgaxgwqsomw8::::res://Entities/Player/player.tscn<>uid://2qqrnls6qqtk::::res://Scenes/Pause_Menu/pause_menu.tscn<>uid://7rlcql4vwvnn::::res://Scenes/DEBUG/debug.tscn
+::res://Scenes/Game/src/::1721968097
+autumn_forest.jpg::CompressedTexture2D::5366585780720996667::1721968097::1721968097::1::::<><>::
+blue_desert.jpg::CompressedTexture2D::7949513588995929009::1721968097::1721968097::1::::<><>::
+::res://Scenes/Holes/::1721968097
+::res://Scenes/Holes/Hole_01/::1722143096
+hole_01.tres::VisualShader::8810633567611845987::1721968097::0::1::::<><>::
+hole_01.tscn::PackedScene::7767248451792275921::1722143096::0::1::::<><>::uid://bxa16ekxmk7jf::::res://Scenes/Holes/Hole_01/hole_01_material.tres<>res://Scenes/Holes/Hole_01/tree_spawner.gd
+hole_01_material.tres::StandardMaterial3D::4002398315393751591::1722066064::0::1::::<><>::
+tree_spawner.gd::GDScript::-1::1721968097::0::1::::<>Node3D<>::
+::res://Scenes/Loading/::1722143097
+loading.gd::GDScript::-1::1722139245::0::1::::<>Control<>::
+loading.gdshader::Shader::-1::1722139632::0::1::::<><>::
+loading.tscn::PackedScene::5231310559724432289::1722143097::0::1::::<><>::res://Styles/Shaders/vignette.gdshader<>res://Scenes/Loading/loading.gd<>uid://cor77mvsa7mgo::::res://Styles/UI Assets/logo.jpg
+::res://Scenes/Main_Menu/::1722143097
+main_menu.gd::GDScript::-1::1722141331::0::1::::<>Control<>::
+main_menu.tscn::PackedScene::8873188940952267438::1722143097::0::1::::<><>::res://Scenes/Main_Menu/main_menu.gd<>uid://b5vivsuksamy::::res://Scenes/Main_Menu/src/Background.png<>uid://ctncpjw0ys652::::res://Styles/UI Assets/Pause menu/BG.png
+::res://Scenes/Main_Menu/src/::1722140540
+Background.png::CompressedTexture2D::133410651178772832::1722140529::1722140540::1::::<><>::
+disc_card.png::CompressedTexture2D::3754650824764339483::1722051563::1722056242::1::::<><>::
+::res://Scenes/Pause_Menu/::1722143096
+pause_menu.gd::GDScript::-1::1722068388::0::1::::<>CanvasLayer<>::
+pause_menu.tscn::PackedScene::1929131353328789952::1722143096::0::1::::<><>::res://Scenes/Pause_Menu/pause_menu.gd<>uid://b283b7j1hvh8h::::res://Styles/UI Assets/Pause menu/PAUSE PRESET.png
+::res://Styles/::1722139810
+default_theme.tres::Theme::4814934205927915130::1722066064::0::1::::<><>::uid://d0wd21w2s06n2::::res://Styles/UI Assets/Main menu/Button BG shadow.png
+::res://Styles/Shaders/::1722143097
+tree_shake.gdshader::Shader::-1::1722143097::0::1::::<><>::
+vignette.gdshader::Shader::-1::1722143097::0::1::::<><>::
+::res://Styles/UI Assets/::1722138406
+logo.jpg::CompressedTexture2D::5792580352851359114::1722138389::1722138389::1::::<><>::
+logo_circle.png::CompressedTexture2D::2109639493260840362::1721968097::1722138406::1::::<><>::
+::res://Styles/UI Assets/Main menu/::1721968097
+BTN Exit.png::CompressedTexture2D::3453120802163147592::1721968097::1721968097::1::::<><>::
+BTN PLAY.png::CompressedTexture2D::5670079038165569624::1721968097::1721968097::1::::<><>::
+BTN SETTINGS.png::CompressedTexture2D::1296201286749829792::1721968097::1721968097::1::::<><>::
+Button BG shadow.png::CompressedTexture2D::8959631220877789721::1721968097::1721968097::1::::<><>::
+Button BG.png::CompressedTexture2D::3438937057741411931::1721968097::1721968097::1::::<><>::
+::res://Styles/UI Assets/Pause menu/::1721968097
+BG.png::CompressedTexture2D::6133415036070251331::1721968097::1721968097::1::::<><>::
+BTN BACK.png::CompressedTexture2D::8345354847148738051::1721968097::1721968097::1::::<><>::
+BTN MENU.png::CompressedTexture2D::7578306648601022932::1721968097::1721968097::1::::<><>::
+BTN SETTINGS.png::CompressedTexture2D::6337438918368576952::1721968097::1721968097::1::::<><>::
+Line.png::CompressedTexture2D::5844586465006697630::1721968097::1721968097::1::::<><>::
+PAUSE PRESET.png::CompressedTexture2D::4351347485237268253::1721968097::1721968097::1::::<><>::
+Pause.png::CompressedTexture2D::4416866047932574064::1721968097::1721968097::1::::<><>::
+Star.png::CompressedTexture2D::9150458494563527226::1721968097::1721968097::1::::<><>::
