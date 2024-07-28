@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgsc6kh3p0ugn"]
+
+[ext_resource type="Shader" path="res://Styles/Shaders/vignette.gdshader" id="1_q0d0d"]
+[ext_resource type="Script" path="res://Scenes/Loading/loading.gd" id="1_sh7jh"]
+[ext_resource type="Texture2D" uid="uid://cor77mvsa7mgo" path="res://Styles/UI Assets/logo.jpg" id="2_olgs3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1qph"]
+shader = ExtResource("1_q0d0d")
+shader_parameter/projector_power = 0.5
+shader_parameter/vignette_param = 10.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sopby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihwve"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ixys"]
+bg_color = Color(9.14484e-07, 0.441956, 0.227296, 1)
+
+[node name="Loading" type="Control"]
+material = SubResource("ShaderMaterial_p1qph")
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sh7jh")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -609.0
+offset_top = -350.0
+offset_right = 609.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_sopby")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.589096, 0.589096, 0.589096, 0.552941)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -320.0
+offset_right = 320.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_olgs3")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -19.045
+offset_right = 300.0
+offset_bottom = 19.045
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_ihwve")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3ixys")
