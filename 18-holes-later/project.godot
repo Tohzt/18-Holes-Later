@@ -14,8 +14,8 @@ config/name="18-holes-later"
 run/main_scene="res://Scenes/Main_Menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://Scenes/18HL load screen.png"
-config/icon="res://Scenes/logo_circle.png"
+boot_splash/image="res://Scenes/Main_Menu/src/Background.png"
+config/icon="res://Styles/UI Assets/logo_circle.png"
 
 [autoload]
 
