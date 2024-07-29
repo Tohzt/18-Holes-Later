@@ -7,6 +7,7 @@ var Cam : SpringArm3D
 
 @onready var game_disc_index: int = Global.game_disc_index
 @onready var Bag: Array = Global.Bag
+@export var _Gem:Gem
 
 func _ready():
 	_set_hole()

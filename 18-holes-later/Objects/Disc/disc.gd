@@ -1,3 +1,4 @@
+class_name Disc
 extends RigidBody3D
 
 #@onready var disc_name = Global.Scene.Bag[Global.Scene.game_disc_index][0]
