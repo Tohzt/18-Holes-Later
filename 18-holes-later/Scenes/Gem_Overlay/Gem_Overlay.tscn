@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://i30yt8hxuh12"]
+[gd_scene load_steps=9 format=3 uid="uid://i30yt8hxuh12"]
 
 [ext_resource type="Texture2D" uid="uid://b5vivsuksamy" path="res://Scenes/Main_Menu/src/Background.png" id="1_4rvnk"]
 [ext_resource type="Script" path="res://Scenes/Gem_Overlay/Gem_Overlay.gd" id="1_bsbip"]
+[ext_resource type="Script" path="res://Scenes/Gem_Overlay/shard_grid.gd" id="3_eqm58"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f586t"]
 content_margin_left = 8.0
@@ -21,8 +22,7 @@ content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
-bg_color = Color(0.356863, 0.458824, 0.545098, 1)
-draw_center = false
+bg_color = Color(0.795062, 0.105896, 0.38196, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -50,11 +50,12 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lj1w4"]
+
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_bsbip")
 
 [node name="Overlay" type="Control" parent="."]
-z_index = -1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,6 +89,7 @@ offset_top = -0.112
 offset_right = 0.279968
 offset_bottom = -65.1281
 theme_override_styles/panel = SubResource("StyleBoxFlat_f586t")
+metadata/_edit_lock_ = true
 
 [node name="TabContainer" type="TabContainer" parent="Overlay/PanelContainer"]
 visible = false
@@ -142,3 +144,26 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bg0y6")
 text = "Choose"
 alignment = 1
 icon_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.271
+anchor_top = 0.128
+anchor_right = 0.729
+anchor_bottom = 0.889
+offset_left = 262.808
+offset_top = 27.056
+offset_right = -14.808
+offset_bottom = -216.072
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lj1w4")
+
+[node name="ShardGrid" type="GridContainer" parent="Overlay/PanelContainer2"]
+layout_mode = 2
+columns = 4
+script = ExtResource("3_eqm58")
+metadata/_edit_use_anchors_ = true
