@@ -1,7 +1,7 @@
 class_name Gem
-extends Resource
+extends Resource 
 
-@export var icon:Sprite2D 
 @export var name:String
 @export var type:String
 @export var gem_slot:String 
+@export var icon: PackedScene
