@@ -2,49 +2,55 @@
 
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_menu.gd" id="1_c82d8"]
 [ext_resource type="PackedScene" uid="uid://7rlcql4vwvnn" path="res://Scenes/DEBUG/debug.tscn" id="2_pua4g"]
-[ext_resource type="Texture2D" uid="uid://b283b7j1hvh8h" path="res://Styles/UI Assets/Pause menu/PAUSE PRESET.png" id="2_s3ewj"]
+[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="3_6s2iv"]
 
-[node name="Pause_Menu" type="CanvasLayer" groups=["PauseMenu"]]
+[node name="Pause_Menu" type="CanvasLayer" groups=["Pause Menu"]]
 script = ExtResource("1_c82d8")
 
 [node name="DEBUG" parent="." instance=ExtResource("2_pua4g")]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="HeaderBackground" type="TextureRect" parent="."]
 texture_filter = 1
-offset_left = 503.0
-offset_top = 232.0
-offset_right = 649.0
-offset_bottom = 415.0
-scale = Vector2(1.04, 1.32)
-texture = ExtResource("2_s3ewj")
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -181.0
+offset_top = 30.0
+offset_right = 181.0
+offset_bottom = 90.0
 grow_horizontal = 2
-grow_vertical = 2
+scale = Vector2(1, 1.12)
+texture = ExtResource("3_6s2iv")
+expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 100
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.5
+offset_right = 138.5
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 45
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
-[node name="Btn_Resume" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+[node name="Btn_Resume" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Resume Game"
+text = "Resume"
 
-[node name="Btn_Retry" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+[node name="Btn_Retry" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "Retry"
 
-[node name="Btn_Exit" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+[node name="Btn_Exit" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Exit Game"
 
-[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Btn_Resume" to="." method="_on_btn_resume_pressed"]
-[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Btn_Retry" to="." method="_on_btn_retry_pressed"]
-[connection signal="pressed" from="CenterContainer/MarginContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Btn_Resume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Btn_Retry" to="." method="_on_btn_retry_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]

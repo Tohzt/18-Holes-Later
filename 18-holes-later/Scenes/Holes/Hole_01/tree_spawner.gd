@@ -1,7 +1,6 @@
 extends Node3D
 
 const TREE = preload("res://Objects/Trees/tree.tscn")
-@onready var trees = $"../Trees"
 @export_range (1.0, 50.0) var frequency:    float = 5.0
 @export_range (1,10)      var tree_density: int = 5
 
@@ -10,7 +9,7 @@ func _ready():
 		for i in tree_density:
 			var tree = TREE.instantiate()
 			tree.position = _offset()
-			trees.add_child(tree)
+			add_child(tree)
 		rotate_y(deg_to_rad(frequency))
 
 func _offset() -> Vector3:
