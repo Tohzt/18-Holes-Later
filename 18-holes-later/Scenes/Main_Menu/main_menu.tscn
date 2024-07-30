@@ -40,12 +40,14 @@ texture = ExtResource("3_emysa")
 expand_mode = 1
 
 [node name="MenuContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-offset_left = 289.5
-offset_right = 862.5
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -286.5
+offset_right = 286.5
 offset_bottom = 91.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_top = 48
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer"]
@@ -58,14 +60,17 @@ text = "New Game"
 
 [node name="Btn_Continue" type="Button" parent="MenuContainer/HBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "CONTINUE"
 
 [node name="Btn_Load" type="Button" parent="MenuContainer/HBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "LOAD PROFILE"
 
 [node name="Btn_Options" type="Button" parent="MenuContainer/HBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "OPTIONS"
 
 [node name="Btn_Exit" type="Button" parent="MenuContainer/HBoxContainer"]

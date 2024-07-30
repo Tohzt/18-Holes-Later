@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxpgafd4d185u"]
 
-[ext_resource type="Script" path="res://Scenes/Clubhouse/Clubhouse.gd" id="1_1aqk5"]
-[ext_resource type="Texture2D" uid="uid://brgeyidw7tiiq" path="res://Scenes/Clubhouse/src/bg_clubhouse.jpg" id="2_5w7vb"]
-[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="3_c7wgc"]
+[ext_resource type="Script" path="res://Scenes/Clubhouse/clubhouse.gd" id="1_j3mkp"]
+[ext_resource type="Texture2D" uid="uid://brgeyidw7tiiq" path="res://Scenes/Clubhouse/src/bg_clubhouse.jpg" id="2_veqwt"]
+[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="3_xb5db"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_crgry"]
 width = 117
 height = 1
 
 [node name="Clubhouse" type="CanvasLayer"]
-script = ExtResource("1_1aqk5")
+script = ExtResource("1_j3mkp")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 2
@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5w7vb")
+texture = ExtResource("2_veqwt")
 expand_mode = 2
 
 [node name="HeaderBackground" type="TextureRect" parent="."]
@@ -32,7 +32,7 @@ offset_right = 156.5
 offset_bottom = 90.0
 grow_horizontal = 2
 scale = Vector2(1, 1.12)
-texture = ExtResource("3_c7wgc")
+texture = ExtResource("3_xb5db")
 expand_mode = 1
 
 [node name="HeaderContainer" type="MarginContainer" parent="."]

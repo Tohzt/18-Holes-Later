@@ -17,9 +17,9 @@ func save():
 func _get_game_save():
 	var game_save_dict ={
 		"type": "Game",
+		"filename" : parent.get_scene_file_path(),
+		"parent" : parent.get_parent().get_path(),
 		"profile": Global.Profile,
-		"game_disc_index": parent.game_disc_index,
-		"bag": parent.Bag
 	}
 	return game_save_dict
 
@@ -31,6 +31,8 @@ func _get_player_save():
 		"pos_x" : parent.position.x,
 		"pos_y" : parent.position.y,
 		"pos_z" : parent.position.z,
+		"bag_of_discs": parent.bag_of_discs,
+		"game_disc_index": parent.game_disc_index
 		# TODO: Add Player Properties to Save
 	}
 	return disc_save_dict

@@ -1,7 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://diwrpg7or38xp"]
+[gd_scene load_steps=11 format=3 uid="uid://diwrpg7or38xp"]
 
-[ext_resource type="Material" uid="uid://bxa16ekxmk7jf" path="res://Scenes/Holes/Hole_01/hole_01_material.tres" id="1_rxntk"]
+[ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
+[ext_resource type="Material" uid="uid://bd0272h052ogs" path="res://Scenes/Holes/Hole_01/src/hole_01_material.tres" id="1_ehs2f"]
+[ext_resource type="Texture2D" uid="uid://cipu5bushnsn8" path="res://Scenes/Course/src/autumn_forest.jpg" id="1_stsjw"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/tree_spawner.gd" id="2_7svpg"]
+[ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_a0asl"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sftkv"]
+panorama = ExtResource("1_stsjw")
+
+[sub_resource type="Sky" id="Sky_el0dr"]
+sky_material = SubResource("PanoramaSkyMaterial_sftkv")
+
+[sub_resource type="Environment" id="Environment_l0dqr"]
+background_mode = 2
+sky = SubResource("Sky_el0dr")
+glow_enabled = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wh1f7"]
 top_radius = 30.0
@@ -11,31 +25,39 @@ height = 0.5
 height = 0.5
 radius = 30.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_kwpbb"]
-
 [node name="Hole_01" type="Node3D"]
+script = ExtResource("1_33s3e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.651671, -0.661777, 0.370642, 0.311576, 0.679076, 0.664662, -0.691552, -0.317658, 0.648728, 0, 6.33541, 0)
+shadow_enabled = true
+directional_shadow_split_1 = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l0dqr")
 
 [node name="Ground" type="StaticBody3D" parent="." groups=["Solid"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 mesh = SubResource("CylinderMesh_wh1f7")
-surface_material_override/0 = ExtResource("1_rxntk")
+surface_material_override/0 = ExtResource("1_ehs2f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("CylinderShape3D_cbyen")
 
-[node name="Trees_Spawner" type="Node3D" parent="."]
-script = ExtResource("2_7svpg")
-
-[node name="Spawner" type="Node3D" parent="Trees_Spawner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7559, 0, 0)
+[node name="PlayerSpawn" type="Marker3D" parent="."]
 
 [node name="Trees" type="Node3D" parent="."]
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Trees_Spawner" type="Node3D" parent="Trees"]
+script = ExtResource("2_7svpg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.5, 3.48183)
-mesh = SubResource("BoxMesh_kwpbb")
+[node name="Spawner" type="Node3D" parent="Trees/Trees_Spawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7559, 0, 0)
+
+[node name="Discs" type="Node3D" parent="."]
+
+[node name="Basket" parent="." instance=ExtResource("5_a0asl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.05631, 0, 10.2071)
