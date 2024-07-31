@@ -15,5 +15,3 @@ noise = SubResource("FastNoiseLite_nfqqr")
 
 [resource]
 albedo_texture = SubResource("NoiseTexture2D_mjvuw")
-uv1_scale = Vector3(0.665, 0.665, 0.665)
-uv1_offset = Vector3(1.145, 0.16, 0)

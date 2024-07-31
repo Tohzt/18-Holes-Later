@@ -1,5 +1,6 @@
 extends Node
 
+# TODO: Get this from Master
 @export_group("Perspective")
 @export_enum("Top_Down", "Platformer", "Third_Person") var input_type = "Third_Person"
 var input: Perspective
