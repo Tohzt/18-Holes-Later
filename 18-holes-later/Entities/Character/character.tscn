@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
 [ext_resource type="PackedScene" uid="uid://dacoc3muxhem7" path="res://Global/InputControllers/input_controller.tscn" id="3_ld8t0"]
 [ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Global/StateMachine/state_controller.tscn" id="4_lwxmm"]
-[ext_resource type="Script" path="res://Global/StateMachine/States/Character/throw.gd" id="5_0ttjb"]
+[ext_resource type="PackedScene" uid="uid://c5y6r3625xfy1" path="res://Global/StateMachine/States/Character/throw.tscn" id="5_0ow1w"]
 [ext_resource type="Script" path="res://Global/StateMachine/States/Character/walk.gd" id="6_1nwat"]
 [ext_resource type="Script" path="res://Global/StateMachine/States/Character/idle.gd" id="7_lxf01"]
 [ext_resource type="Texture2D" uid="uid://csflfcox4enp3" path="res://Entities/Character/src/Idle/Idle_D.png" id="8_bgfa6"]
@@ -4795,9 +4795,7 @@ is_player = true
 
 [node name="StateController" parent="." instance=ExtResource("4_lwxmm")]
 
-[node name="Throw" type="Node" parent="StateController"]
-script = ExtResource("5_0ttjb")
-state_options = Array[String](["Idle"])
+[node name="Throw" parent="StateController" instance=ExtResource("5_0ow1w")]
 
 [node name="Walk" type="Node" parent="StateController"]
 script = ExtResource("6_1nwat")
@@ -4814,7 +4812,7 @@ shaded = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_k84qm")
-animation = &"Throw_Charge_U"
+animation = &"Throw_Release_U"
 script = ExtResource("17_x75te")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -4822,12 +4820,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 shape = SubResource("CapsuleShape3D_5li15")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.77332, 0.634016, 0, -0.634016, 0.77332, 0, 0.333, 0.382)
+transform = Transform3D(1, 0, 0, 0, 0.77332, 0.634016, 0, -0.634016, 0.77332, -0.349238, 0.849634, 0.667956)
 collision_mask = 7
 spring_length = 2.5
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 0.959854, -0.280499, 0, 0.280499, 0.959854, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.959854, -0.280499, 0, 0.280499, 0.959854, 0, 0.0488151, -0.0595406)
 fov = 54.7
 
 [node name="Hand" type="Node3D" parent="."]
@@ -4840,3 +4838,6 @@ target_position = Vector3(0, -0.825, 0)
 margin = 15.23
 collision_mask = 65535
 collide_with_areas = true
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.37849, 0)
