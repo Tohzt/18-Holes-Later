@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://cps8t8jud0qmb"]
+
+[ext_resource type="Script" path="res://Scenes/Course/course.gd" id="1_wfw1c"]
+[ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_7cdmc"]
+[ext_resource type="Script" path="res://Scenes/Course/SaveController.gd" id="3_u05qi"]
+[ext_resource type="Script" path="res://Scenes/Course/Holes.gd" id="4_u2s0u"]
+[ext_resource type="PackedScene" uid="uid://2qqrnls6qqtk" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="5_dkybb"]
+
+[node name="Course" type="Node3D"]
+script = ExtResource("1_wfw1c")
+
+[node name="Save" parent="." instance=ExtResource("2_7cdmc")]
+is_game = true
+
+[node name="SaveController" type="Node" parent="."]
+script = ExtResource("3_u05qi")
+
+[node name="Holes" type="Node" parent="."]
+script = ExtResource("4_u2s0u")
+
+[node name="Pause_Menu" parent="." instance=ExtResource("5_dkybb")]
