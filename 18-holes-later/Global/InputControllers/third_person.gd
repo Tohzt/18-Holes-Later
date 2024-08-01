@@ -7,6 +7,8 @@ func handle_input(_delta):
 	_handle_throw_input()
 	
 	if Input.is_action_just_pressed("tab"):
+		InputController.input = InputController.TOP_DOWN
+		Global.change_camera_to("Top_Down")
 		# TODO Move Action - Controller shouldn't care about results, just inputs
 		Master.game_disc_index += 1
 		if Master.game_disc_index >= Master.bag_of_discs.size():
@@ -14,8 +16,8 @@ func handle_input(_delta):
 
 func _handle_throw_input():
 	if Input.is_action_just_pressed("right_click"):
-		Master.Camera.rotation.x = -0.1
-		Master.State_Controller.popup_state = "Throw"
+		Master.Spring_Arm.rotation.x = -0.1
+		Master.StateController.popup_state = "Throw"
 
 func _handle_movement_input():
 	if Input.is_action_just_pressed("ui_accept") and Master.is_on_floor():
