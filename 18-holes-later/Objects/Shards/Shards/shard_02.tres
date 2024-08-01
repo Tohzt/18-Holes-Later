@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_ankwo")
-name = "Shard_01"
-activation_type = 0
+name = "Shard_02"
+activation_type = 1
 intensity = 2
 perk = 5
 rarity = 0
