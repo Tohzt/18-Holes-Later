@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://diwrpg7or38xp"]
+
+[ext_resource type="Material" uid="uid://bxa16ekxmk7jf" path="res://Scenes/Holes/Hole_01/hole_01_material.tres" id="1_rxntk"]
+[ext_resource type="Script" path="res://Scenes/Holes/Hole_01/Trees.gd" id="2_532b0"]
+[ext_resource type="PackedScene" uid="uid://btvondrom5r2m" path="res://Objects/Trees/tree.tscn" id="3_2mgvp"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wh1f7"]
+top_radius = 30.0
+height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cbyen"]
+height = 0.5
+radius = 30.0
+
+[node name="Hole_01" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("CylinderMesh_wh1f7")
+surface_material_override/0 = ExtResource("1_rxntk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("CylinderShape3D_cbyen")
+
+[node name="Trees" type="Node3D" parent="."]
+script = ExtResource("2_532b0")
+spawn_treed = true
+tree_density = 3
+
+[node name="Spawner" type="Node3D" parent="Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="Tree" parent="Trees" instance=ExtResource("3_2mgvp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)

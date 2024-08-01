@@ -19,7 +19,7 @@ func add_hole():
 	Holes.add_child(Global.init_current_hole())
 
 func add_player():
-	var spawn_pos = Holes.get_child(-1).Player_Spawn.position
+	var spawn_pos = Holes.get_child(-1).player_spawn.position
 	add_child(Global.init_player(spawn_pos))
 
 func save_game(profile): $SaveController.save_game(profile)

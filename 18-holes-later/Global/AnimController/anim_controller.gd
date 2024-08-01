@@ -13,8 +13,8 @@ func _process(_delta):
 		play(current_anim)
 
 func _update_anim():
-	var anim_base = Master.State_Controller.state_next
-	current_anim = anim_base + Master.State_Controller.state_suffix + "_"
+	var anim_base = Master.StateController.state_next
+	current_anim = anim_base + Master.StateController.state_suffix + "_"
 	
 	#if Master.is_moving:
 	var h_axis = Input.get_axis("move_left", "move_right")

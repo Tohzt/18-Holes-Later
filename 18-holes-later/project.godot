@@ -37,6 +37,10 @@ folder_colors={
 "res://Styles/": "gray"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom="res://Styles/default_theme.tres"
