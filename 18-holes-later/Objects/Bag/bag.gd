@@ -1,8 +1,8 @@
 extends Node
 
-var slots:int =3
+var slots:int = 3
 @export var discs:Array[Disc] = []
-var resource_storage ={
+@export var resource_storage = {
 	"boneDust":200,
 	"charredRemains":200,
 	"titaniumArmor":200,	
@@ -17,9 +17,10 @@ func _process(delta):
 	pass
 
 func add_disc(disc:Disc):
-	if(discs.size() >=slots):
-		print("Bag is Full")
-	discs.append(disc)
+	if(discs.size() <= slots):
+		discs.append(disc)
+		return
+	print("Bag is Full")
 	
 func remove_disc(discNumber):
 	discs.remove_at(discNumber)
