@@ -53,6 +53,7 @@ corner_radius_bottom_left = 8
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lj1w4"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_bsbip")
 
 [node name="Overlay" type="Control" parent="."]
