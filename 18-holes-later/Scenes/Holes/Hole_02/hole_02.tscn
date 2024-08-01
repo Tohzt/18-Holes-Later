@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwqlwpxqmxjt0"]
+
+[ext_resource type="Script" path="res://Scenes/Holes/Hole_02/hole_02.gd" id="1_vhvbv"]
+[ext_resource type="Texture2D" uid="uid://cipu5bushnsn8" path="res://Scenes/Course/src/autumn_forest.jpg" id="2_yh6tt"]
+[ext_resource type="Texture2D" uid="uid://dws1rskgro014" path="res://Scenes/Holes/Hole_02/src/noise_texture.tres" id="3_slal5"]
+[ext_resource type="Texture2D" uid="uid://c436n6j6ofrwn" path="res://Scenes/Holes/Hole_02/src/noise_normal.tres" id="4_xv3u3"]
+[ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_n503o"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6mdeq"]
+panorama = ExtResource("2_yh6tt")
+
+[sub_resource type="Sky" id="Sky_qxe1t"]
+sky_material = SubResource("PanoramaSkyMaterial_6mdeq")
+
+[sub_resource type="Environment" id="Environment_t3w5y"]
+background_mode = 2
+sky = SubResource("Sky_qxe1t")
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_uve3j"]
+size = Vector3(150, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7w5y"]
+albedo_texture = ExtResource("3_slal5")
+normal_enabled = true
+normal_texture = ExtResource("4_xv3u3")
+uv1_scale = Vector3(1.968, 0.465, 0.465)
+uv1_triplanar_sharpness = 0.31864
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nn8um"]
+size = Vector3(150, 1, 50)
+
+[node name="Hole_02" type="Node3D"]
+script = ExtResource("1_vhvbv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.651671, -0.661777, 0.370642, 0.311576, 0.679076, 0.664662, -0.691552, -0.317658, 0.648728, 0, 6.33541, 0)
+shadow_enabled = true
+directional_shadow_split_1 = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t3w5y")
+
+[node name="Ground" type="StaticBody3D" parent="." groups=["Solid"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_uve3j")
+surface_material_override/0 = SubResource("StandardMaterial3D_v7w5y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_nn8um")
+
+[node name="SpawnPlayer" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.919, 0, 0)
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Discs" type="Node3D" parent="."]
+
+[node name="Basket" parent="." instance=ExtResource("5_n503o")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -13.0304, 0, 0)

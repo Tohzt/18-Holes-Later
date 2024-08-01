@@ -19,13 +19,20 @@ config/icon="res://Styles/UI Assets/logo_circle.png"
 
 [autoload]
 
-Global="*res://global.gd"
+Global="*res://Global/global.gd"
+
+[display]
+
+window/size/mode=3
+window/size/initial_position_type=2
 
 [file_customization]
 
 folder_colors={
 "res://Entities/": "red",
+"res://Global/": "purple",
 "res://Objects/": "teal",
+"res://Save/": "gray",
 "res://Scenes/": "green",
 "res://Styles/": "gray"
 }
