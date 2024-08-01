@@ -4,3 +4,6 @@
 
 [resource]
 script = ExtResource("1_ts40p")
+name = "TestGem01"
+type = ""
+gem_slot = ""
