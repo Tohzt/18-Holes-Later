@@ -1,10 +1,9 @@
 [gd_resource type="Resource" script_class="Shard" load_steps=2 format=3 uid="uid://b3r5wco7u78op"]
 
-[ext_resource type="Script" path="res://Objects/Shards/shard.gd" id="1_01ef4"]
+[ext_resource type="Script" path="res://Objects/Shards/Shards/shard.gd" id="1_01ef4"]
 
 [resource]
 script = ExtResource("1_01ef4")
 name = "Shard_01"
 type = 0
 rarity = 0
-master_shard = Array[ExtResource("1_01ef4")]([])

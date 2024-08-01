@@ -17,17 +17,17 @@ func create_gem_grid():
 	for child in await get_children():
 		child.queue_free()
 		
-	const gems = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+	const shards = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 	
-	for gem in gems:
+	for shard in shards:
 		var new_shard:CheckButton = shard_button.instantiate()
-		new_shard.name = "gem " + str(gem)
+		new_shard.name = "shard " + str(shard)
 		var rndm = randi_range(1,9)
 		if(rndm % 3 ==0):
 			new_shard.modulate = Color(0.5,0,1)
 		if(rndm % 2 == 0 ):
 			new_shard.modulate = Color(1,0,0,1)
 			
-		print('adding gem'+ str(gem))
+		print('adding shard'+ str(shard))
 		add_child(new_shard)
 				

@@ -6,4 +6,5 @@
 script = ExtResource("1_ts40p")
 name = "TestGem01"
 type = ""
-gem_slot = ""
+master_shard = Array[Resource("res://Objects/Shards/Shard_Specials/shard_special.gd")]([])
+shard_array = Array[Resource("res://Objects/Shards/Shards/shard.gd")]([])

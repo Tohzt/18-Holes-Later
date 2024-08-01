@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://cps8t8jud0qmb"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_yq8si"]
-[ext_resource type="Texture2D" uid="uid://cipu5bushnsn8" path="res://Scenes/Game/src/autumn_forest.jpg" id="2_0nm5b"]
-[ext_resource type="Script" path="res://Scenes/Game/SaveController.gd" id="2_85vk6"]
+[ext_resource type="Texture2D" uid="uid://cipu5bushnsn8" path="res://Scenes/Course/src/autumn_forest.jpg" id="2_0nm5b"]
+[ext_resource type="Script" path="res://Save/save.gd" id="2_85vk6"]
 [ext_resource type="PackedScene" uid="uid://diwrpg7or38xp" path="res://Scenes/Holes/Hole_01/hole_01.tscn" id="2_l2e0p"]
 [ext_resource type="Resource" uid="uid://b4c32ia0fii4v" path="res://Objects/Gems/Gem.tres" id="2_rfeq2"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_v61p6"]
-[ext_resource type="PackedScene" uid="uid://mgaxgwqsomw8" path="res://Entities/Player/player.tscn" id="4_ybx2f"]
+[ext_resource type="PackedScene" uid="uid://mgaxgwqsomw8" path="res://Entities/Character/character.tscn" id="4_ybx2f"]
 [ext_resource type="PackedScene" uid="uid://2qqrnls6qqtk" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="5_660yf"]
-[ext_resource type="Script" path="res://Scenes/Game/Holes.gd" id="5_phiio"]
+[ext_resource type="Script" path="res://Scenes/Course/Holes.gd" id="5_phiio"]
 [ext_resource type="PackedScene" uid="uid://i30yt8hxuh12" path="res://Scenes/Gem_Overlay/Gem_Overlay.tscn" id="9_ybkll"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rhvo6"]
