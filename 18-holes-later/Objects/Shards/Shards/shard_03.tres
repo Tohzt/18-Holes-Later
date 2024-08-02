@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_f7o1a")
-name = "Shard_01"
+name = "Shard_00"
 activation_type = 0
 intensity = 7
 perk = 2

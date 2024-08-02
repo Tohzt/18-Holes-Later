@@ -11,10 +11,12 @@ activation_type = 0
 intensity = 5
 perk = 0
 rarity = 0
+note = ""
 
 [resource]
 script = ExtResource("1_ts40p")
 name = "TestGem01"
-type = ""
+elemental_type = 4
 master_shard = Array[Resource("res://Objects/Shards/Shard_Specials/shard_special.gd")]([])
 shard_array = Array[ExtResource("2_jjw6t")]([SubResource("Resource_4a38d"), ExtResource("3_0n5em")])
+note = ""

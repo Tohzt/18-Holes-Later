@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Shard" load_steps=2 format=3 uid="uid://bm6q4doysebnr"]
+
+[ext_resource type="Script" path="res://Objects/Shards/Shards/shard.gd" id="1_f4nws"]
+
+[resource]
+script = ExtResource("1_f4nws")
+name = "Shard_09"
+activation_type = 1
+intensity = 3
+perk = 4
+rarity = 2
