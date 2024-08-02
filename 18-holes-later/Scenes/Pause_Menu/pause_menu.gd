@@ -1,12 +1,16 @@
 extends CanvasLayer
 
 func _process(_delta):
-	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		$DEBUG.hide()
-		hide()
-	else:
-		$DEBUG.show()
-		show()
+	#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if Input.is_action_just_pressed("ui_cancel"):
+		if(visible):
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			$DEBUG.hide()
+			hide()
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			$DEBUG.show()
+			show()
 
 func _on_btn_exit_pressed():
 	# WARNING: This could close before save is complete 
@@ -14,6 +18,7 @@ func _on_btn_exit_pressed():
 	get_tree().quit()
 
 func _on_btn_resume_pressed():
+	hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.is_paused = false
 

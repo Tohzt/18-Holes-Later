@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Shard_Special" load_steps=2 format=3 uid="uid://14r711tljuis"]
+
+[ext_resource type="Script" path="res://Objects/Shards/Shard_Specials/shard_special.gd" id="1_e2nca"]
+
+[resource]
+script = ExtResource("1_e2nca")
+activates_on = 2
+intensity = 10
+damage = 1
+elemental = 7
