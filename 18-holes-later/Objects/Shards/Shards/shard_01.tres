@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_01ef4")
-name = "Shard_01"
-type = 0
+name = "Shard_00"
+activation_type = 0
+intensity = 0
+perk = 0
 rarity = 0

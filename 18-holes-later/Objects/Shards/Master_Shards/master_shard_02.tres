@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="master_shard" load_steps=3 format=3 uid="uid://bp4x6nrytr2nt"]
+
+[ext_resource type="Resource" uid="uid://dnnf2t47vo5of" path="res://Objects/Shards/Shard_Specials/shard_special_01.tres" id="1_f0k5g"]
+[ext_resource type="Script" path="res://Objects/Shards/Master_Shards/master_shard.gd" id="2_1r8ui"]
+
+[resource]
+script = ExtResource("2_1r8ui")
+name = ""
+elemntal = 0
+activating_shards = Array[Resource("res://Objects/Shards/Shard_Specials/shard_special.gd")]([ExtResource("1_f0k5g"), ExtResource("1_f0k5g"), null, null])

@@ -7,3 +7,4 @@ enum activation_type {Player,Enemy,Weapon}
 @export var intensity: int
 @export var damage:damage_type
 @export var elemental:element_type
+@export var note:String

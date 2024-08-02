@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="master_shard" load_steps=5 format=3 uid="uid://6k2i6gmaihj6"]
+
+[ext_resource type="Resource" uid="uid://dnnf2t47vo5of" path="res://Objects/Shards/Shard_Specials/shard_special_01.tres" id="1_242ur"]
+[ext_resource type="Script" path="res://Objects/Shards/Shard_Specials/shard_special.gd" id="2_1ejip"]
+[ext_resource type="Script" path="res://Objects/Shards/Master_Shards/master_shard.gd" id="3_4j3yv"]
+
+[sub_resource type="Resource" id="Resource_sk3em"]
+script = ExtResource("2_1ejip")
+activates_on = 0
+intensity = 0
+damage = 0
+elemental = 0
+
+[resource]
+script = ExtResource("3_4j3yv")
+name = ""
+elemntal = 3
+activating_shards = Array[ExtResource("2_1ejip")]([ExtResource("1_242ur"), ExtResource("1_242ur"), SubResource("Resource_sk3em"), null])
