@@ -1,3 +1,4 @@
+class_name Disc
 extends RigidBody3D
 
 var disc_name = ""
