@@ -30,3 +30,5 @@ shape = SubResource("CylinderShape3D_ikkh4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_kl172")
+
+[node name="Attributes" type="Node" parent="."]
