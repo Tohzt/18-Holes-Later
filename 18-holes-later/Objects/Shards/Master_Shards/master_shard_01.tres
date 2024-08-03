@@ -7,4 +7,5 @@
 script = ExtResource("1_v17tj")
 name = ""
 elemntal = 0
-activating_shards = Array[Resource("res://Objects/Shards/Shard_Specials/shard_special.gd")]([ExtResource("1_l1r5g"), ExtResource("1_l1r5g"), null, null])
+activating_shards = Array[Resource("res://Objects/Shards/Shard_Specials/shard_special.gd")]([ExtResource("1_l1r5g"), ExtResource("1_l1r5g"), null])
+note = ""

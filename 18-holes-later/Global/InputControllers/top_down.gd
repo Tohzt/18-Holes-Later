@@ -12,7 +12,8 @@ func handle_input(_delta):
 	
 	if Input.is_action_just_pressed("tab"):
 		Input_Controller.input = Input_Controller.THIRD_PERSON
-		Global.change_camera_to("Third_Person")
+		# TODO: Get camera better
+		Global.Active_Camera = Master.Spring_Arm.get_node("Camera3D")
 
 func _handle_camera_movement():
 	Global.Active_Camera.position.x = Master.position.x
