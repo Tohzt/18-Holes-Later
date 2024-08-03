@@ -8,7 +8,10 @@ func handle_input(_delta):
 	
 	if Input.is_action_just_pressed("tab"):
 		Input_Controller.input = Input_Controller.TOP_DOWN
-		Global.change_camera_to("Top_Down")
+		# TODO: Get camera better
+		print(Global.Current_Hole)
+		Global.Active_Camera = Global.Active_Hole.get_node("Camera3D")
+		
 		# TODO Move Action - Controller shouldn't care about results, just inputs
 		Master.game_disc_index += 1
 		if Master.game_disc_index >= Master.bag_of_discs.size():

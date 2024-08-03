@@ -41,7 +41,7 @@ _data = {
 point_count = 8
 up_vector_enabled = false
 
-[node name="Hole_01" type="Node3D"]
+[node name="Hole_01" type="Node3D" groups=["Hole"]]
 script = ExtResource("1_33s3e")
 
 [node name="Save" parent="." instance=ExtResource("2_yx8v2")]
