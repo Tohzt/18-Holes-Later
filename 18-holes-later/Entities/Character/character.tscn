@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" path="res://Global/StateMachine/States/Character/throw.tscn" id="5_0ow1w"]
 [ext_resource type="PackedScene" path="res://Global/StateMachine/States/Character/walk.tscn" id="6_o7hwu"]
 [ext_resource type="PackedScene" path="res://Global/StateMachine/States/Character/idle.tscn" id="7_1kgre"]
-[ext_resource type="Material" path="res://Objects/Basket/src/basket.tres" id="9_snbie"]
+[ext_resource type="Material" uid="uid://bjtv6uvuy23ap" path="res://Objects/Basket/src/basket.tres" id="9_snbie"]
 [ext_resource type="Script" path="res://Global/AnimController/anim_controller.gd" id="17_x75te"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppjvq"]
