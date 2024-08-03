@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5y6r3625xfy1"]
+
+[ext_resource type="Script" path="res://Global/StateMachine/States/Character/throw.gd" id="1_7k8q5"]
+
+[node name="Throw" type="Node"]
+script = ExtResource("1_7k8q5")
+state_options = Array[String](["Idle"])

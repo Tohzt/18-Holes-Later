@@ -10,9 +10,11 @@ activates_on = 0
 intensity = 0
 damage = 0
 elemental = 0
+note = ""
 
 [resource]
 script = ExtResource("3_1tm56")
 name = ""
 elemntal = 7
 activating_shards = Array[ExtResource("2_hlkvg")]([ExtResource("1_sv638"), ExtResource("1_sv638"), SubResource("Resource_sk3em"), null])
+note = ""

@@ -1,8 +1,13 @@
+class_name InputController
 extends Node
 
+# TODO: Get this from Master
 @export_group("Perspective")
 @export_enum("Top_Down", "Platformer", "Third_Person") var input_type = "Third_Person"
 var input: Perspective
+
+@onready var THIRD_PERSON = $Third_Person
+@onready var TOP_DOWN = $Top_Down
 
 @onready var Master: Entity = $".."
 
@@ -18,6 +23,8 @@ func set_input_type(input_name: String = input_type):
 	for child_input in get_children():
 		if child_input.name == input_name:
 			input = child_input
+			input.init()
+			input_type = input_name
 
 func set_camera_mode(input_name: String = input_type):
 	match input_name:

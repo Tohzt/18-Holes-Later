@@ -8,6 +8,7 @@
 script = ExtResource("1_c82d8")
 
 [node name="DEBUG" parent="." instance=ExtResource("2_pua4g")]
+visible = false
 
 [node name="HeaderBackground" type="TextureRect" parent="."]
 texture_filter = 1
@@ -47,10 +48,15 @@ layout_mode = 2
 disabled = true
 text = "Retry"
 
+[node name="Btn_Save" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
 [node name="Btn_Exit" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Exit Game"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Btn_Resume" to="." method="_on_btn_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Btn_Retry" to="." method="_on_btn_retry_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Btn_Save" to="." method="_on_btn_save_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]

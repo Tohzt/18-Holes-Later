@@ -9,8 +9,12 @@ var Character : CharacterBody3D
 var Character_Cam : SpringArm3D
 
 func _ready():
+	if Global.should_load:
+		load_game(Global.Profile)
+		return
 	add_hole()
 	add_player()
+	Global.change_camera_to("Top_Down")
 
 func _process(_delta):
 	pass
@@ -19,7 +23,7 @@ func add_hole():
 	Holes.add_child(Global.init_current_hole())
 
 func add_player():
-	var spawn_pos = Holes.get_child(-1).Player_Spawn.position
+	var spawn_pos = Holes.get_child(-1).player_spawn.position
 	add_child(Global.init_player(spawn_pos))
 
 func save_game(profile): $SaveController.save_game(profile)
