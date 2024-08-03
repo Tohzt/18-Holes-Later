@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://w1e2pm1t1k53"]
+[gd_scene load_steps=17 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="2_c7sol"]
@@ -40,6 +40,12 @@ _data = {
 }
 point_count = 8
 up_vector_enabled = false
+
+[sub_resource type="PrismMesh" id="PrismMesh_wfar4"]
+size = Vector3(11.395, 2.42, 4.215)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jjbjx"]
+data = PackedVector3Array(0, 1.21, 2.1075, 5.6975, -1.21, 2.1075, -5.6975, -1.21, 2.1075, 0, 1.21, -2.1075, -5.6975, -1.21, -2.1075, 5.6975, -1.21, -2.1075, 0, 1.21, 2.1075, 0, 1.21, -2.1075, 5.6975, -1.21, 2.1075, 0, 1.21, -2.1075, 5.6975, -1.21, -2.1075, 5.6975, -1.21, 2.1075, 0, 1.21, -2.1075, 0, 1.21, 2.1075, -5.6975, -1.21, -2.1075, 0, 1.21, 2.1075, -5.6975, -1.21, 2.1075, -5.6975, -1.21, -2.1075, -5.6975, -1.21, 2.1075, 5.6975, -1.21, 2.1075, -5.6975, -1.21, -2.1075, 5.6975, -1.21, 2.1075, 5.6975, -1.21, -2.1075, -5.6975, -1.21, -2.1075)
 
 [node name="Hole_01" type="Node3D" groups=["Hole"]]
 script = ExtResource("1_33s3e")
@@ -104,7 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.389, -0.0702858, 87.0301
 hole = 5
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["Camera", "Top_Down"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -207.03, 4.57, 14.39)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -200, 6, 30)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -293.23, 0, -22.1357)
@@ -114,3 +120,13 @@ curve = SubResource("Curve3D_4exgy")
 transform = Transform3D(0.976983, 0, 0.213285, 0, 1, 0, -0.213285, 0, 0.976983, -0.201569, 0, -0.0789204)
 loop = false
 script = ExtResource("6_fld4g")
+
+[node name="Ramp" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp"]
+transform = Transform3D(0.963181, 0, 0.268853, 0, 1, 0, -0.268853, 0, 0.963181, -318.907, 0, 100.138)
+mesh = SubResource("PrismMesh_wfar4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp"]
+transform = Transform3D(0.963181, 0, 0.268853, 0, 1, 0, -0.268853, 0, 0.963181, -318.907, 0, 100.138)
+shape = SubResource("ConcavePolygonShape3D_jjbjx")
