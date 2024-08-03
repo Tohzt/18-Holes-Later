@@ -68,12 +68,15 @@ environment = SubResource("Environment_m7au6")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04074, 2.4206, 0.180615)
+visible = false
 light_color = Color(0.935036, 0.902631, 0, 1)
 shadow_enabled = true
 shadow_bias = 1.41
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06548, 2.37243, 0.180615)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09131, 2.37243, 0.176408)
+layers = 9
+shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_j0udb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271178, 0)
@@ -93,6 +96,7 @@ shape = SubResource("BoxShape3D_gr6r8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06215, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Structure/Floor_Second"]
+cast_shadow = 0
 mesh = SubResource("BoxMesh_bxmgg")
 skeleton = NodePath("../..")
 
@@ -140,7 +144,7 @@ mesh = SubResource("BoxMesh_5n8lj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69728, 3.35842, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 4)
+transform = Transform3D(0.851214, 0, 0.524818, 0, 1, 0, -0.524818, 0, 0.851214, 2.58602, 2.5, 4)
 current = true
 size = 5.30057
 

@@ -1,5 +1,8 @@
+class_name Entity_Character
 extends Entity
-@onready var Camera = $SpringArm3D
+
+@onready var Spring_Arm = $SpringArm3D
+@onready var Cam2_Pos = $Cam2Pos
 @onready var Hand = $Hand
 
 var game_disc_index: int = 0
@@ -19,15 +22,16 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if is_throwing: 
-		$SpringArm3D.spring_length = 1.8
-		$SpringArm3D.position.x = -0.4
-		$SpringArm3D.position.y = 0.4
-		return
-	else:
-		$SpringArm3D.position.x = 0
-		$SpringArm3D.spring_length = 2.5
-		$SpringArm3D.position.y = 0.333
+	if Input_Controller.input_type == "Third_Person":
+		if is_throwing: 
+			Spring_Arm.spring_length = 1.8
+			Spring_Arm.position.x = -0.4
+			Spring_Arm.position.y = 0.4
+			return
+		else:
+			Spring_Arm.position.x = 0
+			Spring_Arm.spring_length = 2.5
+			Spring_Arm.position.y = 0.333
 		
 	
 	move_and_slide()
@@ -37,10 +41,10 @@ func _unhandled_input(event):
 		if event is InputEventMouseMotion:
 			var angle_limit_down = 80
 			var angle_limit_up = 20
-			Camera.rotation.x = clampf(Camera.rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))
+			Spring_Arm.rotation.x = clampf(Spring_Arm.rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))
 			
 			#if !is_throwing:
 			#el
 			if State_Controller.state_suffix != "_Charge": 
-				Camera.rotate_x(deg_to_rad(-event.relative.y * Global.MOUSE_SENSITIVITY))
+				Spring_Arm.rotate_x(deg_to_rad(-event.relative.y * Global.MOUSE_SENSITIVITY))
 				rotate_y(deg_to_rad(-event.relative.x * Global.MOUSE_SENSITIVITY))

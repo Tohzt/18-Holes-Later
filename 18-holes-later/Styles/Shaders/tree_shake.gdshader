@@ -6,15 +6,20 @@ uniform float wave_amount : hint_range(0.0, 0.5) = 0.02;
 uniform float wave_speed : hint_range(0.1, 5.0) = 1.0;
 uniform float wave_height_start : hint_range(0.0, 1.0) = 0.5;
 
+varying float random_offset;
+
 void vertex() {
-    // Calculate the wave effect
-    float wave = sin(TIME * wave_speed + UV.y * 10.0) * wave_amount;
+    // Generate a random offset based on the object's position
+    random_offset = fract(sin(dot(MODEL_MATRIX[3].xyz, vec3(12.9898, 78.233, 45.5432))) * 43758.5453);
+    
+    // Calculate the wave effect with random offset
+    float wave = sin((TIME + random_offset * 10.0) * wave_speed + UV.y * 10.0) * wave_amount;
     
     // Calculate how much the vertex should move based on its height
     float height_factor = smoothstep(wave_height_start, 1.0, UV.y);
     
     // Apply the wave only to the x-axis, scaled by height
-    VERTEX.x += wave * (1.0-height_factor);
+    VERTEX.x += wave * (1.0 - height_factor);
     
     // Apply billboard transformation
     MODELVIEW_MATRIX = VIEW_MATRIX * mat4(INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);

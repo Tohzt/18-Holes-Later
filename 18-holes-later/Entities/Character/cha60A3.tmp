@@ -4116,7 +4116,7 @@ height = 0.6
 script = ExtResource("1_6qoy3")
 
 [node name="Save" parent="." instance=ExtResource("2_neyin")]
-is_char = true
+is_player = true
 
 [node name="InputController" parent="." instance=ExtResource("3_ld8t0")]
 

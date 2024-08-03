@@ -35,10 +35,6 @@ Global="*res://Global/global.gd"
 
 window/size/initial_position_type=2
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
-
 [file_customization]
 
 folder_colors={
@@ -50,9 +46,9 @@ folder_colors={
 "res://Styles/": "gray"
 }
 
-[gui]
+[filesystem]
 
-theme/custom="res://Styles/default_theme.tres"
+import/blender/enabled=false
 
 [input]
 
