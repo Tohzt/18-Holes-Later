@@ -4,10 +4,10 @@ extends CharacterBody3D
 @export var SPEED: float = 5.0
 @export var JUMP_FORCE: float = 4.5
 
-@onready var StateController : StateController  = $StateController
-@onready var InputController : Input_Controller = $InputController
-@onready var AnimController  : AnimatedSprite3D = $AnimatedSprite3D
-@onready var CollisionMask   : CollisionShape3D = $CollisionShape3D
+@onready var State_Controller : StateController  = $StateController
+@onready var Input_Controller : InputController  = $InputController
+@onready var Anim_Controller  : AnimatedSprite3D = $AnimatedSprite3D
+@onready var Collision_Mask   : CollisionShape3D = $CollisionShape3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 

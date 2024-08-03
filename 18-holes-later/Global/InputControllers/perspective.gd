@@ -1,7 +1,7 @@
 class_name Perspective
 extends Node
 
-@onready var InputController = get_parent()
+@onready var Input_Controller = get_parent()
 
 func init():
 	print_debug("Init not set..!")

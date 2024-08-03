@@ -22,7 +22,11 @@ func _on_btn_resume_pressed():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.is_paused = false
 
-
 func _on_btn_retry_pressed():
 	Global.Bag.clear()
 	get_tree().change_scene_to_file("res://Scenes/Main_Menu/main_menu.tscn")
+
+
+func _on_btn_save_pressed():
+	print("Savin Progress...")
+	get_parent().save_game(Global.Profile)

@@ -1,5 +1,9 @@
 {
   "hidden_columns": {
+    "res://": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
     "res://Objects/": {
       "resource_local_to_scene": true,
       "resource_name": true
@@ -31,7 +35,9 @@
     "res://Objects/Shards/Shards/",
     "res://Objects/Shards/Gems/",
     "res://Objects/Gems/",
-    "res://Objects/"
+    "res://Objects/",
+    "res://Objects/Bag/",
+    "res://"
   ],
   "table_functions": {
     "filter": [
