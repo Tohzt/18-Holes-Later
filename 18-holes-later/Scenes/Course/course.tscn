@@ -8,7 +8,6 @@
 
 [node name="Course" type="Node3D"]
 script = ExtResource("1_wfw1c")
-profile = "Profile 1"
 
 [node name="SaveController" type="Node" parent="."]
 script = ExtResource("3_u05qi")

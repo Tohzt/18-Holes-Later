@@ -20,6 +20,14 @@
       "resource_local_to_scene": true,
       "resource_name": true
     },
+    "res://Objects/Shards/Master_Shards/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
+    "res://Objects/Shards/Shard_Specials/": {
+      "resource_local_to_scene": true,
+      "resource_name": true
+    },
     "res://Objects/Shards/Shards/": {
       "resource_local_to_scene": true,
       "resource_name": true
@@ -37,7 +45,9 @@
     "res://Objects/Gems/",
     "res://Objects/",
     "res://Objects/Bag/",
-    "res://"
+    "res://",
+    "res://Objects/Shards/Master_Shards/",
+    "res://Objects/Shards/Shard_Specials/"
   ],
   "table_functions": {
     "filter": [

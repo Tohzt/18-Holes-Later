@@ -20,6 +20,7 @@ var Active_Camera: Camera3D
 
 var Scene: String
 var Current_Hole: PackedScene = HOLE_01
+var Active_Hole: Node3D
 var Player: Entity
 var Profile: String = ""
 var should_load: bool = false
@@ -32,6 +33,9 @@ func _ready():
 	pass
 
 func _process(_delta):
+	if !Active_Hole:
+		Active_Hole = get_tree().get_first_node_in_group("Hole")
+		
 	if Input.is_action_just_pressed("ui_cancel"):
 		is_paused = !is_paused
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if is_paused else Input.MOUSE_MODE_CAPTURED
@@ -58,9 +62,8 @@ func go_to_course(next_scene: String, next_hole: PackedScene):
 	Current_Hole  = next_hole
 	go_to_scene(Scene)
 
+# TODO: ... Do something with this
 func change_camera_to(new_perspective: String):
 	for camera: Camera3D in get_tree().get_nodes_in_group("Camera"):
-		camera.current = false
-		if camera.is_in_group(new_perspective):
+		if camera.current:
 			Active_Camera = camera
-			camera.current = true
