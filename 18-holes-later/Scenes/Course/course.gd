@@ -9,8 +9,12 @@ var Character : CharacterBody3D
 var Character_Cam : SpringArm3D
 
 func _ready():
+	if Global.should_load:
+		load_game(Global.Profile)
+		return
 	add_hole()
 	add_player()
+	Global.change_camera_to("Top_Down")
 
 func _process(_delta):
 	pass

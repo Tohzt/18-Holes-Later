@@ -1,31 +1,32 @@
 extends Control
-@onready var options_container = $"OptionsContainer"
-@onready var profile_container = $ProfileContainer
+@onready var Options_Container = $"OptionsContainer"
+@onready var Profile_Container = $ProfileContainer
 
 func _ready():
-	options_container.hide()
-
+	Options_Container.hide()
 
 func _on_btn_new_game_pressed():
 	Global.go_to_scene(Global.SCENE_CLUBHOUSE)
 
 func _on_btn_continue_pressed():
+	# TODO: Default Test Profile 1.. Remove later
 	Global.Profile = "Profile 1"
-	Global.go_to_scene(Global.SCENE_GAME)
+	Global.should_load = true
+	Global.go_to_scene(Global.SCENE_COURSE)
 
 func _on_btn_load_pressed():
-	if profile_container.visible:
-		profile_container.hide()
+	if Profile_Container.visible:
+		Profile_Container.hide()
 	else:
-		options_container.hide()
-		profile_container.show()
+		Options_Container.hide()
+		Profile_Container.show()
 
 func _on_btn_options_pressed():
-	if options_container.visible:
-		options_container.hide()
+	if Options_Container.visible:
+		Options_Container.hide()
 	else:
-		profile_container.hide()
-		options_container.show()
+		Profile_Container.hide()
+		Options_Container.show()
 
 
 func _on_btn_exit_pressed():

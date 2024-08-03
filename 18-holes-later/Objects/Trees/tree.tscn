@@ -11,9 +11,9 @@ height = 11.775
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_go68n"]
 render_priority = 0
 shader = ExtResource("2_ocxdl")
-shader_parameter/wave_amount = 0.244
-shader_parameter/wave_speed = 10.0
-shader_parameter/wave_height_start = 0.535
+shader_parameter/wave_amount = 0.1
+shader_parameter/wave_speed = 1.37
+shader_parameter/wave_height_start = 0.0
 shader_parameter/texture_albedo = ExtResource("3_n635v")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4kmr7"]

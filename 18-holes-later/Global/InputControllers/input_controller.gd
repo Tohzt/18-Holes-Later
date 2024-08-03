@@ -1,4 +1,4 @@
-class_name Input_Controller
+class_name InputController
 extends Node
 
 # TODO: Get this from Master

@@ -11,7 +11,7 @@ func handle_input(_delta):
 	_handle_throw_input()
 	
 	if Input.is_action_just_pressed("tab"):
-		InputController.input = InputController.THIRD_PERSON
+		Input_Controller.input = Input_Controller.THIRD_PERSON
 		Global.change_camera_to("Third_Person")
 
 func _handle_camera_movement():
@@ -20,7 +20,7 @@ func _handle_camera_movement():
 
 func _handle_throw_input():
 	if Input.is_action_just_pressed("right_click"):
-		Master.StateController.popup_state = "Throw"
+		Master.State_Controller.popup_state = "Throw"
 
 func _handle_movement_input():
 	if Input.is_action_just_pressed("ui_accept") and Master.is_on_floor():

@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://w1e2pm1t1k53"]
+[gd_scene load_steps=15 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
-[ext_resource type="Texture2D" uid="uid://cipu5bushnsn8" path="res://Scenes/Course/src/autumn_forest.jpg" id="2_xjw8v"]
+[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="2_c7sol"]
+[ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
+[ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://structures/clubhouse.tscn" id="4_dpl60"]
 [ext_resource type="Texture2D" uid="uid://dbu2tcjit0234" path="res://Scenes/Holes/Hole_01/src/WestForkCourseBIGs.png" id="4_yphp0"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
+[ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6mdeq"]
-panorama = ExtResource("2_xjw8v")
+panorama = ExtResource("2_c7sol")
 
 [sub_resource type="Sky" id="Sky_qxe1t"]
 sky_material = SubResource("PanoramaSkyMaterial_6mdeq")
@@ -16,21 +19,33 @@ background_mode = 2
 sky = SubResource("Sky_qxe1t")
 glow_enabled = true
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_13bc1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bfdb5"]
-albedo_texture = SubResource("CompressedTexture2D_13bc1")
-uv1_scale = Vector3(0.005, 0.005, 0.005)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efdg7"]
+albedo_texture = ExtResource("4_yphp0")
+uv1_scale = Vector3(-0.002, 0, 0.001)
+uv1_offset = Vector3(0.51, 0, -0.495)
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_uve3j"]
-size = Vector3(500, 1, 500)
+material = SubResource("StandardMaterial3D_efdg7")
+size = Vector3(505, 1, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nn8um"]
-size = Vector3(632.052, 1, 1300.73)
+size = Vector3(1000, 1, 505)
+
+[sub_resource type="Curve3D" id="Curve3D_4exgy"]
+bake_interval = 97.72
+_data = {
+"points": PackedVector3Array(4.845, 0, 0, 0, 0, 0, -0.201569, 0, -0.0789204, 0, 0, 0, 0, 0, 0, -5.69696, 0, -25.2514, 0, 0, 0, 0, 0, 0, -53.5602, 0, -24.0105, 0, 0, 0, 0, 0, 0, -93.4461, 0, -7.70157, 0, 0, 0, 0, 0, 0, -100.227, 0, 28.5714, 0, 0, 0, 0, 0, 0, -119.28, 0, 49.5537, 0, 0, 0, 0, 0, 0, -79.8014, 0, 101.08, 0, 0, 0, 0, 0, 0, 33.7479, 0, 47.6575),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+up_vector_enabled = false
 
 [node name="Hole_01" type="Node3D"]
 script = ExtResource("1_33s3e")
+
+[node name="Save" parent="." instance=ExtResource("2_yx8v2")]
+is_course = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.651671, -0.661777, 0.370642, 0.311576, 0.679076, 0.664662, -0.691552, -0.317658, 0.648728, 0, 6.33541, 0)
@@ -42,15 +57,17 @@ environment = SubResource("Environment_t3w5y")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(-2.18557e-07, 5, 2.18557e-07, 0, -2.18557e-07, 5, 5, 2.18557e-07, 9.55343e-15, 0, 0, 0)
+visible = false
 texture_filter = 1
 texture = ExtResource("4_yphp0")
+
+[node name="Clubhouse" parent="." instance=ExtResource("4_dpl60")]
 
 [node name="Ground" type="StaticBody3D" parent="." groups=["Solid"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-visible = false
-material_override = SubResource("StandardMaterial3D_bfdb5")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_uve3j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
@@ -58,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34146, 0, 2.71997)
 shape = SubResource("BoxShape3D_nn8um")
 
 [node name="Player_Spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -206.185, 1.09139e-11, 12.927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -341.687, 1.09139e-11, -18.3688)
 
 [node name="Trees" type="Node3D" parent="."]
 
@@ -67,24 +84,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -206.185, 1.09139e-11, 12.927
 [node name="Baskets" type="Node" parent="."]
 
 [node name="Basket_01" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -234.753, -1.90735e-05, -25.5154)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -362.313, -1.90735e-05, 48.1734)
 hole = 1
 
 [node name="Basket_02" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -227.728, -3.81471e-06, -58.0941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -351.624, -3.81471e-06, 104.96)
 hole = 2
 
 [node name="Basket_03" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.996, -3.43323e-05, -42.6181)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.292, -3.43323e-05, 7.36011)
 hole = 3
 
 [node name="Basket_04" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.363, -1.90735e-05, -45.2779)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.64, -0.095417, 76.9908)
 hole = 4
 
 [node name="Basket_05" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.9032, -3.81471e-06, -1.88556)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.389, -0.0702858, 87.0301)
 hole = 5
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["Camera", "Top_Down"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -207.03, 4.57, 14.39)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -293.23, 0, -22.1357)
+curve = SubResource("Curve3D_4exgy")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.976983, 0, 0.213285, 0, 1, 0, -0.213285, 0, 0.976983, -0.201569, 0, -0.0789204)
+loop = false
+script = ExtResource("6_fld4g")

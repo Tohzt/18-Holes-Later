@@ -9,13 +9,3 @@ enum perks {health,disc_scale,critical_hit,movement_speed,damage_over_time,explo
 @export var perk: perks
 @export var rarity:shard_rarity
 @export var note:String
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

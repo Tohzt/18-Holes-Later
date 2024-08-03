@@ -10,6 +10,7 @@ activates_on = 0
 intensity = 0
 damage = 0
 elemental = 0
+note = ""
 
 [sub_resource type="Resource" id="Resource_3o2ke"]
 script = ExtResource("2_36x2w")
@@ -17,9 +18,11 @@ activates_on = 0
 intensity = 0
 damage = 0
 elemental = 0
+note = ""
 
 [resource]
 script = ExtResource("3_7eof0")
 name = ""
 elemntal = 6
 activating_shards = Array[ExtResource("2_36x2w")]([ExtResource("1_mvyd4"), ExtResource("1_mvyd4"), SubResource("Resource_sk3em"), SubResource("Resource_3o2ke")])
+note = ""
