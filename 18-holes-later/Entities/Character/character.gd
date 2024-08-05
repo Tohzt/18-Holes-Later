@@ -27,9 +27,9 @@ func _physics_process(delta):
 		velocity.x *= RUN_MULTI
 		velocity.y *= RUN_MULTI if is_on_floor() else 1.0
 		velocity.z *= RUN_MULTI
+    
 	move_and_slide()
 
-# TODO: This should't be here
 func _unhandled_input(event):
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:

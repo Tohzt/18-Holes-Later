@@ -20,6 +20,7 @@ func add_disc(disc:Disc):
 	if(discs.size() <= slots):
 		discs.append(disc)
 		return
+	print("Bag is Full")
 	
 func remove_disc(discNumber):
 	discs.remove_at(discNumber)
