@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3 uid="uid://cd0q4chyc5goa"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/nme_zombie.gd" id="1_i48vi"]
+[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_ciuy1"]
+[ext_resource type="PackedScene" uid="uid://dacoc3muxhem7" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="3_65f5b"]
+[ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/idle.tscn" id="3_rlldm"]
+[ext_resource type="PackedScene" uid="uid://bo0thdd3637nk" path="res://Entities/_Controllers/AnimController/anim_controller.tscn" id="4_8ndvh"]
+[ext_resource type="PackedScene" uid="uid://ckbwghocafj2r" path="res://Entities/_Controllers/InputControllers/Enemy/enemy_input.tscn" id="4_36ciy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a01dr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p4oke"]
+noise_type = 3
+frequency = 0.0227
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v3qqv"]
+noise = SubResource("FastNoiseLite_p4oke")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w6bp"]
+albedo_color = Color(1, 0.466667, 0.509804, 1)
+albedo_texture = SubResource("NoiseTexture2D_v3qqv")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i50rf"]
+material = SubResource("StandardMaterial3D_4w6bp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufynw"]
+bg_color = Color(0.358988, 6.70822e-07, 1.20327e-07, 1)
+border_width_bottom = 2
+border_color = Color(0.235661, 1.04233e-06, 5.41471e-07, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_bottom = 2.0
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o25lk"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_045bk"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+collision_layer = 8
+collision_mask = 11
+script = ExtResource("1_i48vi")
+SPEED = 1.5
+RUN_MULTI = 1.0
+
+[node name="StateController" parent="." instance=ExtResource("2_ciuy1")]
+
+[node name="Idle" parent="StateController" instance=ExtResource("3_rlldm")]
+
+[node name="InputController" parent="." instance=ExtResource("3_65f5b")]
+
+[node name="EnemyInput" parent="InputController" instance=ExtResource("4_36ciy")]
+
+[node name="AnimController" parent="." instance=ExtResource("4_8ndvh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_a01dr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_i50rf")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(200, 20)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport"]
+offset_right = 200.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ufynw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_o25lk")
+value = 50.0
+show_percentage = false
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37606, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_045bk")

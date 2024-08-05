@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo0thdd3637nk"]
+
+[ext_resource type="Script" path="res://Entities/_Controllers/AnimController/anim_controller.gd" id="1_ygjgh"]
+
+[node name="AnimController" type="Node"]
+script = ExtResource("1_ygjgh")

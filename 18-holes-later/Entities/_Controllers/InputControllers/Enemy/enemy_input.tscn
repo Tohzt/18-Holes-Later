@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckbwghocafj2r"]
+
+[ext_resource type="Script" path="res://Entities/_Controllers/InputControllers/Enemy/enemy_input.gd" id="1_gf3xu"]
+
+[node name="EnemyInput" type="Node"]
+script = ExtResource("1_gf3xu")

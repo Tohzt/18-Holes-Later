@@ -1,15 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://w1e2pm1t1k53"]
+[gd_scene load_steps=12 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
-[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="2_c7sol"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
+[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="3_lct13"]
 [ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://structures/clubhouse.tscn" id="4_dpl60"]
-[ext_resource type="Texture2D" uid="uid://dbu2tcjit0234" path="res://Scenes/Holes/Hole_01/src/WestForkCourseBIGs.png" id="4_yphp0"]
+[ext_resource type="PackedScene" uid="uid://lhfvu7ak06vk" path="res://Scenes/Holes/Hole_01/west_fork_low_poly_solid.tscn" id="5_dlb5e"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6mdeq"]
-panorama = ExtResource("2_c7sol")
+panorama = ExtResource("3_lct13")
 
 [sub_resource type="Sky" id="Sky_qxe1t"]
 sky_material = SubResource("PanoramaSkyMaterial_6mdeq")
@@ -19,35 +19,15 @@ background_mode = 2
 sky = SubResource("Sky_qxe1t")
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efdg7"]
-albedo_texture = ExtResource("4_yphp0")
-uv1_scale = Vector3(-0.002, 0, 0.001)
-uv1_offset = Vector3(0.51, 0, -0.495)
-uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_uve3j"]
-material = SubResource("StandardMaterial3D_efdg7")
-size = Vector3(505, 1, 1000)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nn8um"]
-size = Vector3(1000, 1, 505)
-
-[sub_resource type="Curve3D" id="Curve3D_4exgy"]
-bake_interval = 97.72
+[sub_resource type="Curve3D" id="Curve3D_livi7"]
 _data = {
-"points": PackedVector3Array(4.845, 0, 0, 0, 0, 0, -0.201569, 0, -0.0789204, 0, 0, 0, 0, 0, 0, -5.69696, 0, -25.2514, 0, 0, 0, 0, 0, 0, -53.5602, 0, -24.0105, 0, 0, 0, 0, 0, 0, -93.4461, 0, -7.70157, 0, 0, 0, 0, 0, 0, -100.227, 0, 28.5714, 0, 0, 0, 0, 0, 0, -119.28, 0, 49.5537, 0, 0, 0, 0, 0, 0, -79.8014, 0, 101.08, 0, 0, 0, 0, 0, 0, 33.7479, 0, 47.6575),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.64145, -38.5392, -0.559944, 0, 0, 0, 0, 0, 0, 53.6414, -38.4326, 0.440056, 0, 0, 0, 0, 0, 0, 104.641, -38.4326, 16.4401, 0, 0, 0, 0, 0, 0, 139.641, -35.5392, 66.4401, 0, 0, 0, 0, 0, 0, 160.641, -34.4326, 89.4401, 0, 0, 0, 0, 0, 0, 127.641, -37.4326, 145.44, 0, 0, 0, 0, 0, 0, 67.6414, -36.4326, 131.44, 0, 0, 0, 0, 0, 0, -28.3586, -35.4326, 75.4401),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 8
-up_vector_enabled = false
-
-[sub_resource type="PrismMesh" id="PrismMesh_wfar4"]
-size = Vector3(11.395, 2.42, 4.215)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jjbjx"]
-data = PackedVector3Array(0, 1.21, 2.1075, 5.6975, -1.21, 2.1075, -5.6975, -1.21, 2.1075, 0, 1.21, -2.1075, -5.6975, -1.21, -2.1075, 5.6975, -1.21, -2.1075, 0, 1.21, 2.1075, 0, 1.21, -2.1075, 5.6975, -1.21, 2.1075, 0, 1.21, -2.1075, 5.6975, -1.21, -2.1075, 5.6975, -1.21, 2.1075, 0, 1.21, -2.1075, 0, 1.21, 2.1075, -5.6975, -1.21, -2.1075, 0, 1.21, 2.1075, -5.6975, -1.21, 2.1075, -5.6975, -1.21, -2.1075, -5.6975, -1.21, 2.1075, 5.6975, -1.21, 2.1075, -5.6975, -1.21, -2.1075, 5.6975, -1.21, 2.1075, 5.6975, -1.21, -2.1075, -5.6975, -1.21, -2.1075)
 
 [node name="Hole_01" type="Node3D" groups=["Hole"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.6537, 0)
 script = ExtResource("1_33s3e")
 
 [node name="Save" parent="." instance=ExtResource("2_yx8v2")]
@@ -61,27 +41,14 @@ directional_shadow_split_1 = 1.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t3w5y")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-2.18557e-07, 5, 2.18557e-07, 0, -2.18557e-07, 5, 5, 2.18557e-07, 9.55343e-15, 0, 0, 0)
-visible = false
-texture_filter = 1
-texture = ExtResource("4_yphp0")
-
-[node name="Clubhouse" parent="." instance=ExtResource("4_dpl60")]
-
-[node name="Ground" type="StaticBody3D" parent="." groups=["Solid"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("BoxMesh_uve3j")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34146, 0, 2.71997)
-shape = SubResource("BoxShape3D_nn8um")
+[node name="WestFork_LowPoly_Solid" parent="." instance=ExtResource("5_dlb5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -72.5848, 0)
 
 [node name="Player_Spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -341.687, 1.09139e-11, -18.3688)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.293, 5.47954, -52.7836)
+
+[node name="Clubhouse" parent="." instance=ExtResource("4_dpl60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.36, -36.6613, -52.5087)
 
 [node name="Trees" type="Node3D" parent="."]
 
@@ -90,43 +57,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -341.687, 1.09139e-11, -18.36
 [node name="Baskets" type="Node" parent="."]
 
 [node name="Basket_01" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -362.313, -1.90735e-05, 48.1734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 376.083, 3.14481, 17.1338)
 hole = 1
 
 [node name="Basket_02" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -351.624, -3.81471e-06, 104.96)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.62, -0.450616, 81.3673)
 hole = 2
 
 [node name="Basket_03" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.292, -3.43323e-05, 7.36011)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.373, 4.85102, 59.8148)
 hole = 3
 
 [node name="Basket_04" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.64, -0.095417, 76.9908)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.598, 2.46683, 50.0044)
 hole = 4
 
 [node name="Basket_05" parent="Baskets" instance=ExtResource("5_ojvid")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.389, -0.0702858, 87.0301)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.544, 3.61746, -27.9846)
 hole = 5
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["Camera", "Top_Down"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -200, 6, 30)
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -293.23, 0, -22.1357)
-curve = SubResource("Curve3D_4exgy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.359, 0.778881, -82.4401)
+curve = SubResource("Curve3D_livi7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.976983, 0, 0.213285, 0, 1, 0, -0.213285, 0, 0.976983, -0.201569, 0, -0.0789204)
+transform = Transform3D(-0.0192269, -0.00204927, -0.999806, 0, 0.999998, -0.00204964, 0.999808, -3.94088e-05, -0.0192269, 1.64145, -38.5392, -0.559944)
 loop = false
 script = ExtResource("6_fld4g")
-
-[node name="Ramp" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp"]
-transform = Transform3D(0.963181, 0, 0.268853, 0, 1, 0, -0.268853, 0, 0.963181, -318.907, 0, 100.138)
-mesh = SubResource("PrismMesh_wfar4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp"]
-transform = Transform3D(0.963181, 0, 0.268853, 0, 1, 0, -0.268853, 0, 0.963181, -318.907, 0, 100.138)
-shape = SubResource("ConcavePolygonShape3D_jjbjx")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkxef55ge30tg"]
 
-[ext_resource type="Material" uid="uid://wruv07rwtd0x" path="res://Objects/Basket/src/basket.tres" id="1_a5res"]
+[ext_resource type="Material" uid="uid://bjtv6uvuy23ap" path="res://Objects/Basket/src/basket.tres" id="1_a5res"]
 [ext_resource type="Script" path="res://Objects/Basket/basket.gd" id="1_uw2wr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tfhqt"]
