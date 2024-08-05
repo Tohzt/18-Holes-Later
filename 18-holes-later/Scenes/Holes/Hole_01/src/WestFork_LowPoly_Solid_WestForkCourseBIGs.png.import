@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bri23jjb0lqih"
-path.s3tc="res://.godot/imported/WestFork_LowPoly_WestForkCourseBIGs.png-42fb46feb9c801d86b735fdfc2914029.s3tc.ctex"
+uid="uid://b53cfioefu1ho"
+path.s3tc="res://.godot/imported/WestFork_LowPoly_Solid_WestForkCourseBIGs.png-7086139edfbc8e7ef9bc6be41f3fdaa7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Scenes/Holes/Hole_01/src/WestFork_LowPoly_WestForkCourseBIGs.png"
-dest_files=["res://.godot/imported/WestFork_LowPoly_WestForkCourseBIGs.png-42fb46feb9c801d86b735fdfc2914029.s3tc.ctex"]
+source_file="res://Scenes/Holes/Hole_01/src/WestFork_LowPoly_Solid_WestForkCourseBIGs.png"
+dest_files=["res://.godot/imported/WestFork_LowPoly_Solid_WestForkCourseBIGs.png-7086139edfbc8e7ef9bc6be41f3fdaa7.s3tc.ctex"]
 
 [params]
 
