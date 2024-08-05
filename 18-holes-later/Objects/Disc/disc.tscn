@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_jsy4y"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ikkh4"]
-height = 0.025
-radius = 0.15
+height = 0.0523893
+radius = 0.162265
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6v2v"]
 albedo_color = Color(0, 0.752941, 1, 1)
@@ -17,8 +17,10 @@ bottom_radius = 0.15
 height = 0.02
 
 [node name="Disc" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 9
 continuous_cd = true
-max_contacts_reported = 1
+max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_wqkoe")
 
