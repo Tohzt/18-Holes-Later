@@ -10,12 +10,9 @@ func monitor_state():
 	pass
 
 func update_state():
-	if Input.is_action_just_pressed("run"):
-		Master.SPEED*=5
-		Master.JUMP_FORCE*=5
-	if Input.is_action_just_released("run"):
-		Master.SPEED/=5
-		Master.JUMP_FORCE/=5
+	Master.is_running = false
+	if Input.is_action_pressed("run"):
+		Master.is_running = true
 		
 	if Master.velocity.length() < 1:
 		exit_state("Idle")

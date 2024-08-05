@@ -2,7 +2,7 @@ class_name Entity_Character
 extends Entity
 
 @onready var Spring_Arm = $SpringArm3D
-@onready var Cam2_Pos = $Cam2Pos
+@onready var Camera = $SpringArm3D/Camera3D
 @onready var Hand = $Hand
 
 var game_disc_index: int = 0
@@ -16,26 +16,20 @@ const MAX_POWER = 20
 var is_throwing = false
 
 func _ready():
+	Global.Player = self
 	super._ready()
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if Input_Controller.input_type == "Third_Person":
-		if is_throwing: 
-			Spring_Arm.spring_length = 1.8
-			Spring_Arm.position.x = -0.4
-			Spring_Arm.position.y = 0.4
-			return
-		else:
-			Spring_Arm.position.x = 0
-			Spring_Arm.spring_length = 2.5
-			Spring_Arm.position.y = 0.333
-		
-	
+	if is_running:
+		velocity.x *= RUN_MULTI
+		velocity.y *= RUN_MULTI if is_on_floor() else 1.0
+		velocity.z *= RUN_MULTI
 	move_and_slide()
 
+# TODO: This should't be here
 func _unhandled_input(event):
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:

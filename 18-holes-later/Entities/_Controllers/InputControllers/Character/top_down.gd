@@ -3,14 +3,14 @@ extends Perspective
 @onready var Master: Entity = get_parent().get_parent()
 
 func init():
-	Master.Spring_Arm.reparent(Master.Cam2_Pos)
+	pass
 
 func handle_input(_delta):
 	_handle_camera_movement()
 	_handle_movement_input()
 	_handle_throw_input()
 	
-	if Input.is_action_just_pressed("tab"):
+	if false and Input.is_action_just_pressed("tab"):
 		Input_Controller.input = Input_Controller.THIRD_PERSON
 		# TODO: Get camera better
 		Global.Active_Camera = Master.Spring_Arm.get_node("Camera3D")

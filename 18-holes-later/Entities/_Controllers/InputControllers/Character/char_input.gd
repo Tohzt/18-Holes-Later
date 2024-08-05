@@ -1,17 +1,15 @@
 extends Perspective
 
-@onready var Master: Entity = get_parent().get_parent()
+@onready var Master: Entity_Character = get_parent().get_parent()
+
+func _init():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func handle_input(_delta):
 	_handle_movement_input()
 	_handle_throw_input()
 	
-	if Input.is_action_just_pressed("tab"):
-		Input_Controller.input = Input_Controller.TOP_DOWN
-		# TODO: Get camera better
-		print(Global.Current_Hole)
-		Global.Active_Camera = Global.Active_Hole.get_node("Camera3D")
-		
+	if false and Input.is_action_just_pressed("tab"):
 		# TODO Move Action - Controller shouldn't care about results, just inputs
 		Master.game_disc_index += 1
 		if Master.game_disc_index >= Master.bag_of_discs.size():
@@ -19,8 +17,13 @@ func handle_input(_delta):
 
 func _handle_throw_input():
 	if Input.is_action_just_pressed("right_click"):
-		Master.Spring_Arm.rotation.x = -0.1
+		Master.Spring_Arm.spring_length = 0
+		Master.Camera.set_fov(50)
 		Master.State_Controller.popup_state = "Throw"
+		
+	if Input.is_action_just_released("right_click"):
+		Master.Camera.set_fov(75)
+		Master.Spring_Arm.spring_length = 0.5
 
 func _handle_movement_input():
 	if Input.is_action_just_pressed("ui_accept") and Master.is_on_floor():

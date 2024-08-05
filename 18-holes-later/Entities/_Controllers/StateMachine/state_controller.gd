@@ -1,7 +1,7 @@
 class_name StateController
 extends Node
 
-@onready var state_current: State = $Idle
+@onready var state_current := $Idle
 var state_next: String = "Idle"
 var state_suffix: String = ""
 var state_options: Array[String]
@@ -23,4 +23,4 @@ func _change_state(next: String):
 			state_current = state
 			state_current.init_state()
 			return
-	print_debug("State Not Set: " + state_next + " : " + next)
+	#print_debug("State Not Set: " + state_next + " : " + next)

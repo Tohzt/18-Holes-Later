@@ -10,6 +10,9 @@ var stats = {
 	"Fade":  0,  # (0-5)  How hard it wants to curve
 	"Resistance": .5  # Rate that disc loses power
 	}
+var dmg = 5
+
+var in_hand = false
 
 @onready var spawn_pos : Vector3 = self.position
 var target_dir : Vector3
@@ -22,6 +25,7 @@ func _ready():
 	apply_central_impulse(power/3 * -target_dir)
 
 func _process(_delta):
+	_detect_impact()
 	_self_cull()
 	
 	power -= stats["Resistance"] if power > 0.0 else 0.0
@@ -43,6 +47,12 @@ func _process(_delta):
 		var collider = collison.get_collider()
 		if collider.is_in_group("Solid"):
 			grounded = true
+
+func _detect_impact():
+	for node in get_colliding_bodies():
+		if node and node.name != "Ground":
+			if node.is_in_group("Enemy"):
+				node.take_damage(dmg)
 
 func _self_cull():
 	if position.y < -100:

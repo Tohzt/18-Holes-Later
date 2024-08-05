@@ -6,7 +6,7 @@ var MOUSE_SENSITIVITY : float = 0.4
 # Saved Scenes
 const SCENE_COURSE    = "res://Scenes/Course/course.tscn"
 const SCENE_LOADING   = "res://Scenes/Loading/loading.tscn"
-const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/Clubhouse.tscn"
+const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/clubhouse.tscn"
 
 # Spawnables
 const HOLE_CIRCLE = preload("res://Scenes/Holes/Hole_Circle/hole_circle.tscn")
@@ -63,7 +63,7 @@ func go_to_course(next_scene: String, next_hole: PackedScene):
 	go_to_scene(Scene)
 
 # TODO: ... Do something with this
-func change_camera_to(new_perspective: String):
+func change_camera_to():
 	for camera: Camera3D in get_tree().get_nodes_in_group("Camera"):
 		if camera.current:
 			Active_Camera = camera

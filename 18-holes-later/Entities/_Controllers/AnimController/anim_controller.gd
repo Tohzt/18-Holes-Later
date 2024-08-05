@@ -1,16 +1,17 @@
-extends AnimatedSprite3D
+class_name AnimController
+extends Node
 
 @onready var Master: Entity = get_parent()
 var current_anim: String = "Idle_D"
 
-func _ready():
-	play(current_anim)
+#func _ready():
+	#play(current_anim)
 
 func _process(_delta):
 	#if !Master.is_throwing: _update_anim()
 	_update_anim()
-	if animation != current_anim:
-		play(current_anim)
+	#if animation != current_anim:
+		#play(current_anim)
 
 func _update_anim():
 	var anim_base = Master.State_Controller.state_next
