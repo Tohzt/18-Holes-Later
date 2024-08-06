@@ -13,9 +13,8 @@ func create_gem_grid():
 		child.queue_free()
 		
 	var shards = []
-	for possible in range(20):
-		var surprise = randi_range(0,resources.size()-1)
-		shards.append(resources[surprise])
+	for possible in range(16):
+		shards.append(resources.pick_random())
 	
 	for shard in shards:
 		var new_shard: Shard_Button = shard_button.instantiate()

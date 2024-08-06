@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://be6l7n0u6kymq"]
+[gd_scene load_steps=8 format=3 uid="uid://be6l7n0u6kymq"]
 
 [ext_resource type="Script" path="res://Scenes/Gem_Overlay/shard_button.gd" id="1_etwog"]
 
@@ -9,6 +9,11 @@ blend_mode = 1
 colors = PackedColorArray(0.4018, 0.82, 0.74333, 0.921569, 0.4018, 0.82, 0.74333, 0.921569)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wjtnu"]
+gradient = SubResource("Gradient_m0nxw")
+width = 25
+height = 25
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_28pjo"]
 gradient = SubResource("Gradient_m0nxw")
 width = 25
 height = 25
@@ -42,6 +47,7 @@ tooltip_text = "Level Up"
 focus_mode = 0
 theme_override_constants/outline_size = 2
 theme_override_icons/checked = SubResource("GradientTexture2D_wjtnu")
+theme_override_icons/checked_disabled = SubResource("GradientTexture2D_28pjo")
 theme_override_icons/unchecked = SubResource("GradientTexture2D_nyahs")
 action_mode = 0
 flat = true
