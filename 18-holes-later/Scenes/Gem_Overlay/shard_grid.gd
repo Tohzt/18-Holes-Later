@@ -45,19 +45,4 @@ func load_resources():
 	else:
 		print("An error occurred when trying to access the path.")
 
-#func create_buttons():
-	#var y_position = 0
-	#for resource in resources:
-		#var button = Button.new()
-		#button.text = resource.get_name()  # Assuming the resource has a `get_name` method or similar
-		#button.rect_min_size = Vector2(200, 40)  # Set size of the button
-		#button.rect_position = Vector2(10, y_position)  # Set position of the button
-		#y_position += 50
-		#
-		## You can store the resource info in the button's metadata or custom data
-		#button.set_meta("resource", resource)
-		#
-		#button.connect("pressed", self, "_on_button_pressed", [resource])
-		#
-		#add_child(button)
 

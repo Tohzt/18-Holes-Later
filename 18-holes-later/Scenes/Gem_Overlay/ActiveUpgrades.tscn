@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dca5tlb2dn1b1"]
+
+[ext_resource type="Script" path="res://Scenes/Gem_Overlay/ActiveUpgrades.gd" id="1_kk6e7"]
+
+[node name="ActiveUpgrades" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VFlowContainer" type="VFlowContainer" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 640.0
+script = ExtResource("1_kk6e7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="VFlowContainer" method="_on_timer_timeout"]

@@ -18,8 +18,12 @@ func _ready():
 				modulate=Color(0.5,-0.5,1)
 
 func _on_pressed():
-	print("you pushed the button",shard.name)
+	if(shard.name):
+		print("you pushed the button",shard.name)
 	print(str(shard.activation_type))
-	
+	print(Global.upgrades)
+	Global.upgrades.append(shard)
+	modulate=Color(1,1,1)
+	print(Global.upgrades)
 			
 	pass # Replace with function body.

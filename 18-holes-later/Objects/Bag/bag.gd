@@ -1,3 +1,4 @@
+class_name Bag
 extends Node
 
 var slots:int = 3

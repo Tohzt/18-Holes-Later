@@ -26,6 +26,7 @@ var Profile: String = ""
 var should_load: bool = false
 
 var bag_of_discs: Array[Array] = []
+var upgrades:Array[Shard]
 var game_disc_index: int = -1
 var is_paused: bool = 	false
 
