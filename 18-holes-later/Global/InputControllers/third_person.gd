@@ -19,7 +19,7 @@ func handle_input(_delta):
 
 func _handle_throw_input():
 	if Input.is_action_just_pressed("right_click"):
-		Master.Spring_Arm.rotation.x = -0.1
+		#Master.Spring_Arm.rotation.x = -0.1
 		Master.State_Controller.popup_state = "Throw"
 
 func _handle_movement_input():

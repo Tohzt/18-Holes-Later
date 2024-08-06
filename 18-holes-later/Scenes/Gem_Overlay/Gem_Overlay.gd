@@ -8,5 +8,3 @@ func _process(_delta):
 		else:
 			hide()
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			pass
-	pass

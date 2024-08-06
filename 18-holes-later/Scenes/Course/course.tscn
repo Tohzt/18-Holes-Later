@@ -19,7 +19,7 @@ script = ExtResource("4_u2s0u")
 [node name="Pause_Menu" parent="." instance=ExtResource("5_dkybb")]
 visible = false
 
-[node name="CanvasLayer" parent="." instance=ExtResource("6_05crr")]
+[node name="GemOverlay" parent="." instance=ExtResource("6_05crr")]
 
 [node name="EnemiesContainer" type="Node" parent="."]
 script = ExtResource("6_gx0c0")
