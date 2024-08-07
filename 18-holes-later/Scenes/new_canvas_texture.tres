@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://cwo5pvygeil88"]
+
+[ext_resource type="Texture2D" uid="uid://civoi6tv3ushq" path="res://Scenes/idleDOWNRIGHT.png" id="1_c6wba"]
+[ext_resource type="Texture2D" uid="uid://cnnvddq03c7ev" path="res://Scenes/idleDOWNRIGHT_n.png" id="2_fys50"]
+
+[resource]
+diffuse_texture = ExtResource("1_c6wba")
+normal_texture = ExtResource("2_fys50")
+specular_shininess = 0.0
+texture_filter = 1

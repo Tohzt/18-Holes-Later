@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 @onready var State_Controller : StateController  = $StateController
 @onready var Input_Controller : InputController  = $InputController
-@onready var Anim_Controller  : AnimatedSprite3D = $AnimatedSprite3D
+@onready var Anim_Controller  : Sprite3D = $Sprite3D
 @onready var Collision_Mask   : CollisionShape3D = $CollisionShape3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

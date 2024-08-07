@@ -45,6 +45,6 @@ func _unhandled_input(event):
 			
 			#if !is_throwing:
 			#el
-			if State_Controller.state_suffix != "_Charge": 
+			if State_Controller.state_suffix != "_Charge":
 				Spring_Arm.rotate_x(deg_to_rad(-event.relative.y * Global.MOUSE_SENSITIVITY))
 				rotate_y(deg_to_rad(-event.relative.x * Global.MOUSE_SENSITIVITY))
