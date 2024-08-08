@@ -10,6 +10,7 @@ var stats = {
 	"Fade":  0,  # (0-5)  How hard it wants to curve
 	"Resistance": .5  # Rate that disc loses power
 	}
+  
 var dmg = 5
 
 var trigger_swarm = true
