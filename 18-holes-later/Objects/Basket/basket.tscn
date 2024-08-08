@@ -32,7 +32,7 @@ inner_radius = 0.4
 outer_radius = 0.429
 rings = 8
 
-[node name="Basket" type="StaticBody3D"]
+[node name="Basket" type="StaticBody3D" groups=["Basket"]]
 transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, 0, 0, 0)
 script = ExtResource("1_uw2wr")
 

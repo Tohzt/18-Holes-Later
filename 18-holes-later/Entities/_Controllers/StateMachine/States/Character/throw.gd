@@ -39,6 +39,14 @@ func update_state():
 			"Fade":  Master.bag_of_discs[Master.game_disc_index][5],  # (0-5)  How hard it wants to curve
 			"Resistance": .5  # Rate that disc loses power
 			}
+		# Set initial position and orientation based on camera
+		disc.global_transform = Master.Camera.global_transform
+		
+		# Apply tilt (rotation around local z-axis)
+		var _tilt = 5
+		var _size = -1
+		disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _size))
+		disc.rotate_object_local(Vector3.RIGHT, Master.Camera.rotation.x)
 		Master.get_parent().add_child(disc)
 
 func exit_state(next_state: String):

@@ -9,10 +9,7 @@ func _process(_delta):
 	$SubViewport/ProgressBar.value = health
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	
-	move_and_slide()
+	super._physics_process(delta)
 
 func _self_cull():
 	if position.y < -100:

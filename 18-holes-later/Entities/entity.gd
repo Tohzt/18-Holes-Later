@@ -1,20 +1,21 @@
 class_name Entity
-extends CharacterBody3D
+extends RigidBody3D
 
 @export var max_health: int = 100
 @export var health: float
 
-@export var SPEED: float = 5.0
-@export var RUN_MULTI: float = 5
+@export var SPEED: float = 1000.0
+@export var SPEED_MULT: float = 5
 @export var JUMP_FORCE: float = 4.5
+var speed_mult: float = 0.0
 
 @onready var State_Controller : StateController  = $StateController
 @onready var Input_Controller : InputController  = $InputController
 @onready var Anim_Controller  : AnimController   = $AnimController
 @onready var Collision_Mask   : CollisionShape3D = $CollisionShape3D
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
+var look_dir: float = 0.0
+var velocity := Vector3.ZERO
 var is_dead    = false
 var is_moving  = false
 var is_running = false
@@ -23,12 +24,19 @@ var state: String = "Idle"
 
 func _ready():
 	health = max_health
-
+	
 func _process(_delta):
-	pass
+	speed_mult = 1
+	if Input.is_action_pressed("run"):
+		speed_mult = SPEED_MULT
 
-func take_damage(dmg_incoming: float = 0, knockback: Vector3 = Vector3.ZERO):
-	velocity += knockback
+func _physics_process(delta):
+	var force = velocity * SPEED * speed_mult * delta
+	constant_force = force
+	rotation.y = look_dir
+
+func take_damage(dmg_incoming: float = 0, _knockback: Vector3 = Vector3.ZERO):
+	#velocity += knockback
 	health -= dmg_incoming
 	if health <= 0:
 		health = 0

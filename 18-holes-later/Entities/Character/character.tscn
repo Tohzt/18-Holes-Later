@@ -231,10 +231,16 @@ height = 0.5
 radius = 0.05
 height = 0.5
 
-[node name="Player" type="CharacterBody3D" groups=["Character"]]
+[node name="Player" type="RigidBody3D" groups=["Character"]]
 collision_layer = 2
 collision_mask = 9
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+linear_damp = 1.0
 script = ExtResource("1_6qoy3")
+health = 100.0
+RUN_MULTI = 5.0
+JUMP_FORCE = 1000.0
 
 [node name="Save" parent="." instance=ExtResource("2_neyin")]
 is_char = true

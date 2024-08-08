@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://w1e2pm1t1k53"]
+[gd_scene load_steps=13 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lhfvu7ak06vk" path="res://Scenes/Holes/Hole_01/west_fork_low_poly_solid.tscn" id="5_dlb5e"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
+[ext_resource type="PackedScene" uid="uid://cd0q4chyc5goa" path="res://Entities/Enemy/enemy.tscn" id="6_qmpsj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6mdeq"]
 panorama = ExtResource("3_lct13")
@@ -54,6 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.36, -36.6613, -52.5087)
 
 [node name="Discs" type="Node3D" parent="."]
 
+[node name="Enemy" parent="." instance=ExtResource("6_qmpsj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 346.468, -35.7523, -12.1245)
+
 [node name="Baskets" type="Node" parent="."]
 
 [node name="Basket_01" parent="Baskets" instance=ExtResource("5_ojvid")]
@@ -84,6 +88,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.359, 0.778881, -82.4401)
 curve = SubResource("Curve3D_livi7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.0192269, -0.00204927, -0.999806, 0, 0.999998, -0.00204964, 0.999808, -3.94088e-05, -0.0192269, 1.64145, -38.5392, -0.559944)
+transform = Transform3D(-0.0192269, -0.00204927, -0.999806, 1.16415e-10, 0.999998, -0.00204964, 0.999808, -3.94089e-05, -0.0192269, 1.64145, -38.5392, -0.559944)
 loop = false
 script = ExtResource("6_fld4g")

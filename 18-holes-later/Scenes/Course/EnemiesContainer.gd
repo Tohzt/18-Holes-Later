@@ -6,11 +6,11 @@ const ENEMY = preload("res://Entities/Enemy/enemy.tscn")
 @export var spawn_distance: float = 10.0
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		spawn_enemies()
+	if Input.is_action_just_pressed("spawn_enemies"):
+		spawn_enemies(Global.Player.position)
 		num_enemies += 1
 
-func spawn_enemies():
+func spawn_enemies(pos):
 	for i in range(num_enemies):
 		var nme = ENEMY.instantiate()
 		
@@ -22,6 +22,6 @@ func spawn_enemies():
 			sin(angle) * randf_range(spawn_distance-2,spawn_distance+2)
 		)
 		
-		nme.position = Global.Player.position + offset
-		nme.position.y = Global.Player.position.y + 3
+		nme.position = pos + offset
+		nme.position.y = pos.y + 2
 		add_child(nme)

@@ -12,6 +12,7 @@ var stats = {
 	}
 var dmg = 5
 
+var trigger_swarm = true
 var in_hand = false
 
 @onready var spawn_pos : Vector3 = self.position
@@ -51,6 +52,9 @@ func _process(_delta):
 func _detect_impact():
 	for node in get_colliding_bodies():
 		if node and node.name != "Ground":
+			if trigger_swarm and node.is_in_group("Basket"):
+				trigger_swarm = false
+				get_tree().get_first_node_in_group("EnemyContainer").spawn_enemies(position)
 			if node.is_in_group("Enemy"):
 				node.take_damage(dmg)
 
