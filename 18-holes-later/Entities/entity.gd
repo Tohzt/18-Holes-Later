@@ -4,9 +4,9 @@ extends RigidBody3D
 @export var max_health: int = 100
 @export var health: float
 
-@export var SPEED: float = 1000.0
+@export var SPEED: float = 5000.0
 @export var SPEED_MULT: float = 5
-@export var JUMP_FORCE: float = 4.5
+@export var JUMP_FORCE: float = 4500
 var speed_mult: float = 0.0
 
 @onready var State_Controller : StateController  = $StateController

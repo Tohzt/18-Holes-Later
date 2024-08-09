@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dehcylf8ob10y"]
+
+[ext_resource type="ArrayMesh" uid="uid://c7v47st1apl7a" path="res://Styles/Effects/thunder_mesh.tres" id="1_igr4y"]
+
+[sub_resource type="Gradient" id="Gradient_hv0j4"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_084aj"]
+gradient = SubResource("Gradient_hv0j4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gix2a"]
+lifetime_randomness = 0.1
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 0, 2)
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_084aj")
+
+[node name="Lightning_Particle" type="GPUParticles3D"]
+emitting = false
+amount = 2
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_gix2a")
+draw_pass_1 = ExtResource("1_igr4y")

@@ -23,7 +23,7 @@ func _handle_throw_input():
 		Master.State_Controller.popup_state = "Throw"
 
 func _handle_movement_input():
-	if Input.is_action_just_pressed("ui_accept") and Master.is_on_floor():
+	if Input.is_action_just_pressed("ui_accept"):
 		Master.velocity.y = Master.JUMP_FORCE
 		
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")

@@ -3,6 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c7v47st1apl7a" path="res://Styles/Effects/thunder_mesh.tres" id="1_7jtfa"]
 
 [node name="ThunderMesh" type="MeshInstance3D"]
+transform = Transform3D(1.72, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("1_7jtfa")
 
 [node name="Node" type="Node" parent="."]

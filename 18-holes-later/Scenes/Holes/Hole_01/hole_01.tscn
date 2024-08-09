@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://w1e2pm1t1k53"]
+[gd_scene load_steps=14 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
 [ext_resource type="PackedScene" uid="uid://cd0q4chyc5goa" path="res://Entities/Enemy/enemy.tscn" id="6_qmpsj"]
+[ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="9_5d10b"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6mdeq"]
 panorama = ExtResource("3_lct13")
@@ -19,6 +20,15 @@ sky_material = SubResource("PanoramaSkyMaterial_6mdeq")
 background_mode = 2
 sky = SubResource("Sky_qxe1t")
 glow_enabled = true
+glow_levels/4 = 1.28
+glow_levels/5 = 1.43
+glow_levels/6 = 1.28
+glow_levels/7 = 0.05
+glow_intensity = 0.45
+glow_strength = 2.0
+glow_blend_mode = 0
+glow_hdr_threshold = 2.87
+glow_hdr_scale = 2.44
 
 [sub_resource type="Curve3D" id="Curve3D_livi7"]
 _data = {
@@ -91,3 +101,6 @@ curve = SubResource("Curve3D_livi7")
 transform = Transform3D(-0.0192269, -0.00204927, -0.999806, 1.16415e-10, 0.999998, -0.00204964, 0.999808, -3.94089e-05, -0.0192269, 1.64145, -38.5392, -0.559944)
 loop = false
 script = ExtResource("6_fld4g")
+
+[node name="Lightning_Particle" parent="." instance=ExtResource("9_5d10b")]
+one_shot = false
