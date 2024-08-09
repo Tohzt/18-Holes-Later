@@ -1,16 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dacoc3muxhem7"]
+[gd_scene load_steps=2 format=3 uid="uid://dacoc3muxhem7"]
 
 [ext_resource type="Script" path="res://Global/InputControllers/input_controller.gd" id="1_y7qos"]
-[ext_resource type="Script" path="res://Global/InputControllers/third_person.gd" id="2_hdr4j"]
-[ext_resource type="Script" path="res://Global/InputControllers/top_down.gd" id="3_antmh"]
 
 [node name="InputController" type="Node"]
 script = ExtResource("1_y7qos")
-
-[node name="Third_Person" type="Node" parent="."]
-script = ExtResource("2_hdr4j")
-
-[node name="Top_Down" type="Node" parent="."]
-script = ExtResource("3_antmh")
-
-[node name="Platformer" type="Node" parent="."]

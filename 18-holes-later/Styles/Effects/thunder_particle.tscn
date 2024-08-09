@@ -1,20 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlj07iowfi0jp"]
+[gd_scene load_steps=3 format=3 uid="uid://dlj07iowfi0jp"]
 
-[ext_resource type="ArrayMesh" uid="uid://c7v47st1apl7a" path="res://Styles/Effects/thunder_mesh.tres" id="1_4gimp"]
+[ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="1_3ylxa"]
 
-[sub_resource type="Gradient" id="Gradient_hv0j4"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_084aj"]
-gradient = SubResource("Gradient_hv0j4")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gix2a"]
-gravity = Vector3(0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_084aj")
+[sub_resource type="Environment" id="Environment_3302i"]
+background_mode = 2
+tonemap_mode = 2
+glow_enabled = true
+glow_levels/6 = 0.11
+glow_intensity = 4.85
+glow_strength = 1.33
+glow_blend_mode = 0
+adjustment_brightness = 2.54
+adjustment_contrast = 5.2
+adjustment_saturation = 4.74
 
 [node name="Node" type="Node"]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-amount = 1
-lifetime = 0.25
-process_material = SubResource("ParticleProcessMaterial_gix2a")
-draw_pass_1 = ExtResource("1_4gimp")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3302i")
+
+[node name="Lightning_Particle" parent="." instance=ExtResource("1_3ylxa")]

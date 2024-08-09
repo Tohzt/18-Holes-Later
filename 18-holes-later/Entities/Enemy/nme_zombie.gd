@@ -1,10 +1,16 @@
 class_name Entity_Zombie
 extends Entity
 
+var prev_health
+
 func _ready():
 	super._ready()
+	prev_health = health
 
 func _process(_delta):
+	if prev_health != health:
+		$Lightning_Particle.emitting = true
+		prev_health = health
 	_self_cull()
 	$SubViewport/ProgressBar.value = health
 

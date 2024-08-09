@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx1lmqsov7dca"]
+
+[ext_resource type="Script" path="res://Global/InputControllers/third_person.gd" id="1_bodic"]
+
+[node name="Third_Person" type="Node"]
+script = ExtResource("1_bodic")

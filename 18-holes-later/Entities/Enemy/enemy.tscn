@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://cd0q4chyc5goa"]
+[gd_scene load_steps=16 format=3 uid="uid://cd0q4chyc5goa"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/nme_zombie.gd" id="1_i48vi"]
-[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_ciuy1"]
-[ext_resource type="PackedScene" uid="uid://dacoc3muxhem7" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="3_65f5b"]
-[ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/idle.tscn" id="3_rlldm"]
+[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Global/StateMachine/state_controller.tscn" id="2_ciuy1"]
+[ext_resource type="PackedScene" uid="uid://dacoc3muxhem7" path="res://Global/InputControllers/input_controller.tscn" id="3_65f5b"]
+[ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Global/StateMachine/States/Character/idle.tscn" id="3_rlldm"]
 [ext_resource type="PackedScene" uid="uid://bo0thdd3637nk" path="res://Entities/_Controllers/AnimController/anim_controller.tscn" id="4_8ndvh"]
 [ext_resource type="PackedScene" uid="uid://ckbwghocafj2r" path="res://Entities/_Controllers/InputControllers/Enemy/enemy_input.tscn" id="4_36ciy"]
+[ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="7_jg1ya"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a01dr"]
 
@@ -86,3 +87,5 @@ show_percentage = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37606, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_045bk")
+
+[node name="Lightning_Particle" parent="." instance=ExtResource("7_jg1ya")]
