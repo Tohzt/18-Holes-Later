@@ -2,6 +2,6 @@
 
 [ext_resource type="Script" path="res://Global/StateMachine/States/Character/walk.gd" id="1_apgw1"]
 
-[node name="Walk" type="Node"]
+[node name="Run" type="Node"]
 script = ExtResource("1_apgw1")
 state_options = Array[String](["Idle", "Throw"])

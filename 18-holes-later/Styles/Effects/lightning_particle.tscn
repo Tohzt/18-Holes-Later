@@ -11,7 +11,7 @@ gradient = SubResource("Gradient_hv0j4")
 lifetime_randomness = 0.1
 particle_flag_rotate_y = true
 emission_shape = 3
-emission_box_extents = Vector3(2, 0, 2)
+emission_box_extents = Vector3(1, 0, 1)
 angle_min = -180.0
 angle_max = 180.0
 gravity = Vector3(0, 0, 0)
@@ -20,7 +20,7 @@ color_ramp = SubResource("GradientTexture1D_084aj")
 
 [node name="Lightning_Particle" type="GPUParticles3D"]
 emitting = false
-amount = 2
+amount = 33
 lifetime = 0.25
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_gix2a")

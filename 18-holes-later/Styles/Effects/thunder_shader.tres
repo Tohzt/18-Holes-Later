@@ -1,10 +1,10 @@
 [gd_resource type="VisualShader" load_steps=12 format=3 uid="uid://bcsqhdd2hjalq"]
 
-[ext_resource type="Texture2D" uid="uid://b82uavs2swuff" path="res://Styles/Effects/thunder_texture.png" id="1_ku6i0"]
+[ext_resource type="Texture2D" uid="uid://b82uavs2swuff" path="res://Styles/Effects/thunder_texture.png" id="1_toven"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_2a8lu"]
 expanded_output_ports = [0]
-texture = ExtResource("1_ku6i0")
+texture = ExtResource("1_toven")
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_6vgx1"]
 
@@ -101,6 +101,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-323.882, 62.9005)
 modes/cull = 2
 flags/unshaded = true
 nodes/fragment/0/position = Vector2(840, 60)

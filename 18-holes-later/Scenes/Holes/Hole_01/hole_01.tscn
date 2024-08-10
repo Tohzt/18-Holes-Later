@@ -1,17 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://w1e2pm1t1k53"]
+[gd_scene load_steps=13 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
-[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="3_lct13"]
+[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="3_vqgkm"]
 [ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://structures/clubhouse.tscn" id="4_dpl60"]
 [ext_resource type="PackedScene" uid="uid://lhfvu7ak06vk" path="res://Scenes/Holes/Hole_01/west_fork_low_poly_solid.tscn" id="5_dlb5e"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
-[ext_resource type="PackedScene" uid="uid://cd0q4chyc5goa" path="res://Entities/Enemy/enemy.tscn" id="6_qmpsj"]
 [ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="9_5d10b"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6mdeq"]
-panorama = ExtResource("3_lct13")
+panorama = ExtResource("3_vqgkm")
 
 [sub_resource type="Sky" id="Sky_qxe1t"]
 sky_material = SubResource("PanoramaSkyMaterial_6mdeq")
@@ -19,7 +18,6 @@ sky_material = SubResource("PanoramaSkyMaterial_6mdeq")
 [sub_resource type="Environment" id="Environment_t3w5y"]
 background_mode = 2
 sky = SubResource("Sky_qxe1t")
-glow_enabled = true
 glow_levels/4 = 1.28
 glow_levels/5 = 1.43
 glow_levels/6 = 1.28
@@ -64,9 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.36, -36.6613, -52.5087)
 [node name="Trees" type="Node3D" parent="."]
 
 [node name="Discs" type="Node3D" parent="."]
-
-[node name="Enemy" parent="." instance=ExtResource("6_qmpsj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 346.468, -35.7523, -12.1245)
 
 [node name="Baskets" type="Node" parent="."]
 

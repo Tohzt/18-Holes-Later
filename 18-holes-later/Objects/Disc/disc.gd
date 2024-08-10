@@ -24,9 +24,21 @@ var grounded = false
 var handedness = 1
 
 func _ready():
+	pass
+
+func launch():
+	rotation = Vector3.ZERO
+	angular_velocity = Vector3.ZERO
+	linear_velocity = Vector3.ZERO
+	reparent(get_parent().get_parent().get_parent())
+	in_hand = false
 	apply_central_impulse(power/3 * -target_dir)
 
 func _process(_delta):
+	if in_hand:
+		position = Global.Player.position
+		position.y = Global.Player.position.y + 1
+		
 	_detect_impact()
 	_self_cull()
 	
@@ -58,7 +70,14 @@ func _detect_impact():
 				get_tree().get_first_node_in_group("EnemyContainer").spawn_enemies(position)
 			if node.is_in_group("Enemy"):
 				node.take_damage(dmg)
+			if node.is_in_group("Character"):
+				pick_up(node.Bag)
+
+func pick_up(node: Node):
+	in_hand = true
+	reparent(node)
 
 func _self_cull():
 	if position.y < -100:
-		queue_free()
+		pick_up(Global.Player.Bag)
+		#queue_free()

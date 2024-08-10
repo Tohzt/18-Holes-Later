@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Entities/_Controllers/AnimController/anim_controller.gd" id="1_ygjgh"]
 
-[node name="AnimController" type="Node"]
+[node name="AnimController_DEP" type="Node"]
 script = ExtResource("1_ygjgh")
