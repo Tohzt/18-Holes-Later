@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://byayipvtgwyls"
+path.bptc="res://.godot/imported/RunDOWN_n.png-2b5d0583ccfb0cdd5b9dec3e08e45647.bptc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://Entities/Character/Layla/run/RunDOWN_n.png"
+dest_files=["res://.godot/imported/RunDOWN_n.png-2b5d0583ccfb0cdd5b9dec3e08e45647.bptc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=true
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Entities/Character/Layla/run/RunDOWN_n.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

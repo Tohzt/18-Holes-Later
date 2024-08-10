@@ -1,6 +1,5 @@
-extends Perspective
+extends InputController
 
-@onready var Master: Entity_Zombie = get_parent().get_parent()
 @onready var Target: Entity_Character
 
 func init():

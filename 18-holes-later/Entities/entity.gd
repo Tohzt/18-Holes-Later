@@ -5,13 +5,13 @@ extends RigidBody3D
 @export var health: float
 
 @export var SPEED: float = 5000.0
-@export var SPEED_MULT: float = 5
+@export var SPEED_MULT: float = 2
 @export var JUMP_FORCE: float = 4500
 var speed_mult: float = 0.0
 
+@export var Input_Controller : InputController
+@export var Anim_Controller  : AnimController  
 @onready var State_Controller : StateController  = $StateController
-@onready var Input_Controller : InputController  = $InputController
-@onready var Anim_Controller  : AnimController   = $AnimController
 @onready var Collision_Mask   : CollisionShape3D = $CollisionShape3D
 
 var look_dir: float = 0.0

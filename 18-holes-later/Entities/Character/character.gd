@@ -4,6 +4,7 @@ extends Entity
 @onready var Spring_Arm = $SpringArm3D
 @onready var Camera = $SpringArm3D/Camera3D
 @onready var Hand = $Hand
+@onready var Bag = $Bag
 
 var game_disc_index: int = 0
 var bag_of_discs: Array = [

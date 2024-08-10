@@ -1,6 +1,4 @@
-extends Perspective
-
-@onready var Master: Entity_Character = get_parent().get_parent()
+extends InputController
 
 func _init():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

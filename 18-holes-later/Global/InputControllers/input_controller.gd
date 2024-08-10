@@ -1,17 +1,17 @@
-class_name InputController
+#class_name InputController
 extends Node
-
-@onready var Master: Entity = $".."
-var input: Perspective
-
-
-func _ready():
-	input = get_child(0)
-	#set_input_type()
-	#set_camera_mode()
-
-func _process(delta):
-	if input: input.handle_input(delta)
+#
+#@onready var Master: Entity = $".."
+#var input: Perspective
+#
+#
+#func _ready():
+	#input = get_child(0)
+	##set_input_type()
+	##set_camera_mode()
+#
+#func _process(delta):
+	#if input: input.handle_input(delta)
 	#else: set_input_type()
 
 #func set_input_type(input_name: String = input_type):
