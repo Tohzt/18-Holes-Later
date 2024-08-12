@@ -1,0 +1,72 @@
+[gd_scene load_steps=14 format=3 uid="uid://mgaxgwqsomw8"]
+
+[ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_6qoy3"]
+[ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
+[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="4_lwxmm"]
+[ext_resource type="PackedScene" uid="uid://c5y6r3625xfy1" path="res://Entities/_Controllers/StateMachine/States/Character/throw.tscn" id="5_0ow1w"]
+[ext_resource type="PackedScene" uid="uid://ialtanst8bq2" path="res://Entities/_Controllers/InputControllers/Character/character_input.tscn" id="5_wcdtg"]
+[ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/run.tscn" id="6_o7hwu"]
+[ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/idle.tscn" id="7_1kgre"]
+[ext_resource type="Material" uid="uid://bjtv6uvuy23ap" path="res://Objects/Basket/src/basket.tres" id="9_snbie"]
+[ext_resource type="PackedScene" uid="uid://bsncpkagtp2p7" path="res://melee.tscn" id="11_1y1mk"]
+[ext_resource type="Script" path="res://Entities/Character/Bag.gd" id="11_li4e1"]
+[ext_resource type="PackedScene" uid="uid://drjyl8ivn0ssi" path="res://Entities/Character/Layla/layla.tscn" id="12_rs5qh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5li15"]
+radius = 0.2
+height = 0.6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_etj41"]
+material = ExtResource("9_snbie")
+radius = 0.2
+height = 0.6
+
+[node name="Character" type="RigidBody3D" node_paths=PackedStringArray("Input_Controller", "Anim_Controller") groups=["Character"]]
+collision_layer = 2
+collision_mask = 9
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+linear_damp = 1.0
+script = ExtResource("1_6qoy3")
+Input_Controller = NodePath("CharacterInput")
+Anim_Controller = NodePath("Layla")
+
+[node name="Save" parent="." instance=ExtResource("2_neyin")]
+is_char = true
+
+[node name="CharacterInput" parent="." instance=ExtResource("5_wcdtg")]
+
+[node name="StateController" parent="." instance=ExtResource("4_lwxmm")]
+
+[node name="Throw" parent="StateController" instance=ExtResource("5_0ow1w")]
+
+[node name="Run" parent="StateController" instance=ExtResource("6_o7hwu")]
+
+[node name="Idle" parent="StateController" instance=ExtResource("7_1kgre")]
+
+[node name="Layla" parent="." instance=ExtResource("12_rs5qh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+visible = false
+shape = SubResource("CapsuleShape3D_5li15")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_etj41")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.935079, 0.354439, 0, -0.354439, 0.935079, -0.222667, 0.739183, 0.95662)
+collision_mask = 7
+spring_length = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" groups=["Camera", "Third_Person"]]
+transform = Transform3D(1, 0, 0, 0, 0.923579, -0.383409, 0, 0.383409, 0.923579, 0, 0, 0)
+current = true
+
+[node name="Hand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.397197, 0.2, -0.236908)
+
+[node name="Melee" parent="." instance=ExtResource("11_1y1mk")]
+
+[node name="Bag" type="Node" parent="."]
+script = ExtResource("11_li4e1")

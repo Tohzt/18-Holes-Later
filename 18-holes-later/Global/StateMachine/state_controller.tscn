@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp50a2ukg1fxu"]
-
-[ext_resource type="Script" path="res://Global/StateMachine/state_controller.gd" id="1_1eku5"]
-
-[node name="StateController" type="Node"]
-script = ExtResource("1_1eku5")

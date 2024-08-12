@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://2qqrnls6qqtk"]
 
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_menu.gd" id="1_c82d8"]
-[ext_resource type="PackedScene" uid="uid://7rlcql4vwvnn" path="res://Scenes/DEBUG/debug.tscn" id="2_pua4g"]
+[ext_resource type="PackedScene" uid="uid://7rlcql4vwvnn" path="res://Scenes/Holes/TESTING/debug.tscn" id="2_v2xid"]
 
 [node name="Pause_Menu" type="CanvasLayer" groups=["Pause Menu"]]
 script = ExtResource("1_c82d8")
 
-[node name="DEBUG" parent="." instance=ExtResource("2_pua4g")]
+[node name="DEBUG" parent="." instance=ExtResource("2_v2xid")]
 visible = false
 
 [node name="HeaderBackground" type="TextureRect" parent="."]
@@ -43,8 +43,7 @@ text = "Resume"
 
 [node name="Btn_Retry" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-disabled = true
-text = "Retry"
+text = "Reset"
 
 [node name="Btn_Save" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

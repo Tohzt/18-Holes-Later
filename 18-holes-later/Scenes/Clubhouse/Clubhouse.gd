@@ -37,22 +37,24 @@ func _select_driver_pressed():
 func _on_btn_select_disc_pressed():
 	if disc_selection_container.visible:
 		disc_selection_container.hide()
+		course_selection_container.show()
 	else:
 		disc_selection_container.show()
+		course_selection_container.hide()
 
 
 func _on_btn_select_course_pressed():
 	if course_selection_container.visible:
 		course_selection_container.hide()
+		disc_selection_container.show()
 	else:
 		course_selection_container.show()
+		disc_selection_container.hide()
 
 
 func _on_btn_hole_01_pressed():
-	var disc_01 = ["Cold Stone", "Putter", 2, 2, -1, 0]
-	var disc_02 = ["Midrock", "Hybrid", 5, 4, 0, 3]
-	var disc_03 = ["Innova Boss", "Driver", 13, 5, -1, 3]
-	
-	Global.bag_of_discs = [disc_01, disc_02, disc_03]
-	Global.game_disc_index = selected_index
-	Global.go_to_course(Global.SCENE_COURSE, Global.HOLE_01)
+	Global.go_to_course(Global.SCENE_COURSE, Global.HOLE_01, "Hole_01")
+
+
+func _on_btn_testing_pressed():
+	Global.go_to_course(Global.SCENE_COURSE, Global.TESTING_ROOM, "Testing_Room")

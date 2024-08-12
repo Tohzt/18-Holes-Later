@@ -1,13 +1,13 @@
 # TODO: SOMETHING WITH THIS
 extends Node
 
-const HOLE_01 = preload("res://Scenes/Holes/Hole_01/hole_01.tscn")
-
 func build_hole(hole_name):
 	var hole
 	match hole_name:
+		"Testing_Room":
+			hole = Global.TESTING_ROOM.instantiate()
 		"Hole_01": 
-			hole = HOLE_01.instantiate()
+			hole = Global.HOLE_01.instantiate()
 	
 	if hole: return hole
 	
