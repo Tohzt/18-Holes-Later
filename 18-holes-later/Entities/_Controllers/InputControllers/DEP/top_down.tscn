@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5y7wvg0mnqh7"]
-
-[ext_resource type="Script" path="res://Global/InputControllers/top_down.gd" id="1_oa22n"]
-
-[node name="Top_Down" type="Node"]
-script = ExtResource("1_oa22n")

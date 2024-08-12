@@ -20,9 +20,15 @@ func _ready():
 	Global.Player = self
 	super._ready()
 
-# TODO: This should't be here
-func _physics_process(delta):
-	super._physics_process(delta)
+func _process(delta):
+	super._process(delta)
+	
+	_collect_discs()
+
+func _collect_discs():
+	if Input.is_action_just_pressed("collect"):
+		for disc in get_tree().get_nodes_in_group("Disc"):
+			disc.pick_up(Bag)
 
 func _unhandled_input(event):
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:

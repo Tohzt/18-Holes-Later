@@ -1,4 +1,4 @@
-class_name State
+class_name StateClass
 extends Node
 
 @onready var State_Controller: StateController = get_parent()

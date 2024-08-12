@@ -1,10 +1,7 @@
-[gd_resource type="VisualShader" load_steps=11 format=3 uid="uid://c7jyjy4wmm8ck"]
-
-[ext_resource type="Texture2D" uid="uid://oqh2aio43msb" path="res://Styles/Effects/expansive_wave_texture.png" id="1_famwb"]
+[gd_resource type="VisualShader" load_steps=10 format=3 uid="uid://c7jyjy4wmm8ck"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_dhihl"]
 expanded_output_ports = [0]
-texture = ExtResource("1_famwb")
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_flvdo"]
 
@@ -85,7 +82,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-342.572, 180.158)
 flags/unshaded = true
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_dhihl")
 nodes/fragment/2/position = Vector2(-79, 264)

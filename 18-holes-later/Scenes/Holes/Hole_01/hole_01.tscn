@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://w1e2pm1t1k53"]
+[gd_scene load_steps=14 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://structures/clubhouse.tscn" id="4_dpl60"]
 [ext_resource type="PackedScene" uid="uid://lhfvu7ak06vk" path="res://Scenes/Holes/Hole_01/west_fork_low_poly_solid.tscn" id="5_dlb5e"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
+[ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="5_qt2g5"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
 [ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="9_5d10b"]
 
@@ -51,13 +52,12 @@ directional_shadow_split_1 = 1.0
 environment = SubResource("Environment_t3w5y")
 
 [node name="WestFork_LowPoly_Solid" parent="." instance=ExtResource("5_dlb5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -72.5848, 0)
 
-[node name="Player_Spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.293, 5.47954, -52.7836)
+[node name="Player_Spawn" parent="." instance=ExtResource("5_qt2g5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.061, 65.0419, -52.307)
 
 [node name="Clubhouse" parent="." instance=ExtResource("4_dpl60")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.36, -36.6613, -52.5087)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.36, 9.17747, -52.5087)
 
 [node name="Trees" type="Node3D" parent="."]
 
@@ -89,7 +89,7 @@ hole = 5
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -200, 6, 30)
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.359, 0.778881, -82.4401)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.359, 46.0412, -82.4401)
 curve = SubResource("Curve3D_livi7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
