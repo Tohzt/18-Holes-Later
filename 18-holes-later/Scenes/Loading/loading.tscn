@@ -8,12 +8,12 @@ shader = ExtResource("1_q0d0d")
 shader_parameter/projector_power = 0.5
 shader_parameter/vignette_param = 10.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sopby"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihwve"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ixys"]
 bg_color = Color(9.14484e-07, 0.441956, 0.227296, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sopby"]
 
 [node name="Loading" type="Control"]
 material = SubResource("ShaderMaterial_p1qph")
@@ -26,22 +26,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sh7jh")
-
-[node name="Background_Black" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -609.0
-offset_top = -350.0
-offset_right = 609.0
-offset_bottom = 350.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_sopby")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 1
@@ -59,3 +43,14 @@ grow_vertical = 2
 pivot_offset = Vector2(300, 0)
 theme_override_styles/background = SubResource("StyleBoxFlat_ihwve")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3ixys")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background_Black" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_sopby")

@@ -23,8 +23,8 @@ func _on_btn_resume_pressed():
 	Global.is_paused = false
 
 func _on_btn_retry_pressed():
-	Global.Bag.clear()
-	get_tree().change_scene_to_file("res://Scenes/Main_Menu/main_menu.tscn")
+	Global.go_to_scene(Global.SCENE_MAIN)
+	#get_tree().change_scene_to_file("res://Scenes/Main_Menu/main_menu.tscn")
 
 
 func _on_btn_save_pressed():

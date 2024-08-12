@@ -1,7 +1,8 @@
 class_name AnimController
 extends Sprite3D
 
-@onready var Master: Entity = get_parent()
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var Master: Entity_Character = get_parent()
 var current_anim: String = "Idle_D"
 
 func _ready():
@@ -9,11 +10,11 @@ func _ready():
 
 func _process(_delta):
 	#if !Master.is_throwing: _update_anim()
-	_update_anim()
+	#print("Cur Anim/State: ", animation_player.current_animation, Master.State_Controller.state_next)
+	if animation_player.current_animation != Master.State_Controller.state_next:
+		_update_anim()
 
 func _update_anim():
-	if Master.State_Controller.state_suffix == "_Charge": 
-		$AnimationPlayer.play("Throw")
 	
 	var anim_base = Master.State_Controller.state_next
 	current_anim = anim_base + Master.State_Controller.state_suffix + "_"

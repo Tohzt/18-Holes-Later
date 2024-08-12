@@ -1,10 +1,7 @@
-[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://cbu8gm2ks4t1h"]
-
-[ext_resource type="Texture2D" uid="uid://dsv6j4ckdun7m" path="res://Styles/Effects/floor_mark_texture.png" id="1_j13so"]
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://cbu8gm2ks4t1h"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ta73n"]
 expanded_output_ports = [0]
-texture = ExtResource("1_j13so")
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_mdp5o"]
 expanded_output_ports = [0]
@@ -52,7 +49,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-440.767, 152.661)
 flags/unshaded = true
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ta73n")
 nodes/fragment/2/position = Vector2(-260, 120)

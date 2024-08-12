@@ -3,9 +3,9 @@ extends Node
 var disc_limit = 1
 var game_disc_index: int = 0
 var bag_of_discs: Array = [
-	["Starter", "Driver", 2,2,-2,2],
-	["Starter", "Hybrid", 1,1,-1,1],
-	["Starter", "Putter", 0,0, 0,0]]
+	["Cold Stone","Putter",2,2,-1,0],
+	["Midrock","Hybrid",5,4,0,3],
+	["Innova Boss","Driver",13,5,-1,3]]
 var discs: Array[RigidBody3D]
 
 func _ready():

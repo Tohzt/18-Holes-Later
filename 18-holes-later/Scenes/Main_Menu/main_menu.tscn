@@ -64,6 +64,7 @@ text = "CONTINUE"
 
 [node name="Btn_Load" type="Button" parent="MenuContainer/HBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "LOAD PROFILE"
 
 [node name="Btn_Options" type="Button" parent="MenuContainer/HBoxContainer"]

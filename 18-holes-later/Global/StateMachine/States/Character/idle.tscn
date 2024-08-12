@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwrgqx177vt4t"]
-
-[ext_resource type="Script" path="res://Global/StateMachine/States/Character/idle.gd" id="1_seppc"]
-
-[node name="Idle" type="Node"]
-script = ExtResource("1_seppc")
-state_options = Array[String](["Walk", "Throw"])

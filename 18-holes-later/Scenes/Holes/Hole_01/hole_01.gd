@@ -1,6 +1,5 @@
 extends Node3D
 
-@onready var player_spawn = $Player_Spawn
 @onready var trees = $Trees
 @onready var discs = $Discs
 

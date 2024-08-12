@@ -52,6 +52,7 @@ theme_override_constants/separation = 10
 
 [node name="Btn_Select_Disc" type="Button" parent="HeaderContainer/HBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "DISC
 "
 
@@ -255,18 +256,20 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -33.0
-offset_top = -29.0
+offset_top = -96.0
 offset_right = 33.0
-offset_bottom = 2.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 130
+size_flags_horizontal = 6
+size_flags_vertical = 4
 alignment = 1
 
-[node name="Btn_Hole_01" type="Button" parent="CourseSelectionContainer"]
+[node name="Btn_Testing" type="Button" parent="CourseSelectionContainer"]
+layout_mode = 2
+text = "Testing"
+
+[node name="Btn_Hole_02" type="Button" parent="CourseSelectionContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Hole 01"
@@ -296,5 +299,6 @@ text = "Next Hole
 [connection signal="pressed" from="DiscSelectionContainer/Driver/VBoxContainer/Btn_Select_Driver" to="." method="_select_driver_pressed"]
 [connection signal="pressed" from="DiscSelectionContainer/Hybrid/VBoxContainer/Btn_Select_Hybrid" to="." method="_select_hybrid_pressed"]
 [connection signal="pressed" from="DiscSelectionContainer/Putter/VBoxContainer/Btn_Select_Putter" to="." method="_select_putter_pressed"]
-[connection signal="pressed" from="CourseSelectionContainer/Btn_Hole_01" to="." method="_on_btn_hole_01_pressed"]
+[connection signal="pressed" from="CourseSelectionContainer/Btn_Testing" to="." method="_on_btn_testing_pressed"]
+[connection signal="pressed" from="CourseSelectionContainer/Btn_Hole_02" to="." method="_on_btn_hole_01_pressed"]
 [connection signal="pressed" from="VBoxContainer/Btn_Next_Hole" to="." method="_on_btn_next_hole_pressed"]
