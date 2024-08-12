@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlj07iowfi0jp"]
+
+[ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="1_3ylxa"]
+[ext_resource type="PackedScene" uid="uid://2rucvmqj0nby" path="res://Styles/Effects/thunder_mesh.tscn" id="1_7d75c"]
+
+[node name="Node" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="ThunderMesh" parent="." instance=ExtResource("1_7d75c")]
+transform = Transform3D(1.72, 0, 0, 0, 1, 0, 0, 0, 1, -25.8894, 0, 0)
+
+[node name="Lightning_Particle" parent="." instance=ExtResource("1_3ylxa")]

@@ -4,23 +4,25 @@ extends Node
 var MOUSE_SENSITIVITY : float = 0.4
 
 # Saved Scenes
+const SCENE_MAIN      = "res://Scenes/Main_Menu/main_menu.tscn"
 const SCENE_COURSE    = "res://Scenes/Course/course.tscn"
 const SCENE_LOADING   = "res://Scenes/Loading/loading.tscn"
 const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/clubhouse.tscn"
 
 # Spawnables
-const HOLE_CIRCLE = preload("res://Scenes/Holes/Hole_Circle/hole_circle.tscn")
-const HOLE_01 = preload("res://Scenes/Holes/Hole_01/hole_01.tscn")
-const DISC    = preload("res://Objects/Disc/disc.tscn")
-const CHAR_BENNY = preload("res://Entities/Character/character.tscn")
-const MENU_PAUSE = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
-const TREE = preload("res://Objects/Trees/tree.tscn")
+const TESTING_ROOM = preload("res://Scenes/Holes/TESTING/testing_room.tscn")
+const HOLE_01      = preload("res://Scenes/Holes/Hole_01/hole_01.tscn")
+const DISC         = preload("res://Objects/Disc/disc.tscn")
+const CHAR_BENNY   = preload("res://Entities/Character/character.tscn")
+const MENU_PAUSE   = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
+const TREE         = preload("res://Objects/Trees/tree.tscn")
 
 var Active_Camera: Camera3D
 
 var Scene: String
 var Current_Hole: PackedScene = HOLE_01
 var Active_Hole: Node3D
+var Hole_Name: String = ""
 var Player: Entity
 var Profile: String = ""
 var should_load: bool = false
@@ -57,9 +59,10 @@ func go_to_scene(next_scene: String):
 	Scene = next_scene
 	get_tree().change_scene_to_file(SCENE_LOADING)
 	
-func go_to_course(next_scene: String, next_hole: PackedScene):
+func go_to_course(next_scene: String, next_hole: PackedScene, hole_name: String):
 	Scene = next_scene
 	Current_Hole  = next_hole
+	Hole_Name = hole_name
 	go_to_scene(Scene)
 
 # TODO: ... Do something with this

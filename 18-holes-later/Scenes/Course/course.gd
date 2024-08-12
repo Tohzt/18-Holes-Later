@@ -18,10 +18,11 @@ func _process(_delta):
 	pass
 
 func add_hole():
-	Holes.add_child(Global.init_current_hole())
+	Holes.add_child(Holes.build_hole(Global.Hole_Name))
+	#Holes.add_child(Global.init_current_hole())
 
 func add_player():
-	var spawn_pos = Holes.get_child(-1).player_spawn.position
+	var spawn_pos = Holes.get_child(-1).get_node("Player_Spawn").position
 	add_child(Global.init_player(spawn_pos))
 	Global.Player.Spring_Arm.get_node("Camera3D")
 
