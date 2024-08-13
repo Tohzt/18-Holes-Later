@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs0dgmrwevc7"]
+[gd_scene load_steps=7 format=3 uid="uid://cs0dgmrwevc7"]
 
 [ext_resource type="Script" path="res://Objects/Disc/disc.gd" id="1_wqkoe"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_jsy4y"]
+[ext_resource type="Script" path="res://Objects/Disc/MeshInstance3D.gd" id="3_cyqh4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_58eiw"]
 height = 0.0364906
@@ -32,5 +33,8 @@ shape = SubResource("CylinderShape3D_58eiw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_kl172")
+script = ExtResource("3_cyqh4")
 
 [node name="Attributes" type="Node" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]

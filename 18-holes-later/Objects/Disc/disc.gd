@@ -1,6 +1,12 @@
 class_name Disc
 extends RigidBody3D
 
+var camera: Camera3D
+var screen_position = Vector2(50, 50)  # 100 pixels from left and top
+var distance_from_camera = 1.0  # Adjust this value as needed
+var hud_gap = 50
+var hud_offset = 1
+
 var disc_name = ""
 var disc_type = ""
 var stats = {
@@ -27,6 +33,7 @@ func _ready():
 	pass
 
 func launch():
+	scale = Vector3(1,1,1)
 	in_hand = false
 	rotation = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
@@ -35,9 +42,12 @@ func launch():
 	apply_central_impulse(power/3 * -target_dir)
 
 func _process(_delta):
+	if !camera:
+		camera = Global.Player.Camera
 	if in_hand:
-		position = Global.Player.position
-		position.y = Global.Player.position.y + 3
+		#position = Global.Player.position
+		#position.y = Global.Player.position.y + 3
+		add_to_hud()
 		
 	_detect_impact()
 	_self_cull()
@@ -83,3 +93,29 @@ func _self_cull():
 	if position.y < -100:
 		pick_up(Global.Player.Bag)
 		#queue_free()
+
+func add_to_hud():
+	var screen_size = get_viewport().size
+	var screen_position_normalized = Vector2(
+		screen_position.x / screen_size.x,
+		screen_position.y / screen_size.y
+	)
+	screen_position.x = hud_gap*hud_offset
+	#print( hud_gap*hud_offset)
+	print(screen_position)
+	
+	# Project a ray from the camera into the world
+	var from = camera.project_ray_origin(screen_position)
+	var to = from + camera.project_ray_normal(screen_position) * distance_from_camera
+	
+	# Set the position of this node
+	global_transform.origin = to
+	
+	# Make the object perpendicular to the camera direction
+	var camera_forward = -camera.global_transform.basis.z
+	var up_vector = camera_forward
+	var right_vector = camera_forward.cross(Vector3.UP).normalized()
+	var forward_vector = up_vector.cross(right_vector).normalized()
+	
+	global_transform.basis = Basis(right_vector, up_vector, forward_vector)
+	scale = Vector3(0.25, 0.25, 0.25)
