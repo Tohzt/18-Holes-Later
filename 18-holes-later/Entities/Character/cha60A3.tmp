@@ -2,13 +2,7 @@
 
 [ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_6qoy3"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
-[ext_resource type="PackedScene" uid="uid://dacoc3muxhem7" path="res://Global/InputControllers/input_controller.tscn" id="3_ld8t0"]
-[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Global/StateMachine/state_controller.tscn" id="4_lwxmm"]
-[ext_resource type="PackedScene" path="res://Global/StateMachine/States/Character/throw.tscn" id="5_0ow1w"]
-[ext_resource type="PackedScene" path="res://Global/StateMachine/States/Character/walk.tscn" id="6_o7hwu"]
-[ext_resource type="PackedScene" path="res://Global/StateMachine/States/Character/idle.tscn" id="7_1kgre"]
 [ext_resource type="Material" path="res://Objects/Basket/src/basket.tres" id="9_snbie"]
-[ext_resource type="Script" path="res://Global/AnimController/anim_controller.gd" id="17_x75te"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppjvq"]
 region = Rect2(0, 0, 256, 256)

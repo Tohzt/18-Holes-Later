@@ -9,8 +9,11 @@ var bag_of_discs: Array = [
 var discs: Array[RigidBody3D]
 
 func _ready():
+	var index = 0
 	for disc_data in bag_of_discs:
+		index+=1
 		var disc = Global.DISC.instantiate()
+		disc.hud_offset = index
 		disc.in_hand = true
 		disc.position = get_parent().position
 		disc.position.y = get_parent().position.y - 10
