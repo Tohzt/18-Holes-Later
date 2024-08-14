@@ -37,7 +37,20 @@ func update_state():
 				var _side = -1
 				disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
 				disc.rotate_object_local(Vector3.RIGHT, Master.Camera.rotation.x)
+				Global.select_next_disc()
 				disc.launch()
+				
+				if Global.game_on:
+					if disc.in_play:
+						Master.strokes += 1
+					var hud = get_tree().get_first_node_in_group("HUD")
+					if hud:
+						hud.update_strokes(Master.strokes)
+				else:
+					if Master.is_on_tee:
+						Master.strokes = 1
+						Global.game_on = true
+						disc.in_play = true
 				return
 
 func exit_state(next_state: String):

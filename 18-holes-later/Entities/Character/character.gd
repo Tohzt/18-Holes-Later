@@ -13,8 +13,9 @@ var bag_of_discs: Array = [
 	["Starter", "Putter", 0,0, 0,0]]
 
 const MAX_POWER = 20
-
 var is_throwing = false
+var is_on_tee = false
+var strokes = 0
 
 func _ready():
 	Global.Player = self

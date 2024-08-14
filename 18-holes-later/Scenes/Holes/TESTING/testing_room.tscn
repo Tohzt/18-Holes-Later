@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=33 format=3 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="2_ldg4q"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://1ydh8wyiul4n" path="res://Scenes/Holes/TESTING/src/grid_orange_512x512.png" id="5_c5cw1"]
 [ext_resource type="Texture2D" uid="uid://bpxxq8qh0ftxt" path="res://Scenes/Holes/TESTING/src/grid_cyan_512x512.png" id="6_jfdvq"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="7_llovg"]
+[ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Global/tee_box.tscn" id="8_1k3xo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
 panorama = ExtResource("1_bebql")
@@ -275,6 +276,13 @@ skeleton = NodePath("../..")
 
 [node name="Baskets" type="Node" parent="."]
 
+[node name="Basket_02" parent="Baskets" instance=ExtResource("7_llovg")]
+transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -0.342039, 1.96695e-06, -82.5166)
+hole = 2
+
 [node name="Basket_01" parent="Baskets" instance=ExtResource("7_llovg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -80)
+transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -44.8803, 1.96695e-06, -79.7979)
 hole = 1
+
+[node name="TeeBox" parent="." instance=ExtResource("8_1k3xo")]
+tee_number = 1
