@@ -13,8 +13,8 @@ func _ready():
 	for disc_data in bag_of_discs:
 		index+=1
 		var disc = Global.DISC.instantiate()
-		disc.hud_offset = index
-		disc.in_hand = true
+		disc.index = index
+		disc.in_bag = true
 		disc.position = get_parent().position
 		disc.position.y = get_parent().position.y - 10
 		disc.disc_name = disc_data[0]
@@ -29,3 +29,11 @@ func _ready():
 		discs.append(disc)
 		add_child(disc)
 		
+func _process(_delta):
+	for disc in Global.Player.Bag.get_children():
+		disc.in_hand = false
+		if disc.index == Global.selected_disc:
+			disc.in_hand = true
+	
+	if Input.is_action_just_pressed("tab"):
+		Global.select_next_disc()

@@ -27,7 +27,7 @@ func _update_anim():
 	if h_axis:
 		dir += "R" if h_axis == 1 else "L"
 	
-	if dir == "": dir = "U"
+	if dir == "" or current_anim.contains("Throw"): dir = "U"
 	current_anim += dir
 	$AnimationPlayer.play(current_anim)
 	
