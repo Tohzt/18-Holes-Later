@@ -291,22 +291,22 @@ tee_number = 1
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="." instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.8695, 0, -23.2718)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2881, 0, -42.7061)
 
 [node name="Enemy2" parent="." instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9668, 0, -36.3157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.2774, 0, -48.9641)
 
 [node name="Enemy3" parent="." instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.8026, 0, -53.9587)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.4377, 0, -52.4993)
 
 [node name="Enemy4" parent="." instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.6473, 0, -49.3566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4311, 0, -45.4648)
 
 [node name="Enemy5" parent="." instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8688, 0, -64.6594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2335, 0, -47.7544)
 
 [node name="Enemy6" parent="." instance=ExtResource("9_y6gln")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 47.6473, 0, -78.3566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.796, 0, -50.141)
 
 [node name="Enemy7" parent="." instance=ExtResource("9_y6gln")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 38.0094, 0, -82.9039)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8876, 0, -45.8101)
