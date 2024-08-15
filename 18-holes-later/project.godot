@@ -31,6 +31,10 @@ config/icon="res://Styles/UI Assets/logo_circle.png"
 
 Global="*res://Global/global.gd"
 
+[display]
+
+window/size/initial_position_type=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")

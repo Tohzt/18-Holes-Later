@@ -1,6 +1,6 @@
 class_name Disc
 extends RigidBody3D
-@onready var in_play_mesh = $InPlayMesh
+@onready var in_play_mesh = $_InPlayMesh
 
 var index = 1
 var disc_name = ""
@@ -18,7 +18,7 @@ var dmg = 5
 var trigger_swarm = true
 var in_bag = false
 var in_hand = false
-var in_play = false
+@export var in_play = false
 
 @onready var spawn_pos : Vector3 = self.position
 var target_dir : Vector3
@@ -41,10 +41,10 @@ func launch():
 	apply_central_impulse(power/3 * -target_dir)
 
 func _process(_delta):
-	if in_play:
-		in_play_mesh.show()
-	else:
-		in_play_mesh.hide()
+	#if in_play:
+		#in_play_mesh.show()
+	#else:
+		#in_play_mesh.hide()
 		
 	if in_bag:
 		if index == Global.selected_disc:
