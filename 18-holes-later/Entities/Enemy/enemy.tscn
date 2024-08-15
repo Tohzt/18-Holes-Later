@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpuj70awtoml4"]
+
+[ext_resource type="Script" path="res://Entities/Enemy/enemy.gd" id="1_i5hcc"]
+
+[sub_resource type="Gradient" id="Gradient_ml0cd"]
+interpolation_mode = 1
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.214765, 0.362416, 0.47651, 0.604027, 0.744966)
+colors = PackedColorArray(4.81307e-07, 0.467412, 1.15514e-06, 1, 0.782852, 0.20699, 0.250399, 1, 4.81307e-07, 0.467412, 1.15514e-06, 1, 0.782852, 0.20699, 0.250399, 1, 4.81307e-07, 0.467412, 1.15514e-06, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lcdce"]
+frequency = 0.0031
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cyig6"]
+color_ramp = SubResource("Gradient_ml0cd")
+noise = SubResource("FastNoiseLite_lcdce")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6suj"]
+albedo_texture = SubResource("NoiseTexture2D_cyig6")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g0qpo"]
+material = SubResource("StandardMaterial3D_p6suj")
+radius = 0.2
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hxks6"]
+radius = 0.2
+height = 1.0
+
+[node name="Enemy" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 11
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_i5hcc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_g0qpo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_hxks6")
