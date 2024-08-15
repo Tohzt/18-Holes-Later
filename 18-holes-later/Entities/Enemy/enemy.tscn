@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpuj70awtoml4"]
+[gd_scene load_steps=21 format=3 uid="uid://dpuj70awtoml4"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/enemy.gd" id="1_i5hcc"]
+[ext_resource type="Shader" uid="uid://cduy8w14habn" path="res://Entities/Enemy/puff.tres" id="2_sl2kb"]
+[ext_resource type="Script" path="res://Entities/Enemy/puff_shader.gd" id="3_0i8rj"]
 
 [sub_resource type="Gradient" id="Gradient_ml0cd"]
 interpolation_mode = 1
@@ -27,11 +29,69 @@ height = 1.0
 radius = 0.2
 height = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvah4"]
+render_priority = 0
+shader = ExtResource("2_sl2kb")
+shader_parameter/dist_fade = 0.3
+
+[sub_resource type="Curve" id="Curve_ox2hl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.602484, 0.857143), -1.06154, -1.06154, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_aw3ph"]
+curve = SubResource("Curve_ox2hl")
+
+[sub_resource type="Gradient" id="Gradient_ki1yn"]
+offsets = PackedFloat32Array(0, 0.364807, 1)
+colors = PackedColorArray(7.027, 1.081, 0, 1, 0.784129, 0.120627, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cettd"]
+gradient = SubResource("Gradient_ki1yn")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_aw6eu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.440994, 0.879121), -2.16873, -2.16873, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_47qbf"]
+curve = SubResource("Curve_aw6eu")
+
+[sub_resource type="Curve" id="Curve_6ampe"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.571428), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fvnvi"]
+curve = SubResource("Curve_6ampe")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_df8im"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.0
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+radial_velocity_min = 1.0
+radial_velocity_max = 2.0
+radial_velocity_curve = SubResource("CurveTexture_47qbf")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_curve = SubResource("CurveTexture_fvnvi")
+color_ramp = SubResource("GradientTexture1D_cettd")
+alpha_curve = SubResource("CurveTexture_aw3ph")
+
+[sub_resource type="SphereMesh" id="SphereMesh_nhnj1"]
+
 [node name="Enemy" type="RigidBody3D"]
 collision_layer = 8
-collision_mask = 11
+collision_mask = 15
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+max_contacts_reported = 2
+contact_monitor = true
 script = ExtResource("1_i5hcc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -41,3 +101,16 @@ mesh = SubResource("CapsuleMesh_g0qpo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_hxks6")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_wvah4")
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_df8im")
+draw_pass_1 = SubResource("SphereMesh_nhnj1")
+script = ExtResource("3_0i8rj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="GPUParticles3D" to="GPUParticles3D" method="_on_finished"]
