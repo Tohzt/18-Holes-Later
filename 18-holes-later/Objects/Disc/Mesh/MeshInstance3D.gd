@@ -15,7 +15,7 @@ extends MeshInstance3D
 	## Set the albedo color of the material
 	#material.albedo_color = random_color
 
-func _process(delta):
+func _process(_delta):
 	# TODO: Optimize
 	var material: Material = mesh.surface_get_material(0)
 	if material:

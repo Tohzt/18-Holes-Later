@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=34 format=3 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="2_ldg4q"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpxxq8qh0ftxt" path="res://Scenes/Holes/TESTING/src/grid_cyan_512x512.png" id="6_jfdvq"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="7_llovg"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Global/tee_box.tscn" id="8_1k3xo"]
+[ext_resource type="PackedScene" uid="uid://dpuj70awtoml4" path="res://Entities/Enemy/enemy.tscn" id="9_y6gln"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
 panorama = ExtResource("1_bebql")
@@ -286,3 +287,26 @@ hole = 1
 
 [node name="TeeBox" parent="." instance=ExtResource("8_1k3xo")]
 tee_number = 1
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="." instance=ExtResource("9_y6gln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.8695, 0, -23.2718)
+
+[node name="Enemy2" parent="." instance=ExtResource("9_y6gln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.9668, 0, -36.3157)
+
+[node name="Enemy3" parent="." instance=ExtResource("9_y6gln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.8026, 0, -53.9587)
+
+[node name="Enemy4" parent="." instance=ExtResource("9_y6gln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.6473, 0, -49.3566)
+
+[node name="Enemy5" parent="." instance=ExtResource("9_y6gln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8688, 0, -64.6594)
+
+[node name="Enemy6" parent="." instance=ExtResource("9_y6gln")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 47.6473, 0, -78.3566)
+
+[node name="Enemy7" parent="." instance=ExtResource("9_y6gln")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 38.0094, 0, -82.9039)
