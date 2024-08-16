@@ -1,5 +1,8 @@
+class_name NME_Zombie
 extends RigidBody3D
 
+@export var seight_range: int = 50.0
+var Target: Entity_Character
 var timer: Timer
 
 func _ready():
@@ -7,6 +10,10 @@ func _ready():
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 	add_child(timer)
+
+func _process(_delta):
+	if !Target:
+		Target = Global.Player
 
 func _on_timer_timeout():
 	$GPUParticles3D.emitting = true

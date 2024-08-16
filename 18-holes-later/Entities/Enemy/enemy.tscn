@@ -1,8 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpuj70awtoml4"]
+[gd_scene load_steps=24 format=3 uid="uid://dpuj70awtoml4"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/enemy.gd" id="1_i5hcc"]
 [ext_resource type="Shader" uid="uid://cduy8w14habn" path="res://Entities/Enemy/puff.tres" id="2_sl2kb"]
+[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_u5eyf"]
 [ext_resource type="Script" path="res://Entities/Enemy/puff_shader.gd" id="3_0i8rj"]
+[ext_resource type="PackedScene" uid="uid://cadr5fmo6lq7i" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_chase.tscn" id="3_1asuh"]
+[ext_resource type="PackedScene" uid="uid://sq6vmdb1jqo0" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_idle.tscn" id="3_7amed"]
 
 [sub_resource type="Gradient" id="Gradient_ml0cd"]
 interpolation_mode = 1
@@ -93,6 +96,12 @@ axis_lock_angular_z = true
 max_contacts_reported = 2
 contact_monitor = true
 script = ExtResource("1_i5hcc")
+
+[node name="StateController" parent="." instance=ExtResource("2_u5eyf")]
+
+[node name="Chase" parent="StateController" instance=ExtResource("3_1asuh")]
+
+[node name="Idle" parent="StateController" instance=ExtResource("3_7amed")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

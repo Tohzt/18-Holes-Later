@@ -2,7 +2,7 @@ class_name StateClass
 extends Node
 
 @onready var State_Controller: StateController = get_parent()
-@onready var Master: Entity = State_Controller.get_parent()
+@onready var Master = State_Controller.get_parent()
 
 @export var state_options: Array[String]
 
