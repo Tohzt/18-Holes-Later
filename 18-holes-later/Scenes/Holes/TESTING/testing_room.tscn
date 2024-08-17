@@ -167,7 +167,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_blu3j")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h3jn3"]
-size = Vector3(120, 1, 100.319)
+size = Vector3(120, 1, 101.355)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2u1cj"]
 size = Vector3(10, 10, 80.5)
@@ -233,7 +233,7 @@ mesh = SubResource("ArrayMesh_5xahd")
 skeleton = NodePath("")
 
 [node name="Floor" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -39.795)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -40.3129)
 shape = SubResource("BoxShape3D_h3jn3")
 
 [node name="Wall" type="CollisionShape3D" parent="Testing_Room"]
@@ -264,7 +264,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 10.5)
 shape = SubResource("BoxShape3D_fwy72")
 
 [node name="Wall6" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -91)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -90.9616)
 shape = SubResource("BoxShape3D_fwy72")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Testing_Room"]
@@ -290,23 +290,23 @@ tee_number = 1
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy" parent="." instance=ExtResource("9_y6gln")]
+[node name="Enemy" parent="Enemies" instance=ExtResource("9_y6gln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2881, 0, -42.7061)
 
-[node name="Enemy2" parent="." instance=ExtResource("9_y6gln")]
+[node name="Enemy2" parent="Enemies" instance=ExtResource("9_y6gln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.2774, 0, -48.9641)
 
-[node name="Enemy3" parent="." instance=ExtResource("9_y6gln")]
+[node name="Enemy3" parent="Enemies" instance=ExtResource("9_y6gln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.4377, 0, -52.4993)
 
-[node name="Enemy4" parent="." instance=ExtResource("9_y6gln")]
+[node name="Enemy4" parent="Enemies" instance=ExtResource("9_y6gln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4311, 0, -45.4648)
 
-[node name="Enemy5" parent="." instance=ExtResource("9_y6gln")]
+[node name="Enemy5" parent="Enemies" instance=ExtResource("9_y6gln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2335, 0, -47.7544)
 
-[node name="Enemy6" parent="." instance=ExtResource("9_y6gln")]
+[node name="Enemy6" parent="Enemies" instance=ExtResource("9_y6gln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.796, 0, -50.141)
 
-[node name="Enemy7" parent="." instance=ExtResource("9_y6gln")]
+[node name="Enemy7" parent="Enemies" instance=ExtResource("9_y6gln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8876, 0, -45.8101)
