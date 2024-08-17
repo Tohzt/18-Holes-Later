@@ -10,7 +10,8 @@ func monitor_state():
 func update_state():
 	var dir_to_target = Master.position.direction_to(Master.Target.position)
 	dir_to_target.y = 0
-	Master.apply_central_force(dir_to_target.normalized() * 10)
+	Master.dir_to_target = dir_to_target
+	Master.is_walking = true
 	var dist_to_target = Master.position.distance_to(Master.Target.position)
 	if dist_to_target > Master.seight_range:
 		exit_state("Idle")

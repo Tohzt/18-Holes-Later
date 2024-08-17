@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://structures/clubhouse.tscn" id="4_dpl60"]
 [ext_resource type="PackedScene" uid="uid://lhfvu7ak06vk" path="res://Scenes/Holes/Hole_01/west_fork_low_poly_solid.tscn" id="5_dlb5e"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
-[ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="5_qt2g5"]
+[ext_resource type="PackedScene" path="res://Global/player_spawn.tscn" id="5_qt2g5"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
 [ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="9_5d10b"]
 
