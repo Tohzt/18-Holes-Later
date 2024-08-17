@@ -24,7 +24,7 @@ func add_hole():
 func add_player():
 	var spawn_pos = Holes.get_child(-1).get_node("Player_Spawn").position
 	add_child(Global.init_player(spawn_pos))
-	Global.Player.Spring_Arm.get_node("Camera3D")
+	Global.Player.Tripod.get_node("Camera_Main")
 
 func save_game(profile): $SaveController.save_game(profile)
 func load_game(profile): $SaveController.load_game(profile)

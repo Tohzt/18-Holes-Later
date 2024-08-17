@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=34 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="2_ldg4q"]
@@ -33,11 +33,11 @@ _surfaces = [{
 "aabb": AABB(-1, 1, -1, 2, 10, 2),
 "format": 34359742465,
 "index_count": 36,
-"index_data": PackedByteArray(10, 0, 14, 0, 13, 0, 10, 0, 15, 0, 14, 0, 5, 0, 8, 0, 4, 0, 5, 0, 9, 0, 8, 0, 13, 0, 12, 0, 0, 0, 13, 0, 14, 0, 12, 0, 3, 0, 6, 0, 2, 0, 3, 0, 7, 0, 6, 0, 0, 0, 10, 0, 13, 0, 0, 0, 1, 0, 10, 0, 10, 0, 11, 0, 15, 0, 10, 0, 1, 0, 11, 0),
+"index_data": PackedByteArray("CgAOAA0ACgAPAA4ABQAIAAQABQAJAAgADQAMAAAADQAOAAwAAwAGAAIAAwAHAAYAAAAKAA0AAAABAAoACgALAA8ACgABAAsA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 16,
-"vertex_data": PackedByteArray(0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 128, 63, 0, 0, 128, 191, 168, 170, 170, 62, 0, 0, 128, 63, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 48, 65, 0, 0, 128, 191, 168, 170, 170, 62, 0, 0, 48, 65, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 48, 65, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 1, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 191, 1, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 48, 65, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 48, 65, 0, 0, 128, 63)
+"vertex_data": PackedByteArray("AACAvzIAgD8AAIC/AACAPwAAgD8AAIC//v//PgAAgD8AAIC/qKqqPgAAgD8AAIC/rKqqvgAAgD8AAIC/AAAAvwAAgD8AAIC//v//PgAAMEEAAIC/qKqqPgAAMEEAAIC/rKqqvgAAMEEAAIC/AAAAvwAAMEEAAIC/AACAPwAAgD8AAIA/AACAPwEAMEEAAIC/AACAvwEAMEEAAIC/AACAvzIAgD8AAIA/AACAvwAAMEEAAIA/AACAPwAAMEEAAIA/")
 }]
 blend_shape_mode = 0
 
@@ -45,15 +45,15 @@ blend_shape_mode = 0
 resource_name = "test_room_Plane"
 _surfaces = [{
 "aabb": AABB(-1, 1, -1, 2, 10, 2),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAEA/AAAAAKqqKj8AAAAArKqqPgAAAAAAAIA+AAAAAAAAQD8AAAAAqqoqPwAAAACsqqo+AAAAAAAAgD4AAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
 "format": 34359742487,
 "index_count": 36,
-"index_data": PackedByteArray(13, 0, 20, 0, 17, 0, 13, 0, 23, 0, 20, 0, 7, 0, 10, 0, 6, 0, 7, 0, 11, 0, 10, 0, 19, 0, 16, 0, 1, 0, 19, 0, 21, 0, 16, 0, 5, 0, 8, 0, 4, 0, 5, 0, 9, 0, 8, 0, 0, 0, 14, 0, 18, 0, 0, 0, 3, 0, 14, 0, 12, 0, 15, 0, 22, 0, 12, 0, 2, 0, 15, 0),
+"index_data": PackedByteArray("DQAUABEADQAXABQABwAKAAYABwALAAoAEwAQAAEAEwAVABAABQAIAAQABQAJAAgAAAAOABIAAAADAA4ADAAPABYADAACAA8A"),
 "material": SubResource("StandardMaterial3D_xjf8s"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray(0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 128, 63, 0, 0, 128, 191, 168, 170, 170, 62, 0, 0, 128, 63, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 48, 65, 0, 0, 128, 191, 168, 170, 170, 62, 0, 0, 48, 65, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 48, 65, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 1, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 191, 1, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 48, 65, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 48, 65, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 48, 65, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 48, 65, 0, 0, 128, 63, 255, 127, 254, 255, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 254, 255, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 0, 0, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 255, 255, 255, 191, 255, 127, 254, 255, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 255, 255, 255, 191, 255, 127, 254, 255, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 255, 255, 255, 191)
+"vertex_data": PackedByteArray("AACAvzIAgD8AAIC/AACAvzIAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgD8AAIC//v//PgAAgD8AAIC/qKqqPgAAgD8AAIC/rKqqvgAAgD8AAIC/AAAAvwAAgD8AAIC//v//PgAAMEEAAIC/qKqqPgAAMEEAAIC/rKqqvgAAMEEAAIC/AAAAvwAAMEEAAIC/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwEAMEEAAIC/AACAvwEAMEEAAIC/AACAvzIAgD8AAIA/AACAvzIAgD8AAIA/AACAvzIAgD8AAIA/AACAvwAAMEEAAIA/AACAvwAAMEEAAIA/AACAPwAAMEEAAIA/AACAPwAAMEEAAIA//3/+/////7////9/////vwAA/3////+//3/+/////7//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8/AAD/f////7//////////v/9//v////+/AAD/f////7////9/////v/////////+//3/+/////7////9/////v/////////+/////f////78AAP9/////v/////////+/")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7wyij")
@@ -69,11 +69,11 @@ _surfaces = [{
 "aabb": AABB(-1, 1, -9.05, 0.5, 10, 8.05001),
 "format": 34359742465,
 "index_count": 24,
-"index_data": PackedByteArray(1, 0, 7, 0, 2, 0, 1, 0, 4, 0, 7, 0, 0, 0, 4, 0, 1, 0, 0, 0, 3, 0, 4, 0, 6, 0, 0, 0, 5, 0, 6, 0, 3, 0, 0, 0, 4, 0, 6, 0, 7, 0, 4, 0, 3, 0, 6, 0),
+"index_data": PackedByteArray("AQAHAAIAAQAEAAcAAAAEAAEAAAADAAQABgAAAAUABgADAAAABAAGAAcABAADAAYA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 191, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 0, 191, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 128, 191, 1, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 191, 6, 0, 48, 65, 206, 204, 16, 193, 0, 0, 0, 191, 6, 0, 48, 65, 206, 204, 16, 193)
+"vertex_data": PackedByteArray("AACAvzIAgD8AAIC/AAAAvwAAgD8AAIC/AAAAvwAAMEEAAIC/AACAvzIAgD/NzBDBAAAAvzIAgD/NzBDBAACAvwEAMEEAAIC/AACAvwYAMEHOzBDBAAAAvwYAMEHOzBDB")
 }]
 blend_shape_mode = 0
 
@@ -81,15 +81,15 @@ blend_shape_mode = 0
 resource_name = "test_room_Plane_001"
 _surfaces = [{
 "aabb": AABB(-1, 1, -9.05, 0.5, 10, 8.05001),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAgD4AAAAAAACAPgAAAAAAAIA+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD4AAAAAAACAPgAAAAAAAIA+AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAgD4AAAAAAACAPgAAAAA="),
 "format": 34359742487,
 "index_count": 24,
-"index_data": PackedByteArray(2, 0, 14, 0, 4, 0, 2, 0, 8, 0, 14, 0, 0, 0, 10, 0, 3, 0, 0, 0, 6, 0, 10, 0, 13, 0, 1, 0, 11, 0, 13, 0, 7, 0, 1, 0, 9, 0, 12, 0, 15, 0, 9, 0, 5, 0, 12, 0),
+"index_data": PackedByteArray("AgAOAAQAAgAIAA4AAAAKAAMAAAAGAAoADQABAAsADQAHAAEACQAMAA8ACQAFAAwA"),
 "material": SubResource("StandardMaterial3D_ucx2h"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 16,
-"vertex_data": PackedByteArray(0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 191, 50, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 191, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 128, 191, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 128, 191, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 0, 191, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 0, 191, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 0, 191, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 128, 191, 1, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 191, 6, 0, 48, 65, 206, 204, 16, 193, 0, 0, 128, 191, 6, 0, 48, 65, 206, 204, 16, 193, 0, 0, 0, 191, 6, 0, 48, 65, 206, 204, 16, 193, 0, 0, 0, 191, 6, 0, 48, 65, 206, 204, 16, 193, 255, 127, 254, 255, 254, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 254, 255, 255, 255, 255, 63, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 254, 255, 254, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 254, 255, 254, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63, 255, 255, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63)
+"vertex_data": PackedByteArray("AACAvzIAgD8AAIC/AACAvzIAgD8AAIC/AAAAvwAAgD8AAIC/AAAAvwAAgD8AAIC/AAAAvwAAMEEAAIC/AACAvzIAgD/NzBDBAACAvzIAgD/NzBDBAACAvzIAgD/NzBDBAAAAvzIAgD/NzBDBAAAAvzIAgD/NzBDBAAAAvzIAgD/NzBDBAACAvwEAMEEAAIC/AACAvwYAMEHOzBDBAACAvwYAMEHOzBDBAAAAvwYAMEHOzBDBAAAAvwYAMEHOzBDB/3/+//7//7////9/////vwAA/3////+//3/+/////z8AAP9/////v/9//3////8//3/+//7//7////9/////vwAA/3////+//3//f////z//f/7//v//v////3////+//3//f////z////9/////vwAA/3////+//3//f////z8=")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s8ixg")
@@ -105,11 +105,11 @@ _surfaces = [{
 "aabb": AABB(-0.333333, 1, -9.05, 0.666677, 10, 8.05001),
 "format": 34359742465,
 "index_count": 24,
-"index_data": PackedByteArray(0, 0, 6, 0, 2, 0, 0, 0, 4, 0, 6, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 3, 0, 5, 0, 1, 0, 3, 0, 7, 0, 5, 0, 4, 0, 7, 0, 6, 0, 4, 0, 5, 0, 7, 0),
+"index_data": PackedByteArray("AAAGAAIAAAAEAAYABAABAAUABAAAAAEAAwAFAAEAAwAHAAUABAAHAAYABAAFAAcA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(168, 170, 170, 62, 0, 0, 128, 63, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 128, 63, 0, 0, 128, 191, 168, 170, 170, 62, 0, 0, 48, 65, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 48, 65, 0, 0, 128, 191, 168, 170, 170, 62, 50, 0, 128, 63, 205, 204, 16, 193, 172, 170, 170, 190, 50, 0, 128, 63, 205, 204, 16, 193, 168, 170, 170, 62, 6, 0, 48, 65, 206, 204, 16, 193, 172, 170, 170, 190, 6, 0, 48, 65, 206, 204, 16, 193)
+"vertex_data": PackedByteArray("qKqqPgAAgD8AAIC/rKqqvgAAgD8AAIC/qKqqPgAAMEEAAIC/rKqqvgAAMEEAAIC/qKqqPjIAgD/NzBDBrKqqvjIAgD/NzBDBqKqqPgYAMEHOzBDBrKqqvgYAMEHOzBDB")
 }]
 blend_shape_mode = 0
 
@@ -117,15 +117,15 @@ blend_shape_mode = 0
 resource_name = "test_room_Plane_002"
 _surfaces = [{
 "aabb": AABB(-0.333333, 1, -9.05, 0.666677, 10, 8.05001),
-"attribute_data": PackedByteArray(170, 170, 42, 63, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 170, 170, 42, 63, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0, 172, 170, 170, 62, 0, 0, 0, 0),
+"attribute_data": PackedByteArray("qqoqPwAAAACqqio/AAAAAKyqqj4AAAAArKqqPgAAAACqqio/AAAAAKyqqj4AAAAAqqoqPwAAAACqqio/AAAAAKqqKj8AAAAArKqqPgAAAACsqqo+AAAAAKyqqj4AAAAAqqoqPwAAAACqqio/AAAAAKyqqj4AAAAArKqqPgAAAAA="),
 "format": 34359742487,
 "index_count": 24,
-"index_data": PackedByteArray(0, 0, 12, 0, 4, 0, 0, 0, 6, 0, 12, 0, 8, 0, 2, 0, 10, 0, 8, 0, 1, 0, 2, 0, 5, 0, 11, 0, 3, 0, 5, 0, 15, 0, 11, 0, 7, 0, 14, 0, 13, 0, 7, 0, 9, 0, 14, 0),
+"index_data": PackedByteArray("AAAMAAQAAAAGAAwACAACAAoACAABAAIABQALAAMABQAPAAsABwAOAA0ABwAJAA4A"),
 "material": SubResource("StandardMaterial3D_8okxl"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 16,
-"vertex_data": PackedByteArray(168, 170, 170, 62, 0, 0, 128, 63, 0, 0, 128, 191, 168, 170, 170, 62, 0, 0, 128, 63, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 128, 63, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 128, 63, 0, 0, 128, 191, 168, 170, 170, 62, 0, 0, 48, 65, 0, 0, 128, 191, 172, 170, 170, 190, 0, 0, 48, 65, 0, 0, 128, 191, 168, 170, 170, 62, 50, 0, 128, 63, 205, 204, 16, 193, 168, 170, 170, 62, 50, 0, 128, 63, 205, 204, 16, 193, 168, 170, 170, 62, 50, 0, 128, 63, 205, 204, 16, 193, 172, 170, 170, 190, 50, 0, 128, 63, 205, 204, 16, 193, 172, 170, 170, 190, 50, 0, 128, 63, 205, 204, 16, 193, 172, 170, 170, 190, 50, 0, 128, 63, 205, 204, 16, 193, 168, 170, 170, 62, 6, 0, 48, 65, 206, 204, 16, 193, 168, 170, 170, 62, 6, 0, 48, 65, 206, 204, 16, 193, 172, 170, 170, 190, 6, 0, 48, 65, 206, 204, 16, 193, 172, 170, 170, 190, 6, 0, 48, 65, 206, 204, 16, 193, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 254, 255, 255, 255, 255, 63, 255, 127, 254, 255, 255, 255, 255, 63, 255, 255, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 254, 255, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 254, 255, 255, 255, 255, 63, 255, 255, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 255, 255, 127, 255, 255, 255, 191)
+"vertex_data": PackedByteArray("qKqqPgAAgD8AAIC/qKqqPgAAgD8AAIC/rKqqvgAAgD8AAIC/rKqqvgAAgD8AAIC/qKqqPgAAMEEAAIC/rKqqvgAAMEEAAIC/qKqqPjIAgD/NzBDBqKqqPjIAgD/NzBDBqKqqPjIAgD/NzBDBrKqqvjIAgD/NzBDBrKqqvjIAgD/NzBDBrKqqvjIAgD/NzBDBqKqqPgYAMEHOzBDBqKqqPgYAMEHOzBDBrKqqvgYAMEHOzBDBrKqqvgYAMEHOzBDBAAD/f////7//f/7/////P/9//v////8/////f////78AAP9/////v////3////+/AAD/f////7//f/9/////P/9//v////8//3//f////z//f/7/////P////3////+/AAD/f////7//f/9/////P/9//3////8/////f////78=")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rhpqq")
@@ -141,11 +141,11 @@ _surfaces = [{
 "aabb": AABB(0.5, 1, -9.05, 0.50001, 10, 8.05001),
 "format": 34359742465,
 "index_count": 24,
-"index_data": PackedByteArray(1, 0, 3, 0, 0, 0, 1, 0, 4, 0, 3, 0, 6, 0, 0, 0, 3, 0, 6, 0, 5, 0, 0, 0, 3, 0, 7, 0, 6, 0, 3, 0, 4, 0, 7, 0, 7, 0, 1, 0, 2, 0, 7, 0, 4, 0, 1, 0),
+"index_data": PackedByteArray("AQADAAAAAQAEAAMABgAAAAMABgAFAAAAAwAHAAYAAwAEAAcABwABAAIABwAEAAEA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 63, 50, 0, 128, 63, 205, 204, 16, 193, 254, 255, 255, 62, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 128, 63, 1, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 63, 6, 0, 48, 65, 206, 204, 16, 193, 254, 255, 255, 62, 6, 0, 48, 65, 206, 204, 16, 193)
+"vertex_data": PackedByteArray("AACAPwAAgD8AAIC//v//PgAAgD8AAIC//v//PgAAMEEAAIC/AACAPzIAgD/NzBDB/v//PjIAgD/NzBDBAACAPwEAMEEAAIC/AACAPwYAMEHOzBDB/v//PgYAMEHOzBDB")
 }]
 blend_shape_mode = 0
 
@@ -153,21 +153,21 @@ blend_shape_mode = 0
 resource_name = "test_room_Plane_003"
 _surfaces = [{
 "aabb": AABB(0.5, 1, -9.05, 0.50001, 10, 8.05001),
-"attribute_data": PackedByteArray(0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 64, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAIA/AAAAAAAAQD8AAAAAAAAAAAAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAQD8AAAAAAABAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AAAAAAAAQD8AAAAAAAAAAAAAgD8="),
 "format": 34359742487,
 "index_count": 24,
-"index_data": PackedByteArray(2, 0, 7, 0, 1, 0, 2, 0, 9, 0, 7, 0, 12, 0, 0, 0, 5, 0, 12, 0, 11, 0, 0, 0, 6, 0, 14, 0, 13, 0, 6, 0, 8, 0, 14, 0, 15, 0, 3, 0, 4, 0, 15, 0, 10, 0, 3, 0),
+"index_data": PackedByteArray("AgAHAAEAAgAJAAcADAAAAAUADAALAAAABgAOAA0ABgAIAA4ADwADAAQADwAKAAMA"),
 "material": SubResource("StandardMaterial3D_0amw0"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 16,
-"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 128, 63, 0, 0, 128, 191, 254, 255, 255, 62, 0, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 63, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 128, 63, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 128, 63, 50, 0, 128, 63, 205, 204, 16, 193, 254, 255, 255, 62, 50, 0, 128, 63, 205, 204, 16, 193, 254, 255, 255, 62, 50, 0, 128, 63, 205, 204, 16, 193, 254, 255, 255, 62, 50, 0, 128, 63, 205, 204, 16, 193, 0, 0, 128, 63, 1, 0, 48, 65, 0, 0, 128, 191, 0, 0, 128, 63, 6, 0, 48, 65, 206, 204, 16, 193, 0, 0, 128, 63, 6, 0, 48, 65, 206, 204, 16, 193, 254, 255, 255, 62, 6, 0, 48, 65, 206, 204, 16, 193, 254, 255, 255, 62, 6, 0, 48, 65, 206, 204, 16, 193, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 254, 255, 255, 255, 255, 63, 255, 127, 254, 255, 255, 255, 255, 63, 255, 255, 255, 127, 255, 255, 255, 63, 255, 255, 255, 127, 255, 255, 255, 63, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 254, 255, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 254, 255, 255, 255, 255, 63, 255, 255, 255, 127, 255, 255, 255, 63, 0, 0, 255, 127, 255, 255, 255, 191, 0, 0, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 63, 255, 127, 255, 127, 255, 255, 255, 63, 255, 255, 255, 127, 255, 255, 255, 63)
+"vertex_data": PackedByteArray("AACAPwAAgD8AAIC/AACAPwAAgD8AAIC//v//PgAAgD8AAIC//v//PgAAgD8AAIC//v//PgAAMEEAAIC/AACAPzIAgD/NzBDBAACAPzIAgD/NzBDBAACAPzIAgD/NzBDB/v//PjIAgD/NzBDB/v//PjIAgD/NzBDB/v//PjIAgD/NzBDBAACAPwEAMEEAAIC/AACAPwYAMEHOzBDBAACAPwYAMEHOzBDB/v//PgYAMEHOzBDB/v//PgYAMEHOzBDBAAD/f////7//f/7/////P/9//v////8/////f////z////9/////PwAA/3////+//3//f////z//f/7/////P/9//3////8//3/+/////z////9/////PwAA/3////+/AAD/f////7//f/9/////P/9//3////8/////f////z8=")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_blu3j")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h3jn3"]
-size = Vector3(120, 1, 101.355)
+size = Vector3(120, 1, 100.853)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2u1cj"]
 size = Vector3(10, 10, 80.5)
@@ -233,7 +233,7 @@ mesh = SubResource("ArrayMesh_5xahd")
 skeleton = NodePath("")
 
 [node name="Floor" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -40.3129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -40.0619)
 shape = SubResource("BoxShape3D_h3jn3")
 
 [node name="Wall" type="CollisionShape3D" parent="Testing_Room"]

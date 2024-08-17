@@ -28,8 +28,9 @@ height = 0.075
 collision_layer = 4
 collision_mask = 11
 continuous_cd = true
-max_contacts_reported = 5
 contact_monitor = true
+max_contacts_reported = 5
+linear_damp = 0.5
 script = ExtResource("1_wqkoe")
 
 [node name="Save" parent="." instance=ExtResource("2_jsy4y")]
