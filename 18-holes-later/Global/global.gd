@@ -82,8 +82,8 @@ func select_next_disc():
 		selected_disc = 1
 
 func add_disc_to_bag(disc):
-	if !camera:
-		camera = Player.Camera
+	if !camera and Player.Tripod.Camera:
+		camera = Player.Tripod.Camera
 	var screen_size = get_viewport().size
 	screen_position = Vector2(50 + (hud_gap * disc.index), screen_size.y - 50)
 	# Project a ray from the camera into the world

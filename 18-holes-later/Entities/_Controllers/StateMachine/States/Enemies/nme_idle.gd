@@ -3,7 +3,7 @@ extends StateClass
 
 func init_state():
 	State_Controller.state_options = state_options
-	Master.is_moving = false
+	Master.is_walking = false
 
 func monitor_state():
 	pass

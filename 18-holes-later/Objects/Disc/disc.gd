@@ -102,5 +102,3 @@ func _self_cull():
 	if position.y < -100:
 		pick_up(Global.Player.Bag)
 		#queue_free()
-
-
