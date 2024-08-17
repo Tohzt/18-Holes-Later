@@ -28,6 +28,7 @@ func update_state():
 			if disc.in_hand:
 				disc.position = Master.Hand.global_position
 				# TODO: Get power on charge time
+				# TODO: Influence by Disc stats
 				disc.power = Master.MAX_POWER
 				disc.target_dir = Master.get_node("SpringArm3D").get_node("Camera3D").get_global_transform().basis.z
 				disc.target_dir.y -= deg_to_rad(20)

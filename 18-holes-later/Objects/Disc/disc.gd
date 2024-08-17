@@ -38,7 +38,7 @@ func launch():
 	angular_velocity = Vector3.ZERO
 	linear_velocity = Vector3.ZERO
 	reparent(get_parent().get_parent().get_parent())
-	apply_central_impulse(power/3 * -target_dir)
+	apply_central_impulse(power*stats.get("Speed") * -target_dir)
 
 func _process(_delta):
 	#if in_play:
