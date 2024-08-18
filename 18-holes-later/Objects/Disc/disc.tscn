@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cs0dgmrwevc7"]
+[gd_scene load_steps=5 format=3 uid="uid://cs0dgmrwevc7"]
 
 [ext_resource type="Script" path="res://Objects/Disc/disc.gd" id="1_wqkoe"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_jsy4y"]
@@ -7,22 +7,6 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_58eiw"]
 height = 0.0364906
 radius = 0.159845
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfs1t"]
-transparency = 2
-alpha_scissor_threshold = 1.0
-alpha_antialiasing_mode = 0
-albedo_color = Color(1, 1, 0, 0.0588235)
-emission_enabled = true
-emission = Color(1, 1, 0, 1)
-emission_energy_multiplier = 9.0
-rim_enabled = true
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ua4ol"]
-material = SubResource("StandardMaterial3D_tfs1t")
-top_radius = 0.155
-bottom_radius = 0.155
-height = 0.075
 
 [node name="Disc" type="RigidBody3D" groups=["Disc"]]
 collision_layer = 4
@@ -45,8 +29,3 @@ script = ExtResource("3_p7u27")
 shape = SubResource("CylinderShape3D_58eiw")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-
-[node name="_InPlayMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.053, 0, 0, 0, 0.426, 0, 0, 0, 1.053, 0, 0, 0)
-visible = false
-mesh = SubResource("CylinderMesh_ua4ol")

@@ -11,7 +11,7 @@ var bag_of_discs: Array = [
 	["Starter", "Hybrid", 1,1,-1,1],
 	["Starter", "Putter", 0,0, 0,0]]
 
-const MAX_POWER = 20
+const MAX_POWER = 2
 var is_throwing = false
 var is_on_tee = false
 var strokes = 0

@@ -1,6 +1,5 @@
 class_name Disc
 extends RigidBody3D
-@onready var in_play_mesh = $_InPlayMesh
 
 var index = 1
 var disc_name = ""
@@ -14,6 +13,7 @@ var stats = {
 	}
   
 var dmg = 5
+var launch = false
 
 var trigger_swarm = true
 var in_bag = false
@@ -30,30 +30,30 @@ var handedness = 1
 func _ready():
 	pass
 
-func launch():
+func _launch_disc():
 	scale = Vector3(1,1,1)
-	in_bag = false
+	launch  = false
+	in_bag  = false
 	in_hand = false
-	rotation = Vector3.ZERO
+	rotation         = Vector3.ZERO
+	linear_velocity  = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
-	linear_velocity = Vector3.ZERO
+	# TODO: Do something with this
 	reparent(get_parent().get_parent().get_parent())
-	apply_central_impulse(power*stats.get("Speed") * -target_dir)
+	var impulse = power + stats["Speed"]
+	impulse *= -target_dir
+	apply_central_impulse(impulse)
 
 func _process(_delta):
-	#if in_play:
-		#in_play_mesh.show()
-	#else:
-		#in_play_mesh.hide()
-		
 	if in_bag:
 		if index == Global.selected_disc:
 			scale = Vector3.ONE * .5
 	
 func _physics_process(_delta):
+	if launch:
+		_launch_disc()
+	
 	if in_bag:
-		#position = Global.Player.position
-		#position.y = Global.Player.position.y + 3
 		Global.add_disc_to_bag(self)
 	
 	_detect_impact()
@@ -101,4 +101,3 @@ func pick_up(node: Node):
 func _self_cull():
 	if position.y < -100:
 		pick_up(Global.Player.Bag)
-		#queue_free()
