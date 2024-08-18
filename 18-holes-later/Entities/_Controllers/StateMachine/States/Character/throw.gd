@@ -11,7 +11,7 @@ func monitor_state():
 
 func update_state():
 	if Input.is_action_just_released("right_click"):
-		if !Master.get_node("Tripod_Main"):
+		if !Master.has_node("Tripod_Main"):
 			for disc: Disc in get_tree().get_nodes_in_group("Disc"):
 				if disc.in_play and disc.get_node("Tripod_Main"):
 					disc.get_node("Tripod_Main").return_to_player()
