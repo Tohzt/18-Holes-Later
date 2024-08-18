@@ -43,7 +43,7 @@ func update_state():
 				disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
 				disc.rotate_object_local(Vector3.RIGHT, Master.Tripod.Camera.rotation.x)
 				Global.select_next_disc()
-				disc.launch()
+				disc.launch = true
 				
 				if Global.game_on:
 					if disc.in_play:

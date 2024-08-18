@@ -4,6 +4,8 @@ extends RigidBody3D
 @export var seight_range: int = 50
 var Target: Entity_Character
 var timer: Timer
+var dir_to_target = Vector3.ZERO
+var is_walking = false
 
 func _ready():
 	timer = Timer.new()
