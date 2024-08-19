@@ -1,4 +1,6 @@
 extends Node
+
+@export var use_draw_line: bool = true
 @onready var draw_debug = $MeshInstance3D
 
 func _physics_process(_delta) -> void:
@@ -6,6 +8,7 @@ func _physics_process(_delta) -> void:
 		draw_debug.mesh.clear_surfaces()
 
 func draw_line(point_a: Vector3, point_b: Vector3, color: Color = Color.RED):
+	if !Global.Debug_Settings.draw_debug_lines: return
 	if point_a.is_equal_approx(point_b):
 		return
 	
@@ -19,11 +22,12 @@ func draw_line(point_a: Vector3, point_b: Vector3, color: Color = Color.RED):
 		draw_debug.mesh.surface_end()
 
 func draw_line_relative(point_a: Vector3, point_b: Vector3, color: Color = Color.RED):
+	if !Global.Debug_Settings.draw_debug_lines: return
 	draw_line(point_a, point_a+point_b, color)
 
 func draw_line_relative_thick(point_a: Vector3, point_b: Vector3, thickness: float = 2.0, color: Color = Color.RED):
+	if !Global.Debug_Settings.draw_debug_lines: return
 	point_b = point_a + point_b
-	
 	if point_a.is_equal_approx(point_b): return
 	
 	if draw_debug.mesh is ImmediateMesh:

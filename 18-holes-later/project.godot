@@ -29,8 +29,8 @@ config/icon="res://Styles/UI Assets/logo_circle.png"
 
 [autoload]
 
-Global="*res://Global/global.gd"
 DebugDraw="*res://Global/debug_draw.tscn"
+Global="*res://Global/global.tscn"
 
 [display]
 
@@ -54,6 +54,11 @@ folder_colors={
 [filesystem]
 
 import/blender/enabled=false
+
+[gui]
+
+theme/custom="res://Styles/UI Assets/default_ui_theme.tres"
+theme/default_font_antialiasing=0
 
 [input]
 
