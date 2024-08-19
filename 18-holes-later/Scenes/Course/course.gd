@@ -9,7 +9,7 @@ var Character_Cam : SpringArm3D
 
 func _ready():
 	if Global.should_load:
-		load_game(Global.Profile)
+		Global.load_game(Global.Profile)
 		return
 	add_hole()
 	add_player()
@@ -25,6 +25,3 @@ func add_player():
 	var spawn_pos = Holes.get_child(-1).get_node("Player_Spawn").position
 	add_child(Global.init_player(spawn_pos))
 	Global.Player.Tripod.get_node("Camera_Main")
-
-func save_game(profile): $SaveController.save_game(profile)
-func load_game(profile): $SaveController.load_game(profile)

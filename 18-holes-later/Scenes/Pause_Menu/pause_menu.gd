@@ -27,4 +27,4 @@ func _on_btn_retry_pressed():
 
 func _on_btn_save_pressed():
 	print("Savin Progress...")
-	get_parent().save_game(Global.Profile)
+	Global.save_game(Global.Profile)

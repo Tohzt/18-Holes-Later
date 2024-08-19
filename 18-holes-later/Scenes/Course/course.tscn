@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cps8t8jud0qmb"]
+[gd_scene load_steps=7 format=3 uid="uid://cps8t8jud0qmb"]
 
 [ext_resource type="Script" path="res://Scenes/Course/course.gd" id="1_wfw1c"]
-[ext_resource type="Script" path="res://Save/SaveController.gd" id="3_u05qi"]
 [ext_resource type="Script" path="res://Scenes/Course/Holes.gd" id="4_u2s0u"]
 [ext_resource type="PackedScene" uid="uid://2qqrnls6qqtk" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="5_dkybb"]
 [ext_resource type="PackedScene" uid="uid://i30yt8hxuh12" path="res://Scenes/Gem_Overlay/Gem_Overlay.tscn" id="6_05crr"]
@@ -10,9 +9,6 @@
 
 [node name="Course" type="Node3D"]
 script = ExtResource("1_wfw1c")
-
-[node name="SaveController" type="Node" parent="."]
-script = ExtResource("3_u05qi")
 
 [node name="Holes" type="Node" parent="."]
 script = ExtResource("4_u2s0u")
