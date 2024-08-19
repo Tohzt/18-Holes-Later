@@ -17,7 +17,6 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.0156863, 1, 0, 0.607843)
 texture_filter = 0
-billboard_mode = 1
 
 [sub_resource type="Curve" id="Curve_6jgx7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
