@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://vxnb766rhp5i"]
+
+[ext_resource type="Script" path="res://Global/global.gd" id="1_pokw4"]
+[ext_resource type="PackedScene" uid="uid://cijcqbaxtng5y" path="res://Global/Debug/debug_settings.tscn" id="2_0aosd"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_pokw4")
+
+[node name="DebugSettings" parent="." instance=ExtResource("2_0aosd")]

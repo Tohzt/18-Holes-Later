@@ -1,6 +1,7 @@
 extends Node
 
 # Default Settings
+@onready var Debug_Settings = $DebugSettings
 var MOUSE_SENSITIVITY : float = 0.4
 
 # Saved Scenes
