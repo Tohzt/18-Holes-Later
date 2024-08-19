@@ -45,11 +45,13 @@ func _launch_disc():
 	apply_central_impulse(impulse)
 
 func _process(_delta):
+	show()
 	if in_bag:
+		hide()
 		if index == Global.selected_disc:
 			scale = Vector3.ONE * .5
-	
-	DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
+	else:
+		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
 	
 func _physics_process(_delta):
 	if launch:
