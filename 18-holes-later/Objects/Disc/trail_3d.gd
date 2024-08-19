@@ -265,8 +265,9 @@ func _ready() -> void:
 
 
 func _process(delta) -> void:
-	if get_parent().in_hand:
-		emit = false
+	if !Global.Debug_Settings.draw_disc_trails: return
+	#if get_parent().in_hand:
+		#emit = false
 	if emit:
 		_emit(delta)
 		return

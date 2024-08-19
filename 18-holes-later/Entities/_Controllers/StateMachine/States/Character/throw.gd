@@ -10,6 +10,9 @@ func monitor_state():
 	pass
 
 func update_state():
+	if !Input.is_action_pressed("right_click"):
+		exit_state("Idle")
+	
 	if Input.is_action_just_released("right_click"):
 		if !Master.has_node("Tripod_Main"):
 			for disc: Disc in get_tree().get_nodes_in_group("Disc"):
@@ -18,10 +21,10 @@ func update_state():
 			exit_state("Idle") 
 			return
 	
-	#if State_Controller.state_suffix == "_Release":
-		#if !Master.AnimController.is_playing():
-			#exit_state("Throw")
-			#return
+	if State_Controller.state_suffix == "_Release":
+		if !Master.Anim_Controller.animation_player.is_playing():
+			exit_state("Throw")
+			return
 	
 	if Input.is_action_just_pressed("left_click"):
 		State_Controller.state_suffix = "_Charge"

@@ -49,7 +49,7 @@ func _process(_delta):
 		if index == Global.selected_disc:
 			scale = Vector3.ONE * .5
 	
-	DebugDraw.draw_line_relative_thick(Global.Player.position + Vector3.UP, Global.Player.position - position + Vector3.UP)
+	DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
 	
 func _physics_process(_delta):
 	if launch:
