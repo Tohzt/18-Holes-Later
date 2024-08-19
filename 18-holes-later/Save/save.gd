@@ -41,8 +41,6 @@ func _get_character_save():
 		"pos_x" : parent.position.x,
 		"pos_y" : parent.position.y,
 		"pos_z" : parent.position.z,
-		"bag_of_discs": parent.bag_of_discs,
-		"game_disc_index": parent.game_disc_index
 		# TODO: Add Player Properties to Save
 	}
 	return char_save_dict

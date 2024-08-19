@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://vxnb766rhp5i"]
+
+[ext_resource type="Script" path="res://Global/global.gd" id="1_pokw4"]
+[ext_resource type="PackedScene" uid="uid://cijcqbaxtng5y" path="res://Global/Debug/debug_settings.tscn" id="2_0aosd"]
+[ext_resource type="Script" path="res://Save/SaveController.gd" id="3_q4s14"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_pokw4")
+
+[node name="DebugSettings" parent="." instance=ExtResource("2_0aosd")]
+
+[node name="SaveController" type="Node" parent="."]
+script = ExtResource("3_q4s14")
