@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://mgaxgwqsomw8"]
+[gd_scene load_steps=12 format=3 uid="uid://mgaxgwqsomw8"]
 
 [ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_6qoy3"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ialtanst8bq2" path="res://Entities/_Controllers/InputControllers/Character/character_input.tscn" id="5_wcdtg"]
 [ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/run.tscn" id="6_o7hwu"]
 [ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/idle.tscn" id="7_1kgre"]
+[ext_resource type="PackedScene" uid="uid://cl7c5i23lxemu" path="res://Global/tripod_main.tscn" id="9_fea6f"]
 [ext_resource type="Script" path="res://Entities/Character/Bag.gd" id="11_li4e1"]
 [ext_resource type="PackedScene" uid="uid://drjyl8ivn0ssi" path="res://Entities/Character/Layla/layla.tscn" id="12_rs5qh"]
 
@@ -42,14 +43,7 @@ is_char = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.567167, 0)
 shape = SubResource("CapsuleShape3D_fes4t")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.935079, 0.354439, 0, -0.354439, 0.935079, -0.222667, 0.739183, 0.95662)
-collision_mask = 7
-spring_length = 0.5
-
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D" groups=["Camera", "Third_Person"]]
-transform = Transform3D(1, 0, 0, 0, 0.923579, -0.383409, 0, 0.383409, 0.923579, 0, 0, 0)
-current = true
+[node name="Tripod_Main" parent="." instance=ExtResource("9_fea6f")]
 
 [node name="Hand" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.397197, 0.2, -0.236908)

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Gem" load_steps=5 format=3 uid="uid://b4c32ia0fii4v"]
+[gd_resource type="Resource" script_class="Gem" load_steps=6 format=3 uid="uid://b4c32ia0fii4v"]
 
 [ext_resource type="Script" path="res://Objects/Gems/Gems.gd" id="1_ts40p"]
+[ext_resource type="Script" path="res://Objects/Shards/Shard_Specials/shard_special.gd" id="1_wasj0"]
 [ext_resource type="Script" path="res://Objects/Shards/Shards/shard.gd" id="2_jjw6t"]
 [ext_resource type="Resource" uid="uid://cxl5knmakqlij" path="res://Objects/Shards/Shards/shard_02.tres" id="3_0n5em"]
 
@@ -17,6 +18,6 @@ note = ""
 script = ExtResource("1_ts40p")
 name = "TestGem01"
 elemental_type = 4
-master_shard = Array[Resource("res://Objects/Shards/Shard_Specials/shard_special.gd")]([])
+master_shard = Array[ExtResource("1_wasj0")]([])
 shard_array = Array[ExtResource("2_jjw6t")]([SubResource("Resource_4a38d"), ExtResource("3_0n5em")])
 note = ""

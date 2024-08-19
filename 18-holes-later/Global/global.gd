@@ -1,6 +1,7 @@
 extends Node
 
 # Default Settings
+@onready var Debug_Settings = $DebugSettings
 var MOUSE_SENSITIVITY : float = 0.4
 
 # Saved Scenes
@@ -29,8 +30,6 @@ var should_load: bool = false
 
 var game_on = false
 var selected_disc = 1
-var bag_of_discs: Array[Array] = []
-var game_disc_index: int = -1
 var is_paused: bool = 	false
 
 func _process(_delta):
@@ -49,9 +48,6 @@ func init_player(spawn_pos) -> Entity:
 	var new_player = CHAR_BENNY.instantiate()
 	Player = new_player
 	Player.position = spawn_pos
-	if bag_of_discs:
-		Player.bag_of_discs = bag_of_discs
-		Player.game_disc_index = game_disc_index
 	return Player
 
 func go_to_scene(next_scene: String):
@@ -80,10 +76,13 @@ func select_next_disc():
 	selected_disc += 1
 	if selected_disc > 3:
 		selected_disc = 1
+	
+	var hud: HUD = get_tree().get_first_node_in_group("HUD")
+	if hud: hud.bag_container.highlight_selected()
 
 func add_disc_to_bag(disc):
-	if !camera:
-		camera = Player.Camera
+	if !camera and Player.Tripod.Camera:
+		camera = Player.Tripod.Camera
 	var screen_size = get_viewport().size
 	screen_position = Vector2(50 + (hud_gap * disc.index), screen_size.y - 50)
 	# Project a ray from the camera into the world
@@ -99,3 +98,6 @@ func add_disc_to_bag(disc):
 	# Set rotation and scale
 	disc.global_transform.basis = Basis(right_vector, up_vector, forward_vector)
 	disc.scale = Vector3(0.25, 0.25, 0.25)
+
+func save_game(profile): $SaveController.save_game(profile)
+func load_game(profile): $SaveController.load_game(profile)
