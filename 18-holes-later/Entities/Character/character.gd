@@ -6,10 +6,6 @@ extends Entity
 @onready var Bag = $Bag
 
 var game_disc_index: int = 0
-var bag_of_discs: Array = [
-	["Starter", "Driver", 2,2,-2,2],
-	["Starter", "Hybrid", 1,1,-1,1],
-	["Starter", "Putter", 0,0, 0,0]]
 
 const MAX_POWER = 2
 var is_throwing = false
