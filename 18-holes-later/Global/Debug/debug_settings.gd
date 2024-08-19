@@ -3,9 +3,6 @@ class_name DebugSettings
 
 @export var draw_debug_lines: bool = false
 @export var draw_disc_trails: bool = false
-# Add other settings as needed
-@export var some_other_setting: int = 0
-@export var another_setting: String = "default"
 
 func export_variables() -> Array:
 	var property_list = get_property_list()

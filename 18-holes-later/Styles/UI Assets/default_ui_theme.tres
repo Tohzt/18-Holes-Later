@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://cf46pf6qj4cfu"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://cf46pf6qj4cfu"]
 
 [ext_resource type="Texture2D" uid="uid://bo8315j1f4iwx" path="res://Styles/UI Assets/Main menu/Button BG.png" id="1_lj74b"]
 [ext_resource type="Texture2D" uid="uid://d0wd21w2s06n2" path="res://Styles/UI Assets/Main menu/Button BG shadow.png" id="2_pp703"]
@@ -38,6 +38,8 @@ texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c00ye"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwcq8"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25qxo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bffhl"]
@@ -53,5 +55,6 @@ CheckBox/styles/normal = SubResource("StyleBoxEmpty_fj3j7")
 CheckBox/styles/pressed = SubResource("StyleBoxEmpty_6ddhr")
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_f76x1")
 CheckButton/styles/hover = SubResource("StyleBoxEmpty_c00ye")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_hwcq8")
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_25qxo")
 CheckButton/styles/pressed = SubResource("StyleBoxEmpty_bffhl")
