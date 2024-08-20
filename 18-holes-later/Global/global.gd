@@ -21,6 +21,7 @@ const TREE         = preload("res://Objects/Trees/tree.tscn")
 var Active_Camera: Camera3D
 
 var Scene: String
+var HUD: HUD
 var Current_Hole: PackedScene = HOLE_01
 var Active_Hole: Node3D
 var Hole_Name: String = ""
@@ -33,6 +34,8 @@ var selected_disc = 1
 var is_paused: bool = 	false
 
 func _process(_delta):
+	if !HUD:
+		HUD = get_tree().get_first_node_in_group("HUD")
 	if !Active_Hole:
 		Active_Hole = get_tree().get_first_node_in_group("Hole")
 		
@@ -76,9 +79,6 @@ func select_next_disc():
 	selected_disc += 1
 	if selected_disc > 3:
 		selected_disc = 1
-	
-	var hud: HUD = get_tree().get_first_node_in_group("HUD")
-	if hud: hud.bag_container.highlight_selected()
 
 func add_disc_to_bag(disc):
 	if !camera and Player.Tripod.Camera:

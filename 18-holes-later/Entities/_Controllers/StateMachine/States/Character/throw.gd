@@ -27,16 +27,18 @@ func update_state():
 			return
 	
 	if Input.is_action_just_pressed("left_click"):
+		Master.is_charging = true
 		State_Controller.state_suffix = "_Charge"
 	
 	if Input.is_action_just_released("left_click"):
+		Master.is_charging = false
 		State_Controller.state_suffix = "_Release"
 		for disc: Disc in Master.Bag.discs:
 			if disc.in_hand:
 				disc.position = Master.Hand.global_position
 				# TODO: Get power on charge time
 				# TODO: Influence by Disc stats
-				disc.power = Master.MAX_POWER
+				disc.power = lerpf(0.0, Master.MAX_POWER, Global.HUD.charge_bar.value/100)
 				disc.target_dir = Master.get_node("Tripod_Main").get_node("Camera_Main").get_global_transform().basis.z
 				disc.target_dir.y -= deg_to_rad(20)
 				

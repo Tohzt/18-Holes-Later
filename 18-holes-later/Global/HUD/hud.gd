@@ -2,6 +2,7 @@ extends Control
 class_name HUD
 @onready var Strokes = $Strokes
 @onready var bag_container = $Bag_Container
+@onready var charge_bar: ProgressBar = $Charge_Bar
 
 func _ready():
 	Strokes.text = "Strokes: --"

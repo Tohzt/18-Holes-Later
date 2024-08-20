@@ -7,7 +7,8 @@ extends Entity
 
 var game_disc_index: int = 0
 
-const MAX_POWER = 2
+const MAX_POWER = 10
+var is_charging = false
 var is_throwing = false
 var is_on_tee = false
 var strokes = 0
@@ -17,6 +18,8 @@ func _ready():
 	super._ready()
 
 func _process(delta):
+	if is_charging:
+		Global.HUD.charge_bar.value += 2
 	super._process(delta)
 	
 	_collect_discs()
