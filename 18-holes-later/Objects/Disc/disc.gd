@@ -1,5 +1,6 @@
 class_name Disc
 extends RigidBody3D
+@onready var Tripod = $Tripod_Disc
 
 var index = 1
 var disc_name = ""
@@ -15,12 +16,10 @@ var stats = {
 var dmg = 5
 var launch = false
 
-var trigger_swarm = true
 var in_bag = false
 var in_hand = false
 @export var in_play = false
 
-@onready var spawn_pos : Vector3 = self.position
 var target_dir : Vector3
 var power : float
 var power_resist: float
@@ -31,7 +30,7 @@ func _ready():
 	pass
 
 func _launch_disc():
-	scale = Vector3(1,1,1)
+	Tripod.rotation.y = target_dir.y
 	launch  = false
 	in_bag  = false
 	in_hand = false
@@ -45,6 +44,7 @@ func _launch_disc():
 	apply_central_impulse(impulse)
 
 func _process(_delta):
+	
 	show()
 	if in_bag:
 		hide()
@@ -92,9 +92,6 @@ func _detect_impact():
 				pick_up(node.Bag)
 			#if node.is_in_group("Solid"):
 				#self.set_collision_mask_value(2, true)
-			#if trigger_swarm and node.is_in_group("Basket"):
-				#trigger_swarm = false
-				#get_tree().get_first_node_in_group("EnemyContainer").spawn_enemies(position)
 			if node.is_in_group("Enemy"):
 				node.take_damage(dmg)
 

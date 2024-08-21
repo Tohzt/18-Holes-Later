@@ -14,12 +14,13 @@ func update_state():
 		exit_state("Idle")
 	
 	if Input.is_action_just_released("right_click"):
-		if !Master.has_node("Tripod_Main"):
-			for disc: Disc in get_tree().get_nodes_in_group("Disc"):
-				if disc.in_play and disc.get_node("Tripod_Main"):
-					disc.get_node("Tripod_Main").return_to_player()
-			exit_state("Idle") 
-			return
+		Global.Active_Camera.snap_to(Master)
+		#if !Master.has_node("Tripod_Main"):
+			#for disc: Disc in get_tree().get_nodes_in_group("Disc"):
+				#if disc.in_play and disc.get_node("Tripod_Main"):
+					#disc.get_node("Tripod_Main").return_to_player()
+			#exit_state("Idle") 
+			#return
 	
 	if State_Controller.state_suffix == "_Release":
 		if !Master.Anim_Controller.animation_player.is_playing():
@@ -39,7 +40,7 @@ func update_state():
 				# TODO: Get power on charge time
 				# TODO: Influence by Disc stats
 				disc.power = lerpf(0.0, Master.MAX_POWER, Global.HUD.charge_bar.value/100)
-				disc.target_dir = Master.get_node("Tripod_Main").get_node("Camera_Main").get_global_transform().basis.z
+				disc.target_dir = Global.Active_Camera.get_global_transform().basis.z
 				disc.target_dir.y -= deg_to_rad(20)
 				
 				# Apply tilt (rotation around local z-axis)
@@ -51,15 +52,15 @@ func update_state():
 				disc.launch = true
 				
 				if Global.game_on:
+					Global.Active_Camera.snap_to(disc)
 					if disc.in_play:
-						Master.send_camera(disc)
 						Master.strokes += 1
 					var hud = get_tree().get_first_node_in_group("HUD")
 					if hud:
 						hud.update_strokes(Master.strokes)
 				else:
 					if Master.is_on_tee:
-						Master.send_camera(disc)
+						Global.Active_Camera.snap_to(disc)
 						Master.strokes = 1
 						Global.game_on = true
 						disc.in_play = true

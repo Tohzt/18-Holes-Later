@@ -21,7 +21,7 @@ const TREE         = preload("res://Objects/Trees/tree.tscn")
 var Active_Camera: Camera3D
 
 var Scene: String
-var HUD: HUD
+var HUD: HUD_Class
 var Current_Hole: PackedScene = HOLE_01
 var Active_Hole: Node3D
 var Hole_Name: String = ""
