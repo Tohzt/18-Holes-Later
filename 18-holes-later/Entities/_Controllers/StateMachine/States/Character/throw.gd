@@ -15,12 +15,6 @@ func update_state():
 	
 	if Input.is_action_just_released("right_click"):
 		Global.Active_Camera.snap_to(Master)
-		#if !Master.has_node("Tripod_Main"):
-			#for disc: Disc in get_tree().get_nodes_in_group("Disc"):
-				#if disc.in_play and disc.get_node("Tripod_Main"):
-					#disc.get_node("Tripod_Main").return_to_player()
-			#exit_state("Idle") 
-			#return
 	
 	if State_Controller.state_suffix == "_Release":
 		if !Master.Anim_Controller.animation_player.is_playing():
