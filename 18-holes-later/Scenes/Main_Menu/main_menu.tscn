@@ -2,7 +2,13 @@
 
 [ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_ky1vy"]
 [ext_resource type="Texture2D" uid="uid://b5vivsuksamy" path="res://Scenes/Main_Menu/src/Background.png" id="2_jlhmx"]
-[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="3_emysa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qujja"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 0.843137)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jlhmx")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="TextureRect2" type="Panel" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -36,8 +42,7 @@ offset_top = 13.055
 offset_right = 308.0
 offset_bottom = 117.055
 grow_horizontal = 2
-texture = ExtResource("3_emysa")
-expand_mode = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_qujja")
 
 [node name="MenuContainer" type="MarginContainer" parent="."]
 layout_mode = 1

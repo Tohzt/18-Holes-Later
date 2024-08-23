@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1flq11c6t3up"]
+
+[ext_resource type="PackedScene" uid="uid://7v3ybmr25wwd" path="res://Scenes/Clubhouse/DiscWorkbench/DiscCardButton.tscn" id="1_cevvo"]
+[ext_resource type="Script" path="res://Scenes/Clubhouse/DiscWorkbench/popup.gd" id="3_3lus6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r30om"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="DiscSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_horizontal = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -290.0
+offset_right = 250.0
+offset_bottom = 290.0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(300, 600)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HFlowContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HFlowContainer/MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(250, 620)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r30om")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cevvo")]
+layout_mode = 2
+
+[node name="Button" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/MarginContainer" index="0"]
+text = "1"
+
+[node name="MarginContainer2" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cevvo")]
+layout_mode = 2
+
+[node name="Button" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/MarginContainer2" index="0"]
+text = "2"
+
+[node name="MarginContainer3" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cevvo")]
+layout_mode = 2
+
+[node name="Button" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/MarginContainer3" index="0"]
+text = "3"
+
+[node name="DiscCard" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_cevvo")]
+layout_mode = 2
+
+[node name="Button" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/DiscCard" index="0"]
+text = "5"
+
+[node name="Popup" type="Popup" parent="."]
+title = "TEST TITLE"
+initial_position = 1
+size = Vector2i(275, 550)
+visible = true
+unresizable = false
+borderless = false
+script = ExtResource("3_3lus6")
+
+[node name="MarginContainer4" parent="Popup" instance=ExtResource("1_cevvo")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" parent="Popup/MarginContainer4" index="0"]
+text = "4"
+
+[connection signal="pressed" from="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/MarginContainer3/Button" to="Popup" method="_on_button_pressed"]
+
+[editable path="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/MarginContainer"]
+[editable path="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/MarginContainer2"]
+[editable path="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/MarginContainer3"]
+[editable path="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer/VBoxContainer/DiscCard"]
+[editable path="Popup/MarginContainer4"]
