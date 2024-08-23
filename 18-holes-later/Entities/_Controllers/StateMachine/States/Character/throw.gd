@@ -14,7 +14,8 @@ func update_state():
 		exit_state("Idle")
 	
 	if Input.is_action_just_released("right_click"):
-		Global.Active_Camera.snap_to(Master)
+		if !Master.Tripod.get_child_count():
+			Global.Active_Camera.snap_to(Master)
 	
 	if State_Controller.state_suffix == "_Release":
 		if !Master.Anim_Controller.animation_player.is_playing():

@@ -1,23 +1,24 @@
 extends Camera3D
 
-@onready var rot = rotation
+@onready var rot_x = rotation.x
 
 func _ready():
 	Global.Active_Camera = self
 
 func snap_to(anchor: Node3D):
-	rotation.x = 0
-	rotation.y = 0
-	rotation.z = 0
 	reparent(anchor.Tripod)
-
-func _process(delta):
-	#position = Vector3.ZERO
-	if !Global.Player.Tripod.get_child_count():
+	if anchor == Global.Player:
+		rotation.x = rot_x
+	else:
 		rotation.x = 0
+
+func _process(_delta):
 	rotation.y = 0
 	rotation.z = 0
-	#rotation = rot
+	if get_parent() == Global.Player.Tripod:
+		rot_x = rotation.x
+	else:
+		rotation = Vector3.ZERO
 
 func _unhandled_input(event):
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -25,9 +26,10 @@ func _unhandled_input(event):
 			var parent = get_parent()
 			var angle_limit_down = 80
 			var angle_limit_up = 20
-			#rotation.x = clampf(rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))
-			
-			rotate_x(deg_to_rad(-event.relative.y * Global.MOUSE_SENSITIVITY))
+			# Update Vertical
+			get_parent().rotate_x(deg_to_rad(-event.relative.y * Global.MOUSE_SENSITIVITY))
+			get_parent().rotation.x = clampf(get_parent().rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))
+			# Update Horizontal
 			if Global.Player.Tripod.get_child_count():
 				Global.Player.look_dir += deg_to_rad(-event.relative.x * Global.MOUSE_SENSITIVITY)
 			else:

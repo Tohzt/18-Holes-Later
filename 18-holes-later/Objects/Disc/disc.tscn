@@ -52,6 +52,8 @@ base_width = 0.1
 width_profile = SubResource("Curve_6jgx7")
 
 [node name="Tripod_Disc" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.836525, 0.547928, 0, -0.547928, 0.836525, 0, 0, 0)
-spring_length = 1.575
+transform = Transform3D(1, 0, 0, 0, 0.397148, 0.917754, 0, -0.917754, 0.397148, 0, 0, 0)
 script = ExtResource("4_05flo")
+
+[node name="Camera3D" type="Camera3D" parent="Tripod_Disc"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0530659, 0.230141)

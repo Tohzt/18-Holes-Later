@@ -44,7 +44,6 @@ func _launch_disc():
 	apply_central_impulse(impulse)
 
 func _process(_delta):
-	
 	show()
 	if in_bag:
 		hide()
