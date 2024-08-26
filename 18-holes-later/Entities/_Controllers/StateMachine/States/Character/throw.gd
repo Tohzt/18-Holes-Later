@@ -14,6 +14,7 @@ func update_state():
 		exit_state("Idle")
 	
 	if Input.is_action_just_released("right_click"):
+		return
 		if !Master.Tripod.get_child_count():
 			Global.Active_Camera.snap_to(Master)
 	

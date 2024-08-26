@@ -285,7 +285,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -0.342039, 1.96695e-06, -82.5166)
 hole = 2
 
-[node name="Basket_01" parent="Baskets" instance=ExtResource("7_llovg")]
+[node name="Basket_01" parent="Baskets" groups=["Basket_01"] instance=ExtResource("7_llovg")]
 transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -44.8803, 1.96695e-06, -79.7979)
 hole = 1
 

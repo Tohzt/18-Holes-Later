@@ -7,9 +7,11 @@ func _ready():
 
 func snap_to(anchor: Node3D):
 	reparent(anchor.Tripod)
+	anchor.Tripod.has_camera = self
 	if anchor == Global.Player:
 		rotation.x = rot_x
 	else:
+		get_parent().rotation.y = Global.Player.look_dir
 		rotation.x = 0
 
 func _process(_delta):
