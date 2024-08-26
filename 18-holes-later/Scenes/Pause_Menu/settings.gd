@@ -21,12 +21,11 @@ func create_setting_control(var_name: String):
 			settings_container.add_child(checkbox)
 			update_min_size()
 		_:
-			print("Unsupported type for " + var_name + ": " + str(type))
+			print_debug("Unsupported type for " + var_name + ": " + str(type))
 
 # Add this new function to handle the signal
 func _toggled_bool_setting(button_pressed: bool, var_name: String):
 	Global.Debug_Settings.set(var_name, button_pressed)
-	print("Clicked: ", var_name, " : ", button_pressed)
 
 func update_min_size():
 	custom_minimum_size = Vector2(0, settings_container.get_minimum_size().y)

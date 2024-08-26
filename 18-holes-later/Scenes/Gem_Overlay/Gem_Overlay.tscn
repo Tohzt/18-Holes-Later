@@ -95,13 +95,16 @@ metadata/_edit_lock_ = true
 [node name="TabContainer" type="TabContainer" parent="Overlay/PanelContainer"]
 visible = false
 layout_mode = 2
+current_tab = 0
 
 [node name="TabBar" type="TabBar" parent="Overlay/PanelContainer/TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="TabBar2" type="TabBar" parent="Overlay/PanelContainer/TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Overlay/PanelContainer"]
 layout_mode = 2

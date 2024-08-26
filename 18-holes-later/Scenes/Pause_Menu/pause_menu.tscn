@@ -128,6 +128,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Exit Game"
 
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 24.0
+
 [connection signal="pressed" from="NinePatchRect/HBoxContainer/Btn_Resume" to="." method="_on_btn_resume_pressed"]
 [connection signal="pressed" from="NinePatchRect/HBoxContainer/Btn_Retry" to="." method="_on_btn_retry_pressed"]
 [connection signal="pressed" from="NinePatchRect/HBoxContainer/Btn_Settings" to="NinePatchRect/HBoxContainer/Btn_Settings" method="_on_pressed"]

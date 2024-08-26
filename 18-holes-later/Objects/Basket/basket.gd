@@ -4,4 +4,10 @@ extends StaticBody3D
 
 
 func _on_area_3d_body_entered(body):
-	print("Basket was hit by: ", body.name)
+	if body.is_in_group("Disc"):
+		var disc: Disc = body
+		disc.in_play = false;
+		_trigger_swarm()
+
+func _trigger_swarm():
+	get_tree().get_first_node_in_group("EnemyContainer").spawn_enemies(position)

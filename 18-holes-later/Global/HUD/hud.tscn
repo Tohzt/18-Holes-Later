@@ -1,58 +1,72 @@
-[gd_scene load_steps=11 format=3 uid="uid://5xh0ditfqv66"]
+[gd_scene load_steps=14 format=3 uid="uid://5xh0ditfqv66"]
 
 [ext_resource type="Script" path="res://Global/HUD/hud.gd" id="1_jkdcx"]
 [ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="2_fjn21"]
 [ext_resource type="Script" path="res://Global/HUD/bag_container.gd" id="3_wy0c7"]
 [ext_resource type="Script" path="res://Global/HUD/hud_disc.gd" id="4_exk0s"]
+[ext_resource type="Script" path="res://Global/HUD/charge_bar.gd" id="5_1rnm5"]
 
-[sub_resource type="Gradient" id="Gradient_mgswx"]
+[sub_resource type="Gradient" id="Gradient_p62is"]
 offsets = PackedFloat32Array(0.651163, 0.75)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_f13qu"]
-gradient = SubResource("Gradient_mgswx")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qv6js"]
+gradient = SubResource("Gradient_p62is")
 width = 40
 height = 40
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_wgs20"]
+[sub_resource type="Gradient" id="Gradient_hdg0t"]
 offsets = PackedFloat32Array(0.651163, 0.75)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_s3s6n"]
-gradient = SubResource("Gradient_wgs20")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8231m"]
+gradient = SubResource("Gradient_hdg0t")
 width = 40
 height = 40
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="Gradient" id="Gradient_lrc7y"]
+[sub_resource type="Gradient" id="Gradient_7onfw"]
 offsets = PackedFloat32Array(0.651163, 0.75)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6xb1g"]
-gradient = SubResource("Gradient_lrc7y")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ch2o2"]
+gradient = SubResource("Gradient_7onfw")
 width = 40
 height = 40
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x75jx"]
+bg_color = Color(0.442547, 0.300968, 0.0921015, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkhdu"]
+bg_color = Color(1, 0.728, 0.32, 1)
 
 [node name="HUD" type="Control" groups=["HUD"]]
 layout_mode = 3
-anchors_preset = 2
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 10
 script = ExtResource("1_jkdcx")
 
 [node name="Strokes" type="Label" parent="."]
-offset_left = 5.0
-offset_top = 533.0
-offset_right = 72.0
-offset_bottom = 556.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -122.0
+offset_right = 77.0
+offset_bottom = -99.0
+grow_vertical = 0
 text = "Strokes: "
 
 [node name="Bag_Container" type="NinePatchRect" parent="."]
@@ -95,21 +109,136 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="Bag_Container/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Disc_01" type="TextureRect" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Disc_Slot_01" type="Control" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_f13qu")
-script = ExtResource("4_exk0s")
-selected = true
-
-[node name="Disc_02" type="TextureRect" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_s3s6n")
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("4_exk0s")
 
-[node name="Disc_03" type="TextureRect" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Disc_Sprite" type="TextureRect" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer/Disc_Slot_01"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_qv6js")
+
+[node name="Disc_Label" type="Label" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer/Disc_Slot_01"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="Disc_Slot_02" type="Control" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_6xb1g")
 script = ExtResource("4_exk0s")
+slot = 2
+
+[node name="Disc_Sprite" type="TextureRect" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer/Disc_Slot_02"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_8231m")
+
+[node name="Disc_Label" type="Label" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer/Disc_Slot_02"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="Disc_Slot_03" type="Control" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("4_exk0s")
+slot = 3
+
+[node name="Disc_Sprite" type="TextureRect" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer/Disc_Slot_03"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ch2o2")
+
+[node name="Disc_Label" type="Label" parent="Bag_Container/VBoxContainer/MarginContainer/HBoxContainer/Disc_Slot_03"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="Charge_Bar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -40.0
+offset_right = 250.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_x75jx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jkhdu")
+value = 50.0
+show_percentage = false
+script = ExtResource("5_1rnm5")

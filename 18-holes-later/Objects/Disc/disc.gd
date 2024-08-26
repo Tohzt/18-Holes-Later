@@ -15,12 +15,10 @@ var stats = {
 var dmg = 5
 var launch = false
 
-var trigger_swarm = true
 var in_bag = false
 var in_hand = false
 @export var in_play = false
 
-@onready var spawn_pos : Vector3 = self.position
 var target_dir : Vector3
 var power : float
 var power_resist: float
@@ -31,7 +29,6 @@ func _ready():
 	pass
 
 func _launch_disc():
-	scale = Vector3(1,1,1)
 	launch  = false
 	in_bag  = false
 	in_hand = false
@@ -39,7 +36,7 @@ func _launch_disc():
 	linear_velocity  = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	# TODO: Do something with this
-	reparent(get_parent().get_parent().get_parent())
+	reparent(Global.Player.Bag)
 	var impulse = power + stats["Speed"]
 	impulse *= -target_dir
 	apply_central_impulse(impulse)
@@ -92,9 +89,6 @@ func _detect_impact():
 				pick_up(node.Bag)
 			#if node.is_in_group("Solid"):
 				#self.set_collision_mask_value(2, true)
-			#if trigger_swarm and node.is_in_group("Basket"):
-				#trigger_swarm = false
-				#get_tree().get_first_node_in_group("EnemyContainer").spawn_enemies(position)
 			if node.is_in_group("Enemy"):
 				node.take_damage(dmg)
 
