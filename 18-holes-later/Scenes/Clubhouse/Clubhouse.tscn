@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxpgafd4d185u"]
+[gd_scene load_steps=6 format=3 uid="uid://bxpgafd4d185u"]
 
 [ext_resource type="Script" path="res://Scenes/Clubhouse/clubhouse.gd" id="1_u5oam"]
+[ext_resource type="PackedScene" uid="uid://b1flq11c6t3up" path="res://Scenes/Clubhouse/DiscWorkbench/DiscSelector.tscn" id="2_eiwy4"]
 [ext_resource type="Texture2D" uid="uid://brgeyidw7tiiq" path="res://Scenes/Clubhouse/src/bg_clubhouse.jpg" id="2_h02ds"]
 [ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="3_lium3"]
 
@@ -52,7 +53,6 @@ theme_override_constants/separation = 10
 
 [node name="Btn_Select_Disc" type="Button" parent="HeaderContainer/HBoxContainer"]
 layout_mode = 2
-disabled = true
 text = "DISC
 "
 
@@ -281,9 +281,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -42.5
-offset_top = -31.0
-offset_right = 42.5
+offset_left = -48.5
+offset_top = -43.0
+offset_right = 48.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 120
@@ -293,6 +293,10 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "Next Hole
 "
+
+[node name="DiscSelector" parent="." instance=ExtResource("2_eiwy4")]
+visible = false
+size_flags_horizontal = 0
 
 [connection signal="pressed" from="HeaderContainer/HBoxContainer/Btn_Select_Disc" to="." method="_on_btn_select_disc_pressed"]
 [connection signal="pressed" from="HeaderContainer/HBoxContainer/Btn_Select_Course" to="." method="_on_btn_select_course_pressed"]

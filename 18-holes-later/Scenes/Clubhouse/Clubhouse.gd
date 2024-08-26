@@ -35,12 +35,17 @@ func _select_driver_pressed():
 
 
 func _on_btn_select_disc_pressed():
-	if disc_selection_container.visible:
-		disc_selection_container.hide()
-		course_selection_container.show()
+	if($DiscSelector.visible):
+		$DiscSelector.hide()
 	else:
-		disc_selection_container.show()
-		course_selection_container.hide()
+		$DiscSelector.show()
+	pass
+	#if disc_selection_container.visible:
+		#disc_selection_container.hide()
+		#course_selection_container.show()
+	#else:
+		#disc_selection_container.show()
+		#course_selection_container.hide()
 
 
 func _on_btn_select_course_pressed():

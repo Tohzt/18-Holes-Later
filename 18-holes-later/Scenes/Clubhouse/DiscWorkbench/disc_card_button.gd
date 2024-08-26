@@ -1,9 +1,9 @@
+class_name disc_card_button
 extends MarginContainer
 
 var button:PackedScene = preload("res://Scenes/Clubhouse/DiscWorkbench/DiscCardButton.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	pass # Replace with function body.
 
 
@@ -25,3 +25,7 @@ func _on_button_pressed():
 	pup.show()
 	print("you clicked me")
 	print($Button.text)
+	Global.store_disc_in_bag($Button.text)
+
+func create_popup ():
+	pass

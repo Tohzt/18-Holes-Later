@@ -28,6 +28,7 @@ var Hole_Name: String = ""
 var Player: Entity
 var Profile: String = ""
 var should_load: bool = false
+var _temp_bag: Array[Disc]
 
 var game_on = false
 var selected_disc = 1
@@ -101,3 +102,8 @@ func add_disc_to_bag(disc):
 
 func save_game(profile): $SaveController.save_game(profile)
 func load_game(profile): $SaveController.load_game(profile)
+
+func store_disc_in_bag(disc):
+	print(disc, 'from global going to bag')
+	
+	 
