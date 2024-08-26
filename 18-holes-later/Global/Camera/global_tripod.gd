@@ -9,13 +9,14 @@ var camera: Camera3D
 		camera = value
 		_on_obtain_camera(value, Global.Player.look_dir)
 
-func _on_obtain_camera(value: Camera3D, aim_dir: float) -> void:
+# TODO: Do I need value here?
+func _on_obtain_camera(_value: Camera3D, aim_dir: float) -> void:
 	rotation.y = rad_to_deg(aim_dir)
 	print("Tripod_Disc: ", rotation)
 
 func _process(_delta):
 	global_position.y = get_parent().position.y + 1
-	global_rotation.y = (global_position.direction_to(get_tree().get_first_node_in_group("Basket_01").position)).y
+	#global_rotation.y = (global_position.direction_to(get_tree().get_first_node_in_group("Basket_01").position)).y
 	if has_camera:
 		global_rotation.x = 0
 		global_rotation.z = 0

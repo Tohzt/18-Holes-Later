@@ -14,7 +14,6 @@ func update_state():
 		exit_state("Idle")
 	
 	if Input.is_action_just_released("right_click"):
-		return
 		if !Master.Tripod.get_child_count():
 			Global.Active_Camera.snap_to(Master)
 	
@@ -33,8 +32,6 @@ func update_state():
 		for disc: Disc in Master.Bag.discs:
 			if disc.in_hand:
 				disc.position = Master.Hand.global_position
-				# TODO: Get power on charge time
-				# TODO: Influence by Disc stats
 				disc.power = lerpf(0.0, Master.MAX_POWER, Global.HUD.charge_bar.value/100)
 				disc.target_dir = Global.Active_Camera.get_global_transform().basis.z
 				disc.target_dir.y -= deg_to_rad(20)
@@ -48,15 +45,15 @@ func update_state():
 				disc.launch = true
 				
 				if Global.game_on:
-					Global.Active_Camera.snap_to(disc)
 					if disc.in_play:
+						Global.Active_Camera.snap_to(Global.Tripod, disc)
 						Master.strokes += 1
 					var hud = get_tree().get_first_node_in_group("HUD")
 					if hud:
 						hud.update_strokes(Master.strokes)
 				else:
 					if Master.is_on_tee:
-						Global.Active_Camera.snap_to(disc)
+						Global.Active_Camera.snap_to(Global.Tripod, disc)
 						Master.strokes = 1
 						Global.game_on = true
 						disc.in_play = true

@@ -1,6 +1,5 @@
 class_name Disc
 extends RigidBody3D
-@onready var Tripod = $Tripod_Disc
 
 var index = 1
 var disc_name = ""
@@ -30,7 +29,6 @@ func _ready():
 	pass
 
 func _launch_disc():
-	Tripod.rotation.y = target_dir.y
 	launch  = false
 	in_bag  = false
 	in_hand = false
@@ -38,7 +36,7 @@ func _launch_disc():
 	linear_velocity  = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	# TODO: Do something with this
-	reparent(get_parent().get_parent().get_parent())
+	reparent(Global.Player.Bag)
 	var impulse = power + stats["Speed"]
 	impulse *= -target_dir
 	apply_central_impulse(impulse)

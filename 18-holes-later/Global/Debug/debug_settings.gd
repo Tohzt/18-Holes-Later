@@ -3,7 +3,6 @@ class_name DebugSettings
 
 @export var draw_debug_lines: bool = false
 @export var draw_disc_trails: bool = false
-@export var _disc_trails: bool = false
 
 func export_variables() -> Array:
 	var property_list = get_property_list()

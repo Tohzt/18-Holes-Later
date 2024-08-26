@@ -19,6 +19,7 @@ const CHAR_BENNY   = preload("res://Entities/Character/character.tscn")
 const MENU_PAUSE   = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
 const TREE         = preload("res://Objects/Trees/tree.tscn")
 
+@onready var Tripod = $Global_Tripod
 var Active_Camera: Camera3D
 
 var Scene: String

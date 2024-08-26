@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs0dgmrwevc7"]
+[gd_scene load_steps=8 format=3 uid="uid://cs0dgmrwevc7"]
 
 [ext_resource type="Script" path="res://Objects/Disc/disc.gd" id="1_wqkoe"]
 [ext_resource type="PackedScene" uid="uid://cvfoujqikvtev" path="res://Objects/Disc/Mesh/classic_retro_disc_mesh.tscn" id="3_50t6h"]
 [ext_resource type="Script" path="res://Objects/Disc/Mesh.gd" id="3_p7u27"]
-[ext_resource type="Script" path="res://Objects/Disc/global_tripod.gd" id="4_05flo"]
 [ext_resource type="Script" path="res://Objects/Disc/trail_3d.gd" id="4_haejd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_58eiw"]
@@ -50,7 +49,3 @@ material_override = SubResource("StandardMaterial3D_07jcs")
 script = ExtResource("4_haejd")
 base_width = 0.1
 width_profile = SubResource("Curve_6jgx7")
-
-[node name="Global_Tripod" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.397148, 0.917754, 0, -0.917754, 0.397148, 0, 0, 0)
-script = ExtResource("4_05flo")
