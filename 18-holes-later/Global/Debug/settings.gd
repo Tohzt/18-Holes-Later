@@ -1,8 +1,8 @@
 extends Node
-class_name DebugSettingsClass
+class_name SettingsClass
 
-@export var draw_debug_lines: bool = false
-@export var draw_disc_trails: bool = false
+# TODO: Add to Settings
+@export var MOUSE_SENSITIVITY : float = 0.4
 
 func export_variables() -> Array:
 	var property_list = get_property_list()

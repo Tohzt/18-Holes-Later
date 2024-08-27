@@ -41,8 +41,6 @@ script = ExtResource("3_p7u27")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_58eiw")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-
 [node name="Trail3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 material_override = SubResource("StandardMaterial3D_07jcs")

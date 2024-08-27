@@ -6,13 +6,13 @@ func _ready():
 	Options_Container.hide()
 
 func _on_btn_new_game_pressed():
-	Global.go_to_scene(Global.SCENE_CLUBHOUSE)
+	Global.go_to_scene(Global.Refs.SCENE_CLUBHOUSE)
 
 func _on_btn_continue_pressed():
 	# TODO: Default Test Profile 1.. Remove later
 	Global.Profile = "Profile 1"
 	Global.should_load = true
-	Global.go_to_scene(Global.SCENE_COURSE)
+	Global.go_to_scene(Global.Refs.SCENE_COURSE)
 
 func _on_btn_load_pressed():
 	if Profile_Container.visible:

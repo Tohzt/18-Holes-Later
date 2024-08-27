@@ -1,30 +1,17 @@
 extends Node
 
-
-# Default Settings
-@onready var Debug_Settings = $DebugSettings
-var MOUSE_SENSITIVITY : float = 0.4
-
-# Saved Scenes
-const SCENE_MAIN      = "res://Scenes/Main_Menu/main_menu.tscn"
-const SCENE_COURSE    = "res://Scenes/Course/course.tscn"
-const SCENE_LOADING   = "res://Scenes/Loading/loading.tscn"
-const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/clubhouse.tscn"
-
-# Spawnables
-const TESTING_ROOM = preload("res://Scenes/Holes/TESTING/testing_room.tscn")
-const HOLE_01      = preload("res://Scenes/Holes/Hole_01/hole_01.tscn")
-const DISC         = preload("res://Objects/Disc/disc.tscn")
-const CHAR_BENNY   = preload("res://Entities/Character/character.tscn")
-const MENU_PAUSE   = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
-const TREE         = preload("res://Objects/Trees/tree.tscn")
+# References
+@onready var Refs: ReferenceClass = $References
+# Default/Debug Settings
+@onready var Debug_Settings: DebugSettingsClass = $DebugSettings
+@onready var Settings: SettingsClass = $Settings
 
 @onready var Tripod = $Global_Tripod
 var Active_Camera: Camera3D
 
 var Scene: String
 var HUD: HUD_Class
-var Current_Hole: PackedScene = HOLE_01
+var Current_Hole: PackedScene
 var Active_Hole: Node3D
 var Hole_Name: String = ""
 var Player: Entity
@@ -50,14 +37,14 @@ func init_current_hole() -> Node3D:
 	return hole
  
 func init_player(spawn_pos) -> Entity:
-	var new_player = CHAR_BENNY.instantiate()
+	var new_player = Refs.CHAR_BENNY.instantiate()
 	Player = new_player
 	Player.position = spawn_pos
 	return Player
 
 func go_to_scene(next_scene: String):
 	Scene = next_scene
-	get_tree().change_scene_to_file(SCENE_LOADING)
+	get_tree().change_scene_to_file(Refs.SCENE_LOADING)
 	
 func go_to_course(next_scene: String, next_hole: PackedScene, hole_name: String):
 	Scene = next_scene
