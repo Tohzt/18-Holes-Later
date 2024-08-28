@@ -48,7 +48,6 @@ func _process(_delta):
 	if in_bag:
 		hide()
 	else:
-		print(sleeping)
 		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
 		if grounded:
 			_settle()
@@ -85,9 +84,6 @@ func _physics_process(_delta):
 
 func _settle():
 	if linear_velocity.length() < 0.2:
-		if in_play:
-			in_play = false
-			add_child(Global.Refs.PICKUP_AREA.instantiate())
 		self.set_collision_mask_value(1, false)
 		linear_velocity = Vector3.ZERO
 		sleeping = true

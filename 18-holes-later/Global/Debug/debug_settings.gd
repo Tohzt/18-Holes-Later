@@ -1,6 +1,7 @@
 extends Node
 class_name DebugSettingsClass
 
+@export var collect_all: bool = false
 @export var draw_debug_lines: bool = false
 @export var draw_disc_trails: bool = false
 
