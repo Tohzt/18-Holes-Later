@@ -45,18 +45,22 @@ func update_state():
 				disc.launch = true
 				
 				if Global.game_on:
-					if disc.in_play:
-						Global.Active_Camera.snap_to(Global.Tripod, disc)
-						Master.strokes += 1
 					var hud = get_tree().get_first_node_in_group("HUD")
 					if hud:
 						hud.update_strokes(Master.strokes)
+					
+					if Master.locked_in:
+						disc.in_play = true
+					if disc.in_play:
+						Global.Active_Camera.snap_to(Global.Tripod, disc)
+						Master.strokes += 1
 				else:
 					if Master.is_on_tee:
 						Global.Active_Camera.snap_to(Global.Tripod, disc)
 						Master.strokes = 1
 						Global.game_on = true
 						disc.in_play = true
+				Master.locked_in = false
 				return
 
 func exit_state(next_state: String):

@@ -216,7 +216,7 @@ environment = SubResource("Environment_u3xmk")
 [node name="Player_Spawn" parent="." instance=ExtResource("2_ldg4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.90053, 0)
 
-[node name="Testing_Room" type="StaticBody3D" parent="."]
+[node name="Testing_Room" type="StaticBody3D" parent="." groups=["Solid"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Testing_Room"]

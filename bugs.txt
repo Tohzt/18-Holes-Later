@@ -1,0 +1,10 @@
+List any bugs or issues you encountered.
+
+- Disc stuck in wall. 
+    Bug: Occurs when you pick up the 'in_play' disc after it lands next to a wall.
+    Fix: Push player away from wall when picking up disc
+
+- Losing 'in_play' disc.
+    Bug: Occurs when you throw in_play disc off the map.
+    Fix: Detect when in_play disc is off the map, in a hazard, or destroyed. 
+         Add pickup where to throw from. 
