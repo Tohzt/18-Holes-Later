@@ -11,10 +11,11 @@ func _on_body_exited(body):
 		can_pickup = false
 
 func _process(_delta):
-	if can_pickup:
+	if can_pickup and disc.grounded:
 		if disc.in_play:
 			if Input.is_action_just_pressed("collect"):
 				Global.Player.locked_in = true
+				disc.in_play = false
 				disc.pick_up(Global.Player.Bag)
 		else:
 			disc.pick_up(Global.Player.Bag)

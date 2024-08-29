@@ -19,8 +19,8 @@ func _process(_delta):
 
 func _check_for_disc():
 	has_disc = false
-	for disc: Disc in Global.Player.Bag.get_children():
-		if disc.index == slot:
+	for _disc: Disc in Global.Player.Bag.get_children():
+		if _disc.index == slot:
 			has_disc = true
 	if !has_disc:
 		gradient.set_color(0, Color.BLACK)
