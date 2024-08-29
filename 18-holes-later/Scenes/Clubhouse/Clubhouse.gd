@@ -21,7 +21,7 @@ func _process(_delta):
 	#Global.add_disc(disc_02)
 	#Global.add_disc(disc_03)
 	#Global.game_disc_index = selected_index
-	#Global.go_to_scene(Global.SCENE_GAME)
+	#Global.go_to_scene(Global.Refs.SCENE_GAME)
 
 
 func _select_putter_pressed():
@@ -53,8 +53,8 @@ func _on_btn_select_course_pressed():
 
 
 func _on_btn_hole_01_pressed():
-	Global.go_to_course(Global.SCENE_COURSE, Global.HOLE_01, "Hole_01")
+	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.HOLE_01, "Hole_01")
 
 
 func _on_btn_testing_pressed():
-	Global.go_to_course(Global.SCENE_COURSE, Global.TESTING_ROOM, "Testing_Room")
+	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.TESTING_ROOM, "Testing_Room")

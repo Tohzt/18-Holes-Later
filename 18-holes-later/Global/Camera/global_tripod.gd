@@ -1,3 +1,4 @@
+# TODO: Handle Camera Rotation Here
 extends SpringArm3D
 
 var camera: Camera3D
@@ -31,5 +32,5 @@ func _process(_delta):
 			#var angle_limit_up = 20
 			##rotation.x = clampf(rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))
 			#
-			#rotate_x(deg_to_rad(-event.relative.y * Global.MOUSE_SENSITIVITY))
-			#global_rotation.y += deg_to_rad(-event.relative.x * Global.MOUSE_SENSITIVITY)
+			#rotate_x(deg_to_rad(-event.relative.y * Global.Settings.MOUSE_SENSITIVITY))
+			#global_rotation.y += deg_to_rad(-event.relative.x * Global.Settings.MOUSE_SENSITIVITY)
