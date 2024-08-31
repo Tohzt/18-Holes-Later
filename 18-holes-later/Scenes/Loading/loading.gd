@@ -7,7 +7,7 @@ var progress : Array[float]
 @onready var progress_bar : ProgressBar = $ProgressBar
 
 func _ready() -> void:
-	printt("Loading... ", Global.Scene)
+	print("Loading... ", Global.Scene)
 	# Request to load the target scene:
 	ResourceLoader.load_threaded_request(Global.Scene)
 	
@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 			progress_bar.value = progress[0] * 100 # Change the ProgressBar value
 		ResourceLoader.THREAD_LOAD_LOADED:
 			# When done loading, change to the target scene:
+			print(Global.Scene)
 			get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(Global.Scene))
 		ResourceLoader.THREAD_LOAD_FAILED:
 			# Well some error happend:

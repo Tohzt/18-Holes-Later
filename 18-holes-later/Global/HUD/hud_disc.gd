@@ -7,7 +7,7 @@ class_name hud_disc
 @export_range (1,3) var slot: int = 1
 
 func _process(_delta):
-	label.text = Global.Player.Bag.discs[slot-1].disc_type[0]
+	label.text = Global.Player.Bag.discs[slot-1].disc_details.disc_type[0]
 	if slot == Global.selected_disc:
 		gradient.set_color(0, Color.RED)
 	else:

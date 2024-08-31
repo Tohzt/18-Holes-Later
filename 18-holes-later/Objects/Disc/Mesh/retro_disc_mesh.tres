@@ -1,24 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://bbbgk7rneuuua"]
+[gd_resource type="ArrayMesh" load_steps=4 format=4 uid="uid://c260g70y6al6i"]
 
-[ext_resource type="Script" path="res://Objects/Disc/Mesh/MeshInstance3D.gd" id="2_5w8kj"]
-
-[sub_resource type="Gradient" id="Gradient_vuybx"]
-offsets = PackedFloat32Array(0.124088, 0.240876, 0.49635, 0.642336, 0.781022, 0.868613, 0.970803)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ylxq7"]
-fractal_type = 3
-fractal_octaves = 1
-fractal_lacunarity = 5.57
-fractal_ping_pong_strength = 1.07
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bi5gc"]
-color_ramp = SubResource("Gradient_vuybx")
-noise = SubResource("FastNoiseLite_ylxq7")
+[ext_resource type="Texture2D" uid="uid://cdiphlbqugj1l" path="res://Objects/Disc/src/AlienDisc (2).png" id="1_brhlv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4vvi"]
-albedo_color = Color(0.0392157, 0.992157, 1, 1)
-albedo_texture = SubResource("NoiseTexture2D_bi5gc")
+albedo_color = Color(1, 1, 0, 1)
+albedo_texture = ExtResource("1_brhlv")
 albedo_texture_force_srgb = true
 emission = Color(0, 0, 1, 1)
 emission_energy_multiplier = 12.31
@@ -38,7 +24,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_xyit3"]
+[resource]
 resource_name = "AlienDisc_Sphere"
 _surfaces = [{
 "aabb": AABB(-0.999999, -0.402089, -1, 2, 1.40209, 2),
@@ -55,9 +41,3 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1s6qv")
-
-[node name="Mesh_PlasmaDisc" type="MeshInstance3D"]
-transform = Transform3D(0.155, 0, 0, 0, 0.015, 0, 0, 0, 0.155, 0, 0, 0)
-mesh = SubResource("ArrayMesh_xyit3")
-skeleton = NodePath("")
-script = ExtResource("2_5w8kj")

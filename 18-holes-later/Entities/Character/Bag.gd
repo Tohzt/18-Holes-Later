@@ -17,15 +17,15 @@ func _ready():
 		disc.in_bag = true
 		disc.position = get_parent().position
 		disc.position.y = get_parent().position.y - 10
-		disc.disc_name = disc_data[0]
-		disc.disc_type = disc_data[1]
-		disc.stats = {
-			"Speed": disc_data[2],  # (1-14) Minimum power to throw stable
-			"Glide": disc_data[3],  # (1-7)  How long it stays in the air (gravity delta)
-			"Turn":  disc_data[4],  # (1--5) Expected distance before curve at perfect speed
-			"Fade":  disc_data[5],  # (0-5)  How hard it wants to curve
-			"Resistance": .5  # Rate that disc loses power
-			}
+		#disc.disc_name = disc_data[0]
+		#disc.disc_type = disc_data[1]
+		#disc.stats = {
+			#"Speed": disc_data[2],  # (1-14) Minimum power to throw stable
+			#"Glide": disc_data[3],  # (1-7)  How long it stays in the air (gravity delta)
+			#"Turn":  disc_data[4],  # (1--5) Expected distance before curve at perfect speed
+			#"Fade":  disc_data[5],  # (0-5)  How hard it wants to curve
+			#"Resistance": .5  # Rate that disc loses power
+			#}
 		discs.append(disc)
 		add_child(disc)
 		

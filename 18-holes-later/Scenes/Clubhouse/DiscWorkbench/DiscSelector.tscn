@@ -51,7 +51,6 @@ script = ExtResource("1_aiym6")
 title = "TEST TITLE"
 initial_position = 1
 size = Vector2i(275, 550)
-visible = true
 unresizable = false
 borderless = false
 script = ExtResource("3_3lus6")

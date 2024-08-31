@@ -20,5 +20,5 @@ func _process(_delta):
 	var material: Material = mesh.surface_get_material(0)
 	if material:
 		material.emission_enabled = false
-		if get_parent().get_parent().in_play:
+		if get_parent().get_parent().is_in_group("Disc") and get_parent().get_parent().in_play:
 			material.emission_enabled = true

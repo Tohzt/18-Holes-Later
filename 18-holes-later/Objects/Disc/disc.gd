@@ -3,16 +3,17 @@ extends RigidBody3D
 @onready var Tripod = $Tripod_Disc
 
 var index = 1
-var disc_name = ""
-var disc_type = ""
-var stats = {
-	"Speed": 0,  # (1-14) Minimum power to throw stable
-	"Glide": 0,  # (1-7)  How long it stays in the air (gravity delta)
-	"Turn":  0,  # (1--5) Expected distance before curve at perfect speed
-	"Fade":  0,  # (0-5)  How hard it wants to curve
-	"Resistance": .5  # Rate that disc loses power
-	}
-  
+#var disc_name = ""
+#var disc_type = ""
+#var stats = {
+	#"Speed": 0,  # (1-14) Minimum power to throw stable
+	#"Glide": 0,  # (1-7)  How long it stays in the air (gravity delta)
+	#"Turn":  0,  # (1--5) Expected distance before curve at perfect speed
+	#"Fade":  0,  # (0-5)  How hard it wants to curve
+	#"Resistance": .5  # Rate that disc loses power
+	#}
+@export var disc_details : Disc_Stats
+#var stats = disc_details.stats
 var dmg = 5
 var launch = false
 
@@ -25,8 +26,14 @@ var power : float
 var power_resist: float
 var grounded = false
 var handedness = 1
+var stats
 
 func _ready():
+	print('ready')
+	disc_details = load("res://Objects/Disc/disc_1.tres")
+	stats = disc_details.stats
+	print(disc_details.disc_name)
+	print(stats)
 	pass
 
 func _launch_disc():
@@ -43,6 +50,7 @@ func _launch_disc():
 	impulse *= -target_dir
 	apply_central_impulse(impulse)
 
+		
 func _process(_delta):
 	show()
 	if in_bag:

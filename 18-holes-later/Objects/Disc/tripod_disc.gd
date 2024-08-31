@@ -4,8 +4,8 @@ func _process(_delta):
 	#global_rotation = Vector3.UP
 	global_rotation.x = 0
 	global_rotation.z = 0
-	if get_child_count():
-		print(position)
+	#if get_child_count():
+		#print(position)
 #
 #func _unhandled_input(event):
 	#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
