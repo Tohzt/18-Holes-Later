@@ -57,18 +57,6 @@ size_flags_vertical = 10
 mouse_filter = 2
 script = ExtResource("1_jkdcx")
 
-[node name="Strokes" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -122.0
-offset_right = 77.0
-offset_bottom = -99.0
-grow_vertical = 0
-text = "Strokes: "
-
 [node name="Bag_Container" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -255,6 +243,12 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="Strokes" type="Label" parent="Stroke_Container/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "00 "
+horizontal_alignment = 1
 
 [node name="Charge_Bar" type="ProgressBar" parent="."]
 layout_mode = 1

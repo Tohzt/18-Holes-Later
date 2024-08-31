@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Objects/Disc/disc.gd" id="1_wqkoe"]
 [ext_resource type="PackedScene" uid="uid://dkjor40it0t7a" path="res://Objects/Disc/pickup_area.tscn" id="2_bba41"]
 [ext_resource type="PackedScene" uid="uid://cvfoujqikvtev" path="res://Objects/Disc/Mesh/classic_retro_disc_mesh.tscn" id="3_50t6h"]
-[ext_resource type="Script" path="res://Objects/Disc/Mesh.gd" id="3_p7u27"]
-[ext_resource type="Script" path="res://Objects/Disc/trail_3d.gd" id="4_haejd"]
+[ext_resource type="Script" path="res://Objects/Disc/Mesh/Mesh.gd" id="3_p7u27"]
+[ext_resource type="Script" path="res://Objects/Disc/Trail/trail_3d.gd" id="4_haejd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_58eiw"]
 height = 0.0364906

@@ -12,7 +12,7 @@ var is_charging = false
 var is_throwing = false
 var is_on_tee = false
 var locked_in = false
-var strokes = 0
+var predict_trace = false
 
 func _ready():
 	Global.Player = self
@@ -20,7 +20,18 @@ func _ready():
 
 func _process(_delta):
 	if is_charging:
+		if !predict_trace:
+			var trace_path = get_tree().get_nodes_in_group("Trace")
+			if trace_path:
+				for trace in trace_path:
+					trace.queue_free()
+			var trace = Global.Refs.DISC_TRACE.instantiate()
+			add_child(trace)
+			trace.position = Hand.position
+			predict_trace = true
 		Global.HUD.charge_bar.value += 2
+	else:
+		predict_trace = false
 	
 	if Global.Debug_Settings.collect_all:
 		_collect_discs()
@@ -48,4 +59,6 @@ func _physics_process(delta):
 func _collect_discs():
 	if Input.is_action_just_pressed("collect"):
 		for disc in get_tree().get_nodes_in_group("Disc"):
+			if disc.in_play:
+				disc.takeoff_pos = disc.position
 			disc.pick_up(Bag)

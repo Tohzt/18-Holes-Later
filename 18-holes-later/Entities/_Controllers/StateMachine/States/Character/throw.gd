@@ -31,37 +31,38 @@ func update_state():
 		State_Controller.state_suffix = "_Release"
 		for disc: Disc in Master.Bag.discs:
 			if disc.in_hand:
-				disc.position = Master.Hand.global_position
-				disc.power = lerpf(0.0, Master.MAX_POWER, Global.HUD.charge_bar.value/100)
-				disc.target_dir = Global.Active_Camera.get_global_transform().basis.z
-				disc.target_dir.y -= deg_to_rad(20)
-				
-				# Apply tilt (rotation around local z-axis)
-				var _tilt = 50
-				var _side = -1
-				disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
-				disc.rotate_object_local(Vector3.RIGHT, Master.Tripod.Camera.rotation.x)
 				Global.select_next_disc()
-				disc.launch = true
+				throw_disc(disc)
 				
 				if Global.game_on:
-					var hud = get_tree().get_first_node_in_group("HUD")
-					if hud:
-						hud.update_strokes(Master.strokes)
 					
 					if Master.locked_in:
 						disc.in_play = true
 					if disc.in_play:
+						Global.HUD.update_strokes(1)
 						Global.Active_Camera.snap_to(Global.Tripod, disc)
-						Master.strokes += 1
 				else:
 					if Master.is_on_tee:
+						Global.HUD.update_strokes(1)
 						Global.Active_Camera.snap_to(Global.Tripod, disc)
-						Master.strokes = 1
 						Global.game_on = true
 						disc.in_play = true
 				Master.locked_in = false
-				return
+
+func throw_disc(disc, power = 0.0):
+	disc.position = Master.Hand.global_position
+	disc.power = lerpf(0.0, Master.MAX_POWER, Global.HUD.charge_bar.value/100)
+	if power > 0.0:
+		disc.power = power
+	disc.target_dir = Global.Active_Camera.get_global_transform().basis.z
+	disc.target_dir.y -= deg_to_rad(20)
+	
+	# Apply tilt (rotation around local z-axis)
+	var _tilt = 50
+	var _side = -1
+	disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
+	disc.rotate_object_local(Vector3.RIGHT, Master.Tripod.Camera.rotation.x)
+	disc.launch = true
 
 func exit_state(next_state: String):
 	State_Controller.state_suffix = ""
