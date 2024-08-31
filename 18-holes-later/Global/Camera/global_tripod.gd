@@ -13,7 +13,6 @@ var camera: Camera3D
 # TODO: Do I need value here?
 func _on_obtain_camera(_value: Camera3D, aim_dir: float) -> void:
 	rotation.y = rad_to_deg(aim_dir)
-	print("Tripod_Disc: ", rotation)
 
 func _process(_delta):
 	global_position.y = get_parent().position.y + 1

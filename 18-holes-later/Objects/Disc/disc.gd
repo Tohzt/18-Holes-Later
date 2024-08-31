@@ -1,33 +1,35 @@
 class_name Disc
 extends RigidBody3D
 
+@export_category("Disc Base Stats")
 var index = 1
-var disc_name = ""
-var disc_type = ""
-var stats = {
+@export var disc_name = ""
+@export var disc_type = ""
+@export var stats = {
 	"Speed": 0,  # (1-14) Minimum power to throw stable
 	"Glide": 0,  # (1-7)  How long it stays in the air (gravity delta)
 	"Turn":  0,  # (1--5) Expected distance before curve at perfect speed
 	"Fade":  0,  # (0-5)  How hard it wants to curve
 	"Resistance": .5  # Rate that disc loses power
 	}
-  
-var dmg = 5
-var launch = false
-var in_bag = false
-var in_hand = false
-var grounded = false
-@export var in_play = false
+ 
+@export_category("Disc Combat Stats")
+@export var dmg = 5
 
-var target_dir : Vector3
-var power : float
+var takeoff_pos: Vector3
+var launch   = false
+var in_bag   = false
+var in_play  = false
+var in_hand  = false
+var grounded = false
+
+var target_dir: Vector3
+var power: float
 var power_resist: float
 var handedness = 1
 
-func _ready():
-	pass
-
 func _launch_disc():
+	takeoff_pos = position
 	self.set_collision_mask_value(1, true)
 	self.set_collision_mask_value(4, true)
 	sleeping = false
@@ -51,7 +53,7 @@ func _process(_delta):
 		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
 		if grounded:
 			_settle()
-	
+
 func _physics_process(_delta):
 	if launch:
 		_launch_disc()
@@ -103,6 +105,10 @@ func _detect_impact():
 				node.take_damage(dmg)
 
 func pick_up(node: Node):
+	# TODO: Doing this in two places... find them
+	if in_play:
+		Global.Player.position = takeoff_pos
+		Global.Player.locked_in = true
 	grounded = false
 	in_bag = true
 	in_play = false
