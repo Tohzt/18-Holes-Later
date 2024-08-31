@@ -4,19 +4,11 @@ var DiscButton: PackedScene = preload("res://Scenes/Clubhouse/DiscWorkbench/Disc
 var slots:int = 68
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var discs = getResources()
+	var discs = await getResources()
+	print(discs)
 	for disc in discs:
 		var new_disc_button = DiscButton.instantiate()
-		#var mat = d
-		#var _textre: Texture = null
-		#var _disc = TextureRect.new()
-		#var _mesh_texture = MeshTexture.new()
-		#_mesh_texture.mesh = disc
-		#_disc.material = _mesh_texture
-		#_disc.size = Vector2(100,100)
-		#print(_disc.size)
-		#new_disc_button.add_child(_disc) 
-		new_disc_button.get_child(0).text = "autocreated button"
+		new_disc_button.get_child(0).text = disc.disc_name
 		print("adding child button ")
 		add_child(new_disc_button)		
 
@@ -26,7 +18,7 @@ func _process(delta):
 	pass
 
 func getResources ():
-	var folder_path = "res://Objects/Disc/Mesh"
+	var folder_path = "res://Objects/Disc"
 	var scenes = []
 	var dir = DirAccess.open(folder_path)
 	if dir:
@@ -35,12 +27,13 @@ func getResources ():
 		while file_name != "":
 			
 			if dir.current_is_dir():
+				file_name = dir.get_next()
 				print("Found directory: " + file_name)
 			elif file_name.ends_with("tres"):
 				print("Found file: " + file_name)
 				#print(folder_path + "/" + file_name)
-				var scene = load(folder_path + "/" + file_name)
-				print(scene)
+				var scene:Disc_Stats = load(folder_path + "/" + file_name)
+				print(scene.disc_name)
 				scenes.push_back(scene)
 				file_name = dir.get_next()
 			else:

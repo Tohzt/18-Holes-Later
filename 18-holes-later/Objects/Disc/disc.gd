@@ -29,10 +29,10 @@ var handedness = 1
 var stats
 
 func _ready():
-	print('ready')
 	disc_details = load("res://Objects/Disc/disc_1.tres")
 	stats = disc_details.stats
 	print(disc_details.disc_name)
+	print(disc_details.disc_type)
 	print(stats)
 	pass
 

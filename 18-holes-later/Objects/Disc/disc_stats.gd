@@ -13,7 +13,11 @@ extends Resource
 	"Resistance": .5  # Rate that disc loses power
 	}
 
-func _init():
+func _init(_slot=1,_disc_name="",_disc_type="",_stats={}):
+	slot = _slot
+	disc_name = _disc_name
+	disc_type = _disc_type
+	stats = _stats 
 	pass # Replace with function body.
 # Called when the node enters the scene tree for the first time.
 func _ready():

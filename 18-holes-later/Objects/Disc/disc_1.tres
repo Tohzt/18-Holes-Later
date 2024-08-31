@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_wi6rx")
 slot = 1
-disc_name = "Test Disc"
+disc_name = "PutPut"
 disc_type = "Putter"
 stats = {
 "Fade": 2,

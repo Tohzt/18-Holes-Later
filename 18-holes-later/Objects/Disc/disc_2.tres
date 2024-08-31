@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Disc_Stats" load_steps=2 format=3 uid="uid://dv3jey5b2aomk"]
+
+[ext_resource type="Script" path="res://Objects/Disc/disc_stats.gd" id="1_u7ljj"]
+
+[resource]
+script = ExtResource("1_u7ljj")
+slot = 1
+disc_name = "DriveDrive"
+disc_type = "Driver"
+stats = {
+"Fade": 2,
+"Glide": 4,
+"Resistance": 0.5,
+"Speed": 5,
+"Turn": 0
+}
