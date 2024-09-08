@@ -21,7 +21,6 @@ func _ready():
 	super._ready()
 
 func _process(_delta):
-	printt('predict cooldown: ', predict_cd, '  ::  ', predict_trace, ' : ', aim_stable)
 	if is_throwing:
 		_check_aim_stability()
 		if !predict_trace and aim_stable: 

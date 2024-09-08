@@ -66,6 +66,9 @@ func throw_disc(disc, power = 0.0):
 	disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
 	disc.rotate_object_local(Vector3.RIGHT, Master.Tripod.Camera.rotation.x)
 	disc.launch = true
+	
+	if !disc.is_tracer and Global.Debug_Settings.follow_all_throws:
+		Global.Active_Camera.snap_to(Global.Tripod, disc)
 
 func exit_state(next_state: String):
 	State_Controller.state_suffix = ""
