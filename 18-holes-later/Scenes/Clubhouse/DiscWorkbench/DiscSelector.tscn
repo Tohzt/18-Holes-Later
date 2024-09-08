@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1flq11c6t3up"]
+[gd_scene load_steps=3 format=3 uid="uid://b1flq11c6t3up"]
 
 [ext_resource type="Script" path="res://Scenes/Clubhouse/DiscWorkbench/disc_button_creator.gd" id="1_aiym6"]
-[ext_resource type="PackedScene" uid="uid://7v3ybmr25wwd" path="res://Scenes/Clubhouse/DiscWorkbench/DiscCardButton.tscn" id="1_cevvo"]
-[ext_resource type="Script" path="res://Scenes/Clubhouse/DiscWorkbench/popup.gd" id="3_3lus6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r30om"]
 corner_radius_top_left = 5
@@ -46,31 +44,3 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 0
 script = ExtResource("1_aiym6")
-
-[node name="Popup" type="Popup" parent="."]
-title = "TEST TITLE"
-initial_position = 1
-size = Vector2i(275, 550)
-unresizable = false
-borderless = false
-script = ExtResource("3_3lus6")
-
-[node name="MarginContainer4" parent="Popup" instance=ExtResource("1_cevvo")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -125.0
-offset_right = 125.0
-offset_bottom = 125.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Button" parent="Popup/MarginContainer4" index="0"]
-text = "4"
-
-[editable path="Popup/MarginContainer4"]

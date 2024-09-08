@@ -9,6 +9,7 @@ func _ready():
 	for disc in discs:
 		var new_disc_button = DiscButton.instantiate()
 		new_disc_button.get_child(0).text = disc.disc_name
+		new_disc_button.disc = disc
 		print("adding child button ")
 		add_child(new_disc_button)		
 

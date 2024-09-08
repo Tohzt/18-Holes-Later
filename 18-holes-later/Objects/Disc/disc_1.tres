@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_wi6rx")
-slot = 1
+slot = 3
 disc_name = "PutPut"
 disc_type = "Putter"
 stats = {

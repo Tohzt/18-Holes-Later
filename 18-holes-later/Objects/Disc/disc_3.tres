@@ -9,8 +9,8 @@ disc_name = "MidMid"
 disc_type = "MidRange"
 stats = {
 "Fade": 2,
-"Glide": 4,
+"Glide": 7,
 "Resistance": 0.5,
-"Speed": 5,
-"Turn": 0
+"Speed": 2,
+"Turn": -1
 }
