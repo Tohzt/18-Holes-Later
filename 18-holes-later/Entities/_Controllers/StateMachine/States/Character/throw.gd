@@ -5,6 +5,7 @@ func init_state():
 	State_Controller.state_options = state_options
 	Master.is_moving = false
 	Master.is_throwing = true
+	Master.locked_in = true
 
 func monitor_state():
 	pass
@@ -14,6 +15,7 @@ func update_state():
 		exit_state("Idle")
 	
 	if Input.is_action_just_released("right_click"):
+		Master.clear_trace()
 		if !Master.Tripod.get_child_count():
 			Global.Active_Camera.snap_to(Master)
 	
@@ -27,6 +29,7 @@ func update_state():
 		State_Controller.state_suffix = "_Charge"
 	
 	if Input.is_action_just_released("left_click"):
+		Master.clear_trace()
 		Master.is_charging = false
 		State_Controller.state_suffix = "_Release"
 		for disc: Disc in Master.Bag.discs:
@@ -67,4 +70,5 @@ func throw_disc(disc, power = 0.0):
 func exit_state(next_state: String):
 	State_Controller.state_suffix = ""
 	Master.is_throwing = false
+	Master.locked_in = false
 	State_Controller.state_next = next_state

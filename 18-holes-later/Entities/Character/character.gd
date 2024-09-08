@@ -13,14 +13,18 @@ var is_throwing = false
 var is_on_tee = false
 var locked_in = false
 var predict_trace = false
+var aim_stable = false
+var prev_look_dir = look_dir
 
 func _ready():
 	Global.Player = self
 	super._ready()
 
 func _process(_delta):
-	if is_charging:
-		if !predict_trace:
+	printt('predict cooldown: ', predict_cd, '  ::  ', predict_trace, ' : ', aim_stable)
+	if is_throwing:
+		_check_aim_stability()
+		if !predict_trace and aim_stable: 
 			var trace_path = get_tree().get_nodes_in_group("Trace")
 			if trace_path:
 				for trace in trace_path:
@@ -55,6 +59,32 @@ func _physics_process(delta):
 	
 	if !locked_in:
 		move_and_slide()
+
+var predict_search = false
+var predict_cd_max = 50
+var predict_cd = 0
+func _check_aim_stability():
+	if is_throwing: 
+		if Input.get_last_mouse_velocity():
+			predict_search = true
+			aim_stable = false 
+		else:
+			if predict_cd <= 0:
+				if predict_search:
+					aim_stable = true
+					predict_search = false
+					predict_cd = predict_cd_max
+					predict_trace = false
+			else:
+				predict_cd -= 1
+		prev_look_dir = look_dir
+
+func clear_trace():
+	predict_cd = 0
+	var trace_path = get_tree().get_nodes_in_group("Trace")
+	if trace_path:
+		for trace in trace_path:
+			trace.queue_free()
 
 func _collect_discs():
 	if Input.is_action_just_pressed("collect"):
