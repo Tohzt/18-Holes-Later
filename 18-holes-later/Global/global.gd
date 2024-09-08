@@ -1,5 +1,6 @@
 extends Node
 
+@onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 # References
 @onready var Refs: ReferenceClass = $References
 # Default/Debug Settings

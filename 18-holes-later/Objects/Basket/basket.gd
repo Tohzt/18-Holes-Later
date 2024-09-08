@@ -4,6 +4,7 @@ extends StaticBody3D
 
 func _on_area_3d_area_entered(area):
 	print("Disc in Basket: ", area)
+	Global.audio.play()
 	if area.is_in_group("Disc"):
 		if area.in_play:
 			area.in_play = false;
