@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://vxnb766rhp5i"]
+[gd_scene load_steps=8 format=3 uid="uid://vxnb766rhp5i"]
 
 [ext_resource type="Script" path="res://Global/global.gd" id="1_pokw4"]
 [ext_resource type="PackedScene" uid="uid://cijcqbaxtng5y" path="res://Global/Debug/debug_settings.tscn" id="2_0aosd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Save/SaveController.gd" id="3_q4s14"]
 [ext_resource type="Script" path="res://Global/Debug/settings.gd" id="4_bjkcv"]
 [ext_resource type="Script" path="res://Global/references.gd" id="5_sp5hl"]
+[ext_resource type="AudioStream" uid="uid://c5cbm2gqkj36m" path="res://Audio/Basket AceSoundFX.wav" id="7_qj5kb"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_pokw4")
@@ -14,7 +15,6 @@ script = ExtResource("1_pokw4")
 
 [node name="DebugSettings" parent="." instance=ExtResource("2_0aosd")]
 collect_all = true
-follow_all_throws = true
 
 [node name="Settings" parent="." instance=ExtResource("2_0aosd")]
 script = ExtResource("4_bjkcv")
@@ -25,3 +25,7 @@ script = ExtResource("3_q4s14")
 
 [node name="References" type="Node" parent="."]
 script = ExtResource("5_sp5hl")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_qj5kb")
+volume_db = 76.396
