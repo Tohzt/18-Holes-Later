@@ -6,7 +6,11 @@ var trace_cd = trace_cd_max/2.0
 const TRACE = preload("res://Objects/Disc/Trail/trace.tscn")
 
 func _ready():
-	Global.Player.State_Controller.get_node("Throw").throw_disc(self, 5.0)
+	is_tracer = true
+	for disc: Disc in get_tree().get_nodes_in_group("Disc"):
+		if disc.in_hand:
+			stats = disc.stats
+	Global.Player.State_Controller.get_node("Throw").throw_disc(self, 10.0)
 
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -16,7 +20,7 @@ func _physics_process(delta):
 		grounded = true
 	
 	if !in_bag:
-		if grounded:
+		if grounded or position.y < -100:
 			queue_free()
 		else:
 			_draw_prediction()

@@ -22,6 +22,7 @@ var in_bag   = false
 var in_play  = false
 var in_hand  = false
 var grounded = false
+var is_tracer = false
 
 var target_dir: Vector3
 var power: float
