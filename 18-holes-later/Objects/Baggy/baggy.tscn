@@ -50,7 +50,6 @@ radius = 0.19686
 height = 0.748001
 
 [node name="Baggy" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 8
 collision_mask = 15
 mass = 0.01
