@@ -20,6 +20,7 @@ var Profile: String = ""
 var should_load: bool = false
 
 var game_on = false
+var hole_over = false
 var selected_disc = 1
 var is_paused: bool = 	false
 

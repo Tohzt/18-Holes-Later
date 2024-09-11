@@ -38,7 +38,6 @@ func update_state():
 				throw_disc(disc)
 				
 				if Global.game_on:
-					
 					if Master.locked_in:
 						disc.in_play = true
 					if disc.in_play:
@@ -49,6 +48,7 @@ func update_state():
 						Global.HUD.update_strokes(1)
 						Global.Active_Camera.snap_to(Global.Tripod, disc)
 						Global.game_on = true
+						Global.hole_over = false
 						disc.in_play = true
 				Master.locked_in = false
 
