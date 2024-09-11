@@ -1,23 +1,23 @@
 [gd_scene load_steps=6 format=3 uid="uid://btvondrom5r2m"]
 
-[ext_resource type="Script" path="res://Objects/Trees/tree.gd" id="1_t1lbn"]
-[ext_resource type="Shader" path="res://Styles/Shaders/tree_shake.gdshader" id="2_ocxdl"]
-[ext_resource type="Texture2D" uid="uid://b4f2fqkh5jm3x" path="res://Objects/Trees/src/tree31000.png" id="3_81gif"]
+[ext_resource type="Script" path="res://Objects/Trees/tree.gd" id="1_lj0d6"]
+[ext_resource type="Shader" path="res://Styles/Shaders/tree_shake.gdshader" id="2_2vlej"]
+[ext_resource type="Texture2D" uid="uid://b4f2fqkh5jm3x" path="res://Objects/Trees/src/tree31000.png" id="3_q7f3q"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jitgc"]
 height = 11.775
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_go68n"]
 render_priority = 0
-shader = ExtResource("2_ocxdl")
+shader = ExtResource("2_2vlej")
 shader_parameter/wave_amount = 0.1
 shader_parameter/wave_speed = 1.37
 shader_parameter/wave_height_start = 0.0
-shader_parameter/texture_albedo = ExtResource("3_81gif")
+shader_parameter/texture_albedo = ExtResource("3_q7f3q")
 
 [node name="Tree" type="StaticBody3D"]
 collision_layer = 5
-script = ExtResource("1_t1lbn")
+script = ExtResource("1_lj0d6")
 
 [node name="Trunk" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.08027, 0)
@@ -30,4 +30,4 @@ billboard = 2
 shaded = true
 alpha_cut = 2
 texture_filter = 1
-texture = ExtResource("3_81gif")
+texture = ExtResource("3_q7f3q")

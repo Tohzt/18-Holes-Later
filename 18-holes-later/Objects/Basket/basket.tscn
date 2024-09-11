@@ -46,6 +46,8 @@ height = 0.75
 [node name="Basket" type="StaticBody3D" groups=["Basket"]]
 transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, 0, 0, 0)
 collision_layer = 17
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 script = ExtResource("1_uw2wr")
 
 [node name="Pole" type="CollisionShape3D" parent="."]
