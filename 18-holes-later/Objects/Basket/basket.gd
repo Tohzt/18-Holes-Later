@@ -3,12 +3,15 @@ extends StaticBody3D
 @export var hole: int = 0
 
 func _on_area_3d_area_entered(area):
-	print("Disc in Basket: ", area)
 	Global.audio.play()
-	if area.is_in_group("Disc"):
-		if area.in_play:
-			area.in_play = false;
+	var disc = area.get_parent()
+	if disc.is_in_group("Disc"):
+		if disc.in_play:
 			Global.game_on = false
+			Global.hole_over = true
+			disc.in_play = false
+			Global.game_on = false
+			Global.HUD.update_strokes(0)
 			_trigger_swarm()
 
 func _trigger_swarm():
