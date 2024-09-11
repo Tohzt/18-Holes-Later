@@ -370,7 +370,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Baggy" parent="Testing_Room" instance=ExtResource("9_o5b6i")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.00419, 1, -24.8886)
-angular_velocity = Vector3(0, 0.174533, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Testing_Room"]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
