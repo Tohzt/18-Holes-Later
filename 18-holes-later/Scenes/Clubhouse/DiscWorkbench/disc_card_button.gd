@@ -26,17 +26,21 @@ func create_gem ():
 	await gem.initialize_gem()
 	print('create_gem')
 	var pup2 = Popup.new()
+	var scrl = ScrollContainer.new()
+	scrl.size = Vector2(250,400)
 	var vbox = VBoxContainer.new()
 	vbox.alignment = VBoxContainer.AlignmentMode.ALIGNMENT_END
 	vbox.add_spacer(true)
-	pup2.initial_position = Window.WINDOW_INITIAL_POSITION_CENTER_PRIMARY_SCREEN
+	pup2.initial_position = Window.WINDOW_INITIAL_POSITION_ABSOLUTE
+	pup2.position = Vector2(825,200)
 	pup2.size = Vector2(250,400)
 	pup2.borderless = false
 	for _msh:Shard_Special in gem.master_shard:
 		make_label(vbox,str(_msh.element_type.keys()[_msh.elemental]) +str(_msh.damage_type.keys()[_msh.damage]))
 	for _sh:Shard in gem.shard_array:
 		make_label(vbox,str(_sh.name))
-	pup2.add_child(vbox)
+	scrl.add_child(vbox)
+	pup2.add_child(scrl)
 	add_sibling(pup2)
 	pup2.show()
 	#pup2.add_child(gem)
