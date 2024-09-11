@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=66 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
@@ -11,7 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://bpxxq8qh0ftxt" path="res://Scenes/Holes/TESTING/src/grid_cyan_512x512.png" id="6_jfdvq"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="7_llovg"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Global/tee_box.tscn" id="8_1k3xo"]
+[ext_resource type="PackedScene" uid="uid://dlysw7emvqme" path="res://Objects/Baggy/baggy.tscn" id="9_o5b6i"]
 [ext_resource type="PackedScene" uid="uid://dpuj70awtoml4" path="res://Entities/Enemy/enemy.tscn" id="9_y6gln"]
+[ext_resource type="PackedScene" uid="uid://bu8ykyg2w8l1a" path="res://Objects/Trees/tree_3D_2.tscn" id="13_pt36r"]
+[ext_resource type="PackedScene" uid="uid://qotkk6uroiib" path="res://Objects/Trees/tree_3D.tscn" id="14_0bgg8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
 panorama = ExtResource("1_bebql")
@@ -194,12 +197,6 @@ size = Vector3(10, 10, 100.29)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwy72"]
 size = Vector3(120, 10, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t2aht"]
-size = Vector3(10, 10, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4bjpv"]
-size = Vector3(10, 10, 10)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rsvbg"]
 load_path = "res://.godot/imported/grid_orange_512x512.png-362bcde55020129d5154d444386242a9.s3tc.ctex"
 
@@ -327,11 +324,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.90053, 0)
 [node name="Baskets" type="Node" parent="."]
 
 [node name="Basket_02" parent="Baskets" instance=ExtResource("7_llovg")]
-transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -0.342039, 1.96695e-06, -82.5166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60518, 0.5, 170.942)
+hole = 2
+
+[node name="Basket_03" parent="Baskets" instance=ExtResource("7_llovg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.91271, 0.5, 203.943)
+hole = 2
+
+[node name="Basket_04" parent="Baskets" instance=ExtResource("7_llovg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5568, 15.9893, 249.384)
 hole = 2
 
 [node name="Basket_01" parent="Baskets" groups=["Basket_01"] instance=ExtResource("7_llovg")]
-transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -44.8803, 1.96695e-06, -79.7979)
+transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, -44.8803, 1.96695e-06, -79.7979)
 hole = 1
 
 [node name="TeeBox" parent="." instance=ExtResource("8_1k3xo")]
@@ -362,6 +367,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8876, 0, -45.8101)
 
 [node name="Testing_Room" type="StaticBody3D" parent="." groups=["Solid"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Baggy" parent="Testing_Room" instance=ExtResource("9_o5b6i")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.00419, 1, -24.8886)
 
 [node name="Plane" type="MeshInstance3D" parent="Testing_Room"]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
@@ -417,14 +425,6 @@ shape = SubResource("BoxShape3D_fwy72")
 [node name="Wall6" type="CollisionShape3D" parent="Testing_Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -90.9616)
 shape = SubResource("BoxShape3D_fwy72")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 0.705463, 0.708746, 0, -0.708746, 0.705463, 0, 0, -36.6395)
-shape = SubResource("BoxShape3D_t2aht")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Testing_Room/CollisionShape3D2"]
-mesh = SubResource("BoxMesh_4bjpv")
-skeleton = NodePath("../..")
 
 [node name="Teleport_Testing" type="Area3D" parent="Testing_Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 8)
@@ -518,6 +518,26 @@ mesh = SubResource("BoxMesh_6pasj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Driving_Range/Teleport_Range"]
 shape = SubResource("ConcavePolygonShape3D_7elih")
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree_3D_2" parent="Trees" instance=ExtResource("13_pt36r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -62)
+
+[node name="Tree_3D_3" parent="Trees" instance=ExtResource("13_pt36r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5158, 0, -65.669)
+
+[node name="Tree_3D_4" parent="Trees" instance=ExtResource("13_pt36r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5349, 0, -78.0779)
+
+[node name="Tree_3D" parent="Trees" instance=ExtResource("14_0bgg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1097, -3.8147e-06, -33.5978)
+
+[node name="Tree_3D2" parent="Trees" instance=ExtResource("14_0bgg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0682, -7.62939e-06, -25.9455)
+
+[node name="Tree_3D3" parent="Trees" instance=ExtResource("14_0bgg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6631, -1.14441e-05, -39.3169)
 
 [connection signal="body_entered" from="Testing_Room/Teleport_Testing" to="." method="_on_teleport_testing_body_entered"]
 [connection signal="body_entered" from="Driving_Range/Teleport_Range" to="." method="_on_teleport_range_body_entered"]
