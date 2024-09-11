@@ -12,7 +12,7 @@ func _ready():
 	var index = 0
 	for disc_data in bag_of_discs:
 		index+=1
-		var disc = Global.DISC.instantiate()
+		var disc = Global.Refs.DISC.instantiate()
 		disc.index = index
 		disc.in_bag = true
 		disc.position = get_parent().position

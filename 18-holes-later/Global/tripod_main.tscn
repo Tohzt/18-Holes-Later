@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl7c5i23lxemu"]
+
+[ext_resource type="Script" path="res://Entities/Character/tripod.gd" id="1_go7rs"]
+[ext_resource type="Script" path="res://Global/camera_main.gd" id="2_xhi7w"]
+
+[node name="Tripod_Main" type="SpringArm3D" groups=["SpringArm"]]
+transform = Transform3D(1, 0, 0, 0, 0.935079, 0.354439, 0, -0.354439, 0.935079, -0.222667, 0.739183, 0.95662)
+collision_mask = 7
+spring_length = 3.0
+script = ExtResource("1_go7rs")
+
+[node name="Camera_Main" type="Camera3D" parent="." groups=["Camera"]]
+transform = Transform3D(1, 0, 0, 0, 0.923579, -0.383409, 0, 0.383409, 0.923579, 0, 0, 0)
+current = true
+script = ExtResource("2_xhi7w")
