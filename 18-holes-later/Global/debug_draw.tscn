@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbgunshug17jc"]
+
+[ext_resource type="Script" path="res://Global/debug_draw.gd" id="1_dsn2w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pglm1"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_jih68"]
+
+[node name="DebugDraw" type="Node"]
+script = ExtResource("1_dsn2w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_pglm1")
+mesh = SubResource("ImmediateMesh_jih68")

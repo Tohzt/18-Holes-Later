@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dqivme1v17bwo" path="res://Entities/Character/Layla/idle/idleBACKLeft_n.png" id="2_ipyjm"]
 [ext_resource type="Texture2D" uid="uid://ddbyk1y0rc44t" path="res://Entities/Character/Layla/idle/idleBACK.png" id="3_dpma1"]
 [ext_resource type="Texture2D" uid="uid://cb5b31xyfix7g" path="res://Entities/Character/Layla/run/RunDOWNLeft-sheet.png" id="3_gcxkv"]
-[ext_resource type="Script" path="res://Entities/Character/Sprite3D.gd" id="4_nqv24"]
+[ext_resource type="Script" path="res://Entities/Character/Layla/layla.gd" id="4_chruj"]
 [ext_resource type="Texture2D" uid="uid://bs61bjxb5pxg3" path="res://Entities/Character/Layla/idle/idleBACK_n.png" id="5_b3cu2"]
 [ext_resource type="Texture2D" uid="uid://cgwvusm4bj173" path="res://Entities/Character/Layla/idle/IdleDOWN.png" id="6_kpary"]
 [ext_resource type="Texture2D" uid="uid://b8w4epn73363q" path="res://Entities/Character/Layla/idle/IdleDOWN_n.png" id="7_bj25b"]
@@ -1381,7 +1381,7 @@ texture_filter = 0
 texture = ExtResource("3_dpma1")
 hframes = 8
 vframes = 8
-script = ExtResource("4_nqv24")
+script = ExtResource("4_chruj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
