@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://mgaxgwqsomw8"]
+[gd_scene load_steps=13 format=3 uid="uid://mgaxgwqsomw8"]
 
 [ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_6qoy3"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ialtanst8bq2" path="res://Entities/_Controllers/InputControllers/Character/character_input.tscn" id="5_wcdtg"]
 [ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/run.tscn" id="6_o7hwu"]
 [ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/idle.tscn" id="7_1kgre"]
+[ext_resource type="PackedScene" uid="uid://dyh766873338g" path="res://Entities/Character/Layla/layla_3d.tscn" id="8_iujnn"]
 [ext_resource type="PackedScene" uid="uid://cl7c5i23lxemu" path="res://Global/tripod_main.tscn" id="9_fea6f"]
 [ext_resource type="Script" path="res://Entities/Character/Bag.gd" id="11_li4e1"]
 [ext_resource type="PackedScene" uid="uid://drjyl8ivn0ssi" path="res://Entities/Character/Layla/layla.tscn" id="12_rs5qh"]
@@ -37,7 +38,10 @@ is_char = true
 
 [node name="Idle" parent="StateController" instance=ExtResource("7_1kgre")]
 
+[node name="Layla2" parent="." instance=ExtResource("8_iujnn")]
+
 [node name="Layla" parent="." instance=ExtResource("12_rs5qh")]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.567167, 0)
