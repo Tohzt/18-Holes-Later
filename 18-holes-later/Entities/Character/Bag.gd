@@ -1,5 +1,6 @@
 extends Node
 
+# Disc Properties
 var disc_limit = 1
 var game_disc_index: int = 0
 var bag_of_discs: Array = [

@@ -12,29 +12,21 @@ var is_charging = false
 var is_throwing = false
 var is_on_tee = false
 var locked_in = false
-var predict_trace = false
 var aim_stable = false
 var prev_look_dir = look_dir
+
+# Trace Properties
+var predict_trace = false
+var predict_search = false
+var predict_cd_max = 50
+var predict_cd = 0
 
 func _ready():
 	Global.Player = self
 	super._ready()
 
 func _process(_delta):
-	if is_throwing:
-		_check_aim_stability()
-		if !predict_trace and aim_stable: 
-			var trace_path = get_tree().get_nodes_in_group("Trace")
-			if trace_path:
-				for trace in trace_path:
-					trace.queue_free()
-			var trace = Global.Refs.DISC_TRACE.instantiate()
-			add_child(trace)
-			trace.position = Hand.position
-			predict_trace = true
-		Global.HUD.charge_bar.value += 2
-	else:
-		predict_trace = false
+	if is_throwing: get_aim_trace()
 	
 	if Global.Debug_Settings.collect_all:
 		_collect_discs()
@@ -59,10 +51,14 @@ func _physics_process(delta):
 	if !locked_in:
 		move_and_slide()
 
-var predict_search = false
-var predict_cd_max = 50
-var predict_cd = 0
-func _check_aim_stability():
+func _collect_discs():
+	if Input.is_action_just_pressed("collect"):
+		for disc in get_tree().get_nodes_in_group("Disc"):
+			if disc.in_play:
+				disc.takeoff_pos = disc.position
+			disc.pick_up(Bag)
+
+func get_aim_trace():
 	if is_throwing: 
 		if Input.get_last_mouse_velocity():
 			predict_search = true
@@ -74,9 +70,24 @@ func _check_aim_stability():
 					predict_search = false
 					predict_cd = predict_cd_max
 					predict_trace = false
+					trace_disc()
 			else:
 				predict_cd -= 1
 		prev_look_dir = look_dir
+
+func trace_disc():
+	if !predict_trace and aim_stable: 
+		var trace_path = get_tree().get_nodes_in_group("Trace")
+		if trace_path:
+			for trace in trace_path:
+				trace.queue_free()
+		var trace = Global.Refs.DISC_TRACE.instantiate()
+		add_child(trace)
+		trace.position = Hand.position
+		predict_trace = true
+		Global.HUD.charge_bar.value += 2
+	else:
+		predict_trace = false
 
 func clear_trace():
 	predict_cd = 0
@@ -84,10 +95,3 @@ func clear_trace():
 	if trace_path:
 		for trace in trace_path:
 			trace.queue_free()
-
-func _collect_discs():
-	if Input.is_action_just_pressed("collect"):
-		for disc in get_tree().get_nodes_in_group("Disc"):
-			if disc.in_play:
-				disc.takeoff_pos = disc.position
-			disc.pick_up(Bag)
