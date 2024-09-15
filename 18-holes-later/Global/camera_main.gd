@@ -1,26 +1,12 @@
 extends Camera3D
 
 @onready var rot_x = rotation.x
-
-func _ready():
-	Global.Active_Camera = self
-
-func snap_to(anchor: Node3D, target: Disc = null):
-	reparent(anchor.Tripod)
-	anchor.Tripod.has_camera = self
-	if target:
-		anchor.Tripod.rotation.y = Global.Player.rotation.y
-		anchor.position = target.position
-		anchor.target = target
-	# Reset rotation to looking direction
-	if anchor == Global.Player:
-		rotation.x = rot_x
+var target: Node3D
 
 func _process(_delta):
 	rotation.y = 0
 	rotation.z = 0
-	if get_parent() == Global.Player.Tripod:
-		# TODO: Do on release
+	if target == Global.Player:
 		rot_x = rotation.x
 
 func _unhandled_input(event):
@@ -29,7 +15,7 @@ func _unhandled_input(event):
 			var _tripod = get_parent()
 			var angle_limit_down = 80
 			var angle_limit_up = 20
-			if _tripod == Global.Player.Tripod:
+			if target == Global.Player:
 				# Update Vertical
 				_tripod.rotate_x(deg_to_rad(-event.relative.y * Global.Settings.MOUSE_SENSITIVITY))
 				_tripod.rotation.x = clampf(_tripod.rotation.x, deg_to_rad(-angle_limit_down), deg_to_rad(angle_limit_up))

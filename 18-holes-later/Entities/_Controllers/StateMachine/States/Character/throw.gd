@@ -42,11 +42,11 @@ func update_state():
 						disc.in_play = true
 					if disc.in_play:
 						Global.HUD.update_strokes(1)
-						Global.Active_Camera.snap_to(Global.Tripod, disc)
+						Global.Cameraman.snap_to(Global.Tripod, disc)
 				else:
 					if Master.is_on_tee:
 						Global.HUD.update_strokes(1)
-						Global.Active_Camera.snap_to(Global.Tripod, disc)
+						Global.Cameraman.snap_to(Global.Tripod, disc)
 						Global.game_on = true
 						Global.hole_over = false
 						disc.in_play = true
@@ -57,18 +57,18 @@ func throw_disc(disc, power = 0.0):
 	disc.power = lerpf(0.0, Master.MAX_POWER, Global.HUD.charge_bar.value/100)
 	if power > 0.0:
 		disc.power = power
-	disc.target_dir = Global.Active_Camera.get_global_transform().basis.z
+	disc.target_dir = Global.Cameraman.get_global_transform().basis.z
 	disc.target_dir.y -= deg_to_rad(20)
 	
 	# Apply tilt (rotation around local z-axis)
 	var _tilt = 50
 	var _side = -1
 	disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
-	disc.rotate_object_local(Vector3.RIGHT, Master.Tripod.Camera.rotation.x)
+	disc.rotate_object_local(Vector3.RIGHT, Global.Cameraman.Tripod.rotation.x)
 	disc.launch = true
 	
 	if !disc.is_tracer and Global.Debug_Settings.follow_all_throws:
-		Global.Active_Camera.snap_to(Global.Tripod, disc)
+		Global.Cameraman.snap_to(Global.Player)
 
 func exit_state(next_state: String):
 	State_Controller.state_suffix = ""

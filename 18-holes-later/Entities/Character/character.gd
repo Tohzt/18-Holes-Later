@@ -1,7 +1,6 @@
 class_name Entity_Character
 extends Entity
-
-@onready var Tripod: SpringArm3D = $Tripod_Main
+ 
 @onready var Hand = $Hand
 @onready var Bag = $Bag
 
@@ -15,6 +14,8 @@ var locked_in = false
 var aim_stable = false
 var prev_look_dir = look_dir
 
+var in_vehicle: CharacterBody3D
+
 # Trace Properties
 var predict_trace = false
 var predict_search = false
@@ -22,10 +23,16 @@ var predict_cd_max = 50
 var predict_cd = 0
 
 func _ready():
+	Global.Cameraman.Target = self
 	Global.Player = self
 	super._ready()
 
 func _process(_delta):
+	if in_vehicle:
+		rotation.y = in_vehicle.rotation.y
+	else:
+		rotation.y = Global.Cameraman.Tripod.rotation.y
+	
 	if is_throwing: get_aim_trace()
 	
 	if Global.Debug_Settings.collect_all:
@@ -36,8 +43,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("run"):
 		speed_mult = SPEED_MULT
 	
-	rotation.y = look_dir
-	
 	if input_dir:
 		velocity.x = input_dir.x * SPEED * speed_mult
 		velocity.z = input_dir.z * SPEED * speed_mult
@@ -45,9 +50,12 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED * speed_mult)
 		velocity.z = move_toward(velocity.z, 0, SPEED * speed_mult)
 		
-	if not is_on_floor():
+	if !is_on_floor() and !in_vehicle:
 		velocity.y -= gravity * delta
 	
+	if in_vehicle:
+		is_moving = false
+		global_position = in_vehicle.seats[0].global_position
 	if !locked_in:
 		move_and_slide()
 
