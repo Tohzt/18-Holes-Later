@@ -1,7 +1,7 @@
 class_name InputController
 extends Node
 
-@onready var Master: Entity = $".."
+@onready var Master: Node3D = $".."
 
 func _process(_delta):
 	_handle_input()

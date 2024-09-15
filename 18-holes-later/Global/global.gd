@@ -7,8 +7,7 @@ extends Node
 @onready var Debug_Settings: DebugSettingsClass = $DebugSettings
 @onready var Settings: SettingsClass = $Settings
 
-@onready var Tripod = $Global_Tripod
-var Active_Camera: Camera3D
+@onready var Cameraman = $Global_Tripod
 
 var Scene: String
 var HUD: HUD_Class
@@ -54,13 +53,6 @@ func go_to_course(next_scene: String, next_hole: PackedScene, hole_name: String)
 	Hole_Name = hole_name
 	go_to_scene(Scene)
 
-# TODO: ... Do something with this
-func change_camera_to():
-	for _camera: Camera3D in get_tree().get_nodes_in_group("Camera"):
-		if _camera.current:
-			Active_Camera = _camera
-
-var camera: Camera3D
 var screen_position = Vector2(50.0, 50.0)  # 100 pixels from left and top
 var distance_from_camera = 1.0  # Adjust this value as needed
 var hud_gap = 50
@@ -69,26 +61,7 @@ func select_next_disc():
 	# TODO: Recursively check if disc is in bag
 	selected_disc += 1
 	if selected_disc > 3:
-		selected_disc = 1
-
-func add_disc_to_bag(disc):
-	if !camera and Player.Tripod.Camera:
-		camera = Player.Tripod.Camera
-	var screen_size = get_viewport().size
-	screen_position = Vector2(50 + (hud_gap * disc.index), screen_size.y - 50)
-	# Project a ray from the camera into the world
-	var from = camera.project_ray_origin(screen_position)
-	var to = from + camera.project_ray_normal(screen_position) * distance_from_camera
-	# Set the position of this node
-	disc.global_transform.origin = to
-	# Make the object perpendicular to the camera direction
-	var camera_forward = -camera.global_transform.basis.z
-	var up_vector = camera_forward
-	var right_vector = camera_forward.cross(Vector3.UP).normalized()
-	var forward_vector = up_vector.cross(right_vector).normalized()
-	# Set rotation and scale
-	disc.global_transform.basis = Basis(right_vector, up_vector, forward_vector)
-	disc.scale = Vector3(0.25, 0.25, 0.25)
+		selected_disc = 1_
 
 func save_game(profile): $SaveController.save_game(profile)
 func load_game(profile): $SaveController.load_game(profile)

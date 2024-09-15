@@ -59,9 +59,6 @@ func _physics_process(_delta):
 	if launch:
 		_launch_disc()
 	
-	if in_bag:
-		Global.add_disc_to_bag(self)
-	
 	_detect_impact()
 	_self_cull()
 	
