@@ -10,7 +10,6 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_r4l8r")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -145,7 +144,6 @@ bind/33/pose = Transform3D(67.7852, 34.1316, 65.1168, -31.3175, -66.7277, 67.576
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktfoj"]
 resource_name = "Material"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_nyp0l")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
