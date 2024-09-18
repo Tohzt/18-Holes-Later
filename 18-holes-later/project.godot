@@ -48,6 +48,7 @@ folder_colors={
 "res://Objects/": "teal",
 "res://Save/": "gray",
 "res://Scenes/": "green",
+"res://Structures/": "orange",
 "res://Styles/": "gray"
 }
 

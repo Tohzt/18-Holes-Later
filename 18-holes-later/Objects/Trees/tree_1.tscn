@@ -1,4 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://qotkk6uroiib"]
+[gd_scene load_steps=18 format=4 uid="uid://qotkk6uroiib"]
+
+[ext_resource type="Script" path="res://Objects/Trees/tree.gd" id="1_fuyom"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tro8l"]
 resource_name = "Material.001"
@@ -169,7 +171,8 @@ radius = 3.66019
 [sub_resource type="SphereShape3D" id="SphereShape3D_cip68"]
 radius = 1.19939
 
-[node name="Tree_3D" type="StaticBody3D"]
+[node name="Tree_3D" type="StaticBody3D" groups=["Tree"]]
+script = ExtResource("1_fuyom")
 
 [node name="trunk" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.22257, 0, 0, 0, 1, 0, 0, 0, 0.221922, 0, 2.93027, 0)
