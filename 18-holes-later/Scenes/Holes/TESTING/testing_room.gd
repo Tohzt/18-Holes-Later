@@ -1,5 +1,5 @@
 extends Node3D
-@onready var teleport_testing = $Testing_Room/Teleport_Testing
+@onready var teleport_testing = $Testing/Teleport_Testing
 @onready var teleport_range = $Driving_Range/Teleport_Range
 var offset = Vector3(0,0,5)
 
