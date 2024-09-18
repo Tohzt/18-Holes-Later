@@ -337,7 +337,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5568, 15.9893, 249.384)
 hole = 2
 
 [node name="Basket_01" parent="Baskets" groups=["Basket_01"] instance=ExtResource("7_llovg")]
-transform = Transform3D(0.53, 0, 0, 0, 0.53, 0, 0, 0, 0.53, -44.8803, 1.96695e-06, -79.7979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9893, 1.72853e-06, -79.9867)
 hole = 1
 
 [node name="TeeBox" parent="." instance=ExtResource("8_1k3xo")]
