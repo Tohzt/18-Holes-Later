@@ -15,13 +15,13 @@ var speed_mult: float = 0.0
 @onready var State_Controller : StateController  = $StateController
 @onready var Collision_Mask   : CollisionShape3D = $CollisionShape3D
 
-var look_dir: float = 0.0
+var state: String = "Idle"
+var look_dir  := 0.0
 var input_dir := Vector3.ZERO
 var is_dead    = false
 var is_moving  = false
 var is_running = false
-
-var state: String = "Idle"
+var accepts_input = true
 
 func _ready():
 	health = max_health

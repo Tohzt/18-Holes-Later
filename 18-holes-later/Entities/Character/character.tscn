@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://mgaxgwqsomw8"]
+[gd_scene load_steps=14 format=3 uid="uid://mgaxgwqsomw8"]
 
 [ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_6qoy3"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
@@ -10,6 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://dyh766873338g" path="res://Entities/Character/Layla/layla_3d.tscn" id="8_iujnn"]
 [ext_resource type="Script" path="res://Entities/Character/Bag.gd" id="11_li4e1"]
 [ext_resource type="PackedScene" uid="uid://drjyl8ivn0ssi" path="res://Entities/Character/Layla/layla.tscn" id="12_rs5qh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsc4a"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.447059)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tyjv1"]
+material = SubResource("StandardMaterial3D_dsc4a")
+radius = 0.1
+height = 0.2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fes4t"]
 radius = 0.2
@@ -23,6 +32,12 @@ axis_lock_angular_z = true
 script = ExtResource("1_6qoy3")
 Input_Controller = NodePath("CharacterInput")
 Anim_Controller = NodePath("Layla")
+
+[node name="CamFocus" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CamFocus"]
+mesh = SubResource("SphereMesh_tyjv1")
 
 [node name="Save" parent="." instance=ExtResource("2_neyin")]
 is_char = true

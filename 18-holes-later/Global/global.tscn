@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Global/global.gd" id="1_pokw4"]
 [ext_resource type="PackedScene" uid="uid://cijcqbaxtng5y" path="res://Global/Debug/debug_settings.tscn" id="2_0aosd"]
-[ext_resource type="PackedScene" uid="uid://bv2ohpxmex2bl" path="res://Global/Camera/global_tripod.tscn" id="2_h741v"]
+[ext_resource type="PackedScene" uid="uid://bv2ohpxmex2bl" path="res://Global/Camera/global_cameraman.tscn" id="2_h741v"]
 [ext_resource type="Script" path="res://Save/SaveController.gd" id="3_q4s14"]
 [ext_resource type="Script" path="res://Global/Debug/settings.gd" id="4_bjkcv"]
 [ext_resource type="Script" path="res://Global/references.gd" id="5_sp5hl"]
@@ -18,7 +18,7 @@ collect_all = true
 
 [node name="Settings" parent="." instance=ExtResource("2_0aosd")]
 script = ExtResource("4_bjkcv")
-MOUSE_SENSITIVITY = 0.4
+MOUSE_SENSITIVITY = 0.05
 
 [node name="SaveController" type="Node" parent="."]
 script = ExtResource("3_q4s14")

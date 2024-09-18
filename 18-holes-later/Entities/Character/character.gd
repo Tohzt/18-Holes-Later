@@ -23,7 +23,7 @@ var predict_cd_max = 50
 var predict_cd = 0
 
 func _ready():
-	Global.Cameraman.Target = self
+	Global.Cameraman.set_target(self, $CamFocus)
 	Global.Player = self
 	super._ready()
 
@@ -31,7 +31,7 @@ func _process(_delta):
 	if in_vehicle:
 		rotation.y = in_vehicle.rotation.y
 	else:
-		rotation.y = Global.Cameraman.Tripod.rotation.y
+		Global.Cameraman.rotation.y = rotation.y
 	
 	if is_throwing: get_aim_trace()
 	
@@ -42,13 +42,14 @@ func _physics_process(delta):
 	speed_mult = 1
 	if Input.is_action_pressed("run"):
 		speed_mult = SPEED_MULT
+	var _speed = SPEED * speed_mult
 	
 	if input_dir:
-		velocity.x = input_dir.x * SPEED * speed_mult
-		velocity.z = input_dir.z * SPEED * speed_mult
+		velocity.x = input_dir.x * _speed
+		velocity.z = input_dir.z * _speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * speed_mult)
-		velocity.z = move_toward(velocity.z, 0, SPEED * speed_mult)
+		velocity.x = move_toward(velocity.x, 0, _speed)
+		velocity.z = move_toward(velocity.z, 0, _speed)
 		
 	if !is_on_floor() and !in_vehicle:
 		velocity.y -= gravity * delta
@@ -56,8 +57,9 @@ func _physics_process(delta):
 	if in_vehicle:
 		is_moving = false
 		global_position = in_vehicle.seats[0].global_position
-	if !locked_in:
-		move_and_slide()
+	else:
+		if !locked_in:
+			move_and_slide()
 
 func _collect_discs():
 	if Input.is_action_just_pressed("collect"):
