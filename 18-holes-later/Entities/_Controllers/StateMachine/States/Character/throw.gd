@@ -17,7 +17,7 @@ func update_state():
 	if Input.is_action_just_released("right_click"):
 		Master.clear_trace()
 		if !Master.Tripod.get_child_count():
-			Global.Active_Camera.snap_to(Master)
+			Global.Cameraman.set_target(Master)
 	
 	if State_Controller.state_suffix == "_Release":
 		if !Master.Anim_Controller.animation_player.is_playing():
@@ -42,11 +42,11 @@ func update_state():
 						disc.in_play = true
 					if disc.in_play:
 						Global.HUD.update_strokes(1)
-						Global.Cameraman.snap_to(Global.Tripod, disc)
+						Global.Cameraman.set_target(Global.Tripod, disc)
 				else:
 					if Master.is_on_tee:
 						Global.HUD.update_strokes(1)
-						Global.Cameraman.snap_to(Global.Tripod, disc)
+						Global.Cameraman.set_target(Global.Tripod, disc)
 						Global.game_on = true
 						Global.hole_over = false
 						disc.in_play = true
@@ -68,7 +68,7 @@ func throw_disc(disc, power = 0.0):
 	disc.launch = true
 	
 	if !disc.is_tracer and Global.Debug_Settings.follow_all_throws:
-		Global.Cameraman.snap_to(Global.Player)
+		Global.Cameraman.set_target(Global.Player)
 
 func exit_state(next_state: String):
 	State_Controller.state_suffix = ""

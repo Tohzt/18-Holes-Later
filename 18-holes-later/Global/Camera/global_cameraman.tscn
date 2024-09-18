@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv2ohpxmex2bl"]
+
+[ext_resource type="Script" path="res://Global/Camera/global_cameraman.gd" id="1_xcb3c"]
+[ext_resource type="Script" path="res://Global/camera_main.gd" id="2_gudho"]
+
+[node name="Global_Cameraman" type="Node3D"]
+script = ExtResource("1_xcb3c")
+
+[node name="Tripod" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.83867, 0.544639, 0, -0.544639, 0.83867, 0, 0, 0)
+spring_length = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="Tripod"]
+script = ExtResource("2_gudho")

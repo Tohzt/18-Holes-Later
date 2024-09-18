@@ -14,28 +14,19 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var JUMP_FORCE: float = 10
 var speed_mult: float = 0.0
 
-@export var Input_Controller  : InputController
+@export var Input_Controller: InputController
+var accepts_input = false
 
 var look_dir: float = 0.0
 var input_dir := Vector3.ZERO
 
 func _process(_delta):
-	print(look_dir)
-	var collisions = pickup_area.get_overlapping_bodies()
-	for collision in collisions:
-		if collision.is_in_group("Character"):
-			if Input.is_action_just_pressed("interact"):
-				Global.Cameraman.snap_to(self)
-				collision.in_vehicle = self
-				Global.Player.set_collision_mask_value(6,false)
-				has_driver = true
+	_enter_exit_vehicle()
 
 func _physics_process(delta):
 	speed_mult = 1
 	if Input.is_action_pressed("run"):
 		speed_mult = SPEED_MULT
-	
-	rotation.y = look_dir
 	
 	if input_dir:
 		velocity.x = input_dir.x * SPEED * speed_mult
@@ -49,3 +40,23 @@ func _physics_process(delta):
 	
 	if has_driver:
 		move_and_slide()
+
+func _enter_exit_vehicle():
+	var collisions = pickup_area.get_overlapping_bodies()
+	for collision in collisions:
+		if collision.is_in_group("Character"):
+			if Input.is_action_just_pressed("interact"):
+				if collision.in_vehicle:
+					collision.in_vehicle = null
+					collision.accepts_input = true
+					Global.Cameraman.set_target(collision, collision.get_node("CamFocus"))
+					Global.Player.set_collision_mask_value(6,true)
+					has_driver = false
+					accepts_input = false
+				else:
+					Global.Cameraman.set_target(self, $CamFocus)
+					collision.in_vehicle = self
+					collision.accepts_input = false
+					Global.Player.set_collision_mask_value(6,false)
+					has_driver = true
+					accepts_input = true
