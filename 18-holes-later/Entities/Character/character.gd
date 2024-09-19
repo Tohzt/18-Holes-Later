@@ -27,11 +27,12 @@ func _ready():
 	Global.Player = self
 	super._ready()
 
-func _process(_delta):
+func _process(delta):
 	if in_vehicle:
 		rotation.y = in_vehicle.rotation.y
 	else:
-		Global.Cameraman.rotation.y = rotation.y
+		#Global.Cameraman.rotation.y = rotation.y
+		Global.Cameraman.rotation.y = lerp(Global.Cameraman.rotation.y, rotation.y, delta*10)
 	
 	if is_throwing: get_aim_trace()
 	
