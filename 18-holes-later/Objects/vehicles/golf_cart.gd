@@ -6,8 +6,8 @@ extends CharacterBody3D
 var has_driver = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@export var max_health: int = 100
-@export var health: float
+@export var max_durability: int = 100
+@export var durability: float
 
 @export var SPEED: float = 10.0
 @export var SPEED_MULT: float = 2

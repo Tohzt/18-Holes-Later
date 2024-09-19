@@ -7,7 +7,7 @@ extends Node
 @onready var Debug_Settings: DebugSettingsClass = $DebugSettings
 @onready var Settings: SettingsClass = $Settings
 
-@onready var Cameraman = $Global_Tripod
+@onready var Cameraman: Node3D = $Global_Tripod
 
 var Scene: String
 var HUD: HUD_Class

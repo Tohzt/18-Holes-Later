@@ -4,3 +4,4 @@
 
 [node name="DebugSettings" type="Node"]
 script = ExtResource("1_tahsm")
+print_debug_log = true
