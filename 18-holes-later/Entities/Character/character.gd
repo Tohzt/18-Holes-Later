@@ -28,7 +28,6 @@ func _ready():
 	super._ready()
 
 func _process(delta):
-	print(velocity)
 	if in_vehicle:
 		rotation.y = in_vehicle.rotation.y
 	else:
