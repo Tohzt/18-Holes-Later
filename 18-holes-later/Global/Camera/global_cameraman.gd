@@ -23,7 +23,8 @@ func _follow_target(delta):
 		position = lerp(position, follow_pos, delta * 10) 
 
 func _look_at_target(_delta):
-	look_at(look_target.global_position)
+	rotation.y = follow_target.rotation.y
+	#look_at(look_target.global_position)
 
 func set_target(new_target: Node3D, new_look: Node3D ):
 	if !new_target:
@@ -31,7 +32,7 @@ func set_target(new_target: Node3D, new_look: Node3D ):
 	
 	follow_target = new_target
 	look_target = new_look
-	Tripod.rotation.y = Tripod.rotation.direction_to(new_target.rotation).y
+	Tripod.rotation.y = new_target.rotation.y
 	
 	# Reset rotation to looking direction
 	if follow_target == Global.Player:
