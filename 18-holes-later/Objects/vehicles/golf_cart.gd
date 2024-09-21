@@ -47,16 +47,22 @@ func _enter_exit_vehicle():
 		if collision.is_in_group("Character"):
 			if Input.is_action_just_pressed("interact"):
 				if collision.in_vehicle:
-					collision.in_vehicle = null
-					collision.accepts_input = true
-					Global.Cameraman.set_target(collision, collision.get_node("CamFocus"))
-					Global.Player.set_collision_mask_value(6,true)
-					has_driver = false
-					accepts_input = false
+					_exit_vehicle(collision)
 				else:
-					Global.Cameraman.set_target(self, $CamFocus)
-					collision.in_vehicle = self
-					collision.accepts_input = false
-					Global.Player.set_collision_mask_value(6,false)
-					has_driver = true
-					accepts_input = true
+					_enter_vehicle(collision)
+
+func _enter_vehicle(collision):
+	Global.Cameraman.set_target(self, $CamFocus)
+	collision.in_vehicle = self
+	collision.accepts_input = false
+	Global.Player.set_collision_mask_value(6,false)
+	has_driver = true
+	accepts_input = true
+
+func _exit_vehicle(collision):
+	collision.in_vehicle = null
+	collision.accepts_input = true
+	Global.Cameraman.set_target(collision, collision.get_node("CamFocus"))
+	Global.Player.set_collision_mask_value(6,true)
+	has_driver = false
+	accepts_input = false

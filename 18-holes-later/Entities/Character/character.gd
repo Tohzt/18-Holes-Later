@@ -51,7 +51,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, _speed)
 		velocity.z = move_toward(velocity.z, 0, _speed)
-		
+	
 	if !is_on_floor() and !in_vehicle:
 		velocity.y -= gravity * delta
 	
