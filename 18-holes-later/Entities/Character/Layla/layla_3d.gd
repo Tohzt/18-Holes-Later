@@ -3,14 +3,27 @@ extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var Master: Entity_Character = get_parent()
-var current_anim: String = "Layla_Idle"
+var current_anim: String = "Idle"
+var look_dir: float = 0.0
 
 func _ready():
 	Master.Anim_Controller = self
 	$AnimationPlayer.play(current_anim)
 
-func _process(_delta):
-	#print("Cur Anim/State: ", animation_player.current_animation, Master.State_Controller.state_next)
+func _process(delta):
+	#look_dir = Master.input.angle() + PI/2
+	#match Master.input:
+		#Vector2()
+	if Master.is_moving:
+		#rotation.y = Master.rotation.y - look_dir
+		$AnimationPlayer.play("Walk")
+	elif Master.is_running:
+		#rotation.y = Master.rotation.y - look_dir
+		$AnimationPlayer.play("Run")
+	else:
+		#rotation.y = 0
+		$AnimationPlayer.play("Idle")
+		
 	if animation_player.current_animation != Master.State_Controller.state_next:
 		pass#_update_anim()
 

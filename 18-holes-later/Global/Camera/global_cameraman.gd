@@ -19,10 +19,8 @@ func _follow_target(delta):
 		look_target.global_position.y,
 		follow_target.position.z,
 	)
-	position = follow_pos
-	#if position.distance_to(follow_pos) > .5:
-		#position = lerp(position, follow_pos, delta * 1) 
-		#global_position = position.move_toward(follow_pos, SPEED * spd_mod * delta) 
+	if position.distance_to(follow_pos) > .5:
+		position = lerp(position, follow_pos, delta * 10) 
 
 func _look_at_target(_delta):
 	look_at(look_target.global_position)

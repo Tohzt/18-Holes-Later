@@ -16,8 +16,6 @@ func update_state():
 	
 	if Input.is_action_just_released("right_click"):
 		Master.clear_trace()
-		if !Master.Tripod.get_child_count():
-			Global.Cameraman.set_target(Master)
 	
 	if State_Controller.state_suffix == "_Release":
 		if !Master.Anim_Controller.animation_player.is_playing():

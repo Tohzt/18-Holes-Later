@@ -17,6 +17,7 @@ var speed_mult: float = 0.0
 
 var state: String = "Idle"
 var look_dir  := 0.0
+var input:= Vector2.ZERO
 var input_dir := Vector3.ZERO
 var is_dead    = false
 var is_moving  = false
