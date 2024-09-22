@@ -10,7 +10,7 @@ func _ready():
 	Master.Anim_Controller = self
 	$AnimationPlayer.play(current_anim)
 
-func _process(delta):
+func _process(_delta):
 	#look_dir = Master.input.angle() + PI/2
 	#match Master.input:
 		#Vector2()

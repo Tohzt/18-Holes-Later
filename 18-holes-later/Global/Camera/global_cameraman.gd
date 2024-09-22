@@ -24,7 +24,7 @@ func _follow_target(delta):
 
 func _look_at_target(_delta):
 	rotation.y = follow_target.rotation.y
-	#look_at(look_target.global_position)
+	print(rotation.y)
 
 func set_target(new_target: Node3D, new_look: Node3D ):
 	if !new_target:
