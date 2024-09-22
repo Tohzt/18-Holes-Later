@@ -56,6 +56,10 @@ folder_colors={
 
 import/blender/enabled=false
 
+[global_group]
+
+temp=""
+
 [gui]
 
 theme/custom="res://Styles/UI Assets/default_ui_theme.tres"
