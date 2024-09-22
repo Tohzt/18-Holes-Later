@@ -11,17 +11,18 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed_mult: float = 0.0
 
 @export var Input_Controller  : InputController
-@export var Anim_Controller   : AnimController  
+@export var Anim_Controller   : AnimController3D
 @onready var State_Controller : StateController  = $StateController
 @onready var Collision_Mask   : CollisionShape3D = $CollisionShape3D
 
-var look_dir: float = 0.0
+var state: String = "Idle"
+var look_dir  := 0.0
+var input:= Vector2.ZERO
 var input_dir := Vector3.ZERO
 var is_dead    = false
 var is_moving  = false
 var is_running = false
-
-var state: String = "Idle"
+var accepts_input = true
 
 func _ready():
 	health = max_health

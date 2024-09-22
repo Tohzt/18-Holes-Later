@@ -13,7 +13,7 @@ const MENU_PAUSE = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
 const HOLE_01 = preload("res://Scenes/Holes/Hole_01/hole_01.tscn")
 
 # Spawnables
-const TREE = preload("res://Objects/Trees/tree_3D.tscn")
+const TREE = preload("res://Objects/Trees/tree_3.tscn")
 
 # Characters
 const CHAR_BENNY = preload("res://Entities/Character/character.tscn")
