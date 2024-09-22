@@ -26,12 +26,10 @@ func char_mouse_input(delta):
 			target_rotation += 360.0
 		
 		# Use lerp_angle for smooth rotation
-		var current_rotation = fmod(Master.rotation.y, TAU)
 		var new_rotation = deg_to_rad(target_rotation)
 		
 		# Apply the new rotation
 		Master.rotation.y = lerp_angle(Master.rotation.y,new_rotation,delta*rotation_speed)
-		printt(rad_to_deg(Master.rotation.y), rad_to_deg(new_rotation))
 
 func char_movement_input():
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
