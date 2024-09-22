@@ -19,7 +19,7 @@ func _follow_target(delta):
 		look_target.global_position.y,
 		follow_target.position.z,
 	)
-	if position.distance_to(follow_pos) > .5:
+	if position.distance_to(follow_pos) > .01:
 		position = lerp(position, follow_pos, delta * 10) 
 
 func _look_at_target(_delta):
@@ -31,8 +31,3 @@ func set_target(new_target: Node3D, new_look: Node3D ):
 	
 	follow_target = new_target
 	look_target = new_look
-	Tripod.rotation.y = new_target.rotation.y
-	
-	# Reset rotation to looking direction
-	if follow_target == Global.Player:
-		Camera.rotation.x = Camera.rot_x

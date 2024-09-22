@@ -32,6 +32,6 @@ func char_mouse_input(delta):
 		Master.rotation.y = lerp_angle(Master.rotation.y,new_rotation,delta*rotation_speed)
 
 func char_movement_input():
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	#Master.input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	Master.input_dir = (Master.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	Master.input = input
+	Master.input_dir = (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized()
