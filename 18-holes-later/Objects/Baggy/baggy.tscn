@@ -52,6 +52,8 @@ height = 0.748001
 [node name="Baggy" type="RigidBody3D"]
 collision_layer = 8
 collision_mask = 15
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 mass = 0.01
 continuous_cd = true
 contact_monitor = true

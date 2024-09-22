@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="3_vqgkm"]
-[ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://structures/clubhouse.tscn" id="4_dpl60"]
+[ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://Structures/clubhouse.tscn" id="4_dpl60"]
 [ext_resource type="PackedScene" uid="uid://lhfvu7ak06vk" path="res://Scenes/Holes/Hole_01/west_fork_low_poly_solid.tscn" id="5_dlb5e"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="5_qt2g5"]
