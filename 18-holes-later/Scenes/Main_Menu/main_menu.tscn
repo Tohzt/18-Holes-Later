@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyoiejbn46jc5"]
+[gd_scene load_steps=6 format=3 uid="uid://dyoiejbn46jc5"]
 
 [ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_ky1vy"]
-[ext_resource type="Texture2D" uid="uid://b5vivsuksamy" path="res://Scenes/Main_Menu/src/Background.png" id="2_jlhmx"]
-[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="3_emysa"]
+[ext_resource type="Texture2D" uid="uid://bef8dmac0cico" path="res://Scenes/Main_Menu/src/MainMenuBG.jpg" id="2_ip3jy"]
+[ext_resource type="Texture2D" uid="uid://bojls6d0ucddj" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="3_0jm70"]
+[ext_resource type="Script" path="res://Scenes/Main_Menu/options_container.gd" id="4_bn3fg"]
+[ext_resource type="Script" path="res://Scenes/Main_Menu/menu_container.gd" id="4_pewpv"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,45 +16,44 @@ grow_vertical = 2
 script = ExtResource("1_ky1vy")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -378.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_jlhmx")
+texture = ExtResource("2_ip3jy")
+expand_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-texture_filter = 1
+[node name="MenuContainer" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -308.0
-offset_top = 13.055
-offset_right = 308.0
-offset_bottom = 117.055
+offset_left = -317.0
+offset_top = -250.0
+offset_right = 317.0
+offset_bottom = -50.0
 grow_horizontal = 2
-texture = ExtResource("3_emysa")
-expand_mode = 1
-
-[node name="MenuContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -286.5
-offset_right = 286.5
-offset_bottom = 91.0
-grow_horizontal = 2
-theme_override_constants/margin_top = 48
+texture = ExtResource("3_0jm70")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+script = ExtResource("4_pewpv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.0
+offset_top = 120.0
+offset_right = 310.0
+offset_bottom = 173.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+alignment = 1
 
 [node name="Btn_NewGame" type="Button" parent="MenuContainer/HBoxContainer"]
 layout_mode = 2
@@ -76,36 +77,61 @@ text = "OPTIONS"
 layout_mode = 2
 text = "Exit Game"
 
-[node name="OptionsContainer" type="MarginContainer" parent="."]
-visible = false
+[node name="OptionsContainer" type="NinePatchRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -127.0
-offset_top = -127.0
-offset_right = 127.0
-offset_bottom = 22.0
-grow_horizontal = 2
+offset_left = -150.0
+offset_top = -116.5
+offset_right = 150.0
+offset_bottom = 116.5
 grow_vertical = 2
+texture = ExtResource("3_0jm70")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+script = ExtResource("4_bn3fg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -142.635
+offset_top = -95.5
+offset_right = -17.635
+offset_bottom = 95.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
 
-[node name="Btn_Option_1" type="Button" parent="OptionsContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="OptionsContainer/VBoxContainer"]
 layout_mode = 2
-text = "OPTION 1"
+text = "SELECT PLYER"
+horizontal_alignment = 1
 
-[node name="Btn_Option_2" type="Button" parent="OptionsContainer/VBoxContainer"]
+[node name="Btn_Select_Layla" type="Button" parent="OptionsContainer/VBoxContainer"]
 layout_mode = 2
-text = "OPTION 2"
+size_flags_vertical = 4
+text = "Lyla"
 
-[node name="Btn_Option_3" type="Button" parent="OptionsContainer/VBoxContainer"]
+[node name="Btn_Select_Benny" type="Button" parent="OptionsContainer/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
-text = "OPTION 3"
+size_flags_vertical = 4
+disabled = true
+text = "Benny"
+
+[node name="Btn_Select_The_Cop" type="Button" parent="OptionsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "The Cop"
 
 [node name="ProfileContainer" type="MarginContainer" parent="."]
 visible = false
@@ -143,3 +169,4 @@ text = "PROFILE 3"
 [connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Load" to="." method="_on_btn_load_pressed"]
 [connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="OptionsContainer/VBoxContainer/Btn_Select_Layla" to="." method="_on_btn_select_layla_pressed"]
