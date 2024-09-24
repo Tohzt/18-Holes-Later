@@ -22,8 +22,8 @@ func _follow_target(delta):
 	if position.distance_to(follow_pos) > .01:
 		position = lerp(position, follow_pos, delta * 10) 
 
-func _look_at_target(_delta):
-	rotation.y = follow_target.rotation.y
+func _look_at_target(delta):
+	rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
 
 func set_target(new_target: Node3D, new_look: Node3D ):
 	if !new_target:

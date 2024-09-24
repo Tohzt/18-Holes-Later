@@ -6,13 +6,20 @@ var max_turn_strength = 100.0
 func _handle_input(delta = 0.0):
 	if Input.get_last_mouse_velocity().length() == 0:
 		mouse_motion = null
-	char_mouse_input(delta)
+	#char_mouse_input(delta)
 	cart_movement_input(delta)
 
 func _input(event):
-	mouse_motion = null
-	if event is InputEventMouseMotion:
-		mouse_motion = event
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if Master.has_driver and event is InputEventMouseMotion:
+		# Accumulate mouse motion to rotate the camera
+		var rot_cam = Vector3.ZERO
+		rot_cam.y = Global.Cameraman.rotation.y - event.relative.x * Global.Settings.MOUSE_SENSITIVITY
+		rot_cam.x = Global.Cameraman.rotation.x - event.relative.y * Global.Settings.MOUSE_SENSITIVITY
+		#Global.Cameraman.rotation.x = clamp(rot_cam.x, deg_to_rad(-90), deg_to_rad(90))
+		
+		# Apply rotation directly
+		Master.new_dir.y = rot_cam.y
 
 func cart_movement_input(delta):
 	var input_forward = Input.get_axis("ui_up", "ui_down")

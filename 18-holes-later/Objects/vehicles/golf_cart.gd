@@ -19,8 +19,10 @@ var accepts_input = false
 
 var look_dir: float = 0.0
 var input_dir := Vector3.ZERO
+var new_dir := Vector3.ZERO
 
-func _process(_delta):
+func _process(delta):
+	rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10) 
 	_enter_exit_vehicle()
 
 func _physics_process(delta):
