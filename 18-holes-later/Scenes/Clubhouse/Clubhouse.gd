@@ -37,6 +37,9 @@ func _on_btn_select_course_pressed():
 		course_selection_container.show()
 		disc_selection_container.hide()
 
+func _on_btn_clubhosue_interior_pressed():
+	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.CLUBHOUSE_INTERIOR, "Clubhouse_Interior")
+
 func _on_btn_hole_01_pressed():
 	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.HOLE_01, "Hole_01")
 

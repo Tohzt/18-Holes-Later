@@ -8,6 +8,7 @@ const SCENE_LOADING = "res://Scenes/Loading/loading.tscn"
 const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/clubhouse.tscn"
 
 # Scenes/Holes
+const CLUBHOUSE_INTERIOR = preload("res://Scenes/Clubhouse/Interior/clubhouse_interior.tscn")
 const TESTING_ROOM = preload("res://Scenes/Holes/TESTING/testing_room.tscn")
 const MENU_PAUSE = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
 const HOLE_01 = preload("res://Scenes/Holes/Hole_01/hole_01.tscn")
