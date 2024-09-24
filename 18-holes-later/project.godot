@@ -24,7 +24,7 @@ config/name="18-holes-later"
 run/main_scene="res://Scenes/Main_Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="res://Scenes/Main_Menu/src/Background.png"
+boot_splash/image="res://Styles/UI Assets/MainMenuBG.png"
 config/icon="res://Styles/UI Assets/logo_circle.png"
 
 [autoload]
@@ -62,7 +62,7 @@ temp=""
 
 [gui]
 
-theme/custom="res://Styles/UI Assets/default_ui_theme.tres"
+theme/custom="res://Styles/UI Assets/Theme_Placeholder/placeholder_theme.tres"
 theme/default_font_antialiasing=0
 
 [input]
