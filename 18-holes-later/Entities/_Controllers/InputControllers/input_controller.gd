@@ -12,7 +12,7 @@ func _process(delta):
 func _handle_input(_delta): 
 	print_debug("_handle_input not set")
 
-func char_mouse_input(delta):
+func char_mouse_input(_delta):
 	pass
 
 func char_movement_input():

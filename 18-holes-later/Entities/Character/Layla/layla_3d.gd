@@ -13,7 +13,7 @@ func _ready():
 	Master.Anim_Controller = self
 	$AnimationPlayer.play(current_anim)
 
-func _process(delta):
+func _process(_delta):
 	_update_anim()
 
 # TODO: Update to 3D
