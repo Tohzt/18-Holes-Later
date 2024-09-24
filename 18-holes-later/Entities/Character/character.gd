@@ -27,12 +27,12 @@ func _ready():
 	Global.Player = self
 	super._ready()
 
+var new_dir := Vector3.ZERO
 func _process(delta):
 	if in_vehicle:
 		rotation.y = in_vehicle.rotation.y
 	else:
-		#Global.Cameraman.rotation.y = rotation.y
-		Global.Cameraman.rotation.y = lerp(Global.Cameraman.rotation.y, rotation.y, delta*10)
+		rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10) 
 	
 	if is_throwing: get_aim_trace()
 	

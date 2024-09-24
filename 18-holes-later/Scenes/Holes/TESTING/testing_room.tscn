@@ -29,6 +29,7 @@ background_mode = 2
 sky = SubResource("Sky_6fqx5")
 tonemap_mode = 2
 glow_enabled = true
+glow_hdr_luminance_cap = 27.21
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rsvbg"]
 load_path = "res://.godot/imported/grid_orange_512x512.png-362bcde55020129d5154d444386242a9.s3tc.ctex"
