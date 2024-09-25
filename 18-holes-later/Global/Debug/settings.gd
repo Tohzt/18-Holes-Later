@@ -2,7 +2,7 @@ extends Node
 class_name SettingsClass
 
 # TODO: Add to Settings
-@export_range(0.0, 1.0) var MOUSE_SENSITIVITY : float = 0.05
+@export_range(0.0, 1.0) var MOUSE_SENSITIVITY : float = 0.1
 
 func export_variables() -> Array:
 	var property_list = get_property_list()

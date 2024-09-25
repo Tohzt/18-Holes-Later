@@ -1,4 +1,4 @@
-extends Node3D
+extends CharacterBody3D
 @onready var Tripod = $Tripod
 @onready var Camera = $Tripod/Camera3D
 
@@ -8,7 +8,7 @@ var look_target: Node3D
 const SPEED = 10
 var spd_mod: float = 1.0
 
-func _process(delta):
+func _physics_process(delta):
 	if follow_target:
 		_follow_target(delta)
 		_look_at_target(delta)
@@ -19,8 +19,13 @@ func _follow_target(delta):
 		look_target.global_position.y,
 		follow_target.position.z,
 	)
-	if position.distance_to(follow_pos) > .01:
-		position = lerp(position, follow_pos, delta * 10) 
+	print(follow_pos)
+	if position.distance_to(follow_pos) > .1:
+		velocity = ( follow_pos - position).normalized() * SPEED
+		#position = lerp(position, follow_pos, delta * 10) 
+	else: velocity = Vector3.ZERO
+	
+	move_and_slide()
 
 func _look_at_target(delta):
 	rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
