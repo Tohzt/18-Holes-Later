@@ -10,7 +10,7 @@ func _ready():
 	for disc: Disc in get_tree().get_nodes_in_group("Disc"):
 		if disc.in_hand:
 			stats = disc.stats
-	Global.Player.State_Controller.get_node("Throw").throw_disc(self, 10.0)
+	#Global.Player.State_Controller.get_node("Throw").throw_disc(self, 10.0)
 
 func _physics_process(delta):
 	super._physics_process(delta)

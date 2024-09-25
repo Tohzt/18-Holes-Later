@@ -57,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.567167, 0)
 shape = SubResource("CapsuleShape3D_fes4t")
 
 [node name="Hand" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.397197, 0.2, -0.236908)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.397197, 1.67906, -0.236908)
 
 [node name="Bag" type="Node" parent="."]
 script = ExtResource("11_li4e1")

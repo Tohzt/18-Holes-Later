@@ -47,14 +47,14 @@ func _launch_disc():
 	apply_central_impulse(impulse)
 
 func _process(_delta):
-	if in_bag:
-		position = Global.Player.position - Vector3(0,10,0)
-		#hide()
-	else:
+	if launch:
 		show()
 		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
 		if grounded:
 			_settle()
+	else:
+		position = Global.Player.position - Vector3(0,10,0)
+		#hide()
 
 func _physics_process(_delta):
 	if launch:
