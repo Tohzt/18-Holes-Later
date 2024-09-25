@@ -14,8 +14,8 @@ func _input(event):
 	if Master.has_driver and event is InputEventMouseMotion:
 		# Accumulate mouse motion to rotate the camera
 		var rot_cam = Vector3.ZERO
-		rot_cam.y = Global.Cameraman.rotation.y - event.relative.x * Global.Settings.MOUSE_SENSITIVITY
-		rot_cam.x = Global.Cameraman.rotation.x - event.relative.y * Global.Settings.MOUSE_SENSITIVITY
+		#rot_cam.y = Global.Cameraman.rotation.y - event.relative.x * Global.Settings.MOUSE_SENSITIVITY
+		rot_cam.x = Global.Cameraman.rotation.x - event.relative.y * Global.Settings.MOUSE_V_SENSITIVITY
 		#Global.Cameraman.rotation.x = clamp(rot_cam.x, deg_to_rad(-90), deg_to_rad(90))
 		
 		# Apply rotation directly
@@ -28,5 +28,5 @@ func cart_movement_input(delta):
 	turn_strength = lerp(turn_strength,max_turn_strength,delta) * abs(input_turn)
 	#Global.Debug_Settings.debug_log['cart_turn_strength'] = turn_strength
 	
-	Master.rotate_y(deg_to_rad(-turn_strength  * input_turn * Global.Settings.MOUSE_SENSITIVITY))
+	Master.rotate_y(deg_to_rad(-turn_strength  * input_turn * Global.Settings.MOUSE_H_SENSITIVITY))
 	Master.input_dir = (Master.transform.basis * Vector3(0,0,input_forward)).normalized()

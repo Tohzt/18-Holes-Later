@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bqr7m241m0ewj"]
+[gd_scene load_steps=21 format=4 uid="uid://bqr7m241m0ewj"]
 
 [ext_resource type="Script" path="res://Entities/Character/Layla/layla_3d.gd" id="1_sdsyg"]
 [ext_resource type="Texture2D" uid="uid://cps61ojn001ls" path="res://Entities/Character/Layla/src/New 3D/Layla3DAnimations_tzteres.png" id="2_glfwv"]
@@ -1224,18 +1224,6 @@ _data = {
 "Walk": SubResource("Animation_qtl7m")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqwg4"]
-albedo_color = Color(1, 0, 0, 1)
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 2.98
-emission_operator = 1
-
-[sub_resource type="TorusMesh" id="TorusMesh_lqpkh"]
-material = SubResource("StandardMaterial3D_lqwg4")
-inner_radius = 0.056
-outer_radius = 0.086
-
 [node name="Layla3DAnimations" type="Node3D"]
 script = ExtResource("1_sdsyg")
 
@@ -1563,6 +1551,3 @@ skin = SubResource("Skin_te21l")
 libraries = {
 "": SubResource("AnimationLibrary_7pcx7")
 }
-
-[node name="HandMarker" type="MeshInstance3D" parent="."]
-mesh = SubResource("TorusMesh_lqpkh")

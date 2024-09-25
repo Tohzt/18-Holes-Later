@@ -1,9 +1,10 @@
 # WALK STATE
-extends StateClass
+extends CharacterStateClass
 
 func init_state():
 	State_Controller.state_options = state_options
 	Master.is_moving = true
+	Master.can_throw = false
 
 func monitor_state():
 	pass

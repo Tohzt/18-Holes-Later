@@ -22,6 +22,7 @@ var input_dir := Vector3.ZERO
 var is_dead    = false
 var is_moving  = false
 var is_running = false
+var is_jumping = false
 var accepts_input = true
 
 func _ready():

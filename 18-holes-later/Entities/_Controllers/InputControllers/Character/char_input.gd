@@ -10,5 +10,6 @@ func _handle_input(_delta):
 	char_movement_input()
 
 func _input(event):
+	mouse_motion = null
 	if event is InputEventMouseMotion:
 		mouse_motion = event

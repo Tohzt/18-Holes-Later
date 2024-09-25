@@ -18,7 +18,8 @@ collect_all = true
 
 [node name="Settings" parent="." instance=ExtResource("2_0aosd")]
 script = ExtResource("4_bjkcv")
-MOUSE_SENSITIVITY = 0.1
+MOUSE_H_SENSITIVITY = 1.0
+MOUSE_V_SENSITIVITY = 0.2
 
 [node name="SaveController" type="Node" parent="."]
 script = ExtResource("3_q4s14")

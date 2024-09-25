@@ -19,3 +19,7 @@ func char_movement_input():
 	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	Master.input = input
 	Master.input_dir = (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized()
+	
+	# Jump
+	if Master.can_jump and Input.is_action_just_pressed("jump"):
+		Master.is_jumping = true
