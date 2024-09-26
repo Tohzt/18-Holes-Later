@@ -47,6 +47,8 @@ func _launch_disc():
 	apply_central_impulse(impulse)
 
 func _process(_delta):
+	if in_play:
+		print(position)
 	if launch:
 		show()
 		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)

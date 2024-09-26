@@ -43,9 +43,6 @@ func _process(delta):
 		_collect_discs()
 
 func _physics_process(delta):
-	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED: 
-		_mouse_input(delta)
-	
 	speed_mult = 1
 	if Input.is_action_pressed("run"):
 		speed_mult = SPEED_MULT
@@ -78,25 +75,6 @@ func _collect_discs():
 			if disc.in_play:
 				disc.takeoff_pos = disc.position
 			disc.pick_up(Bag)
-
-# TODO: Move back to input controller. Error was in global camera
-func _mouse_input(delta):
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
-	
-	if can_look:
-		if Input_Controller.mouse_motion is InputEventMouseMotion:
-			# Accumulate mouse motion to rotate the camera
-			var rot_cam = Vector3.ZERO
-			rot_cam.y = Global.Cameraman.rotation.y - Input_Controller.mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
-			rot_cam.x = Global.Cameraman.rotation.x - Input_Controller.mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
-			Global.Cameraman.rotation.x = clamp(rot_cam.x, deg_to_rad(-90), deg_to_rad(90))
-			
-			# Apply rotation directly
-			new_dir.y = rot_cam.y
-	else:
-		print("-------")
-		
-
 
 func get_aim_trace():
 	if is_throwing: 

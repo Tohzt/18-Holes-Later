@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d3enwvfcaulii"
-path="res://.godot/imported/Layla3DAnimations.glb-0370585aefe022eea9330ebe819f1954.scn"
+path="res://.godot/imported/Layla3DAnimations.glb-c1fd0277404e79b0aeb12d82431ada87.scn"
 
 [deps]
 
-source_file="res://Entities/Character/Layla/src/New 3D/Layla3DAnimations.glb"
-dest_files=["res://.godot/imported/Layla3DAnimations.glb-0370585aefe022eea9330ebe819f1954.scn"]
+source_file="res://Entities/Character/Layla/src/Layla3DAnimations.glb"
+dest_files=["res://.godot/imported/Layla3DAnimations.glb-c1fd0277404e79b0aeb12d82431ada87.scn"]
 
 [params]
 

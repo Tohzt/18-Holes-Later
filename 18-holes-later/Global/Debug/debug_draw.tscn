@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbgunshug17jc"]
 
-[ext_resource type="Script" path="res://Global/debug_draw.gd" id="1_dsn2w"]
+[ext_resource type="Script" path="res://Global/Debug/debug_draw.gd" id="1_dsn2w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pglm1"]
 vertex_color_use_as_albedo = true
