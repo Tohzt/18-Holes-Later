@@ -27,18 +27,22 @@ func _follow_target(delta):
 		var spd = SPEED + spd_mod
 		velocity = ( follow_pos - position).normalized() * spd * delta
 		#position = lerp(position, follow_pos, delta * 10) 
+	# TODO: Stutter caused when camera catches up to target
 	else: velocity = Vector3.ZERO
 	
 	move_and_slide()
 
 func _look_at_target(delta):
 	# TODO: Remove player reference and pass in bool on set_target
-	if Global.Player.can_look:
+	# TODO: Not sure if this is still needed
+	if follow_target.can_look:
 		rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
 
 func set_target(new_target: Node3D, new_look: Node3D ):
 	if !new_target:
-		follow_target = Global.Player
+		new_target = Global.Player
+	if !new_look:
+		new_look = new_target.get_node("CamFocus")
 	
 	follow_target = new_target
 	look_target = new_look

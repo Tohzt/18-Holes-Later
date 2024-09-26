@@ -3,7 +3,8 @@ extends InputController
 var turn_strength = 0.0
 var max_turn_strength = 100.0
 
-func _handle_input(delta = 0.0):
+func _process(delta):
+	if !Master.accepts_input: return
 	if Input.get_last_mouse_velocity().length() == 0:
 		mouse_motion = null
 	#char_mouse_input(delta)

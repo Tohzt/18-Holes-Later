@@ -41,11 +41,11 @@ func update_state():
 						disc.in_play = true
 					if disc.in_play:
 						Global.HUD.update_strokes(1)
-						Global.Cameraman.set_target(Global.Tripod, disc)
+						Global.Cameraman.set_target(disc, disc)
 				else:
 					if Master.is_on_tee:
 						Global.HUD.update_strokes(1)
-						Global.Cameraman.set_target(Global.Tripod, disc)
+						Global.Cameraman.set_target(disc, disc)
 						Global.game_on = true
 						Global.hole_over = false
 						disc.in_play = true

@@ -29,7 +29,7 @@ config/icon="res://Styles/UI Assets/logo_circle.png"
 
 [autoload]
 
-DebugDraw="*res://Global/debug_draw.tscn"
+DebugDraw="*res://Global/Debug/debug_draw.tscn"
 Global="*res://Global/global.tscn"
 
 [display]

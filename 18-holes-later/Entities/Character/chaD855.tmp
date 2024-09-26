@@ -23,19 +23,31 @@ height = 0.2
 radius = 0.2
 height = 1.12136
 
-[node name="Character" type="CharacterBody3D" groups=["Character"]]
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("Input_Controller") groups=["Character"]]
 collision_layer = 2
 collision_mask = 57
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_6qoy3")
+max_health = null
+health = null
+SPEED = null
+SPEED_MULT = null
+JUMP_FORCE = null
+Input_Controller = NodePath("")
+
+[node name="Layla3DAnimations" parent="." instance=ExtResource("3_d4gnj")]
+
+[node name="CamFocus" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CamFocus"]
+mesh = SubResource("SphereMesh_tyjv1")
 
 [node name="Save" parent="." instance=ExtResource("2_neyin")]
 is_char = true
 
 [node name="InputController" parent="." instance=ExtResource("4_6kuy8")]
-char_move = true
-char_look = true
 
 [node name="StateController" parent="." instance=ExtResource("4_lwxmm")]
 
@@ -44,14 +56,6 @@ char_look = true
 [node name="Run" parent="StateController" instance=ExtResource("6_o7hwu")]
 
 [node name="Idle" parent="StateController" instance=ExtResource("7_1kgre")]
-
-[node name="Layla_AnimController" parent="." instance=ExtResource("3_d4gnj")]
-
-[node name="CamFocus" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CamFocus"]
-mesh = SubResource("SphereMesh_tyjv1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.567167, 0)
