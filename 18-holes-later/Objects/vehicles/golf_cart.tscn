@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cdjrjhkeyimkv" path="res://-ASSET-DUMP-/Vehicles/GolfCart_OIG3 (2).png" id="1_3fv68"]
 [ext_resource type="Script" path="res://Objects/vehicles/golf_cart.gd" id="1_dqhw4"]
-[ext_resource type="PackedScene" uid="uid://cqwro0vkaqjia" path="res://Entities/_Controllers/InputControllers/Vehicle/vehicle_input.tscn" id="2_sdg5y"]
+[ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="2_87e4k"]
 [ext_resource type="Texture2D" uid="uid://dw88pg870bb8" path="res://-ASSET-DUMP-/Vehicles/GolfCart_OIG1 (3).png" id="2_yjh7i"]
 [ext_resource type="Texture2D" uid="uid://bworkqu7qrvdg" path="res://-ASSET-DUMP-/Vehicles/GolfCart_OIG4.weVBFy.png" id="3_io63k"]
 [ext_resource type="Texture2D" uid="uid://fsd0stty3uhr" path="res://-ASSET-DUMP-/Vehicles/GolfCart_OIG4_n.png" id="4_3q83h"]
@@ -623,7 +623,9 @@ collision_layer = 32
 collision_mask = 25
 script = ExtResource("1_dqhw4")
 
-[node name="VehicleInput" parent="." instance=ExtResource("2_sdg5y")]
+[node name="InputController" parent="." instance=ExtResource("2_87e4k")]
+cart_move = true
+cart_look = true
 
 [node name="Seat_Driver" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0647225, -0.225168, -0.243457)

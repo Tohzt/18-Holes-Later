@@ -30,7 +30,6 @@ func _ready():
 	Global.Player = self
 	super._ready()
 
-var new_dir := Vector3.ZERO
 func _process(delta):
 	if in_vehicle:
 		rotation.y = in_vehicle.rotation.y

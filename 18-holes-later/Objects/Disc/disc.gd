@@ -23,6 +23,7 @@ var in_play  = false
 var in_hand  = false
 var grounded = false
 var is_tracer = false
+var can_look = true
 
 var target_dir: Vector3
 var power: float
@@ -30,25 +31,23 @@ var power_resist: float
 var handedness = 1
 
 func _launch_disc():
+	print("am i here")
 	takeoff_pos = position
 	self.set_collision_mask_value(1, true)
 	self.set_collision_mask_value(4, true)
 	sleeping = false
-	launch  = false
 	in_hand = false
 	in_bag  = false
 	rotation         = Vector3.ZERO
 	linear_velocity  = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	# TODO: Do something with this
-	reparent(get_parent().get_parent().get_parent())
+	reparent(get_parent().get_parent())
 	var impulse = power + stats["Speed"]
 	impulse *= -target_dir
 	apply_central_impulse(impulse)
 
 func _process(_delta):
-	if in_play:
-		print(position)
 	if launch:
 		show()
 		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
@@ -59,7 +58,7 @@ func _process(_delta):
 		#hide()
 
 func _physics_process(_delta):
-	if launch:
+	if launch and in_hand:
 		_launch_disc()
 	
 	_detect_impact()
@@ -79,12 +78,6 @@ func _physics_process(_delta):
 			var glide_amt = stats["Glide"]/2
 			apply_central_force(Vector3(0,glide_amt,0))
 
-	#var collison = move_and_collide(Vector3.ZERO, true)
-	#if collison:
-		#var collider = collison.get_collider()
-		#if collider.is_in_group("Solid"):
-			#grounded = true
-
 func _settle():
 	if linear_velocity.length() < 0.2:
 		self.set_collision_mask_value(1, false)
@@ -100,6 +93,7 @@ func _detect_impact():
 				else:
 					pick_up(node.Bag)
 			if node.is_in_group("Solid"):
+				# TODO: Spawm pickup area
 				grounded = true
 				self.set_collision_mask_value(4, false)
 			if node.is_in_group("Enemy"):
@@ -110,6 +104,8 @@ func pick_up(node: Node):
 	if in_play:
 		Global.Player.position = takeoff_pos
 		Global.Player.locked_in = true
+		
+	launch = false
 	grounded = false
 	in_bag = true
 	in_play = false
