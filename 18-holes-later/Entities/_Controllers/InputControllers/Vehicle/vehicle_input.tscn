@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqwro0vkaqjia"]
-
-[ext_resource type="Script" path="res://Entities/_Controllers/InputControllers/Vehicle/golf_cart_input.gd" id="1_sst5j"]
-
-[node name="VehicleInput" type="Node"]
-script = ExtResource("1_sst5j")

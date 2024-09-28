@@ -24,6 +24,8 @@ var is_dead       = false
 var is_moving     = false
 var is_running    = false
 var is_jumping    = false
+var is_falling    = false
+var is_landing    = false
 var accepts_input = true
 
 func _ready():

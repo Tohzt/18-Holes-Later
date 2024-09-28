@@ -5,6 +5,7 @@ func init_state():
 	State_Controller.state_options = state_options
 	Master.is_moving = false
 	Master.can_throw = true
+	Master.anim_play("Idle")
 
 func monitor_state():
 	pass

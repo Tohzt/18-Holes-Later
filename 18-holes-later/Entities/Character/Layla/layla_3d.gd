@@ -18,17 +18,29 @@ func _process(_delta):
 
 # TODO: Update to 3D
 func _update_anim():
-	look_dir = Master.input.angle() + PI/2
+	look_dir = Master.input.angle() - PI/2
 	if Master.input:
 		prev_look_dir = look_dir
 		rotation.y = -look_dir
-		if Master.is_running:
-			$AnimationPlayer.play("Run")
-		else:
-			$AnimationPlayer.play("Walk")
+		#if !Master.is_jumping and !Master.is_falling and !Master.is_landing:
+			#if Master.is_running:
+				#$AnimationPlayer.play("Run")
+			#else:
+				#$AnimationPlayer.play("Walk")
+		#if Master.is_jumping:
+			#$AnimationPlayer.play("Jump")
+			##if !$AnimationPlayer.is_playing("Jump"):
+				##Master.is_jumping = false
+				##Master.is_falling = true
+		#if Master.is_falling:
+			#$AnimationPlayer.play("Falling")
+		#if Master.is_landing:
+			#$AnimationPlayer.play("Land")
+			
+			
 	else:
 		rotation.y = -prev_look_dir
-		$AnimationPlayer.play("Idle")
+		#$AnimationPlayer.play("Idle")
 		
 	if animation_player.current_animation != Master.State_Controller.state_next:
 		pass#_update_anim()

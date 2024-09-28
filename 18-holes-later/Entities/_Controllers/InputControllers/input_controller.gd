@@ -35,7 +35,9 @@ func _char_move():
 	Master.input_dir = (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized()
 	# Jump
 	if Master.can_jump and Input.is_action_just_pressed("jump"):
+		Master.anim_play("Jump")
 		Master.is_jumping = true
+		Master.can_jump = false
 	
 func _char_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
@@ -44,8 +46,8 @@ func _char_look(delta):
 			# Accumulate mouse motion to rotate the camera
 			var rot_cam = Vector3.ZERO
 			rot_cam.y = Global.Cameraman.rotation.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
-			rot_cam.x = Global.Cameraman.rotation.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
-			Global.Cameraman.Camera.rotation.x = clamp(rot_cam.x, deg_to_rad(-90), deg_to_rad(90))
+			#rot_cam.x = Global.Cameraman.rotation.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
+			#Global.Cameraman.Camera.rotation.x = clamp(rot_cam.x, deg_to_rad(-90), deg_to_rad(90))
 			
 			# Apply rotation directly
 			Master.new_dir.y = rot_cam.y
