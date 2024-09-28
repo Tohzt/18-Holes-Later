@@ -45,7 +45,7 @@ char_look = true
 
 [node name="Idle" parent="StateController" instance=ExtResource("7_1kgre")]
 
-[node name="Layla_AnimController" parent="." instance=ExtResource("3_d4gnj")]
+[node name="Anim_Layla" parent="." instance=ExtResource("3_d4gnj")]
 
 [node name="CamFocus" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)

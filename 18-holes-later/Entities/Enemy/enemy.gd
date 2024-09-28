@@ -1,5 +1,6 @@
 class_name NME_Zombie
 extends RigidBody3D
+@onready var zanim = $Zanim
 
 @export var seight_range: int = 50
 var Target: Entity_Character
@@ -18,7 +19,13 @@ func _process(_delta):
 		Target = Global.Player
 		
 func _physics_process(_delta):
-	apply_central_force(dir_to_target.normalized() * 10)
+	if Target:
+		if position.distance_to(Target.position) < 50:
+			zanim.anim.play("Run")
+			apply_central_force(dir_to_target.normalized() * 10)
+		else:
+			zanim.anim.play("Idle")
+			linear_velocity = Vector3.ZERO
 
 func _on_timer_timeout():
 	$GPUParticles3D.emitting = true

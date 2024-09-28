@@ -31,6 +31,7 @@ func _ready():
 	super._ready()
 
 func _process(delta):
+	Input_Controller.char_look = false if Global.Hole_Name == "Clubhouse_Interior" else true
 	if in_vehicle:
 		rotation.y = in_vehicle.rotation.y
 	else:
@@ -55,11 +56,21 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, _speed)
 	
 	if is_on_floor():
+		if is_falling:
+			# TODO: Move this to landing state
+			#anim_play("Land")
+			is_falling = false
 		if is_jumping:
-			is_jumping = false
 			velocity.y = 5
-	if !is_on_floor() and !in_vehicle:
-		velocity.y -= gravity * delta
+		can_jump = true
+	else:
+		if velocity.y < 0:
+			if !is_falling:
+				anim_play("Falling")
+				is_falling = true
+			is_jumping = false
+		if !in_vehicle:
+			velocity.y -= gravity * delta
 	
 	if in_vehicle:
 		is_moving = false
@@ -112,3 +123,6 @@ func clear_trace():
 	if trace_path:
 		for trace in trace_path:
 			trace.queue_free()
+
+func anim_play(anim):
+	Anim_Controller.animation_player.play(anim)
