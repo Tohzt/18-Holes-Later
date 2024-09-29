@@ -1,77 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://2qqrnls6qqtk"]
+[gd_scene load_steps=6 format=3 uid="uid://2qqrnls6qqtk"]
 
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_menu.gd" id="1_c82d8"]
+[ext_resource type="Texture2D" uid="uid://bojls6d0ucddj" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="2_l8vn1"]
+[ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_header.gd" id="3_adi3j"]
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/btn_settings.gd" id="3_du1g1"]
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/settings.gd" id="4_6oy5w"]
-[ext_resource type="Texture2D" uid="uid://ctncpjw0ys652" path="res://Styles/UI Assets/Pause menu/BG.png" id="4_jlm2c"]
 
 [node name="Pause_Menu" type="Control" groups=["Pause Menu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 15.0
-offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_c82d8")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="PauseHeader" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -232.0
-offset_top = -15.0
-offset_right = 232.0
-offset_bottom = 65.0
+offset_left = -257.0
+offset_top = -270.0
+offset_right = 257.0
+offset_bottom = -70.0
 grow_horizontal = 2
 size_flags_stretch_ratio = 0.0
-texture = ExtResource("4_jlm2c")
-region_rect = Rect2(1, 6, 144, 27)
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 2
+texture = ExtResource("2_l8vn1")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+script = ExtResource("3_adi3j")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseHeader"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -181.0
-offset_top = -15.5
-offset_right = 181.0
-offset_bottom = 15.5
+offset_left = -236.0
+offset_top = 29.0
+offset_right = 236.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 10
+alignment = 1
 
-[node name="Btn_Resume" type="Button" parent="NinePatchRect/HBoxContainer"]
+[node name="Btn_Resume" type="Button" parent="PauseHeader/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Resume"
 
-[node name="Btn_Retry" type="Button" parent="NinePatchRect/HBoxContainer"]
+[node name="Btn_Retry" type="Button" parent="PauseHeader/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Reset"
 
-[node name="Btn_Settings" type="Button" parent="NinePatchRect/HBoxContainer"]
+[node name="Btn_Settings" type="Button" parent="PauseHeader/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Settings"
 script = ExtResource("3_du1g1")
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/HBoxContainer/Btn_Settings"]
+[node name="MarginContainer" type="MarginContainer" parent="PauseHeader/HBoxContainer/Btn_Settings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,17 +84,40 @@ offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Debug_Settings" type="NinePatchRect" parent="NinePatchRect/HBoxContainer/Btn_Settings/MarginContainer"]
+[node name="Btn_Save" type="Button" parent="PauseHeader/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("4_jlm2c")
-region_rect = Rect2(1, 6, 144, 171)
-patch_margin_left = 2
-patch_margin_top = 28
-patch_margin_right = 2
-patch_margin_bottom = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Save"
+
+[node name="Btn_Exit" type="Button" parent="PauseHeader/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit Game"
+
+[node name="Debug_Settings" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -26.0
+offset_right = 128.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l8vn1")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
 script = ExtResource("4_6oy5w")
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/HBoxContainer/Btn_Settings/MarginContainer/Debug_Settings"]
+[node name="MarginContainer" type="MarginContainer" parent="Debug_Settings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,36 +129,19 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Settings" type="VBoxContainer" parent="NinePatchRect/HBoxContainer/Btn_Settings/MarginContainer/Debug_Settings/MarginContainer"]
+[node name="Settings" type="VBoxContainer" parent="Debug_Settings/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 5
 
-[node name="Label_DebugSettings" type="Label" parent="NinePatchRect/HBoxContainer/Btn_Settings/MarginContainer/Debug_Settings/MarginContainer/Settings"]
+[node name="Label_DebugSettings" type="Label" parent="Debug_Settings/MarginContainer/Settings"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.34902, 0.298039, 0.160784, 1)
 text = "Debug Settings"
 horizontal_alignment = 1
 
-[node name="Btn_Save" type="Button" parent="NinePatchRect/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Save"
-
-[node name="Btn_Exit" type="Button" parent="NinePatchRect/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Exit Game"
-
-[node name="CheckButton" type="CheckButton" parent="."]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 24.0
-
-[connection signal="pressed" from="NinePatchRect/HBoxContainer/Btn_Resume" to="." method="_on_btn_resume_pressed"]
-[connection signal="pressed" from="NinePatchRect/HBoxContainer/Btn_Retry" to="." method="_on_btn_retry_pressed"]
-[connection signal="pressed" from="NinePatchRect/HBoxContainer/Btn_Settings" to="NinePatchRect/HBoxContainer/Btn_Settings" method="_on_pressed"]
-[connection signal="pressed" from="NinePatchRect/HBoxContainer/Btn_Save" to="." method="_on_btn_save_pressed"]
-[connection signal="pressed" from="NinePatchRect/HBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Resume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Retry" to="." method="_on_btn_retry_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Settings" to="PauseHeader/HBoxContainer/Btn_Settings" method="_on_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Save" to="." method="_on_btn_save_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
