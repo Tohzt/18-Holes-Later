@@ -37,7 +37,6 @@ func _on_btn_retry_pressed():
 	Global.Cameraman.follow_target = null
 	Global.go_to_scene(Global.Refs.SCENE_MAIN)
 
-
 func _on_btn_save_pressed():
 	print("Savin Progress...")
 	Global.save_game(Global.Profile)

@@ -22,7 +22,7 @@ height = 0.2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fes4t"]
 radius = 0.2
-height = 1.12136
+height = 1.8517
 
 [node name="Character" type="CharacterBody3D" groups=["Character"]]
 collision_layer = 2
@@ -57,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
 mesh = SubResource("SphereMesh_tyjv1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.567167, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.930618, 0)
 shape = SubResource("CapsuleShape3D_fes4t")
 
 [node name="Hand" type="Node3D" parent="."]
