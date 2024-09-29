@@ -1,7 +1,9 @@
 class_name AnimController3D
 extends Node3D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+#@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_tree: AnimationTree = $AnimationTree
+var anim_state
 @onready var Bones: Skeleton3D = $Armature/Skeleton3D
 @onready var Master: Entity_Character = get_parent()
 
@@ -10,8 +12,10 @@ var look_dir: float = 0.0
 var prev_look_dir: float = 0.0
 
 func _ready():
+	anim_state = animation_tree["parameters/playback"]
+	anim_state.travel("Idle")
 	Master.Anim_Controller = self
-	$AnimationPlayer.play(current_anim)
+	#$AnimationPlayer.play(current_anim)
 
 func _process(_delta):
 	_update_anim()
@@ -42,8 +46,8 @@ func _update_anim():
 		rotation.y = -prev_look_dir
 		#$AnimationPlayer.play("Idle")
 		
-	if animation_player.current_animation != Master.State_Controller.state_next:
-		pass#_update_anim()
+	#if animation_player.current_animation != Master.State_Controller.state_next:
+		#pass#_update_anim()
 	
 	#var anim_base = Master.State_Controller.state_next
 	#current_anim = anim_base + Master.State_Controller.state_suffix + "_"

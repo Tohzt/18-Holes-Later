@@ -28,7 +28,9 @@ func _follow_target(delta):
 		velocity = ( follow_pos - position).normalized() * spd * delta
 		#position = lerp(position, follow_pos, delta * 10) 
 	# TODO: Stutter caused when camera catches up to target
-	else: velocity = Vector3.ZERO
+	else: 
+		velocity = Vector3.ZERO
+		position = follow_pos
 	
 	move_and_slide()
 

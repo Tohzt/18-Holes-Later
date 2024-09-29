@@ -39,6 +39,9 @@ func _process(delta):
 	
 	if is_throwing: get_aim_trace()
 	
+	if is_jumping and can_jump:
+		State_Controller.state_next = "Jump"
+	
 	if Global.Debug_Settings.collect_all:
 		_collect_discs()
 
@@ -55,20 +58,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, _speed)
 		velocity.z = move_toward(velocity.z, 0, _speed)
 	
-	if is_on_floor():
-		if is_falling:
-			# TODO: Move this to landing state
-			#anim_play("Land")
-			is_falling = false
-		if is_jumping:
-			velocity.y = 5
-		can_jump = true
-	else:
-		if velocity.y < 0:
-			if !is_falling:
-				anim_play("Falling")
-				is_falling = true
-			is_jumping = false
+	if !is_on_floor():
 		if !in_vehicle:
 			velocity.y -= gravity * delta
 	
@@ -125,4 +115,4 @@ func clear_trace():
 			trace.queue_free()
 
 func anim_play(anim):
-	Anim_Controller.animation_player.play(anim)
+	Anim_Controller.anim_state.travel(anim)

@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://mgaxgwqsomw8"]
+[gd_scene load_steps=14 format=3 uid="uid://mgaxgwqsomw8"]
 
 [ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_6qoy3"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
-[ext_resource type="PackedScene" uid="uid://bqr7m241m0ewj" path="res://Entities/Character/Layla/layla_3d.tscn" id="3_d4gnj"]
+[ext_resource type="PackedScene" uid="uid://bqr7m241m0ewj" path="res://Entities/Character/Layla/anim_layla.tscn" id="3_d4gnj"]
 [ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="4_6kuy8"]
 [ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="4_lwxmm"]
 [ext_resource type="PackedScene" uid="uid://c5y6r3625xfy1" path="res://Entities/_Controllers/StateMachine/States/Character/throw.tscn" id="5_0ow1w"]
-[ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/run.tscn" id="6_o7hwu"]
+[ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/walk.tscn" id="6_o7hwu"]
 [ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/idle.tscn" id="7_1kgre"]
+[ext_resource type="PackedScene" uid="uid://by252jyfxak" path="res://Entities/_Controllers/StateMachine/States/Character/jump.tscn" id="7_02t2y"]
 [ext_resource type="Script" path="res://Entities/Character/disc_bag.gd" id="11_li4e1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsc4a"]
@@ -39,11 +40,13 @@ char_look = true
 
 [node name="StateController" parent="." instance=ExtResource("4_lwxmm")]
 
-[node name="Throw" parent="StateController" instance=ExtResource("5_0ow1w")]
-
-[node name="Run" parent="StateController" instance=ExtResource("6_o7hwu")]
-
 [node name="Idle" parent="StateController" instance=ExtResource("7_1kgre")]
+
+[node name="Walk" parent="StateController" instance=ExtResource("6_o7hwu")]
+
+[node name="Jump" parent="StateController" instance=ExtResource("7_02t2y")]
+
+[node name="Throw" parent="StateController" instance=ExtResource("5_0ow1w")]
 
 [node name="Anim_Layla" parent="." instance=ExtResource("3_d4gnj")]
 

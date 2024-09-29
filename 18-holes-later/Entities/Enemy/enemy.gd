@@ -24,7 +24,7 @@ func _physics_process(_delta):
 			zanim.anim.play("Run")
 			apply_central_force(dir_to_target.normalized() * 10)
 		else:
-			zanim.anim.play("Idle")
+			zanim.anim.play("Zidle")
 			linear_velocity = Vector3.ZERO
 
 func _on_timer_timeout():
