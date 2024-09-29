@@ -29,9 +29,9 @@ func _process(_delta):
 	if !Active_Hole:
 		Active_Hole = get_tree().get_first_node_in_group("Hole")
 		
-	if Input.is_action_just_pressed("ui_cancel"):
-		is_paused = !is_paused
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if is_paused else Input.MOUSE_MODE_CAPTURED
+	#if Input.is_action_just_pressed("ui_cancel"):
+		#is_paused = !is_paused
+		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if is_paused else Input.MOUSE_MODE_CAPTURED
 
 func init_current_hole() -> Node3D:
 	var hole = Current_Hole.instantiate()
