@@ -34,10 +34,8 @@ func _char_move():
 	Master.input = input
 	Master.input_dir = (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized()
 	# Jump
-	if Master.can_jump and Input.is_action_just_pressed("jump"):
-		Master.anim_play("Jump")
+	if Input.is_action_just_pressed("jump"):
 		Master.is_jumping = true
-		Master.can_jump = false
 	
 func _char_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
