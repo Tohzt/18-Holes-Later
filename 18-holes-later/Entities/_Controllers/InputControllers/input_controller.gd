@@ -44,12 +44,11 @@ func _char_look(delta):
 			# Accumulate mouse motion to rotate the camera
 			var rot_cam = Vector3.ZERO
 			rot_cam.y = Global.Cameraman.rotation.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
-			#rot_cam.x = Global.Cameraman.rotation.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
-			#Global.Cameraman.Camera.rotation.x = clamp(rot_cam.x, deg_to_rad(-90), deg_to_rad(90))
-			
-			# Apply rotation directly
 			Master.new_dir.y = rot_cam.y
-
+			
+			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
+			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
+			Global.Cameraman.rot_x = rot_cam.x
 
 # Golf Cart Inputs
 # TODO: Rotation bugs if mouse and keys simul

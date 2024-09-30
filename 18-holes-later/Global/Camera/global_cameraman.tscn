@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bv2ohpxmex2bl"]
+[gd_scene load_steps=5 format=3 uid="uid://bv2ohpxmex2bl"]
 
 [ext_resource type="Script" path="res://Global/Camera/global_cameraman.gd" id="1_xcb3c"]
-[ext_resource type="Script" path="res://Global/Camera/camera_main.gd" id="2_gudho"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqt3d"]
 albedo_color = Color(0.207843, 1, 0, 1)
@@ -23,9 +22,8 @@ script = ExtResource("1_xcb3c")
 transform = Transform3D(1, 0, 0, 0, 0.83867, 0.544639, 0, -0.544639, 0.83867, 0, 0, 0)
 spring_length = 2.0
 
-[node name="Camera3D" type="Camera3D" parent="Tripod"]
+[node name="Camera3D" type="Camera3D" parent="Tripod" groups=["Camera"]]
 current = true
-script = ExtResource("2_gudho")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_i02tl")

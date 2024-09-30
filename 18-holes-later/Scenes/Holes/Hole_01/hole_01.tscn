@@ -54,7 +54,7 @@ environment = SubResource("Environment_t3w5y")
 [node name="WestFork_LowPoly_Solid" parent="." instance=ExtResource("5_dlb5e")]
 
 [node name="Player_Spawn" parent="." instance=ExtResource("5_qt2g5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.061, 65.0419, -52.307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.061, 105.791, -53.5932)
 
 [node name="Clubhouse" parent="." instance=ExtResource("4_dpl60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.36, 9.17747, -52.5087)
@@ -84,9 +84,6 @@ hole = 4
 [node name="Basket_05" parent="Baskets" instance=ExtResource("5_ojvid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.544, 3.61746, -27.9846)
 hole = 5
-
-[node name="Camera3D" type="Camera3D" parent="." groups=["Camera", "Top_Down"]]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -200, 6, 30)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.359, 46.0412, -82.4401)

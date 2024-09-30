@@ -4,10 +4,16 @@ extends CharacterBody3D
 
 var follow_target: Node3D
 var look_target: Node3D
-var offset_y = 0
+var rot_x = 0.0
 
-const SPEED = 600
+const SPEED = 5
 var spd_mod: float = 1.0
+
+func _process(_delta):
+	Camera.rotation.y = 0
+	Camera.rotation.z = 0
+	if follow_target == Global.Player:
+		Tripod.rotation.x = rot_x
 
 func _physics_process(delta):
 	if follow_target:
@@ -17,25 +23,22 @@ func _physics_process(delta):
 func _follow_target(delta):
 	var follow_pos = Vector3(
 		follow_target.position.x,
-		look_target.global_position.y + offset_y,
+		look_target.position.y,
 		follow_target.position.z,
 	)
 	
 	var dist_to_target = position.distance_to(follow_pos)
-	if dist_to_target > .1:
-		spd_mod = lerp(0,500,dist_to_target/5)
+	if dist_to_target > .05:
+		spd_mod = lerp(0,5,dist_to_target/5)
 		var spd = SPEED + spd_mod
-		velocity = ( follow_pos - position).normalized() * spd * delta
-		#position = lerp(position, follow_pos, delta * 10) 
+		position = lerp(position, follow_pos, delta * spd) 
 	# TODO: Stutter caused when camera catches up to target
 	else: 
-		velocity = Vector3.ZERO
 		position = follow_pos
 	
-	move_and_slide()
+	#move_and_slide()
 
 func _look_at_target(delta):
-	# TODO: Remove player reference and pass in bool on set_target
 	# TODO: Not sure if this is still needed
 	if follow_target.can_look:
 		rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
