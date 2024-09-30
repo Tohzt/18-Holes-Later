@@ -136,7 +136,7 @@ theme_override_constants/separation = 5
 
 [node name="Label_DebugSettings" type="Label" parent="Debug_Settings/MarginContainer/Settings"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.34902, 0.298039, 0.160784, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Debug Settings"
 horizontal_alignment = 1
 

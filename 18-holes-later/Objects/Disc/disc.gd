@@ -32,7 +32,6 @@ var power_resist: float
 var handedness = 1
 
 func _launch_disc():
-	print("am i here")
 	takeoff_pos = position
 	self.set_collision_mask_value(1, true)
 	self.set_collision_mask_value(4, true)
@@ -56,7 +55,6 @@ func _process(_delta):
 			_settle()
 	else:
 		position = Global.Player.position - Vector3(0,10,0)
-		#hide()
 
 func _physics_process(_delta):
 	if launch and can_launch:

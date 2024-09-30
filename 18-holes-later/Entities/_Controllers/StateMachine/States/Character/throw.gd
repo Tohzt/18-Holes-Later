@@ -2,11 +2,11 @@
 extends CharacterStateClass
 
 func init_state():
-	Global.Cameraman.offset_y = -1
 	State_Controller.state_options = state_options
 	Master.is_moving = false
 	Master.is_throwing = true
 	Master.locked_in = true
+	Master.anim_play("Startthrow")
 
 func monitor_state():
 	pass
@@ -18,19 +18,13 @@ func update_state():
 	if Input.is_action_just_released("right_click"):
 		Master.clear_trace()
 	
-	#if State_Controller.state_suffix == "_Release":
-		#if !Master.Anim_Controller.animation_player.is_playing():
-			#exit_state("Throw")
-			#return
-	
 	if Input.is_action_just_pressed("left_click"):
 		Master.is_charging = true
-		State_Controller.state_suffix = "_Charge"
 	
 	if Input.is_action_just_released("left_click"):
 		Master.clear_trace()
 		Master.is_charging = false
-		#State_Controller.state_suffix = "_Release"
+		
 		for disc: Disc in Master.Bag.discs:
 			if disc.in_hand:
 				Global.select_next_disc()
@@ -71,8 +65,7 @@ func throw_disc(disc, power = 0.0):
 		Global.Cameraman.set_target(Global.Player, Global.Player.get_node("CamFocus"))
 
 func exit_state(next_state: String):
-	Global.Cameraman.offset_y = 0
-	State_Controller.state_suffix = ""
+	Master.is_charging = false
 	Master.is_throwing = false
 	Master.locked_in = false
 	State_Controller.state_next = next_state

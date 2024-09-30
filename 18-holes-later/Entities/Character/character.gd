@@ -1,6 +1,7 @@
 class_name Entity_Character
 extends Entity
  
+@onready var start_pos = position
 @onready var Hand = $Hand
 @onready var Bag = $Bag
 
@@ -19,6 +20,10 @@ var prev_look_dir = look_dir
 
 var in_vehicle: CharacterBody3D
 
+var charge_power = 0.0
+var charge_max = 100.0
+var charge_rate = 75
+
 # Trace Properties
 var predict_trace = false
 var predict_search = false
@@ -27,6 +32,7 @@ var predict_cd = 0
 
 func _ready():
 	Global.Cameraman.set_target(self, $CamFocus)
+	Global.Cameraman.position = position
 	Global.Player = self
 	super._ready()
 
@@ -38,6 +44,18 @@ func _process(delta):
 		rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10) 
 	
 	if is_throwing: get_aim_trace()
+	
+	
+	if is_charging: 
+		charge_power += charge_rate * delta
+	elif charge_power > 0:
+		charge_rate = abs(charge_rate)
+		charge_power -= charge_rate * delta
+	charge_power = clamp(charge_power,0,100)
+	if charge_power <= 0:
+		charge_rate = abs(charge_rate)
+	if charge_power >= 100:
+		charge_rate = -abs(charge_rate)
 	
 	if is_jumping and can_jump:
 		State_Controller.state_next = "Jump"

@@ -3,7 +3,6 @@ extends Node
 
 @onready var state_current := $Idle
 var state_next: String = "Idle"
-var state_suffix: String = ""
 var state_options: Array[String]
 var popup_state: String 
 
