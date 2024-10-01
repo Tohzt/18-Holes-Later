@@ -11,10 +11,8 @@ func _process(_delta):
 	if State_Controller.state_options.has(name):
 		monitor_state()
 	
-	if Master.can_throw:
-		if Input.is_action_just_pressed("right_click"):
-			Master.State_Controller.state_next = "Throw"
-			#Master.is_throwing = true
+	if Master.is_throwing:
+		State_Controller.state_next = "Throw"
 
 func monitor_state():
 	print_debug("monitor_state is not set for: ", name)

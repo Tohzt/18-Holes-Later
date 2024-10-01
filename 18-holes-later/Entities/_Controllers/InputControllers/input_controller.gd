@@ -1,10 +1,21 @@
 class_name InputController
 extends Node
 
-@export var char_move = false
-@export var char_look = false
-@export var cart_move = false
-@export var cart_look = false
+enum Character {PLAYER, CART}
+enum Action {MOVE, LOOK, ATTACK}
+
+@export var input_actions: Dictionary = {
+	Character.PLAYER: {
+		Action.MOVE: false,
+		Action.LOOK: false,
+		Action.ATTACK: false
+	},
+	Character.CART: {
+		Action.MOVE: false,
+		Action.LOOK: false,
+		Action.ATTACK: false
+	}
+}
 
 @onready var Master: Node3D = $".."
 var mouse_motion = null
@@ -19,10 +30,22 @@ func _process(delta):
 	
 	if Input.get_last_mouse_velocity().length() == 0:
 		mouse_motion = null
-	if char_look: _char_look(delta)
-	if char_move: _char_move()
-	if cart_look: _cart_look(delta)
-	if cart_move: _cart_move(delta)
+	
+	if input_actions[Character.PLAYER][Action.MOVE]:   _char_move()
+	if input_actions[Character.PLAYER][Action.LOOK]:   _char_look(delta)
+	if input_actions[Character.PLAYER][Action.ATTACK]: _char_attack()
+	
+	if input_actions[Character.CART][Action.MOVE]:   _cart_move(delta)
+	if input_actions[Character.CART][Action.LOOK]:   _cart_look(delta)
+	if input_actions[Character.CART][Action.ATTACK]: _cart_attack()
+	
+	#if char_look: _char_look(delta)
+	#if char_move: _char_move()
+	#if char_attk: _char_attk()
+	#
+	#if cart_look: _cart_look(delta)
+	#if cart_move: _cart_move(delta)
+	#if cart_attk: _cart_attk()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -38,6 +61,7 @@ func _char_move():
 		Master.is_jumping = true
 	
 func _char_look(delta):
+	if Global.Hole_Name == "Clubhouse_Interior": return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
@@ -49,6 +73,11 @@ func _char_look(delta):
 			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
 			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
 			Global.Cameraman.rot_x = rot_cam.x
+
+func _char_attack():
+	if Master.can_throw:
+		if Input.is_action_just_pressed("right_click"):
+			Master.is_throwing = true
 
 # Golf Cart Inputs
 # TODO: Rotation bugs if mouse and keys simul
@@ -67,3 +96,6 @@ func _cart_look(delta):
 		if mouse_motion is InputEventMouseMotion:
 			Master.turn_strength = lerp(Master.turn_strength,Master.max_turn_strength,delta)
 			Master.rotate_y(deg_to_rad(-Master.turn_strength  * sign(mouse_motion.relative.x) * Global.Settings.MOUSE_H_SENSITIVITY))
+
+func _cart_attack():
+	pass
