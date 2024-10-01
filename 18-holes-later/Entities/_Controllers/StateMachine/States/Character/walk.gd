@@ -5,7 +5,7 @@ func init_state():
 	State_Controller.state_options = state_options
 	Master.is_moving = true
 	Master.can_throw = false
-	Master.anim_play("Walk")
+	Master.anim_play("Run")
 
 func monitor_state():
 	pass
@@ -15,6 +15,7 @@ func update_state():
 		Master.anim_play("Run")
 		Master.is_running = true
 	if Input.is_action_just_released("run"):
+		Master.anim_play("Sprint")
 		Master.is_running = false
 		
 	if Master.velocity.length() < 1:

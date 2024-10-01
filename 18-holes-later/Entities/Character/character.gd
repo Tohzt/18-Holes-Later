@@ -1,6 +1,7 @@
 class_name Entity_Character
 extends Entity
  
+@onready var start_pos = position
 @onready var Hand = $Hand
 @onready var Bag = $Bag
 
@@ -19,6 +20,10 @@ var prev_look_dir = look_dir
 
 var in_vehicle: CharacterBody3D
 
+var charge_power = 0.0
+var charge_max = 100.0
+var charge_rate = 75
+
 # Trace Properties
 var predict_trace = false
 var predict_search = false
@@ -27,17 +32,29 @@ var predict_cd = 0
 
 func _ready():
 	Global.Cameraman.set_target(self, $CamFocus)
+	Global.Cameraman.position = position
 	Global.Player = self
 	super._ready()
 
 func _process(delta):
-	Input_Controller.char_look = false if Global.Hole_Name == "Clubhouse_Interior" else true
-	if in_vehicle:
-		rotation.y = in_vehicle.rotation.y
-	else:
-		rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10) 
+	visible = false if in_vehicle else true
+	rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10) 
 	
 	if is_throwing: get_aim_trace()
+	
+	if is_charging: 
+		charge_power += charge_rate * delta
+	elif charge_power > 0:
+		charge_rate = abs(charge_rate)
+		charge_power -= charge_rate * delta
+	charge_power = clamp(charge_power,0,100)
+	if charge_power <= 0:
+		charge_rate = abs(charge_rate)
+	if charge_power >= 100:
+		charge_rate = -abs(charge_rate)
+	
+	if is_jumping and can_jump:
+		State_Controller.state_next = "Jump"
 	
 	if Global.Debug_Settings.collect_all:
 		_collect_discs()
@@ -55,27 +72,13 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, _speed)
 		velocity.z = move_toward(velocity.z, 0, _speed)
 	
-	if is_on_floor():
-		if is_falling:
-			# TODO: Move this to landing state
-			#anim_play("Land")
-			is_falling = false
-		if is_jumping:
-			velocity.y = 5
-		can_jump = true
-	else:
-		if velocity.y < 0:
-			if !is_falling:
-				anim_play("Falling")
-				is_falling = true
-			is_jumping = false
-		if !in_vehicle:
-			velocity.y -= gravity * delta
 	
 	if in_vehicle:
 		is_moving = false
 		global_position = in_vehicle.seats[0].global_position
 	else:
+		if !is_on_floor():
+			velocity.y -= gravity * delta
 		if !locked_in:
 			move_and_slide()
 
@@ -125,4 +128,4 @@ func clear_trace():
 			trace.queue_free()
 
 func anim_play(anim):
-	Anim_Controller.animation_player.play(anim)
+	Anim_Controller.anim_state.travel(anim)
