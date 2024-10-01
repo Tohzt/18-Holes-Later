@@ -12,7 +12,7 @@ func monitor_state():
 
 func update_state():
 	if Master.velocity.length() > 0:
-		exit_state("Run")
+		exit_state("Walk")
 
 func exit_state(next_state: String):
 	Master.can_throw = false

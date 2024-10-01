@@ -32,7 +32,7 @@ height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hxks6"]
 radius = 0.2
-height = 1.0
+height = 1.70982
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wvah4"]
 render_priority = 0
@@ -1692,7 +1692,7 @@ visible = false
 mesh = SubResource("CapsuleMesh_g0qpo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.843979, 0)
 shape = SubResource("CapsuleShape3D_hxks6")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]

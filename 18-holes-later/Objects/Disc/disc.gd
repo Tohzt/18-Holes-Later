@@ -23,7 +23,8 @@ var in_play  = false
 var in_hand  = false
 var grounded = false
 var is_tracer = false
-var can_look = true
+var can_look = false
+var can_launch = true
 
 var target_dir: Vector3
 var power: float
@@ -31,7 +32,6 @@ var power_resist: float
 var handedness = 1
 
 func _launch_disc():
-	print("am i here")
 	takeoff_pos = position
 	self.set_collision_mask_value(1, true)
 	self.set_collision_mask_value(4, true)
@@ -42,7 +42,7 @@ func _launch_disc():
 	linear_velocity  = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
 	# TODO: Do something with this
-	reparent(get_parent().get_parent())
+	reparent(get_parent().get_parent().get_parent())
 	var impulse = power + stats["Speed"]
 	impulse *= -target_dir
 	apply_central_impulse(impulse)
@@ -55,10 +55,10 @@ func _process(_delta):
 			_settle()
 	else:
 		position = Global.Player.position - Vector3(0,10,0)
-		#hide()
 
 func _physics_process(_delta):
-	if launch and in_hand:
+	if launch and can_launch:
+		can_launch = false
 		_launch_disc()
 	
 	_detect_impact()
@@ -106,6 +106,7 @@ func pick_up(node: Node):
 		Global.Player.locked_in = true
 		
 	launch = false
+	can_launch = true
 	grounded = false
 	in_bag = true
 	in_play = false
