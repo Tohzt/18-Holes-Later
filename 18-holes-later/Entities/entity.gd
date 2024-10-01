@@ -7,21 +7,25 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var SPEED: float = 10.0
 @export var SPEED_MULT: float = 2
-@export var JUMP_FORCE: float = 10
+@export var JUMP_FORCE: float = 5
 var speed_mult: float = 0.0
 
-@export var Input_Controller  : InputController
 @export var Anim_Controller   : AnimController3D
+@onready var Input_Controller  : InputController = $InputController
 @onready var State_Controller : StateController  = $StateController
 @onready var Collision_Mask   : CollisionShape3D = $CollisionShape3D
 
 var state: String = "Idle"
-var look_dir  := 0.0
-var input:= Vector2.ZERO
-var input_dir := Vector3.ZERO
-var is_dead    = false
-var is_moving  = false
-var is_running = false
+var new_dir      := Vector3.ZERO
+var look_dir     := 0.0
+var input        := Vector2.ZERO
+var input_dir    := Vector3.ZERO
+var is_dead       = false
+var is_moving     = false
+var is_running    = false
+var is_jumping    = false
+var is_falling    = false
+var is_landing    = false
 var accepts_input = true
 
 func _ready():

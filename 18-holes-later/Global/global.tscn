@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://vxnb766rhp5i"]
 
 [ext_resource type="Script" path="res://Global/global.gd" id="1_pokw4"]
-[ext_resource type="PackedScene" uid="uid://cijcqbaxtng5y" path="res://Global/Debug/debug_settings.tscn" id="2_0aosd"]
+[ext_resource type="PackedScene" uid="uid://cijcqbaxtng5y" path="res://Global/Settings/debug_settings.tscn" id="2_0aosd"]
 [ext_resource type="PackedScene" uid="uid://bv2ohpxmex2bl" path="res://Global/Camera/global_cameraman.tscn" id="2_h741v"]
 [ext_resource type="Script" path="res://Save/SaveController.gd" id="3_q4s14"]
-[ext_resource type="Script" path="res://Global/Debug/settings.gd" id="4_bjkcv"]
+[ext_resource type="Script" path="res://Global/Settings/settings.gd" id="4_bjkcv"]
 [ext_resource type="Script" path="res://Global/references.gd" id="5_sp5hl"]
 [ext_resource type="AudioStream" uid="uid://c5cbm2gqkj36m" path="res://Audio/Basket AceSoundFX.wav" id="7_qj5kb"]
 
@@ -18,7 +18,8 @@ collect_all = true
 
 [node name="Settings" parent="." instance=ExtResource("2_0aosd")]
 script = ExtResource("4_bjkcv")
-MOUSE_SENSITIVITY = 0.05
+MOUSE_H_SENSITIVITY = 1.0
+MOUSE_V_SENSITIVITY = 0.2
 
 [node name="SaveController" type="Node" parent="."]
 script = ExtResource("3_q4s14")

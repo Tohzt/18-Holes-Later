@@ -14,7 +14,6 @@ script = ExtResource("1_wfw1c")
 script = ExtResource("4_u2s0u")
 
 [node name="Pause_Menu" parent="." instance=ExtResource("5_dkybb")]
-visible = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_05crr")]
 

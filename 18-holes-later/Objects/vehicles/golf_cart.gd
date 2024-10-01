@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var pickup_area: Area3D = $Area3D
 @onready var seats: Array = [$Seat_Driver]
 var has_driver = false
+var can_look = true
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var max_durability: int = 100
@@ -17,10 +18,19 @@ var speed_mult: float = 0.0
 @export var Input_Controller: InputController
 var accepts_input = false
 
-var look_dir: float = 0.0
+var turn_strength = 0.0
+var max_turn_strength = 50.0
 var input_dir := Vector3.ZERO
 
-func _process(_delta):
+func _process(delta):
+	if input_dir.y:
+		rotation.y = lerp_angle(rotation.y, input_dir.y, delta*10) 
+	
+	if has_driver:
+		# TODO: Pass in driver
+		Global.Player.rotation.y = rotation.y
+		Global.Player.new_dir.y = rotation.y
+		
 	_enter_exit_vehicle()
 
 func _physics_process(delta):
@@ -58,6 +68,7 @@ func _enter_vehicle(collision):
 	Global.Player.set_collision_mask_value(6,false)
 	has_driver = true
 	accepts_input = true
+	$LayaInCart.show()
 
 func _exit_vehicle(collision):
 	collision.in_vehicle = null
@@ -66,3 +77,4 @@ func _exit_vehicle(collision):
 	Global.Player.set_collision_mask_value(6,true)
 	has_driver = false
 	accepts_input = false
+	$LayaInCart.hide()

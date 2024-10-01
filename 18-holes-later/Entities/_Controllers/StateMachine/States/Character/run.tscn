@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp4acjuwdfo3j"]
-
-[ext_resource type="Script" path="res://Entities/_Controllers/StateMachine/States/Character/run.gd" id="1_t8746"]
-
-[node name="Walk" type="Node"]
-script = ExtResource("1_t8746")

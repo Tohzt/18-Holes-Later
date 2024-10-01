@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ialtanst8bq2"]
-
-[ext_resource type="Script" path="res://Entities/_Controllers/InputControllers/Character/char_input.gd" id="1_v2cof"]
-
-[node name="CharacterInput" type="Node"]
-script = ExtResource("1_v2cof")
