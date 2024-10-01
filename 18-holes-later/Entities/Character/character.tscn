@@ -27,8 +27,18 @@ script = ExtResource("1_6qoy3")
 is_char = true
 
 [node name="InputController" parent="." instance=ExtResource("4_6kuy8")]
-char_move = true
-char_look = true
+input_actions = {
+0: {
+0: true,
+1: true,
+2: true
+},
+1: {
+0: false,
+1: false,
+2: false
+}
+}
 
 [node name="StateController" parent="." instance=ExtResource("4_lwxmm")]
 

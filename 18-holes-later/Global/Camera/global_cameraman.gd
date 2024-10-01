@@ -1,5 +1,6 @@
 extends CharacterBody3D
 @onready var Tripod = $Tripod
+@onready var Tripos_StartRot = Tripod.rotation
 @onready var Camera = $Tripod/Camera3D
 
 var follow_target: Node3D
@@ -32,14 +33,10 @@ func _follow_target(delta):
 		spd_mod = lerp(0,5,dist_to_target/5)
 		var spd = SPEED + spd_mod
 		position = lerp(position, follow_pos, delta * spd) 
-	# TODO: Stutter caused when camera catches up to target
 	else: 
 		position = follow_pos
-	
-	#move_and_slide()
 
 func _look_at_target(delta):
-	# TODO: Not sure if this is still needed
 	if follow_target.can_look:
 		rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
 
@@ -51,3 +48,5 @@ func set_target(new_target: Node3D, new_look: Node3D ):
 	
 	follow_target = new_target
 	look_target = new_look
+	
+	Tripod.rotation = Tripos_StartRot

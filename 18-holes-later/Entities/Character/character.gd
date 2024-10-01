@@ -37,14 +37,10 @@ func _ready():
 	super._ready()
 
 func _process(delta):
-	Input_Controller.char_look = false if Global.Hole_Name == "Clubhouse_Interior" else true
-	if in_vehicle:
-		rotation.y = in_vehicle.rotation.y
-	else:
-		rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10) 
+	visible = false if in_vehicle else true
+	rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10) 
 	
 	if is_throwing: get_aim_trace()
-	
 	
 	if is_charging: 
 		charge_power += charge_rate * delta
@@ -76,14 +72,13 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, _speed)
 		velocity.z = move_toward(velocity.z, 0, _speed)
 	
-	if !is_on_floor():
-		if !in_vehicle:
-			velocity.y -= gravity * delta
 	
 	if in_vehicle:
 		is_moving = false
 		global_position = in_vehicle.seats[0].global_position
 	else:
+		if !is_on_floor():
+			velocity.y -= gravity * delta
 		if !locked_in:
 			move_and_slide()
 

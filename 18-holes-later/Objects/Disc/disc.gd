@@ -23,7 +23,7 @@ var in_play  = false
 var in_hand  = false
 var grounded = false
 var is_tracer = false
-var can_look = true
+var can_look = false
 var can_launch = true
 
 var target_dir: Vector3

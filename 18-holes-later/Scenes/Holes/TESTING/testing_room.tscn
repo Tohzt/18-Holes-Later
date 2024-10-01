@@ -369,8 +369,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8876, 0, -45.8101)
 [node name="Testing" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="GolfCart" parent="Testing" instance=ExtResource("9_5mk3v")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.87898, 1.54282, -17.4611)
+[node name="GolfCart2" parent="Testing" instance=ExtResource("9_5mk3v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.99725, 1.54456, -16.9198)
 
 [node name="Teleport_Testing" type="Area3D" parent="Testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 8)

@@ -28,10 +28,6 @@ func _process(_delta):
 		HUD = get_tree().get_first_node_in_group("HUD")
 	if !Active_Hole:
 		Active_Hole = get_tree().get_first_node_in_group("Hole")
-		
-	#if Input.is_action_just_pressed("ui_cancel"):
-		#is_paused = !is_paused
-		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if is_paused else Input.MOUSE_MODE_CAPTURED
 
 func init_current_hole() -> Node3D:
 	var hole = Current_Hole.instantiate()
@@ -53,10 +49,6 @@ func go_to_course(next_scene: String, next_hole: PackedScene, hole_name: String)
 	Hole_Name = hole_name
 	go_to_scene(Scene)
 
-var screen_position = Vector2(50.0, 50.0)  # 100 pixels from left and top
-var distance_from_camera = 1.0  # Adjust this value as needed
-var hud_gap = 50
-
 func select_next_disc():
 	# TODO: Recursively check if disc is in bag
 	selected_disc += 1
@@ -65,3 +57,23 @@ func select_next_disc():
 
 func save_game(profile): $SaveController.save_game(profile)
 func load_game(profile): $SaveController.load_game(profile)
+
+
+# TODO: Might be useful
+#func get_nearest_object(origin: Node3D, group: String) -> Node3D:
+	#var objects_in_group = get_tree().get_nodes_in_group(group)
+	#
+	#if objects_in_group.is_empty():
+		#return null
+	#
+	#var nearest_object: Node3D = null
+	#var min_distance: float = INF
+	#
+	#for obj in objects_in_group:
+		#if obj is Node3D:
+			#var distance = origin.global_position.distance_to(obj.global_position)
+			#if distance < min_distance:
+				#min_distance = distance
+				#nearest_object = obj
+	#
+	#return nearest_object
