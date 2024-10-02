@@ -18,11 +18,11 @@ func _process(_delta):
 	if !Target:
 		Target = Global.Player
 		
-func _physics_process(_delta):
+func _physics_process(delta):
 	if Target:
 		if position.distance_to(Target.position) < 50:
 			zanim.anim.play("Run")
-			apply_central_force(dir_to_target.normalized() * 10)
+			linear_velocity = dir_to_target.normalized() * 10000
 		else:
 			zanim.anim.play("Zidle")
 			linear_velocity = Vector3.ZERO
