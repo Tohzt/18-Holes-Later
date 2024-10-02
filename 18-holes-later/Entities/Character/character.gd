@@ -38,7 +38,7 @@ func _ready():
 
 func _process(delta):
 	visible = false if in_vehicle else true
-	rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10) 
+	rotation.y = new_dir.y
 	
 	if is_throwing: get_aim_trace()
 	

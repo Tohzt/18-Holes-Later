@@ -25,9 +25,6 @@ var is_paused: bool = 	false
 
 func _process(_delta):
 	
-	var zomb = get_tree().get_first_node_in_group("Zombie")
-	if zomb: print(zomb.linear_velocity)
-	
 	if !HUD:
 		HUD = get_tree().get_first_node_in_group("HUD")
 	if !Active_Hole:

@@ -67,7 +67,8 @@ func _char_look(delta):
 		if mouse_motion is InputEventMouseMotion:
 			# Accumulate mouse motion to rotate the camera
 			var rot_cam = Vector3.ZERO
-			rot_cam.y = Global.Cameraman.rotation.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
+			#rot_cam.y = Global.Cameraman.rotation.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
+			rot_cam.y = Master.rotation.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 			Master.new_dir.y = rot_cam.y
 			
 			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
