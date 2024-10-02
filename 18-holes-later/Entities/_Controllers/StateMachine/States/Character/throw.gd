@@ -11,7 +11,7 @@ func init_state():
 func monitor_state():
 	pass
 
-func update_state():
+func update_state(_delta):
 	if !Input.is_action_pressed("right_click"):
 		Global.Cameraman.set_target(Master, Master.get_node("CamFocus"))
 		exit_state("Idle")

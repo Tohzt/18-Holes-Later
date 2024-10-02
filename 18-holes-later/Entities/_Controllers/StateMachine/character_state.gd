@@ -18,7 +18,7 @@ func monitor_state():
 	print_debug("monitor_state is not set for: ", name)
 func init_state():
 	print_debug("init_state is not set for: ", name)
-func update_state():
+func update_state(_delta):
 	print_debug("update_state is not set for: ", name)
 func exit_state(_next_state: String): 
 	print_debug("exit_state is not set for: ", name)

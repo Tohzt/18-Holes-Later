@@ -10,7 +10,7 @@ func init_state():
 func monitor_state():
 	pass
 
-func update_state():
+func update_state(_delta):
 	if Input.is_action_just_pressed("run"):
 		Master.anim_play("Run")
 		Master.is_running = true

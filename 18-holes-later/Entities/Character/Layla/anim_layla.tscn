@@ -742,5 +742,3 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_wr2ij")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="RayCast3D" type="RayCast3D" parent="."]

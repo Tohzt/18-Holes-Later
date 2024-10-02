@@ -6,7 +6,7 @@ var state_next: String = "Idle"
 var state_options: Array[String]
 var popup_state: String 
 
-func _process(_delta):
+func _process(delta):
 	if popup_state  != "": 
 		state_next = popup_state
 		popup_state = ""
@@ -15,7 +15,7 @@ func _process(_delta):
 		_change_state(state_next)
 	
 	#if get_parent() == Global.Player: print(state_current.name)
-	state_current.update_state()
+	state_current.update_state(delta)
 
 func _change_state(next: String):
 	for state in get_children():
