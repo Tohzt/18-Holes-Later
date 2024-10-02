@@ -12,7 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var SPEED: float = 10.0
 @export var SPEED_MULT: float = 2
-@export var JUMP_FORCE: float = 10
+@export var BOOST_FORCE: float = 10
 var speed_mult: float = 0.0
 
 @export var Input_Controller: InputController
