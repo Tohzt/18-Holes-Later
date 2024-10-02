@@ -11,7 +11,7 @@ func init_state():
 func monitor_state():
 	pass
 
-func update_state():
+func update_state(_delta):
 	if !Master.is_falling and Master.velocity.y < 0:
 		Master.is_falling = true
 		Master.anim_play("Falling")

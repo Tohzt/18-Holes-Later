@@ -1671,7 +1671,7 @@ _data = {
 "Zidle": SubResource("Animation_u4e44")
 }
 
-[node name="Enemy" type="RigidBody3D"]
+[node name="Enemy" type="RigidBody3D" groups=["Zombie"]]
 collision_layer = 8
 collision_mask = 15
 axis_lock_angular_x = true

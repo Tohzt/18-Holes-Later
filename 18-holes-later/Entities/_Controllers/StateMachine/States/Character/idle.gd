@@ -10,7 +10,7 @@ func init_state():
 func monitor_state():
 	pass
 
-func update_state():
+func update_state(_delta):
 	if Master.velocity.length() > 0:
 		exit_state("Walk")
 
