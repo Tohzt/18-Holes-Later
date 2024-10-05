@@ -53,8 +53,12 @@ func _process(_delta):
 		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
 		if grounded:
 			_settle()
-	else:
+	elif in_bag:
 		position = Global.Player.position - Vector3(0,10,0)
+	if in_hand:
+		global_position = Global.Player.Anim_Controller.Bone_Hand.global_position
+		if get_parent() == Global.Player:
+			reparent(Global.Player.Anim_Controller.Bone_Hand)
 
 func _physics_process(_delta):
 	if launch and can_launch:

@@ -18,7 +18,7 @@ func _process(_delta):
 	if !Target:
 		Target = Global.Player
 		
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Target:
 		if position.distance_to(Target.position) < 50:
 			zanim.anim.play("Run")
@@ -32,7 +32,20 @@ func _on_timer_timeout():
 	queue_free()
 	
 func _on_body_entered(body):
-	if body.is_in_group("Disc"):
+	pass
+	#if body.is_in_group("Disc"):
+		#self.axis_lock_angular_x = false
+		#self.axis_lock_angular_z = false
+		#timer.start(1.0)
+
+
+
+func _on_area_3d_area_entered(area):
+	print(area.name)
+	if area.name == "BoneHand":
+		apply_central_impulse((position - area.position).normalized() * 10)
+		zanim.anim.play("Death")
 		self.axis_lock_angular_x = false
 		self.axis_lock_angular_z = false
 		timer.start(1.0)
+		

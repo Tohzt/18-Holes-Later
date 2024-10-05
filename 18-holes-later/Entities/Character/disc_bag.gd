@@ -31,9 +31,9 @@ func _ready():
 		add_child(disc)
 		
 func _process(_delta):
-	for disc in Global.Player.Bag.get_children():
-		disc.in_hand = false
+	for disc: Disc in Global.Player.Bag.get_children():
 		if disc.index == Global.selected_disc:
+			disc.in_bag = false
 			disc.in_hand = true
 	
 	if Input.is_action_just_pressed("tab"):

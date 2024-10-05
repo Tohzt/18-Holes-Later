@@ -42,6 +42,10 @@ func _process(delta):
 	
 	if is_throwing: get_aim_trace()
 	
+	if in_combat:
+		State_Controller.state_next = "Combat"
+		
+	
 	if is_charging: 
 		charge_power += charge_rate * delta
 	elif charge_power > 0:
