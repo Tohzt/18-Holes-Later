@@ -1,10 +1,11 @@
-# WALK STATE
+# JUMP STATE
 extends CharacterStateClass
 
 func init_state():
 	State_Controller.state_options = state_options
 	Master.can_throw = false
 	Master.can_jump = false
+	Master.can_move = false
 	Master.anim_play("Jump")
 	Master.velocity.y = Master.JUMP_FORCE
 

@@ -31,9 +31,9 @@ func _process(delta):
 	if Input.get_last_mouse_velocity().length() == 0:
 		mouse_motion = null
 	
-	if input_actions[Character.PLAYER][Action.MOVE]:   _char_move()
-	if input_actions[Character.PLAYER][Action.LOOK]:   _char_look(delta)
-	if input_actions[Character.PLAYER][Action.ATTACK]: _char_attack()
+	if input_actions[Character.PLAYER][Action.MOVE]:   _character_move(delta)
+	if input_actions[Character.PLAYER][Action.LOOK]:   _character_look(delta)
+	if input_actions[Character.PLAYER][Action.ATTACK]: _character_attack()
 	
 	if input_actions[Character.CART][Action.MOVE]:   _cart_move(delta)
 	if input_actions[Character.CART][Action.LOOK]:   _cart_look(delta)
@@ -52,15 +52,19 @@ func _input(event):
 		mouse_motion = event
 
 # Character Inputs
-func _char_move():
-	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	Master.input = input
-	Master.input_dir = (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized()
+func _character_move(delta):
+	if Master.can_move:
+		var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		Master.input = input
+		Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized(), delta*10)
+	
+	# TODO: Get y_rotation value that points in the direction of Master.input_dir (x,z)
+	#Master.input_dir = (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized()
 	# Jump
 	if Input.is_action_just_pressed("jump"):
 		Master.is_jumping = true
 	
-func _char_look(delta):
+func _character_look(delta):
 	if Global.Hole_Name == "Clubhouse_Interior": return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
@@ -75,7 +79,11 @@ func _char_look(delta):
 			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
 			Global.Cameraman.rot_x = rot_cam.x
 
-func _char_attack():
+func _character_attack():
+	if !Master.in_combat and Master.can_combat:
+		if Input.is_action_just_pressed("left_click"):
+			Master.in_combat = true
+			
 	if Master.can_throw:
 		if Input.is_action_just_pressed("right_click"):
 			Master.is_throwing = true

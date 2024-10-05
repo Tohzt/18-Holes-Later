@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://by252jyfxak"]
-
-[ext_resource type="Script" path="res://Entities/_Controllers/StateMachine/States/Character/jump.gd" id="1_qnuy5"]
-
-[node name="Jump" type="Node"]
-script = ExtResource("1_qnuy5")

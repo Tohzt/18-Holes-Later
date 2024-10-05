@@ -5,6 +5,8 @@ func init_state():
 	State_Controller.state_options = state_options
 	Master.is_moving = false
 	Master.is_throwing = true
+	Master.can_combat = false
+	Master.can_move = false
 	Master.locked_in = true
 	Master.anim_play("Startthrow")
 
