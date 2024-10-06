@@ -1,9 +1,11 @@
 extends NinePatchRect
-@onready var hide_pos: Vector2 = position
-@onready var show_pos := Vector2(hide_pos.x,hide_pos.y+150)
+@onready var show_pos: Vector2 = position
+@onready var hide_pos := Vector2(show_pos.x,show_pos.y-150)
 
 var slide_in = false
 var slide_out = false
+func _ready():
+	position = hide_pos
 
 func _process(delta):
 	if slide_in:

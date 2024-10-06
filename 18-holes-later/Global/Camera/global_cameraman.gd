@@ -38,7 +38,7 @@ func _follow_target(delta):
 
 func _look_at_target(delta):
 	if follow_target.can_look:
-		rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
+		rotation.y = lerp_angle(rotation.y, follow_target.new_dir.y, delta*10)
 
 func set_target(new_target: Node3D, new_look: Node3D ):
 	if !new_target:

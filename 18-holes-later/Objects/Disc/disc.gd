@@ -56,9 +56,11 @@ func _process(_delta):
 	elif in_bag:
 		position = Global.Player.position - Vector3(0,10,0)
 	if in_hand:
-		global_position = Global.Player.Anim_Controller.Bone_Hand.global_position
 		if get_parent() == Global.Player:
 			reparent(Global.Player.Anim_Controller.Bone_Hand)
+		global_position = Global.Player.Anim_Controller.Bone_Hand.global_position
+		global_rotation = Global.Player.Anim_Controller.Bone_Hand.global_rotation
+		
 
 func _physics_process(_delta):
 	if launch and can_launch:

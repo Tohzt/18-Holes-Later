@@ -8,12 +8,15 @@ func init_state():
 	Master.can_combat = false
 	Master.can_move = false
 	Master.locked_in = true
-	Master.anim_play("Startthrow")
+	Master.anim_play("Idle")
 
 func monitor_state():
 	pass
 
-func update_state(_delta):
+func update_state(delta):
+	if Master.rotation.y != Master.new_dir.y:
+		Master.rotation.y = lerp_angle(Master.rotation.y, Master.new_dir.y, delta*5)
+	
 	if !Input.is_action_pressed("right_click"):
 		Global.Cameraman.set_target(Master, Master.get_node("CamFocus"))
 		exit_state("Idle")
@@ -22,9 +25,11 @@ func update_state(_delta):
 		Master.clear_trace()
 	
 	if Input.is_action_just_pressed("left_click"):
+		Master.anim_play("Startthrow")
 		Master.is_charging = true
 	
 	if Input.is_action_just_released("left_click"):
+		Master.anim_play("Release")
 		Master.clear_trace()
 		Master.is_charging = false
 		

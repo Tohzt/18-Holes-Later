@@ -1,6 +1,6 @@
 class_name AnimController3D
 extends Node3D
-@onready var Bone_Hand = $Armature/Skeleton3D/BoneAttachment3D
+@onready var Bone_Hand = $Armature/Skeleton3D/BoneAttachment3D/Anchor
 
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree

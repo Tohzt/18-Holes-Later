@@ -67,7 +67,7 @@ func _character_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
-			rot_cam.y = Master.rotation.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
+			rot_cam.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 			
 			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
 			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))

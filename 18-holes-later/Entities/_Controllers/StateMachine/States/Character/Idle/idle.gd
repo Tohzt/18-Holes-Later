@@ -3,6 +3,7 @@ extends StateClass
 
 func init_state():
 	State_Controller.state_options = state_options
+	Master.is_landing = false
 	Master.is_moving = false
 	Master.can_throw = true
 	Master.can_move = true

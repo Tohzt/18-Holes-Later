@@ -6,8 +6,6 @@ class_name SettingsClass
 @export var draw_disc_trails: bool = false
 @export var follow_all_throws: bool = false
 @export var print_debug_log: bool = false
-@export var test_string: String = ""
-@export var test_float: float = 0.0
 @export_range(0.1, 1.0) var MOUSE_H_SENSITIVITY: float = 0.2
 @export_range(0.1, 1.0) var MOUSE_V_SENSITIVITY: float = 0.2
 

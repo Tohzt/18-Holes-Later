@@ -6,22 +6,27 @@ func init_state():
 	Master.can_throw = false
 	Master.can_jump = false
 	Master.can_move = false
+	Master.look_around = false
 	Master.anim_play("Jump")
 	Master.velocity.y = Master.JUMP_FORCE
 
 func monitor_state():
 	pass
 
-func update_state(_delta):
+func update_state(delta):
 	if !Master.is_falling and Master.velocity.y < 0:
 		Master.is_falling = true
 		Master.anim_play("Falling")
 	
 	if Master.is_falling and Master.is_on_floor():
+		Master.is_landing = true
 		Master.anim_play("Land")
+	
+	if Master.velocity.length() < 1:
 		exit_state("Idle")
 
 func exit_state(next_state: String):
+	Master.look_around = true
 	Master.is_jumping = false
 	Master.is_falling = false
 	Master.can_jump = true

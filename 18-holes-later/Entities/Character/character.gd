@@ -39,9 +39,9 @@ func _ready():
 
 func _process(delta):
 	visible = false if in_vehicle else true
-	rotation.y = new_dir.y
+	new_dir.y = Input_Controller.rot_cam.y
 	
-	if look_around: new_dir.y = Input_Controller.rot_cam.y
+	if look_around: rotation.y = new_dir.y
 	if in_combat: State_Controller.state_next = "Combat"
 	if is_jumping: State_Controller.state_next = "Jump"
 	if is_throwing: 
@@ -64,14 +64,16 @@ func _physics_process(delta):
 	speed_mult = 1
 	if Input.is_action_pressed("run"):
 		speed_mult = SPEED_MULT
-	var _speed = SPEED * speed_mult
-	
-	if input_dir:
-		velocity.x = input_dir.x * _speed
-		velocity.z = input_dir.z * _speed
+	var spd = SPEED * speed_mult
+	if is_landing: 
+		velocity = lerp(velocity, Vector3.ZERO, delta*5)
 	else:
-		velocity.x = move_toward(velocity.x, 0, _speed)
-		velocity.z = move_toward(velocity.z, 0, _speed)
+		if input_dir:
+			velocity.x = input_dir.x * spd
+			velocity.z = input_dir.z * spd
+		else:
+			velocity.x = move_toward(velocity.x, 0, spd)
+			velocity.z = move_toward(velocity.z, 0, spd)
 	
 	
 	if in_vehicle:
