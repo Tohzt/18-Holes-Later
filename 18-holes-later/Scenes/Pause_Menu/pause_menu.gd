@@ -1,14 +1,26 @@
 extends Control
+@onready var pause_header = $PauseHeader
+@onready var debug_settings = $Debug_Settings
 
 func _process(_delta):
-	#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 	if Input.is_action_just_pressed("ui_cancel"):
-		if(visible):
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			hide()
+		if(Global.is_paused):
+			_hide_pause()
 		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			show()
+			_show_pause()
+
+func _show_pause():
+	Global.is_paused = true
+	pause_header.slide_in = true
+	pause_header.slide_out = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _hide_pause():
+	Global.is_paused = false
+	pause_header.slide_in = false
+	pause_header.slide_out = true
+	debug_settings.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_btn_exit_pressed():
 	# WARNING: This could close before save is complete 
@@ -16,14 +28,14 @@ func _on_btn_exit_pressed():
 	get_tree().quit()
 
 func _on_btn_resume_pressed():
-	hide()
+	_hide_pause()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.is_paused = false
 
 func _on_btn_retry_pressed():
-	Global.go_to_scene(Global.SCENE_MAIN)
-	#get_tree().change_scene_to_file("res://Scenes/Main_Menu/main_menu.tscn")
-
+	_hide_pause()
+	Global.Cameraman.follow_target = null
+	Global.go_to_scene(Global.Refs.SCENE_MAIN)
 
 func _on_btn_save_pressed():
 	print("Savin Progress...")

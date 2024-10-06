@@ -4,7 +4,7 @@ extends PathFollow3D
 # TODO: Redo the fuck outa this
 func _process(delta):
 	progress_ratio += delta/10
-	var tree = Global.TREE.instantiate()
+	var tree = Global.Refs.TREE.instantiate()
 	var random_offset = Vector3(randi_range(-10,10), 0, randi_range(-10,10))
 	tree.position = position + get_parent().position + random_offset
 	trees.add_child(tree)

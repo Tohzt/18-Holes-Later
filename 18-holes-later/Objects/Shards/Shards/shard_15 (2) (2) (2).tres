@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_0md50")
 name = "Shard_15"
-activation_type = 2
+activation_type = 0
 intensity = 2
-perk = 3
+perk = 2
 rarity = 0
+note = ""

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://cvfoujqikvtev"]
 
 [ext_resource type="Texture2D" uid="uid://cdiphlbqugj1l" path="res://Objects/Disc/src/AlienDisc (2).png" id="1_laspl"]
-[ext_resource type="Script" path="res://Objects/Disc/Mesh/MeshInstance3D.gd" id="2_twonn"]
+[ext_resource type="Script" path="res://Objects/Disc/Mesh/disc_design.gd" id="2_twonn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r4vvi"]
 albedo_texture = ExtResource("1_laspl")

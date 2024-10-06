@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bna4usg5w0bl5"]
+
+[ext_resource type="Script" path="res://Entities/_Controllers/StateMachine/States/Character/_Blank/blank.gd" id="1_f6ws1"]
+
+[node name="Blank" type="Node"]
+script = ExtResource("1_f6ws1")
