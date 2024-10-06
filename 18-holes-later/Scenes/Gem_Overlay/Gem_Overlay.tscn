@@ -70,7 +70,6 @@ layout_mode = 2
 columns = 4
 script = ExtResource("3_eqm58")
 metadata/_edit_use_anchors_ = true
-current_tab = 0
 
 [node name="VFlowContainer" type="VFlowContainer" parent="Overlay/PanelContainer/PanelContainer3"]
 layout_mode = 2

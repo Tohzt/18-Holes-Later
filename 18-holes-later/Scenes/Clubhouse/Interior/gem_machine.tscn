@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://mac6t0w181ou"]
+
+[ext_resource type="PackedScene" uid="uid://cx2jw2s4oqn5q" path="res://Scenes/Clubhouse/src/Interior/GemMachine.fbx" id="1_yt5io"]
+[ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/gem_machine.gd" id="2_u4x3g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6rs55"]
+size = Vector3(2.45752, 1.93542, 2.80774)
+
+[node name="GemMachine" instance=ExtResource("1_yt5io")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(48.0858, 0, 0, 0, -5.73228e-06, 73.4611, 0, -48.0858, -8.75725e-06, -0.000124454, 0.712261, -0.061269)
+
+[node name="Cylinder_001" parent="." index="1"]
+transform = Transform3D(51.3676, 6.06015, 8.79765e-08, -1.92686e-07, 0, 23.616, 6.06015, -51.3676, 0, -0.000107288, 0.946305, -0.0645416)
+
+[node name="GEM 1 - TURQUOISE - 0009" parent="." index="2"]
+transform = Transform3D(38.8504, -17.5731, -25.04, 13.482, 46.1686, -11.4835, 27.46, 2.19523, 41.0646, -0.204132, 1.49369, -0.401877)
+
+[node name="GEM 6 - RED - 0005" parent="." index="3"]
+transform = Transform3D(92.5559, 0, 0, 0, 92.5559, -4.04575e-06, 0, 4.04575e-06, 92.5559, -0.99647, 1.07079, 0.506719)
+
+[node name="GEM 9 - GOLD - 0007" parent="." index="4"]
+transform = Transform3D(20.0441, 5.11912, -11.9154, 1.38586, 20.9639, 11.3378, 12.8943, -10.2108, 17.304, -0.17517, 0.833751, -0.0757031)
+
+[node name="GEM 8 - PURPLE - 0009" parent="." index="5"]
+transform = Transform3D(25.3167, 0, 0, 0, 25.3167, -1.10663e-06, 0, 1.10663e-06, 25.3167, 0.0153975, 0.778333, 0.0564599)
+
+[node name="GEM 7 - LIGHT GREEN - 0000" parent="." index="6"]
+transform = Transform3D(30.8767, 0, 0, 0, 27.1605, 14.6861, 0, -14.6861, 27.1605, -0.305391, 0.77538, -0.0793095)
+
+[node name="GEM 5 - LILAC - 0010" parent="." index="7"]
+transform = Transform3D(25.7649, -6.10417e-07, -13.9647, -5.2058e-14, 29.3061, -1.28101e-06, 13.9647, 1.12622e-06, 25.7649, -0.403734, 0.673186, -0.0895181)
+
+[node name="GEM 2 - BLUE - 0008" parent="." index="8"]
+transform = Transform3D(31.7477, 0, 0, 0, 27.0745, 16.5797, 0, -16.5797, 27.0745, 0.116791, 0.664729, 0.224846)
+
+[node name="GEM 1 - TURQUOISE - 0009_001" parent="." index="9"]
+transform = Transform3D(31.8932, -37.4731, -4.87418, 37.6093, 32.0975, -0.679857, 3.67908, -3.26868, 49.2031, -0.0127959, 0.924126, -0.0100815)
+
+[node name="GEM 6 - RED - 0005_001" parent="." index="10"]
+transform = Transform3D(-2.46054, -92.5232, 4.04432e-06, 92.5232, -2.46054, 1.07554e-07, 1.64412e-13, 4.04575e-06, 92.5559, 0.323097, 0.717214, 0.141676)
+
+[node name="GEM 9 - GOLD - 0007_001" parent="." index="11"]
+transform = Transform3D(21.0453, 4.98034, -10.1114, 2.22119, 19.1642, 14.0624, 11.0503, -13.3372, 16.4305, -0.134799, 0.809859, -0.0733211)
+
+[node name="GEM 8 - PURPLE - 0009_001" parent="." index="12"]
+transform = Transform3D(25.3167, 0, 0, 0, 25.3167, -1.10663e-06, 0, 1.10663e-06, 25.3167, 0.0557694, 0.797492, 0.0588419)
+
+[node name="GEM 7 - LIGHT GREEN - 0000_001" parent="." index="13"]
+transform = Transform3D(30.8767, 0, 0, 0, 27.1605, 14.6861, 0, -14.6861, 27.1605, 0.176906, 0.794982, -0.0769272)
+
+[node name="GEM 5 - LILAC - 0010_001" parent="." index="14"]
+transform = Transform3D(-29.3061, -1.93427e-13, -4.42509e-06, -6.2058e-21, 29.3061, -1.28101e-06, 4.42509e-06, -1.28101e-06, -29.3061, 0.342696, 0.760793, -0.087136)
+
+[node name="GEM 2 - BLUE - 0008_001" parent="." index="15"]
+transform = Transform3D(52.0037, 0, 0, 0, 44.3488, 27.1581, 0, -27.1581, 44.3488, -0.0521598, 0.504114, -0.162248)
+
+[node name="GEM 1 - TURQUOISE - 0009_002" parent="." index="16"]
+transform = Transform3D(46.6509, -29.8242, 32.3847, 22.2303, 56.6847, 20.1796, -38.0009, -3.45276, 51.5613, -0.263618, 0.619096, 0.166347)
+
+[node name="AreaBody3d" type="Area3D" parent="." index="17"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaBody3d" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119886, 1.01965, 1.37319)
+shape = SubResource("BoxShape3D_6rs55")
+script = ExtResource("2_u4x3g")
+
+[connection signal="body_entered" from="AreaBody3d" to="AreaBody3d/CollisionShape3D" method="_on_area_body_3d_body_entered"]
