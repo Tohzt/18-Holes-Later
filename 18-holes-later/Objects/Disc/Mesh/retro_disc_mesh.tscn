@@ -45,6 +45,6 @@ shadow_mesh = SubResource("ArrayMesh_1s6qv")
 
 [node name="RetroTexture" type="MeshInstance3D"]
 transform = Transform3D(0.155, 0, 0, 0, 0.015, 0, 0, 0, 0.155, 0, 0, 0)
-mesh = ExtResource("1_vvo78")
+mesh = SubResource("ArrayMesh_xyit3")
 skeleton = NodePath("")
 script = ExtResource("2_cqnfw")

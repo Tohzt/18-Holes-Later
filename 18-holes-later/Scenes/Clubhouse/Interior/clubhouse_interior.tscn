@@ -1,4 +1,4 @@
-[gd_scene load_steps=260 format=4 uid="uid://be188bor4mic4"]
+[gd_scene load_steps=261 format=4 uid="uid://be188bor4mic4"]
 
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="1_wqyhj"]
 [ext_resource type="Texture2D" uid="uid://dtlrwiavyjwyr" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (5).png" id="2_2j6nl"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bpt6utw1xcpj8" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3 (7).png" id="28_vj2a2"]
 [ext_resource type="Texture2D" uid="uid://bogx3i3c5akk" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (14).png" id="29_a2fku"]
 [ext_resource type="Texture2D" uid="uid://bpw07b7jwn4wc" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1_28.png" id="30_w4mi0"]
+[ext_resource type="PackedScene" uid="uid://mac6t0w181ou" path="res://Scenes/Clubhouse/Interior/gem_machine.tscn" id="31_86407"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy3jc"]
 resource_name = "OIG1 (5)"
@@ -4034,3 +4035,6 @@ shape = SubResource("BoxShape3D_dn54x")
 [node name="Right Wall" type="CollisionShape3D" parent="Collisions"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 13.5586, 1.45978, 0.0247056)
 shape = SubResource("BoxShape3D_dn54x")
+
+[node name="GemMachine" parent="." instance=ExtResource("31_86407")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49115, 0, -1.66453)
