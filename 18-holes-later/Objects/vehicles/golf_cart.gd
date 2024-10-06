@@ -21,8 +21,11 @@ var accepts_input = false
 var turn_strength = 0.0
 var max_turn_strength = 50.0
 var input_dir := Vector3.ZERO
+var new_dir := Vector3.ZERO
 
 func _process(delta):
+	# TODO: Do something with new_dir
+	new_dir = rotation
 	if input_dir.y:
 		rotation.y = lerp_angle(rotation.y, input_dir.y, delta*10) 
 	

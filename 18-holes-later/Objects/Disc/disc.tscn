@@ -33,6 +33,7 @@ linear_damp = 0.5
 script = ExtResource("1_wqkoe")
 
 [node name="PickupArea" parent="." instance=ExtResource("2_bba41")]
+visible = false
 
 [node name="Attributes" type="Node" parent="."]
 

@@ -11,6 +11,7 @@ func _on_body_exited(body):
 		can_pickup = false
 
 func _process(_delta):
+	visible = get_parent().sleeping
 	if can_pickup and disc.grounded:
 		if disc.in_play:
 			if Input.is_action_just_pressed("collect"):

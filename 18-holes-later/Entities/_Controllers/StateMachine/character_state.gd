@@ -1,4 +1,4 @@
-# TODO: States should only pass on information. Do calculations where they are most relevant
+# NOTE: States should only pass on information. Do calculations where they are most relevant
 class_name CharacterStateClass
 extends Node
 

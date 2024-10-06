@@ -13,7 +13,7 @@ func init_state():
 func monitor_state():
 	pass
 
-func update_state(delta):
+func update_state(_delta):
 	if !Master.is_falling and Master.velocity.y < 0:
 		Master.is_falling = true
 		Master.anim_play("Falling")
@@ -22,6 +22,7 @@ func update_state(delta):
 		Master.is_landing = true
 		Master.anim_play("Land")
 	
+	# BUG: Slight glitch into walk anim when settling into idle
 	if Master.velocity.length() < 1:
 		exit_state("Idle")
 

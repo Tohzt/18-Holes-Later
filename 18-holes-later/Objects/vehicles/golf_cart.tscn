@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://c7xne0byhx4ij"]
+[gd_scene load_steps=46 format=4 uid="uid://c7xne0byhx4ij"]
 
 [ext_resource type="Texture2D" uid="uid://cdjrjhkeyimkv" path="res://-ASSET-DUMP-/Vehicles/GolfCart_OIG3 (2).png" id="1_3fv68"]
 [ext_resource type="Script" path="res://Objects/vehicles/golf_cart.gd" id="1_dqhw4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dw88pg870bb8" path="res://-ASSET-DUMP-/Vehicles/GolfCart_OIG1 (3).png" id="2_yjh7i"]
 [ext_resource type="Texture2D" uid="uid://bworkqu7qrvdg" path="res://-ASSET-DUMP-/Vehicles/GolfCart_OIG4.weVBFy.png" id="3_io63k"]
 [ext_resource type="Texture2D" uid="uid://fsd0stty3uhr" path="res://-ASSET-DUMP-/Vehicles/GolfCart_OIG4_n.png" id="4_3q83h"]
+[ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="4_31c13"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37vui"]
 resource_name = "Material.002"
@@ -185,15 +186,6 @@ bind/47/pose = Transform3D(-99.748, -2.79078, 6.52263, 6.41343, 3.84058, 99.7202
 bind/48/name = &"mixamorig_RightToe_End"
 bind/48/bone = -1
 bind/48/pose = Transform3D(-99.748, -2.79069, 6.52271, 6.41352, 3.84058, 99.7202, -3.03339, 99.8873, -3.65193, -0.171384, -0.158002, 0.985089)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awbac"]
-transparency = 1
-albedo_color = Color(1, 1, 0, 0.447059)
-
-[sub_resource type="SphereMesh" id="SphereMesh_bxyft"]
-material = SubResource("StandardMaterial3D_awbac")
-radius = 0.1
-height = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yuas3"]
 size = Vector3(0.538418, 0.581665, 0.731506)
@@ -1233,11 +1225,8 @@ input_actions = {
 [node name="Seat_Driver" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0647225, -0.225168, -0.243457)
 
-[node name="CamFocus" type="Node3D" parent="."]
+[node name="CamFocus" parent="." instance=ExtResource("4_31c13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CamFocus"]
-mesh = SubResource("SphereMesh_bxyft")
 
 [node name="Body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000143081, 0.143372, -0.260834)
