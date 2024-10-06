@@ -12,4 +12,5 @@ func _on_h_slider_value_changed(value):
 	Global.Settings.MOUSE_H_SENSITIVITY = value
 
 func _on_v_slider_value_changed(value):
-	Global.Settings.MOUSE_V_SENSITIVITY = value
+	if value > 0.0:
+		Global.Settings.MOUSE_V_SENSITIVITY = value

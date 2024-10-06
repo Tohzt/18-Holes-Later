@@ -6,6 +6,7 @@ func init_state():
 	Master.is_moving = false
 	Master.can_throw = true
 	Master.can_move = true
+	Master.look_around = false
 	Master.anim_play("Idle")
 
 func monitor_state():
@@ -17,4 +18,5 @@ func update_state(_delta):
 
 func exit_state(next_state: String):
 	Master.can_throw = false
+	Master.look_around = true
 	State_Controller.state_next = next_state

@@ -1,6 +1,6 @@
 extends Control
 @onready var pause_header = $PauseHeader
-@onready var debug_settings = $Debug_Settings
+@onready var debug_settings = $Settings
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -19,7 +19,6 @@ func _hide_pause():
 	Global.is_paused = false
 	pause_header.slide_in = false
 	pause_header.slide_out = true
-	debug_settings.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_btn_exit_pressed():

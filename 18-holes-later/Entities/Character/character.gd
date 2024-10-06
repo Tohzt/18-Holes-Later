@@ -9,8 +9,9 @@ var game_disc_index: int = 0
 
 const MAX_POWER = 10
 var can_throw = false
-var can_look = true
 var can_jump = true
+var can_look = true
+var look_around = true
 var is_charging = false
 var is_throwing = false
 var is_on_tee = false
@@ -40,28 +41,24 @@ func _process(delta):
 	visible = false if in_vehicle else true
 	rotation.y = new_dir.y
 	
-	if is_throwing: get_aim_trace()
+	if look_around: new_dir.y = Input_Controller.rot_cam.y
+	if in_combat: State_Controller.state_next = "Combat"
+	if is_jumping: State_Controller.state_next = "Jump"
+	if is_throwing: 
+		get_aim_trace()
+		if is_charging: 
+			charge_power += charge_rate * delta
+		elif charge_power > 0:
+			charge_rate = abs(charge_rate)
+			charge_power -= charge_rate * delta
+		charge_power = clamp(charge_power,0,100)
+		if charge_power <= 0:
+			charge_rate = abs(charge_rate)
+		if charge_power >= 100:
+			charge_rate = -abs(charge_rate)
 	
-	if in_combat:
-		State_Controller.state_next = "Combat"
-		
 	
-	if is_charging: 
-		charge_power += charge_rate * delta
-	elif charge_power > 0:
-		charge_rate = abs(charge_rate)
-		charge_power -= charge_rate * delta
-	charge_power = clamp(charge_power,0,100)
-	if charge_power <= 0:
-		charge_rate = abs(charge_rate)
-	if charge_power >= 100:
-		charge_rate = -abs(charge_rate)
-	
-	if is_jumping and can_jump:
-		State_Controller.state_next = "Jump"
-	
-	if Global.Debug_Settings.collect_all:
-		_collect_discs()
+	if Global.Settings.collect_all: _collect_discs()
 
 func _physics_process(delta):
 	speed_mult = 1

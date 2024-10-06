@@ -1,5 +1,10 @@
 extends Button
-@onready var debug_settings = $"../../../Debug_Settings"
+@onready var settings = $"../../../Settings"
 
 func _on_pressed():
-	debug_settings.show_hide()
+	if settings.slide_in:
+		settings.slide_in = false
+		settings.slide_out = true
+	else:
+		settings.slide_in = true
+		settings.slide_out = false

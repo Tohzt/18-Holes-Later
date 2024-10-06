@@ -58,22 +58,16 @@ func _character_move(delta):
 		Master.input = input
 		Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized(), delta*10)
 	
-	# TODO: Get y_rotation value that points in the direction of Master.input_dir (x,z)
-	#Master.input_dir = (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized()
-	# Jump
-	if Input.is_action_just_pressed("jump"):
+	if Master.can_jump and Input.is_action_just_pressed("jump"):
 		Master.is_jumping = true
 	
+var rot_cam = Vector3.ZERO
 func _character_look(delta):
 	if Global.Hole_Name == "Clubhouse_Interior": return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
-			# Accumulate mouse motion to rotate the camera
-			var rot_cam = Vector3.ZERO
-			#rot_cam.y = Global.Cameraman.rotation.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 			rot_cam.y = Master.rotation.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
-			Master.new_dir.y = rot_cam.y
 			
 			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
 			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
@@ -95,7 +89,7 @@ func _cart_move(delta):
 	var input_turn = Input.get_axis("ui_left", "ui_right")
 	
 	Master.turn_strength = lerp(Master.turn_strength,Master.max_turn_strength,delta*.1) * abs(input_turn)
-	#Global.Debug_Settings.debug_log['cart_turn_strength'] = turn_strength
+	#Global.Settings.debug_log['cart_turn_strength'] = turn_strength
 	Master.rotate_y(deg_to_rad(-Master.turn_strength  * input_turn * Global.Settings.MOUSE_H_SENSITIVITY))
 	Master.input_dir = (Master.transform.basis * Vector3(0,0,input_forward)).normalized()
 	

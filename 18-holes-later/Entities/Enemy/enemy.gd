@@ -30,22 +30,18 @@ func _on_timer_timeout():
 	$GPUParticles3D.emitting = true
 	$GPUParticles3D.reparent(get_parent())
 	queue_free()
-	
-func _on_body_entered(body):
+
+func _on_body_entered(_body):
 	pass
 	#if body.is_in_group("Disc"):
 		#self.axis_lock_angular_x = false
 		#self.axis_lock_angular_z = false
 		#timer.start(1.0)
 
-
-
 func _on_area_3d_area_entered(area):
-	print(area.name)
 	if area.name == "BoneHand":
 		apply_central_impulse((position - area.position).normalized() * 10)
 		zanim.anim.play("Death")
 		self.axis_lock_angular_x = false
 		self.axis_lock_angular_z = false
 		timer.start(1.0)
-		
