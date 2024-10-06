@@ -70,14 +70,17 @@ layout_mode = 2
 columns = 4
 script = ExtResource("3_eqm58")
 metadata/_edit_use_anchors_ = true
+current_tab = 0
 
 [node name="VFlowContainer" type="VFlowContainer" parent="Overlay/PanelContainer/PanelContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
+metadata/_tab_index = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer"]
 layout_mode = 2

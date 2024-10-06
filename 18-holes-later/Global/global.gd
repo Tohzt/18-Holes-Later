@@ -1,28 +1,17 @@
 extends Node
 
-# Default Settings
-@onready var Debug_Settings = $DebugSettings
-var MOUSE_SENSITIVITY : float = 0.4
+@onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
+# References
+@onready var Refs: ReferenceClass = $References
+# Default/Debug Settings
+@onready var Debug_Settings: DebugSettingsClass = $DebugSettings
+@onready var Settings: SettingsClass = $Settings
 
-# Saved Scenes
-const SCENE_MAIN      = "res://Scenes/Main_Menu/main_menu.tscn"
-const SCENE_COURSE    = "res://Scenes/Course/course.tscn"
-const SCENE_LOADING   = "res://Scenes/Loading/loading.tscn"
-const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/clubhouse.tscn"
-
-# Spawnables
-const TESTING_ROOM = preload("res://Scenes/Holes/TESTING/testing_room.tscn")
-const HOLE_01      = preload("res://Scenes/Holes/Hole_01/hole_01.tscn")
-const DISC         = preload("res://Objects/Disc/disc.tscn")
-const CHAR_BENNY   = preload("res://Entities/Character/character.tscn")
-const MENU_PAUSE   = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
-const TREE         = preload("res://Objects/Trees/tree.tscn")
-
-var Active_Camera: Camera3D
+@onready var Cameraman: Node3D = $Global_Tripod
 
 var Scene: String
 var HUD: HUD_Class
-var Current_Hole: PackedScene = HOLE_01
+var Current_Hole: PackedScene
 var Active_Hole: Node3D
 var Hole_Name: String = ""
 var Player: Entity
@@ -31,32 +20,30 @@ var should_load: bool = false
 var _temp_bag: Array[Disc]
 
 var game_on = false
+var hole_over = false
 var selected_disc = 1
 var is_paused: bool = 	false
 
 func _process(_delta):
+	
 	if !HUD:
 		HUD = get_tree().get_first_node_in_group("HUD")
 	if !Active_Hole:
 		Active_Hole = get_tree().get_first_node_in_group("Hole")
-		
-	if Input.is_action_just_pressed("ui_cancel"):
-		is_paused = !is_paused
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if is_paused else Input.MOUSE_MODE_CAPTURED
 
 func init_current_hole() -> Node3D:
 	var hole = Current_Hole.instantiate()
 	return hole
  
 func init_player(spawn_pos) -> Entity:
-	var new_player = CHAR_BENNY.instantiate()
+	var new_player = Refs.CHAR_BENNY.instantiate()
 	Player = new_player
 	Player.position = spawn_pos
 	return Player
 
 func go_to_scene(next_scene: String):
 	Scene = next_scene
-	get_tree().change_scene_to_file(SCENE_LOADING)
+	get_tree().change_scene_to_file(Refs.SCENE_LOADING)
 	
 func go_to_course(next_scene: String, next_hole: PackedScene, hole_name: String):
 	Scene = next_scene
@@ -64,41 +51,11 @@ func go_to_course(next_scene: String, next_hole: PackedScene, hole_name: String)
 	Hole_Name = hole_name
 	go_to_scene(Scene)
 
-# TODO: ... Do something with this
-func change_camera_to():
-	for _camera: Camera3D in get_tree().get_nodes_in_group("Camera"):
-		if _camera.current:
-			Active_Camera = _camera
-
-var camera: Camera3D
-var screen_position = Vector2(50.0, 50.0)  # 100 pixels from left and top
-var distance_from_camera = 1.0  # Adjust this value as needed
-var hud_gap = 50
-
 func select_next_disc():
 	# TODO: Recursively check if disc is in bag
 	selected_disc += 1
 	if selected_disc > 3:
-		selected_disc = 1
-
-func add_disc_to_bag(disc):
-	if !camera and Player.Tripod.Camera:
-		camera = Player.Tripod.Camera
-	var screen_size = get_viewport().size
-	screen_position = Vector2(50 + (hud_gap * disc.index), screen_size.y - 50)
-	# Project a ray from the camera into the world
-	var from = camera.project_ray_origin(screen_position)
-	var to = from + camera.project_ray_normal(screen_position) * distance_from_camera
-	# Set the position of this node
-	disc.global_transform.origin = to
-	# Make the object perpendicular to the camera direction
-	var camera_forward = -camera.global_transform.basis.z
-	var up_vector = camera_forward
-	var right_vector = camera_forward.cross(Vector3.UP).normalized()
-	var forward_vector = up_vector.cross(right_vector).normalized()
-	# Set rotation and scale
-	disc.global_transform.basis = Basis(right_vector, up_vector, forward_vector)
-	disc.scale = Vector3(0.25, 0.25, 0.25)
+		selected_disc = 1_
 
 func save_game(profile): $SaveController.save_game(profile)
 func load_game(profile): $SaveController.load_game(profile)
@@ -107,3 +64,22 @@ func store_disc_in_bag(disc):
 	print(disc, 'from global going to bag')
 	
 	 
+
+# TODO: Might be useful
+#func get_nearest_object(origin: Node3D, group: String) -> Node3D:
+	#var objects_in_group = get_tree().get_nodes_in_group(group)
+	#
+	#if objects_in_group.is_empty():
+		#return null
+	#
+	#var nearest_object: Node3D = null
+	#var min_distance: float = INF
+	#
+	#for obj in objects_in_group:
+		#if obj is Node3D:
+			#var distance = origin.global_position.distance_to(obj.global_position)
+			#if distance < min_distance:
+				#min_distance = distance
+				#nearest_object = obj
+	#
+	#return nearest_object

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://bbbgk7rneuuua"]
 
-[ext_resource type="Script" path="res://Objects/Disc/Mesh/MeshInstance3D.gd" id="2_5w8kj"]
+[ext_resource type="Script" path="res://Objects/Disc/Mesh/disc_design.gd" id="2_5w8kj"]
 
 [sub_resource type="Gradient" id="Gradient_vuybx"]
 offsets = PackedFloat32Array(0.124088, 0.240876, 0.49635, 0.642336, 0.781022, 0.868613, 0.970803)

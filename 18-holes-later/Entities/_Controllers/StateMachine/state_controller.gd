@@ -3,11 +3,10 @@ extends Node
 
 @onready var state_current := $Idle
 var state_next: String = "Idle"
-var state_suffix: String = ""
 var state_options: Array[String]
 var popup_state: String 
 
-func _process(_delta):
+func _process(delta):
 	if popup_state  != "": 
 		state_next = popup_state
 		popup_state = ""
@@ -15,7 +14,8 @@ func _process(_delta):
 	if state_current.name != state_next:
 		_change_state(state_next)
 	
-	state_current.update_state()
+	#if get_parent() == Global.Player: print(state_current.name)
+	state_current.update_state(delta)
 
 func _change_state(next: String):
 	for state in get_children():
@@ -23,4 +23,4 @@ func _change_state(next: String):
 			state_current = state
 			state_current.init_state()
 			return
-	#print_debug("State Not Set: " + state_next + " : " + next)
+	print_debug("State Not Set: " + state_next + " : " + next)

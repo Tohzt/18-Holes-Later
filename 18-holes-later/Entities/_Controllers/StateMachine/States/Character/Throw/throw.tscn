@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5y6r3625xfy1"]
+
+[ext_resource type="Script" path="res://Entities/_Controllers/StateMachine/States/Character/Throw/throw.gd" id="1_2y303"]
+
+[node name="Throw" type="Node"]
+script = ExtResource("1_2y303")

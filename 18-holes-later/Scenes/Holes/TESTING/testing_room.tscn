@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=68 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
+[ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="1_ogoy1"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="2_ldg4q"]
 [ext_resource type="Texture2D" uid="uid://dnhu4n0gdbnoa" path="res://Scenes/Holes/TESTING/src/checker_black_512x512.png" id="3_gue81"]
@@ -9,7 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bpxxq8qh0ftxt" path="res://Scenes/Holes/TESTING/src/grid_cyan_512x512.png" id="6_jfdvq"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="7_llovg"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Global/tee_box.tscn" id="8_1k3xo"]
+[ext_resource type="PackedScene" uid="uid://c7xne0byhx4ij" path="res://Objects/vehicles/golf_cart.tscn" id="9_5mk3v"]
+[ext_resource type="PackedScene" uid="uid://dlysw7emvqme" path="res://Objects/Baggy/baggy.tscn" id="9_o5b6i"]
 [ext_resource type="PackedScene" uid="uid://dpuj70awtoml4" path="res://Entities/Enemy/enemy.tscn" id="9_y6gln"]
+[ext_resource type="PackedScene" uid="uid://bu8ykyg2w8l1a" path="res://Objects/Trees/tree_2.tscn" id="13_pt36r"]
+[ext_resource type="PackedScene" uid="uid://qotkk6uroiib" path="res://Objects/Trees/tree_1.tscn" id="14_0bgg8"]
+[ext_resource type="PackedScene" uid="uid://6vvs3r4plfug" path="res://Objects/Trees/tree_3.tscn" id="17_600hj"]
+[ext_resource type="PackedScene" uid="uid://bp0dwdqxaqxx8" path="res://Structures/castle.tscn" id="19_c5brw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
 panorama = ExtResource("1_bebql")
@@ -22,6 +29,21 @@ background_mode = 2
 sky = SubResource("Sky_6fqx5")
 tonemap_mode = 2
 glow_enabled = true
+glow_hdr_luminance_cap = 27.21
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rsvbg"]
+load_path = "res://.godot/imported/grid_orange_512x512.png-362bcde55020129d5154d444386242a9.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1di0"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.290196)
+albedo_texture = SubResource("CompressedTexture2D_rsvbg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_w6nuq"]
+material = SubResource("StandardMaterial3D_w1di0")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7elih"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjf8s"]
 albedo_texture = ExtResource("3_gue81")
@@ -192,13 +214,100 @@ size = Vector3(10, 10, 100.29)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwy72"]
 size = Vector3(120, 10, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t2aht"]
-size = Vector3(10, 10, 10)
+[sub_resource type="BoxShape3D" id="BoxShape3D_xaq0j"]
+size = Vector3(1, 3, 187)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4bjpv"]
-size = Vector3(10, 10, 10)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6rrgp"]
+load_path = "res://.godot/imported/checker_black_512x512.png-512ccaffc451f96bfac4676d013a4103.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylji8"]
+albedo_texture = SubResource("CompressedTexture2D_6rrgp")
+uv1_offset = Vector3(0, 0.5, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_yxunq"]
+material = SubResource("StandardMaterial3D_ylji8")
+size = Vector3(1, 3, 187)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tc65e"]
+size = Vector3(500, 3, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jskes"]
+load_path = "res://.godot/imported/checker_black_512x512.png-512ccaffc451f96bfac4676d013a4103.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu54u"]
+albedo_texture = SubResource("CompressedTexture2D_jskes")
+uv1_offset = Vector3(0, 0.5, 0)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_4s1yl"]
+material = SubResource("StandardMaterial3D_hu54u")
+size = Vector3(500, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jtriu"]
+size = Vector3(500, 1, 33)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_673b4"]
+load_path = "res://.godot/imported/grid_cyan_512x512.png-73d852a12f6fcd4d17d8e7c05d86abe8.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5hwl"]
+albedo_color = Color(0, 0.717968, 0.172183, 1)
+albedo_texture = SubResource("CompressedTexture2D_673b4")
+uv1_offset = Vector3(0, 0, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_eipdu"]
+material = SubResource("StandardMaterial3D_i5hwl")
+size = Vector3(500, 1, 33)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5otb"]
+size = Vector3(500, 1, 33)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mx8ov"]
+albedo_texture = ExtResource("4_cgeik")
+uv1_offset = Vector3(0, 0, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_du1ub"]
+material = SubResource("StandardMaterial3D_mx8ov")
+size = Vector3(500, 1, 33)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5u11"]
+size = Vector3(500, 1, 99)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2c13l"]
+load_path = "res://.godot/imported/grid_orange_512x512.png-362bcde55020129d5154d444386242a9.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_be1sw"]
+albedo_texture = SubResource("CompressedTexture2D_2c13l")
+uv1_offset = Vector3(0, 0, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_pcvhw"]
+material = SubResource("StandardMaterial3D_be1sw")
+size = Vector3(500, 1, 99)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnp1f"]
+size = Vector3(500, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnx77"]
+albedo_texture = ExtResource("3_gue81")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0bv70"]
+material = SubResource("StandardMaterial3D_rnx77")
+size = Vector3(500, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0ans"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.290196)
+albedo_texture = ExtResource("5_c5cw1")
+
+[sub_resource type="BoxMesh" id="BoxMesh_6pasj"]
+material = SubResource("StandardMaterial3D_c0ans")
 
 [node name="TestRoom" type="Node3D"]
+script = ExtResource("1_bjwii")
 
 [node name="Save" parent="." instance=ExtResource("1_ogoy1")]
 is_course = true
@@ -213,80 +322,22 @@ environment = SubResource("Environment_u3xmk")
 [node name="Player_Spawn" parent="." instance=ExtResource("2_ldg4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.90053, 0)
 
-[node name="Testing_Room" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="Plane" type="MeshInstance3D" parent="Testing_Room"]
-transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("ArrayMesh_k54hf")
-skeleton = NodePath("")
-
-[node name="Plane_001" type="MeshInstance3D" parent="Testing_Room"]
-transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("ArrayMesh_f7h24")
-skeleton = NodePath("")
-
-[node name="Plane_002" type="MeshInstance3D" parent="Testing_Room"]
-transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("ArrayMesh_p6030")
-skeleton = NodePath("")
-
-[node name="Plane_003" type="MeshInstance3D" parent="Testing_Room"]
-transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("ArrayMesh_5xahd")
-skeleton = NodePath("")
-
-[node name="Floor" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -40.0619)
-shape = SubResource("BoxShape3D_h3jn3")
-
-[node name="Wall" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 6, -50.22)
-shape = SubResource("BoxShape3D_2u1cj")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Testing_Room/Wall"]
-mesh = SubResource("BoxMesh_w6adq")
-skeleton = NodePath("../../Wall2")
-
-[node name="Wall2" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 6, -50.22)
-shape = SubResource("BoxShape3D_ecgbt")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Testing_Room/Wall2"]
-mesh = SubResource("BoxMesh_w6adq")
-
-[node name="Wall3" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 6, -40)
-shape = SubResource("BoxShape3D_kq5eo")
-
-[node name="Wall4" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 6, -40)
-shape = SubResource("BoxShape3D_kq5eo")
-
-[node name="Wall5" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 10.5)
-shape = SubResource("BoxShape3D_fwy72")
-
-[node name="Wall6" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -90.9616)
-shape = SubResource("BoxShape3D_fwy72")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Testing_Room"]
-transform = Transform3D(1, 0, 0, 0, 0.705463, 0.708746, 0, -0.708746, 0.705463, 0, 0, -36.6395)
-shape = SubResource("BoxShape3D_t2aht")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Testing_Room/CollisionShape3D2"]
-mesh = SubResource("BoxMesh_4bjpv")
-skeleton = NodePath("../..")
-
 [node name="Baskets" type="Node" parent="."]
 
 [node name="Basket_02" parent="Baskets" instance=ExtResource("7_llovg")]
-transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -0.342039, 1.96695e-06, -82.5166)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.60518, 0.5, 170.942)
 hole = 2
 
-[node name="Basket_01" parent="Baskets" instance=ExtResource("7_llovg")]
-transform = Transform3D(3.61, 0, 0, 0, 3.61, 0, 0, 0, 3.61, -44.8803, 1.96695e-06, -79.7979)
+[node name="Basket_03" parent="Baskets" instance=ExtResource("7_llovg")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -8.91271, 0.5, 203.943)
+hole = 2
+
+[node name="Basket_04" parent="Baskets" instance=ExtResource("7_llovg")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 39.5568, 15.9893, 249.384)
+hole = 2
+
+[node name="Basket_01" parent="Baskets" groups=["Basket_01"] instance=ExtResource("7_llovg")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -44.9893, 1.72853e-06, -79.9867)
 hole = 1
 
 [node name="TeeBox" parent="." instance=ExtResource("8_1k3xo")]
@@ -314,3 +365,207 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.796, 0, -50.141)
 
 [node name="Enemy7" parent="Enemies" instance=ExtResource("9_y6gln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8876, 0, -45.8101)
+
+[node name="Testing" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="GolfCart2" parent="Testing" instance=ExtResource("9_5mk3v")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.99725, 1.54456, -16.9198)
+
+[node name="Teleport_Testing" type="Area3D" parent="Testing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 8)
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Testing/Teleport_Testing"]
+mesh = SubResource("BoxMesh_w6nuq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Testing/Teleport_Testing"]
+shape = SubResource("ConcavePolygonShape3D_7elih")
+
+[node name="Testing_Room" type="StaticBody3D" parent="Testing" groups=["Solid"]]
+
+[node name="Plane" type="MeshInstance3D" parent="Testing/Testing_Room"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("ArrayMesh_k54hf")
+skeleton = NodePath("")
+
+[node name="Plane_001" type="MeshInstance3D" parent="Testing/Testing_Room"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("ArrayMesh_f7h24")
+skeleton = NodePath("")
+
+[node name="Plane_002" type="MeshInstance3D" parent="Testing/Testing_Room"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("ArrayMesh_p6030")
+skeleton = NodePath("")
+
+[node name="Plane_003" type="MeshInstance3D" parent="Testing/Testing_Room"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5xahd")
+skeleton = NodePath("")
+
+[node name="Floor" type="CollisionShape3D" parent="Testing/Testing_Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -40.0619)
+shape = SubResource("BoxShape3D_h3jn3")
+
+[node name="Wall" type="CollisionShape3D" parent="Testing/Testing_Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 6, -50.22)
+shape = SubResource("BoxShape3D_2u1cj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Testing/Testing_Room/Wall"]
+mesh = SubResource("BoxMesh_w6adq")
+skeleton = NodePath("../../Wall2")
+
+[node name="Wall2" type="CollisionShape3D" parent="Testing/Testing_Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 6, -50.22)
+shape = SubResource("BoxShape3D_ecgbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Testing/Testing_Room/Wall2"]
+mesh = SubResource("BoxMesh_w6adq")
+
+[node name="Wall3" type="CollisionShape3D" parent="Testing/Testing_Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 6, -40)
+shape = SubResource("BoxShape3D_kq5eo")
+
+[node name="Wall4" type="CollisionShape3D" parent="Testing/Testing_Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 6, -40)
+shape = SubResource("BoxShape3D_kq5eo")
+
+[node name="Wall5" type="CollisionShape3D" parent="Testing/Testing_Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 10.5)
+shape = SubResource("BoxShape3D_fwy72")
+
+[node name="Wall6" type="CollisionShape3D" parent="Testing/Testing_Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -90.9616)
+shape = SubResource("BoxShape3D_fwy72")
+
+[node name="Structures" type="Node3D" parent="Testing"]
+
+[node name="Castle" parent="Testing/Structures" instance=ExtResource("19_c5brw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.0025, 1, -10.1179)
+
+[node name="Castle2" parent="Testing/Structures" instance=ExtResource("19_c5brw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.988, 1, -10.1179)
+
+[node name="Castle3" parent="Testing/Structures" instance=ExtResource("19_c5brw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.1237, 1, -10.1179)
+
+[node name="Castle4" parent="Testing/Structures" instance=ExtResource("19_c5brw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.0812, 1, -10.1179)
+
+[node name="Things" type="Node3D" parent="Testing"]
+
+[node name="Baggy" parent="Testing/Things" instance=ExtResource("9_o5b6i")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.00419, 1, -24.8886)
+
+[node name="Driving_Range" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 128)
+
+[node name="Wall_Left" type="CollisionShape3D" parent="Driving_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.5, 2, 82.5)
+shape = SubResource("BoxShape3D_xaq0j")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Driving_Range/Wall_Left"]
+mesh = SubResource("BoxMesh_yxunq")
+skeleton = NodePath("../..")
+
+[node name="Wall_Right" type="CollisionShape3D" parent="Driving_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250.507, 2, 82.5)
+shape = SubResource("BoxShape3D_xaq0j")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Driving_Range/Wall_Right"]
+mesh = SubResource("BoxMesh_yxunq")
+skeleton = NodePath("../..")
+
+[node name="BackWall" type="CollisionShape3D" parent="Driving_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.008, -10.5)
+shape = SubResource("BoxShape3D_tc65e")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Driving_Range/BackWall"]
+mesh = SubResource("BoxMesh_4s1yl")
+skeleton = NodePath("../..")
+
+[node name="FarWall" type="CollisionShape3D" parent="Driving_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.008, 175.5)
+shape = SubResource("BoxShape3D_tc65e")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Driving_Range/FarWall"]
+mesh = SubResource("BoxMesh_4s1yl")
+skeleton = NodePath("../..")
+
+[node name="100f" type="CollisionShape3D" parent="Driving_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.5)
+shape = SubResource("BoxShape3D_jtriu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Driving_Range/100f"]
+mesh = SubResource("BoxMesh_eipdu")
+skeleton = NodePath("../..")
+
+[node name="200f" type="CollisionShape3D" parent="Driving_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 59.5)
+shape = SubResource("BoxShape3D_e5otb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Driving_Range/200f"]
+mesh = SubResource("BoxMesh_du1ub")
+skeleton = NodePath("../..")
+
+[node name="300f" type="CollisionShape3D" parent="Driving_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 125.5)
+shape = SubResource("BoxShape3D_i5u11")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Driving_Range/300f"]
+mesh = SubResource("BoxMesh_pcvhw")
+skeleton = NodePath("../..")
+
+[node name="StartingFloor" type="CollisionShape3D" parent="Driving_Range"]
+shape = SubResource("BoxShape3D_qnp1f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Driving_Range/StartingFloor"]
+mesh = SubResource("BoxMesh_0bv70")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Driving_Range"]
+shape = SubResource("BoxShape3D_qnp1f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Driving_Range/CollisionShape3D"]
+mesh = SubResource("BoxMesh_0bv70")
+skeleton = NodePath("../..")
+
+[node name="Teleport_Range" type="Area3D" parent="Driving_Range"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Driving_Range/Teleport_Range"]
+mesh = SubResource("BoxMesh_6pasj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Driving_Range/Teleport_Range"]
+shape = SubResource("ConcavePolygonShape3D_7elih")
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree_3D_2" parent="Trees" instance=ExtResource("13_pt36r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -62)
+
+[node name="Tree_3D_3" parent="Trees" instance=ExtResource("13_pt36r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5158, 0, -65.669)
+
+[node name="Tree_3D_4" parent="Trees" instance=ExtResource("13_pt36r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5349, 0, -78.0779)
+
+[node name="Tree_3D" parent="Trees" instance=ExtResource("14_0bgg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1097, -3.8147e-06, -33.5978)
+
+[node name="Tree_3D2" parent="Trees" instance=ExtResource("14_0bgg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0682, -7.62939e-06, -25.9455)
+
+[node name="Tree_3D3" parent="Trees" instance=ExtResource("14_0bgg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6631, -1.14441e-05, -39.3169)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("17_600hj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.3532, 0, -25.6697)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("17_600hj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.9104, 0, -68.2517)
+
+[connection signal="body_entered" from="Testing/Teleport_Testing" to="." method="_on_teleport_testing_body_entered"]
+[connection signal="body_entered" from="Driving_Range/Teleport_Range" to="." method="_on_teleport_range_body_entered"]
