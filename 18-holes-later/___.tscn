@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://chpmpo8x64u17"]
-
-[ext_resource type="PackedScene" path="res://Entities/Character/Layla/src/animation_tree.tscn" id="1_0gvjo"]
-
-[node name="AnimationTree" instance=ExtResource("1_0gvjo")]
