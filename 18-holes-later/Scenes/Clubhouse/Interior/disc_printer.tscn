@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca0ymm74alma0"]
+
+[ext_resource type="PackedScene" uid="uid://clp180lcygwms" path="res://Scenes/Clubhouse/src/Interior/DiscPrinter.fbx" id="1_0a405"]
+[ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/gem_machine.gd" id="2_xf7y6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_556fc"]
+size = Vector3(2.45752, 1.93542, 2.80774)
+
+[node name="DiscPrinter" instance=ExtResource("1_0a405")]
+
+[node name="OIG1 (12)" parent="." index="0"]
+transform = Transform3D(132.066, 0, 0, 0, 132.066, -5.77281e-06, 0, 5.77281e-06, 132.066, -0.0183887, 0.422021, -0.168477)
+
+[node name="AreaBody3d" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaBody3d" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119886, 1.01965, 1.37319)
+shape = SubResource("BoxShape3D_556fc")
+script = ExtResource("2_xf7y6")
+
+[connection signal="body_entered" from="AreaBody3d" to="AreaBody3d/CollisionShape3D" method="_on_area_body_3d_body_entered"]
+[connection signal="body_exited" from="AreaBody3d" to="AreaBody3d/CollisionShape3D" method="_on_area_body_3d_body_exited"]

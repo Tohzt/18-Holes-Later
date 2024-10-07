@@ -14,7 +14,7 @@ var HUD: HUD_Class
 var Current_Hole: PackedScene
 var Active_Hole: Node3D
 var Hole_Name: String = ""
-var Player: Entity
+var Player: Entity_Character
 var Profile: String = ""
 var should_load: bool = false
 var _temp_bag: Array[Disc]

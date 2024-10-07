@@ -2,7 +2,6 @@ extends VBoxContainer
 
 var DiscButton: PackedScene = preload("res://Scenes/Clubhouse/DiscWorkbench/DiscCardButton.tscn")
 var slots:int = 68
-signal testSignal
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var discs = await getResources()
@@ -16,8 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Input.is_action_just_pressed("interact")):
-		testSignal.emit()
+	
 	pass
 
 func getResources ():

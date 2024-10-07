@@ -26,4 +26,5 @@ script = ExtResource("6_gx0c0")
 [node name="HUD" parent="." instance=ExtResource("7_iorvm")]
 
 [node name="DiscSelector" parent="." instance=ExtResource("7_sc87q")]
+visible = false
 script = ExtResource("7_hjbhc")

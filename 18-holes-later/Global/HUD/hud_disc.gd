@@ -1,7 +1,7 @@
 extends Control
 class_name hud_disc
 
-@export_range (1,3) var slot: int = 1
+@export_range (1,7) var slot: int = 1
 @onready var label: Label       = $Disc_Label
 @onready var disc:  TextureRect = $Disc_Sprite
 @onready var gradient: Gradient = disc.texture.gradient
@@ -9,6 +9,7 @@ class_name hud_disc
 var has_disc = false
 
 func _process(_delta):
+	if (!Global.Player.Bag.discs.size() > slot): return
 	label.text = Global.Player.Bag.discs[slot-1].disc_details.disc_type[0]
 	if slot == Global.selected_disc:
 		gradient.set_color(0, Color.RED)
