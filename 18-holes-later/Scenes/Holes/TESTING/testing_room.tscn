@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=66 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
@@ -15,8 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dpuj70awtoml4" path="res://Entities/Enemy/enemy.tscn" id="9_y6gln"]
 [ext_resource type="PackedScene" uid="uid://bu8ykyg2w8l1a" path="res://Objects/Trees/tree_2.tscn" id="13_pt36r"]
 [ext_resource type="PackedScene" uid="uid://qotkk6uroiib" path="res://Objects/Trees/tree_1.tscn" id="14_0bgg8"]
-[ext_resource type="PackedScene" uid="uid://6vvs3r4plfug" path="res://Objects/Trees/tree_3.tscn" id="17_600hj"]
-[ext_resource type="PackedScene" uid="uid://bp0dwdqxaqxx8" path="res://Structures/castle.tscn" id="19_c5brw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
 panorama = ExtResource("1_bebql")
@@ -340,9 +338,6 @@ hole = 2
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -44.9893, 1.72853e-06, -79.9867)
 hole = 1
 
-[node name="TeeBox" parent="." instance=ExtResource("8_1k3xo")]
-tee_number = 1
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("9_y6gln")]
@@ -368,6 +363,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8876, 0, -45.8101)
 
 [node name="Testing" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="TeeBox" parent="Testing" instance=ExtResource("8_1k3xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.0509, 0.605061, -14.9603)
+tee_number = 1
 
 [node name="GolfCart2" parent="Testing" instance=ExtResource("9_5mk3v")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.99725, 1.54456, -16.9198)
@@ -438,20 +437,6 @@ shape = SubResource("BoxShape3D_fwy72")
 [node name="Wall6" type="CollisionShape3D" parent="Testing/Testing_Room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -90.9616)
 shape = SubResource("BoxShape3D_fwy72")
-
-[node name="Structures" type="Node3D" parent="Testing"]
-
-[node name="Castle" parent="Testing/Structures" instance=ExtResource("19_c5brw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.0025, 1, -10.1179)
-
-[node name="Castle2" parent="Testing/Structures" instance=ExtResource("19_c5brw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29.988, 1, -10.1179)
-
-[node name="Castle3" parent="Testing/Structures" instance=ExtResource("19_c5brw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.1237, 1, -10.1179)
-
-[node name="Castle4" parent="Testing/Structures" instance=ExtResource("19_c5brw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.0812, 1, -10.1179)
 
 [node name="Things" type="Node3D" parent="Testing"]
 
@@ -560,12 +545,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0682, -7.62939e-06, -25.94
 
 [node name="Tree_3D3" parent="Trees" instance=ExtResource("14_0bgg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6631, -1.14441e-05, -39.3169)
-
-[node name="Tree3" parent="Trees" instance=ExtResource("17_600hj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.3532, 0, -25.6697)
-
-[node name="Tree4" parent="Trees" instance=ExtResource("17_600hj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.9104, 0, -68.2517)
 
 [connection signal="body_entered" from="Testing/Teleport_Testing" to="." method="_on_teleport_testing_body_entered"]
 [connection signal="body_entered" from="Driving_Range/Teleport_Range" to="." method="_on_teleport_range_body_entered"]

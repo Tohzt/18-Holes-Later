@@ -48,7 +48,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1ojvu")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0m4vm"]
-load_path = "res://.godot/imported/basket2_OIG2 (20).png-491353ce3f9f5459000be231fc58bec3.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xx0jv"]
 resource_name = "OIG2 (20)"
@@ -127,10 +126,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mpll5")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hplph"]
-load_path = "res://.godot/imported/basket2_Chainlinker.png-587b5b57f58e7d16fdd15487dda0289a.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ty3bf"]
-load_path = "res://.godot/imported/basket2_Chainlinker_n.png-5cff0bc23c839b4a60b5eb15cb658c2d.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vg788"]
 resource_name = "Chainlinker"

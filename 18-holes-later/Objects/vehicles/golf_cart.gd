@@ -71,7 +71,6 @@ func _enter_vehicle(collision):
 	Global.Player.set_collision_mask_value(6,false)
 	has_driver = true
 	accepts_input = true
-	$LayaInCart.show()
 
 func _exit_vehicle(collision):
 	collision.in_vehicle = null
@@ -80,4 +79,3 @@ func _exit_vehicle(collision):
 	Global.Player.set_collision_mask_value(6,true)
 	has_driver = false
 	accepts_input = false
-	$LayaInCart.hide()
