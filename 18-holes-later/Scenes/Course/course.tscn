@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cps8t8jud0qmb"]
+[gd_scene load_steps=9 format=3 uid="uid://cps8t8jud0qmb"]
 
 [ext_resource type="Script" path="res://Scenes/Course/course.gd" id="1_wfw1c"]
 [ext_resource type="Script" path="res://Scenes/Course/Holes.gd" id="4_u2s0u"]
 [ext_resource type="PackedScene" uid="uid://2qqrnls6qqtk" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="5_dkybb"]
 [ext_resource type="PackedScene" uid="uid://i30yt8hxuh12" path="res://Scenes/Gem_Overlay/Gem_Overlay.tscn" id="6_05crr"]
 [ext_resource type="Script" path="res://Scenes/Course/EnemiesContainer.gd" id="6_gx0c0"]
+[ext_resource type="Script" path="res://Scenes/Course/disc_selector_root.gd" id="7_hjbhc"]
 [ext_resource type="PackedScene" uid="uid://5xh0ditfqv66" path="res://Global/HUD/hud.tscn" id="7_iorvm"]
+[ext_resource type="PackedScene" uid="uid://b1flq11c6t3up" path="res://Scenes/Clubhouse/DiscWorkbench/DiscSelector.tscn" id="7_sc87q"]
 
 [node name="Course" type="Node3D"]
 script = ExtResource("1_wfw1c")
@@ -16,8 +18,12 @@ script = ExtResource("4_u2s0u")
 [node name="Pause_Menu" parent="." instance=ExtResource("5_dkybb")]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_05crr")]
+visible = false
 
 [node name="EnemiesContainer" type="Node" parent="." groups=["EnemyContainer"]]
 script = ExtResource("6_gx0c0")
 
 [node name="HUD" parent="." instance=ExtResource("7_iorvm")]
+
+[node name="DiscSelector" parent="." instance=ExtResource("7_sc87q")]
+script = ExtResource("7_hjbhc")
