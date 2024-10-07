@@ -1,12 +1,13 @@
+class_name disc_bag
 extends Node
 
 # Disc Properties
 var disc_limit = 1
 var game_disc_index: int = 0
-var bag_of_discs: Array = [
-	["Cold Stone","Putter",2,2,-1,0],
-	["Midrock","Hybrid",5,4,0,3],
-	["Innova Boss","Driver",13,5,-1,3]]
+var bag_of_discs: Array = []
+	#["Cold Stone","Putter",2,2,-1,0],
+	#["Midrock","Hybrid",5,4,0,3],
+	#["Innova Boss","Driver",13,5,-1,3]]
 var discs: Array[RigidBody3D]
 
 func _ready():
@@ -38,3 +39,14 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("tab"):
 		Global.select_next_disc()
+
+
+func create_disc(_disc:Disc):
+	print(_disc)
+	var new_disc = Global.Refs.DISC.instantiate()
+	new_disc.index = discs.size()+1
+	new_disc.in_bag = true
+	new_disc.position = get_parent().position
+	new_disc.position.y = get_parent().position.y - 10
+	discs.append(new_disc)
+	add_child(new_disc)

@@ -3,7 +3,7 @@ extends Entity
  
 @onready var start_pos = position
 @onready var Hand = $Hand
-@onready var Bag = $Bag
+@onready var Bag:disc_bag = $Bag
 
 var game_disc_index: int = 0
 

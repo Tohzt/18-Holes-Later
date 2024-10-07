@@ -1,4 +1,4 @@
-[gd_scene load_steps=261 format=4 uid="uid://be188bor4mic4"]
+[gd_scene load_steps=262 format=4 uid="uid://be188bor4mic4"]
 
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="1_wqyhj"]
 [ext_resource type="Texture2D" uid="uid://dtlrwiavyjwyr" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (5).png" id="2_2j6nl"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bogx3i3c5akk" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (14).png" id="29_a2fku"]
 [ext_resource type="Texture2D" uid="uid://bpw07b7jwn4wc" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1_28.png" id="30_w4mi0"]
 [ext_resource type="PackedScene" uid="uid://mac6t0w181ou" path="res://Scenes/Clubhouse/Interior/gem_machine.tscn" id="31_86407"]
+[ext_resource type="PackedScene" uid="uid://ca0ymm74alma0" path="res://Scenes/Clubhouse/Interior/disc_printer.tscn" id="32_tof5c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy3jc"]
 resource_name = "OIG1 (5)"
@@ -4038,5 +4039,8 @@ shape = SubResource("BoxShape3D_dn54x")
 
 [node name="GemMachine" parent="." instance=ExtResource("31_86407")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49115, 0, -1.66453)
+
+[node name="DiscPrinter" parent="." instance=ExtResource("32_tof5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62443, 0.661156, -2.07341)
 
 [editable path="GemMachine"]

@@ -19,7 +19,9 @@ func _on_button_pressed():
 	create_gem()
 	print("you clicked me")
 	print($Button.text)
-	Global.store_disc_in_bag($Button.text)
+	#Global.store_disc_in_bag($Button.text) 
+	Global.Player.Bag.create_disc(Disc.new())
+	print(Global.Player.Bag.discs)
 
 func create_gem ():
 	var gem = preload("res://Objects/Gems/Gems.gd").new()
