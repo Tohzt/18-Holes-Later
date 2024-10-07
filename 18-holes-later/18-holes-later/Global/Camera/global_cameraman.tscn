@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv2ohpxmex2bl"]
+
+[ext_resource type="Script" path="res://Global/Camera/global_cameraman.gd" id="1_xcb3c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7naha"]
+radius = 0.264958
+
+[node name="Global_Cameraman" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_xcb3c")
+
+[node name="Tripod" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.83867, 0.544639, 0, -0.544639, 0.83867, 0, 0, 0)
+spring_length = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="Tripod" groups=["Camera"]]
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7naha")

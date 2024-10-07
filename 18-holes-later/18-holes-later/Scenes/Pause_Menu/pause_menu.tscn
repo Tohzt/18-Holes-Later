@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=3 uid="uid://2qqrnls6qqtk"]
+
+[ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_menu.gd" id="1_c82d8"]
+[ext_resource type="Texture2D" uid="uid://bojls6d0ucddj" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="2_l8vn1"]
+[ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_header.gd" id="3_adi3j"]
+[ext_resource type="Script" path="res://Scenes/Pause_Menu/btn_settings.gd" id="3_du1g1"]
+[ext_resource type="Script" path="res://Scenes/Pause_Menu/settings.gd" id="4_6oy5w"]
+[ext_resource type="Texture2D" uid="uid://dhw4no2ewyj6l" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small_bw.png" id="5_e3qe8"]
+
+[node name="Pause_Menu" type="Control" groups=["Pause Menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_c82d8")
+
+[node name="PauseHeader" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 316.0
+offset_right = -316.0
+offset_bottom = 92.0
+grow_horizontal = 2
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("2_l8vn1")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+script = ExtResource("3_adi3j")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Btn_Resume" type="Button" parent="PauseHeader/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Resume"
+
+[node name="Btn_Retry" type="Button" parent="PauseHeader/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Reset"
+
+[node name="Btn_Settings" type="Button" parent="PauseHeader/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Settings"
+script = ExtResource("3_du1g1")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseHeader/HBoxContainer/Btn_Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = 69.5
+offset_right = 85.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Btn_Save" type="Button" parent="PauseHeader/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Save"
+
+[node name="Btn_Exit" type="Button" parent="PauseHeader/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit Game"
+
+[node name="Settings" type="NinePatchRect" parent="."]
+modulate = Color(1, 1, 1, 0.713726)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -307.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_e3qe8")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+script = ExtResource("4_6oy5w")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 33
+theme_override_constants/margin_top = 33
+theme_override_constants/margin_right = 33
+theme_override_constants/margin_bottom = 33
+
+[node name="Settings" type="VBoxContainer" parent="Settings/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="Label_DebugSettings" type="Label" parent="Settings/MarginContainer/Settings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "--- Settings ---"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Resume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Retry" to="." method="_on_btn_retry_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Settings" to="PauseHeader/HBoxContainer/Btn_Settings" method="_on_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Save" to="." method="_on_btn_save_pressed"]
+[connection signal="pressed" from="PauseHeader/HBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
