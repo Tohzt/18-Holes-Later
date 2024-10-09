@@ -1,6 +1,4 @@
-extends Control
-<<<<<<< HEAD:18-holes-later/18-holes-later/Scenes/Course/disc_selector_root.gd
-=======
+extends Popup
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,4 +9,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
->>>>>>> 60f5ee911de65afccbd9591872885f10dc656b24:18-holes-later/Scenes/Course/disc_selector_root.gd
+
+
+func _on_button_pressed():
+	show()
+	pass # Replace with function body.

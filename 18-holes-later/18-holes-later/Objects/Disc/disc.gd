@@ -5,7 +5,9 @@ extends RigidBody3D
 var index = 1
 @export var disc_name = ""
 @export var disc_type = ""
+@export var disc_details = ""
 @export var stats = {
+	
 	"Speed": 0,  # (1-14) Minimum power to throw stable
 	"Glide": 0,  # (1-7)  How long it stays in the air (gravity delta)
 	"Turn":  0,  # (1--5) Expected distance before curve at perfect speed
@@ -30,6 +32,14 @@ var target_dir: Vector3
 var power: float
 var power_resist: float
 var handedness = 1
+#
+func _ready():
+	disc_details = load("res://Objects/Disc/disc_1.tres")
+	stats = disc_details.stats
+	#print(disc_details.disc_name)
+	#print(disc_details.disc_type)
+	print(stats)
+	pass
 
 func _launch_disc():
 	takeoff_pos = position
@@ -47,6 +57,7 @@ func _launch_disc():
 	impulse *= -target_dir
 	apply_central_impulse(impulse)
 
+		
 func _process(_delta):
 	if launch:
 		show()

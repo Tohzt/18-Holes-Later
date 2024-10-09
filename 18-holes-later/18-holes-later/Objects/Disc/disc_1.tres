@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Disc_Stats" load_steps=2 format=3 uid="uid://bsii2np55c35v"]
+
+[ext_resource type="Script" path="res://Objects/Disc/disc_stats.gd" id="1_wi6rx"]
+
+[resource]
+script = ExtResource("1_wi6rx")
+slot = 3
+disc_name = "PutPut"
+disc_type = "Putter"
+stats = {
+"Fade": 2,
+"Glide": 4,
+"Resistance": 0.5,
+"Speed": 5,
+"Turn": 0
+}

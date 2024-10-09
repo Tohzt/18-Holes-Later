@@ -11,9 +11,10 @@ var HUD: HUD_Class
 var Current_Hole: PackedScene
 var Active_Hole: Node3D
 var Hole_Name: String = ""
-var Player: Entity
+var Player: Entity_Character
 var Profile: String = ""
 var should_load: bool = false
+var _temp_bag: Array[Disc]
 
 var game_on = false
 var hole_over = false
@@ -56,6 +57,10 @@ func select_next_disc():
 func save_game(profile): $SaveController.save_game(profile)
 func load_game(profile): $SaveController.load_game(profile)
 
+func store_disc_in_bag(disc):
+	print(disc, 'from global going to bag')
+	
+	 
 
 # TODO: Might be useful
 #func get_nearest_object(origin: Node3D, group: String) -> Node3D:
