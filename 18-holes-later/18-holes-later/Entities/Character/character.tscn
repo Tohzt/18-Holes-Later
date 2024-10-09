@@ -1,0 +1,72 @@
+[gd_scene load_steps=14 format=3 uid="uid://mgaxgwqsomw8"]
+
+[ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_6qoy3"]
+[ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
+[ext_resource type="PackedScene" uid="uid://bqr7m241m0ewj" path="res://Entities/Character/Layla/anim_layla.tscn" id="3_d4gnj"]
+[ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="4_6kuy8"]
+[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="4_lwxmm"]
+[ext_resource type="PackedScene" uid="uid://c5y6r3625xfy1" path="res://Entities/_Controllers/StateMachine/States/Character/Throw/throw.tscn" id="5_0ow1w"]
+[ext_resource type="PackedScene" uid="uid://dnj5vxhpa2l5n" path="res://Entities/_Controllers/StateMachine/States/Character/Combat/attack.tscn" id="5_y063u"]
+[ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/Walk/walk.tscn" id="6_o7hwu"]
+[ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/Idle/idle.tscn" id="7_1kgre"]
+[ext_resource type="PackedScene" uid="uid://by252jyfxak" path="res://Entities/_Controllers/StateMachine/States/Character/Jump/jump.tscn" id="7_02t2y"]
+[ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="10_3uoga"]
+[ext_resource type="Script" path="res://Entities/Character/disc_bag.gd" id="11_li4e1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m2q1k"]
+radius = 0.25
+
+[node name="Character" type="CharacterBody3D" groups=["Character"]]
+collision_layer = 2
+collision_mask = 57
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_6qoy3")
+max_health = null
+health = null
+SPEED = null
+SPEED_MULT = null
+JUMP_FORCE = null
+
+[node name="Save" parent="." instance=ExtResource("2_neyin")]
+is_char = true
+
+[node name="InputController" parent="." instance=ExtResource("4_6kuy8")]
+input_actions = {
+0: {
+0: true,
+1: true,
+2: true
+},
+1: {
+0: false,
+1: false,
+2: false
+}
+}
+
+[node name="StateController" parent="." instance=ExtResource("4_lwxmm")]
+
+[node name="Combat" parent="StateController" instance=ExtResource("5_y063u")]
+
+[node name="Idle" parent="StateController" instance=ExtResource("7_1kgre")]
+
+[node name="Walk" parent="StateController" instance=ExtResource("6_o7hwu")]
+
+[node name="Jump" parent="StateController" instance=ExtResource("7_02t2y")]
+
+[node name="Throw" parent="StateController" instance=ExtResource("5_0ow1w")]
+
+[node name="Anim_Layla" parent="." instance=ExtResource("3_d4gnj")]
+
+[node name="CamFocus" parent="." instance=ExtResource("10_3uoga")]
+
+[node name="Hand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -1.009)
+
+[node name="Bag" type="Node" parent="."]
+script = ExtResource("11_li4e1")
+
+[node name="Character_Base" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("SphereShape3D_m2q1k")
