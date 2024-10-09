@@ -22,10 +22,8 @@ func _process(delta):
 
 func _update_anim(delta):
 	look_dir = Master.input.angle() - PI/2
-	#look_dir = Master.input_dir.y
-	#printt("ALD:",look_dir)
 	if Master.input:
 		prev_look_dir = look_dir
-		rotation.y = lerp_angle(rotation.y, -look_dir, delta*10)
+		rotation.y = lerp_angle(rotation.y, -look_dir, delta*5)
 	else:
 		rotation.y = -prev_look_dir

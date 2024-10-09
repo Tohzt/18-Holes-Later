@@ -18,6 +18,7 @@ enum Action {MOVE, LOOK, ATTACK}
 }
 
 @onready var Master: Node3D = $".."
+var input_move = Vector2.ZERO
 var mouse_motion = null
 var target_rotation = 0.0
 var rotation_speed = 5
@@ -38,14 +39,6 @@ func _process(delta):
 	if input_actions[Character.CART][Action.MOVE]:   _cart_move(delta)
 	if input_actions[Character.CART][Action.LOOK]:   _cart_look(delta)
 	if input_actions[Character.CART][Action.ATTACK]: _cart_attack()
-	
-	#if char_look: _char_look(delta)
-	#if char_move: _char_move()
-	#if char_attk: _char_attk()
-	#
-	#if cart_look: _cart_look(delta)
-	#if cart_move: _cart_move(delta)
-	#if cart_attk: _cart_attk()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -53,10 +46,12 @@ func _input(event):
 
 # Character Inputs
 func _character_move(delta):
+	input_move = Vector2.ZERO
+	Master.input = input_move
 	if Master.can_move:
-		var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		Master.input = input
-		Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input.x, 0, input.y)).normalized(), delta*10)
+		input_move = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		Master.input = input_move
+		Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input_move.x, 0, input_move.y)).normalized(), delta*10)
 	
 	if Master.can_jump and Input.is_action_just_pressed("jump"):
 		Master.is_jumping = true

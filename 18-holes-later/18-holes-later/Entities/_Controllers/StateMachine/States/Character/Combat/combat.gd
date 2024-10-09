@@ -24,6 +24,8 @@ func update_state(_delta):
 			Master.anim_play("Compasso")
 		if current == "Compasso":
 			Master.anim_play("KickUp")
+		if current == "KickUp":
+			Master.anim_play("Cheat720")
 	
 	
 	if !path and current == "Idle":
