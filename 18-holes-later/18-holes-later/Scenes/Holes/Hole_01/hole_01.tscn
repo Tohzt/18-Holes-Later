@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://w1e2pm1t1k53"]
+
+[ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
+[ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
+[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="3_vqgkm"]
+[ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://Structures/clubhouse.tscn" id="4_dpl60"]
+[ext_resource type="PackedScene" uid="uid://lhfvu7ak06vk" path="res://Scenes/Holes/Hole_01/west_fork_low_poly_solid.tscn" id="5_dlb5e"]
+[ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
+[ext_resource type="PackedScene" uid="uid://be188bor4mic4" path="res://Scenes/Clubhouse/Interior/clubhouse_interior.tscn" id="5_qt2g5"]
+[ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
+[ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="9_5d10b"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6mdeq"]
+panorama = ExtResource("3_vqgkm")
+
+[sub_resource type="Sky" id="Sky_qxe1t"]
+sky_material = SubResource("PanoramaSkyMaterial_6mdeq")
+
+[sub_resource type="Environment" id="Environment_t3w5y"]
+background_mode = 2
+sky = SubResource("Sky_qxe1t")
+glow_levels/4 = 1.28
+glow_levels/5 = 1.43
+glow_levels/6 = 1.28
+glow_levels/7 = 0.05
+glow_intensity = 0.45
+glow_strength = 2.0
+glow_blend_mode = 0
+glow_hdr_threshold = 2.87
+glow_hdr_scale = 2.44
+
+[sub_resource type="Curve3D" id="Curve3D_livi7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.64145, -38.5392, -0.559944, 0, 0, 0, 0, 0, 0, 53.6414, -38.4326, 0.440056, 0, 0, 0, 0, 0, 0, 104.641, -38.4326, 16.4401, 0, 0, 0, 0, 0, 0, 139.641, -35.5392, 66.4401, 0, 0, 0, 0, 0, 0, 160.641, -34.4326, 89.4401, 0, 0, 0, 0, 0, 0, 127.641, -37.4326, 145.44, 0, 0, 0, 0, 0, 0, 67.6414, -36.4326, 131.44, 0, 0, 0, 0, 0, 0, -28.3586, -35.4326, 75.4401),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[node name="Hole_01" type="Node3D" groups=["Hole"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.6537, 0)
+script = ExtResource("1_33s3e")
+
+[node name="Save" parent="." instance=ExtResource("2_yx8v2")]
+is_course = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.651671, -0.661777, 0.370642, 0.311576, 0.679076, 0.664662, -0.691552, -0.317658, 0.648728, 0, 6.33541, 0)
+shadow_enabled = true
+directional_shadow_split_1 = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t3w5y")
+
+[node name="WestFork_LowPoly_Solid" parent="." instance=ExtResource("5_dlb5e")]
+
+[node name="Player_Spawn" parent="." instance=ExtResource("5_qt2g5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.061, 105.791, -53.5932)
+
+[node name="Clubhouse" parent="." instance=ExtResource("4_dpl60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 330.36, 9.17747, -52.5087)
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Discs" type="Node3D" parent="."]
+
+[node name="Baskets" type="Node" parent="."]
+
+[node name="Basket_01" parent="Baskets" instance=ExtResource("5_ojvid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 376.083, 3.14481, 17.1338)
+hole = 1
+
+[node name="Basket_02" parent="Baskets" instance=ExtResource("5_ojvid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.62, -0.450616, 81.3673)
+hole = 2
+
+[node name="Basket_03" parent="Baskets" instance=ExtResource("5_ojvid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.373, 4.85102, 59.8148)
+hole = 3
+
+[node name="Basket_04" parent="Baskets" instance=ExtResource("5_ojvid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.598, 2.46683, 50.0044)
+hole = 4
+
+[node name="Basket_05" parent="Baskets" instance=ExtResource("5_ojvid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.544, 3.61746, -27.9846)
+hole = 5
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.359, 46.0412, -82.4401)
+curve = SubResource("Curve3D_livi7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.0192269, -0.00204927, -0.999806, 1.16415e-10, 0.999998, -0.00204964, 0.999808, -3.94089e-05, -0.0192269, 1.64145, -38.5392, -0.559944)
+loop = false
+script = ExtResource("6_fld4g")
+
+[node name="Lightning_Particle" parent="." instance=ExtResource("9_5d10b")]
+one_shot = false

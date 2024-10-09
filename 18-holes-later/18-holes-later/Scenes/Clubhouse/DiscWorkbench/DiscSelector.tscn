@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1flq11c6t3up"]
+
+[ext_resource type="Script" path="res://Scenes/Clubhouse/DiscWorkbench/disc_button_creator.gd" id="1_aiym6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r30om"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="DiscSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 849.0
+offset_right = -303.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -290.0
+offset_right = 250.0
+offset_bottom = 290.0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(300, 600)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HFlowContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HFlowContainer/MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(250, 620)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r30om")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HFlowContainer/MarginContainer/CenterContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+script = ExtResource("1_aiym6")

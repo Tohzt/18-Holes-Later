@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Disc_Stats" load_steps=2 format=3 uid="uid://jpsdqhdhr64o"]
+
+[ext_resource type="Script" path="res://Objects/Disc/disc_stats.gd" id="1_05ui5"]
+
+[resource]
+script = ExtResource("1_05ui5")
+slot = 1
+disc_name = "MidMid"
+disc_type = "MidRange"
+stats = {
+"Fade": 2,
+"Glide": 7,
+"Resistance": 0.5,
+"Speed": 2,
+"Turn": -1
+}

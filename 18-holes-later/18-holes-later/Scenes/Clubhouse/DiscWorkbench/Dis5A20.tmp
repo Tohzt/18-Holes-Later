@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://7v3ybmr25wwd"]
+
+[ext_resource type="Script" path="res://Scenes/Clubhouse/DiscWorkbench/disc_card_button.gd" id="1_43t6h"]
+[ext_resource type="Theme" uid="uid://cf46pf6qj4cfu" path="res://Styles/UI Assets/default_ui_theme.tres" id="1_i4l1e"]
+
+[node name="DiscCard" type="MarginContainer"]
+custom_minimum_size = Vector2(250, 250)
+script = ExtResource("1_43t6h")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_i4l1e")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

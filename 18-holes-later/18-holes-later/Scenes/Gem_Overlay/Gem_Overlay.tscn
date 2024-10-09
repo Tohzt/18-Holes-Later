@@ -1,0 +1,281 @@
+[gd_scene load_steps=7 format=3 uid="uid://i30yt8hxuh12"]
+
+[ext_resource type="Texture2D" uid="uid://b5vivsuksamy" path="res://Scenes/Main_Menu/src/Background.png" id="1_4rvnk"]
+[ext_resource type="Script" path="res://Scenes/Gem_Overlay/Gem_Overlay.gd" id="1_bsbip"]
+[ext_resource type="Script" path="res://Scenes/Gem_Overlay/shard_grid.gd" id="3_eqm58"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f586t"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.447059, 0.701961, 0.917647, 0.4)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.176471, 0.27451, 0.360784, 0.901961)
+shadow_size = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lj1w4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ank6"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_bsbip")
+
+[node name="Overlay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Overlay"]
+visible = false
+texture_filter = 2
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -372.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4rvnk")
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.271
+anchor_top = 0.119
+anchor_right = 0.735
+anchor_bottom = 0.886
+offset_left = -0.192017
+offset_top = -0.112
+offset_right = 0.279968
+offset_bottom = -65.1281
+theme_override_styles/panel = SubResource("StyleBoxFlat_f586t")
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer3" type="PanelContainer" parent="Overlay/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lj1w4")
+
+[node name="ShardGrid" type="GridContainer" parent="Overlay/PanelContainer/PanelContainer3"]
+layout_mode = 2
+columns = 4
+script = ExtResource("3_eqm58")
+metadata/_edit_use_anchors_ = true
+
+[node name="VFlowContainer" type="VFlowContainer" parent="Overlay/PanelContainer/PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/_tab_index = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_direction = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_direction = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="CenterContainer2" type="CenterContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer4" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="CenterContainer3" type="CenterContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer3/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer3/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer4" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer3/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer5" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer3/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer3/HBoxContainer3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="CenterContainer4" type="CenterContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer4/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer4/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer4" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer4/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer4/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="CenterContainer5" type="CenterContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer5"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer5/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer5/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer5/HBoxContainer5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="CenterContainer6" type="CenterContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer6"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer6/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer6/HBoxContainer6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="CenterContainer7" type="CenterContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer7"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay/PanelContainer/PanelContainer3/VFlowContainer/CenterContainer7/HBoxContainer7"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
+
+[node name="PanelContainer2" type="PanelContainer" parent="Overlay"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.271
+anchor_top = 0.128
+anchor_right = 0.729
+anchor_bottom = 0.889
+offset_left = 262.808
+offset_top = 27.056
+offset_right = -14.808
+offset_bottom = -216.072
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lj1w4")
+
+[node name="ShardGrid" type="GridContainer" parent="Overlay/PanelContainer2"]
+layout_mode = 2
+columns = 4
+script = ExtResource("3_eqm58")
+metadata/_edit_use_anchors_ = true
+
+[node name="VFlowContainer" type="VFlowContainer" parent="Overlay/PanelContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay/PanelContainer2/VFlowContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ank6")
