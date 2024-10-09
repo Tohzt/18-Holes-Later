@@ -24,7 +24,7 @@ func _physics_process(delta):
 func _follow_target(delta):
 	var follow_pos = Vector3(
 		follow_target.position.x,
-		look_target.position.y,
+		look_target.global_position.y,
 		follow_target.position.z,
 	)
 	

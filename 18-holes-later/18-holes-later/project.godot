@@ -187,7 +187,7 @@ interact={
 
 [physics]
 
-3d/solver/solver_iterations=32
+3d/physics_engine="GodotPhysics3D"
 
 [rendering]
 

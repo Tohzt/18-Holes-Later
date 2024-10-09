@@ -13,7 +13,7 @@ var speed_mult: float = 0.0
 @export var Anim_Controller   : AnimController3D
 @onready var Input_Controller  : InputController = $InputController
 @onready var State_Controller : StateController  = $StateController
-@onready var Collision_Mask   : CollisionShape3D = $CollisionShape3D
+@onready var Collision_Mask   : CollisionShape3D = $Character_Base
 
 var state: String = "Idle"
 var new_dir      := Vector3.ZERO
