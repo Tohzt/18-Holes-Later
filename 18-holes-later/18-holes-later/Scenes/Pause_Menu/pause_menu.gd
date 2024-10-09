@@ -33,6 +33,7 @@ func _on_btn_resume_pressed():
 
 func _on_btn_retry_pressed():
 	_hide_pause()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Global.Cameraman.follow_target = null
 	Global.go_to_scene(Global.Refs.SCENE_MAIN)
 
