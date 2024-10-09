@@ -305,6 +305,7 @@ albedo_texture = ExtResource("5_c5cw1")
 material = SubResource("StandardMaterial3D_c0ans")
 
 [node name="TestRoom" type="Node3D"]
+transform = Transform3D(0.99991, -0.0134037, 0, 0.0134037, 0.99991, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_bjwii")
 
 [node name="Save" parent="." instance=ExtResource("1_ogoy1")]

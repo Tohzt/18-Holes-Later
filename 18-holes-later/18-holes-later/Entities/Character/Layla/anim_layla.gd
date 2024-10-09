@@ -1,7 +1,7 @@
 class_name AnimController3D
-extends Node3D
-@onready var Bone_Hand = $Armature/Skeleton3D/BoneAttachment3D/Anchor
+extends RigidBody3D
 
+@onready var Bone_Hand = $Armature/Skeleton3D/BoneAttachment3D/Anchor
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 var anim_state: AnimationNodeStateMachinePlayback
@@ -18,6 +18,7 @@ func _ready():
 	Master.Anim_Controller = self
 
 func _process(delta):
+	print(position)
 	_update_anim(delta)
 
 func _update_anim(delta):
