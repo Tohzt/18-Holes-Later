@@ -18,7 +18,6 @@ func _ready():
 	Master.Anim_Controller = self
 
 func _process(delta):
-	print(position)
 	_update_anim(delta)
 
 func _update_anim(delta):

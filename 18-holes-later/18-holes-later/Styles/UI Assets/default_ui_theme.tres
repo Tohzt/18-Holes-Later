@@ -1,26 +1,20 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://cf46pf6qj4cfu"]
-
-[ext_resource type="Texture2D" uid="uid://bo8315j1f4iwx" path="res://Styles/UI Assets/Main menu/Button BG.png" id="1_lj74b"]
-[ext_resource type="Texture2D" uid="uid://d0wd21w2s06n2" path="res://Styles/UI Assets/Main menu/Button BG shadow.png" id="2_pp703"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://cf46pf6qj4cfu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihik1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nn20a"]
-texture = ExtResource("2_pp703")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e1p5d"]
-texture = ExtResource("2_pp703")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aewqk"]
-texture = ExtResource("1_lj74b")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
