@@ -137,7 +137,6 @@ func set_image(image: Image, texture: ImageTexture):
 		if (image.get_format() in _hdr_formats) and image.get_format() != Image.FORMAT_RF:
 			push_error("Godot 4.0 does not support HDR viewports for GPU-editing heightmaps! " +
 				"Only RF is supported using a bit packing hack.")
-	#print("PAINTER VIEWPORT HDR: ", _viewport.hdr)
 
 
 # Sets the size of the brush in pixels.
@@ -270,7 +269,6 @@ func _process(delta: float):
 	if _pending_paint_render:
 		_pending_paint_render = false
 	
-		#print("Paint result at frame ", Engine.get_frames_drawn())
 		var viewport_image := _viewport.get_texture().get_image()
 		
 		if _image.get_format() == Image.FORMAT_RF:
@@ -316,7 +314,6 @@ func _mark_modified_chunks(bx: int, by: int, bw: int, bh: int):
 	
 	for cy in range(cmin_y, cmax_y):
 		for cx in range(cmin_x, cmax_x):
-			#print("Marking chunk ", Vector2(cx, cy))
 			_modified_chunks[Vector2(cx, cy)] = true
 
 
@@ -364,36 +361,3 @@ func _commit_modified_chunks() -> Dictionary:
 		"chunk_initial_datas": chunks_initial_data,
 		"chunk_final_datas": chunks_final_data
 	}
-
-
-# DEBUG
-#func _input(event):
-#	if event is InputEventKey:
-#		if event.pressed:
-#			if event.control and event.scancode == KEY_SPACE:
-#				print("Saving painter viewport ", name)
-#				var im = _viewport.get_texture().get_data()
-#				im.convert(Image.FORMAT_RGBA8)
-#				im.save_png(str("test_painter_viewport_", name, ".png"))
-
-
-#static func _image_equals(im_a: Image, im_b: Image) -> bool:
-#	if im_a.get_size() != im_b.get_size():
-#		print("Diff size: ", im_a.get_size, ", ", im_b.get_size())
-#		return false
-#	if im_a.get_format() != im_b.get_format():
-#		print("Diff format: ", im_a.get_format(), ", ", im_b.get_format())
-#		return false
-#	im_a.lock()
-#	im_b.lock()
-#	for y in im_a.get_height():
-#		for x in im_a.get_width():
-#			var ca = im_a.get_pixel(x, y)
-#			var cb = im_b.get_pixel(x, y)
-#			if ca != cb:
-#				print("Diff pixel ", x, ", ", y)
-#				return false
-#	im_a.unlock()
-#	im_b.unlock()
-#	print("SAME")
-#	return true

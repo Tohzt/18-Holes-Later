@@ -1,5 +1,6 @@
-[gd_scene load_steps=263 format=4 uid="uid://be188bor4mic4"]
+[gd_scene load_steps=265 format=4 uid="uid://be188bor4mic4"]
 
+[ext_resource type="PackedScene" uid="uid://b1flq11c6t3up" path="res://Scenes/UI/Disc Selector/DiscSelector.tscn" id="1_6epv5"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="1_wqyhj"]
 [ext_resource type="Texture2D" uid="uid://dtlrwiavyjwyr" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (5).png" id="2_2j6nl"]
 [ext_resource type="Texture2D" uid="uid://bl5ph5r2o1w0u" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (5)_n.png" id="3_gib28"]
@@ -31,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bogx3i3c5akk" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (14).png" id="29_a2fku"]
 [ext_resource type="Texture2D" uid="uid://bpw07b7jwn4wc" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1_28.png" id="30_w4mi0"]
 [ext_resource type="PackedScene" uid="uid://dw26xdt1yissl" path="res://Entities/Character/Benny/benny_club_house.tscn" id="31_vp3ae"]
+[ext_resource type="PackedScene" uid="uid://rktny8fyi1c0" path="res://Objects/Gem Machine/gem_machine.tscn" id="32_2s0u0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy3jc"]
 resource_name = "OIG1 (5)"
@@ -3509,6 +3511,10 @@ size = Vector3(2.04218, 1.07138, 1.42587)
 
 [node name="Clubhouse_Interior" type="Node3D"]
 
+[node name="UI" type="Node" parent="."]
+
+[node name="DiscSelector" parent="UI" groups=["DiscSelector"] instance=ExtResource("1_6epv5")]
+
 [node name="Lighting" type="Node" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
@@ -4064,3 +4070,8 @@ shape = SubResource("BoxShape3D_eqc6w")
 
 [node name="BennyClubHouse" parent="NPCs" instance=ExtResource("31_vp3ae")]
 transform = Transform3D(0.393001, 0, 0.638788, 0, 0.75, 0, -0.638788, 0, 0.393001, -15.4967, 0.00769877, 0.420026)
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="GemMachine" parent="Objects" instance=ExtResource("32_2s0u0")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 1.79736, 0, -3.05269)

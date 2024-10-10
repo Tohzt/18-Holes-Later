@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=4 uid="uid://b3eetxcrwxgan"]
 
 [ext_resource type="Texture2D" path="res://Scenes/Clubhouse/src/Interior/DiscPrinter_0.png" id="1_5ldjp"]
-[ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/gem_machine.gd" id="2_xf7y6"]
+[ext_resource type="Script" path="res://Objects/Gem Machine/gem_machine.gd" id="2_xf7y6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6c1b3"]
 resource_name = "OIG1 (12)"
