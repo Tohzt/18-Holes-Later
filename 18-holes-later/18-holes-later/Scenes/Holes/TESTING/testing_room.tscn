@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=66 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
@@ -12,10 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Global/tee_box.tscn" id="8_1k3xo"]
 [ext_resource type="PackedScene" uid="uid://c7xne0byhx4ij" path="res://Objects/vehicles/golf_cart.tscn" id="9_5mk3v"]
 [ext_resource type="PackedScene" uid="uid://dlysw7emvqme" path="res://Objects/Baggy/baggy.tscn" id="9_o5b6i"]
-[ext_resource type="PackedScene" uid="uid://dpuj70awtoml4" path="res://Entities/Enemy/enemy.tscn" id="9_y6gln"]
+[ext_resource type="PackedScene" uid="uid://dpuj70awtoml4" path="res://Objects/New Enemy/new_enemy.tscn" id="9_y6gln"]
 [ext_resource type="PackedScene" uid="uid://bu8ykyg2w8l1a" path="res://Objects/Trees/tree_2.tscn" id="13_pt36r"]
 [ext_resource type="PackedScene" uid="uid://qotkk6uroiib" path="res://Objects/Trees/tree_1.tscn" id="14_0bgg8"]
-[ext_resource type="PackedScene" uid="uid://bdy5ooys23gqf" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1.tscn" id="16_eovxm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
 panorama = ExtResource("1_bebql")
@@ -320,7 +319,6 @@ shadow_enabled = true
 environment = SubResource("Environment_u3xmk")
 
 [node name="Player_Spawn" parent="." instance=ExtResource("2_ldg4q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 227.679, 82.65, 28.7291)
 
 [node name="Baskets" type="Node" parent="."]
 
@@ -547,9 +545,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0682, -7.62939e-06, -25.94
 
 [node name="Tree_3D3" parent="Trees" instance=ExtResource("14_0bgg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6631, -1.14441e-05, -39.3169)
-
-[node name="HTerrain" parent="." instance=ExtResource("16_eovxm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.839449, 62.6225, 0)
 
 [connection signal="body_entered" from="Testing/Teleport_Testing" to="." method="_on_teleport_testing_body_entered"]
 [connection signal="body_entered" from="Driving_Range/Teleport_Range" to="." method="_on_teleport_range_body_entered"]

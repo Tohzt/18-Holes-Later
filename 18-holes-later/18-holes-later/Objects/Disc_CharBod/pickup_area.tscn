@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://6cb476alx80s"]
+
+[ext_resource type="Script" path="res://Objects/Disc_RigBod/pickup_area.gd" id="1_xvkk0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0i10"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.0666667)
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 2.12
+
+[sub_resource type="SphereMesh" id="SphereMesh_ekkq6"]
+material = SubResource("StandardMaterial3D_v0i10")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n3hsi"]
+
+[node name="PickupArea" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_xvkk0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ekkq6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_n3hsi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
