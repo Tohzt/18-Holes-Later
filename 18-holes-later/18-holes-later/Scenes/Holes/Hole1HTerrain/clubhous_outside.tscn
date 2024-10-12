@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b50ymaf7jmeak"]
+
+[ext_resource type="PackedScene" uid="uid://b0w11h4a5iw5n" path="res://addons/HterrainAssets/clubhousOUTSIDE.glb" id="1_unick"]
+
+[node name="clubhousOUTSIDE" instance=ExtResource("1_unick")]

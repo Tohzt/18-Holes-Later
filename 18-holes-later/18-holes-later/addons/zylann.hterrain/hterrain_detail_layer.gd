@@ -202,6 +202,38 @@ func _exit_tree():
 		_recycle_chunk(k)
 	_chunks.clear()
 
+
+#func _auto_pick_index():
+#	# Automatically pick an unused layer
+#
+#	var terrain = _get_terrain()
+#	if terrain == null:
+#		return
+#
+#	var terrain_data = terrain.get_data()
+#	if terrain_data == null or terrain_data.is_locked():
+#		return
+#
+#	var auto_index := layer_index
+#	var others = terrain.get_detail_layers()
+#
+#	if len(others) > 0:
+#		var used_layers := []
+#		for other in others:
+#			used_layers.append(other.layer_index)
+#		used_layers.sort()
+#
+#		auto_index = used_layers[-1]
+#		for i in range(1, len(used_layers)):
+#			if used_layers[i - 1] - used_layers[i] > 1:
+#				# Found a hole, take it instead
+#				auto_index = used_layers[i] - 1
+#				break
+#
+#	print("Auto picked ", auto_index, " ")
+#	layer_index = auto_index
+
+
 func _get_property_list() -> Array:
 	# Dynamic properties coming from the shader
 	var props := []
