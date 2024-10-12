@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codki0j5xnx6b"
-path.s3tc="res://.godot/imported/clubhousOUTSIDE_Woodcedar.jpg-c9baa6014eab647ef31157a2dfc773f9.s3tc.ctex"
+uid="uid://bubw45k5yq41t"
+path.s3tc="res://.godot/imported/AlienDisc (2).png-8e15898a17451572fac08221c48830b7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/HterrainAssets/clubhousOUTSIDE_Woodcedar.jpg"
-dest_files=["res://.godot/imported/clubhousOUTSIDE_Woodcedar.jpg-c9baa6014eab647ef31157a2dfc773f9.s3tc.ctex"]
+source_file="res://Objects/Disc_CharBod/src/AlienDisc (2).png"
+dest_files=["res://.godot/imported/AlienDisc (2).png-8e15898a17451572fac08221c48830b7.s3tc.ctex"]
 
 [params]
 

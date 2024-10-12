@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codki0j5xnx6b"
-path.s3tc="res://.godot/imported/clubhousOUTSIDE_Woodcedar.jpg-c9baa6014eab647ef31157a2dfc773f9.s3tc.ctex"
+uid="uid://dkd7r1mc62gvj"
+path.s3tc="res://.godot/imported/noise.png-eea02fd18a9d13d1e2ed0e8bb91d26a5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/HterrainAssets/clubhousOUTSIDE_Woodcedar.jpg"
-dest_files=["res://.godot/imported/clubhousOUTSIDE_Woodcedar.jpg-c9baa6014eab647ef31157a2dfc773f9.s3tc.ctex"]
+source_file="res://Objects/New Enemy/src/noise.png"
+dest_files=["res://.godot/imported/noise.png-eea02fd18a9d13d1e2ed0e8bb91d26a5.s3tc.ctex"]
 
 [params]
 

@@ -10908,7 +10908,7 @@ _data = {
 radius = 0.2
 height = 1.8517
 
-[node name="LaylaAnimOCT" type="RigidBody3D" groups=["Character"]]
+[node name="LaylaAnimOCT" type="RigidBody3D"]
 collision_layer = 2
 collision_mask = 28
 script = ExtResource("1_cioyi")

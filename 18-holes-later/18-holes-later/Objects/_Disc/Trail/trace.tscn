@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://vve4qx6x104y"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_wfum1"]
-radius = 0.05
-height = 0.1
-
-[node name="Trace" type="MeshInstance3D" groups=["Trace"]]
-mesh = SubResource("SphereMesh_wfum1")

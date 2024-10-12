@@ -7,7 +7,7 @@ var bag_of_discs: Array = [
 	["Cold Stone","Putter",2,2,-1,0],
 	["Midrock","Hybrid",5,4,0,3],
 	["Innova Boss","Driver",13,5,-1,3]]
-var discs: Array[CharacterBody3D]
+var discs: Array[RigidBody3D]
 
 func _ready():
 	var index = 0

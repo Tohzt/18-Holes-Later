@@ -36,6 +36,10 @@ Global="*res://Global/global.tscn"
 
 window/size/initial_position_type=0
 
+[editor]
+
+movie_writer/movie_file="C:/Users/Steve/Projects/Godot/18-Holes-Later/Recordings/movies.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")

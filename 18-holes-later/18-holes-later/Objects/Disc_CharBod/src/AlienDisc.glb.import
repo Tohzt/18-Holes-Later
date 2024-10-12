@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8dab4c4m156e"
-path="res://.godot/imported/Zanim.glb-7107601f0d9d599d782d59587e25c1a6.scn"
+uid="uid://5i7ngr7bnp37"
+path="res://.godot/imported/AlienDisc.glb-24e4137b7b4faac833f182fa4c4185bd.scn"
 
 [deps]
 
-source_file="res://Entities/Enemy/src/newzam/Zanim.glb"
-dest_files=["res://.godot/imported/Zanim.glb-7107601f0d9d599d782d59587e25c1a6.scn"]
+source_file="res://Objects/Disc_CharBod/src/AlienDisc.glb"
+dest_files=["res://.godot/imported/AlienDisc.glb-24e4137b7b4faac833f182fa4c4185bd.scn"]
 
 [params]
 

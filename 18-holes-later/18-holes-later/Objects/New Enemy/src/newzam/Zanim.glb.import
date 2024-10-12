@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8dab4c4m156e"
-path="res://.godot/imported/Zanim.glb-7107601f0d9d599d782d59587e25c1a6.scn"
+uid="uid://bactcb8pclobn"
+path="res://.godot/imported/Zanim.glb-4460dc942ab94f2fdb3b0a61ff30157c.scn"
 
 [deps]
 
-source_file="res://Entities/Enemy/src/newzam/Zanim.glb"
-dest_files=["res://.godot/imported/Zanim.glb-7107601f0d9d599d782d59587e25c1a6.scn"]
+source_file="res://Objects/New Enemy/src/newzam/Zanim.glb"
+dest_files=["res://.godot/imported/Zanim.glb-4460dc942ab94f2fdb3b0a61ff30157c.scn"]
 
 [params]
 
