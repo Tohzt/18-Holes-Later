@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bk1nh3pblil51"
+path.s3tc="res://.godot/imported/Hole1sign_OIG4 (12).png-7c2466140acf0e63bcc1360f2cc098b9.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "1d7ac411bb20e3bfd4f106eb4e628b0e"
+}
+
+[deps]
+
+source_file="res://addons/HterrainAssets/Hole1sign_OIG4 (12).png"
+dest_files=["res://.godot/imported/Hole1sign_OIG4 (12).png-7c2466140acf0e63bcc1360f2cc098b9.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
