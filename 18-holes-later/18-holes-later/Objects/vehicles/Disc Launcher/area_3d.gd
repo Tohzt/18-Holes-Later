@@ -10,5 +10,6 @@ func _process(_delta):
 				if body.did_interact:
 					if !Master.accepts_input:
 						Master.set_active(true)
+						Global.Player.set_active(false)
 						Global.Cameraman.set_target(Master, Master.Cam_Focus)
 					print("Launcher touching: ",body.name)
