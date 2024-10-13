@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyoiejbn46jc5"]
+[gd_scene load_steps=7 format=3 uid="uid://dyoiejbn46jc5"]
 
 [ext_resource type="Script" path="res://Scenes/Main_Menu/main_menu.gd" id="1_ky1vy"]
 [ext_resource type="Texture2D" uid="uid://bef8dmac0cico" path="res://Scenes/Main_Menu/src/MainMenuBG.jpg" id="2_ip3jy"]
 [ext_resource type="Texture2D" uid="uid://bojls6d0ucddj" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="3_0jm70"]
-[ext_resource type="Script" path="res://Scenes/Main_Menu/options_container.gd" id="4_bn3fg"]
+[ext_resource type="Script" path="res://Scenes/Main_Menu/character_container.gd" id="4_bn3fg"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/menu_container.gd" id="4_pewpv"]
+[ext_resource type="Script" path="res://Scenes/Main_Menu/course_container.gd" id="6_n8e6j"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,10 +31,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -317.0
-offset_top = -250.0
-offset_right = 317.0
-offset_bottom = -50.0
+offset_left = -332.0
+offset_right = 332.0
+offset_bottom = 93.0
 grow_horizontal = 2
 texture = ExtResource("3_0jm70")
 patch_margin_left = 22
@@ -44,15 +44,14 @@ script = ExtResource("4_pewpv")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -310.0
-offset_top = 120.0
-offset_right = 310.0
-offset_bottom = 173.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 23.0
+offset_bottom = -23.0
 grow_horizontal = 2
-theme_override_constants/separation = 0
+grow_vertical = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="Btn_NewGame" type="Button" parent="MenuContainer/HBoxContainer"]
@@ -77,15 +76,18 @@ text = "OPTIONS"
 layout_mode = 2
 text = "Exit Game"
 
-[node name="OptionsContainer" type="NinePatchRect" parent="."]
+[node name="CharacterContainer" type="NinePatchRect" parent="."]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -116.5
-offset_right = 150.0
-offset_bottom = 116.5
+offset_left = -87.0
+offset_top = -114.0
+offset_right = 87.0
+offset_bottom = 114.0
+grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_0jm70")
 patch_margin_left = 22
@@ -94,7 +96,7 @@ patch_margin_right = 22
 patch_margin_bottom = 22
 script = ExtResource("4_bn3fg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OptionsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterContainer"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -110,28 +112,85 @@ grow_vertical = 2
 theme_override_constants/separation = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="OptionsContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CharacterContainer/VBoxContainer"]
 layout_mode = 2
 text = "SELECT PLYER"
 horizontal_alignment = 1
 
-[node name="Btn_Select_Layla" type="Button" parent="OptionsContainer/VBoxContainer"]
+[node name="Btn_Select_Layla" type="Button" parent="CharacterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Lyla"
 
-[node name="Btn_Select_Benny" type="Button" parent="OptionsContainer/VBoxContainer"]
+[node name="Btn_Select_Benny" type="Button" parent="CharacterContainer/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
 text = "Benny"
 
-[node name="Btn_Select_The_Cop" type="Button" parent="OptionsContainer/VBoxContainer"]
+[node name="Btn_Select_The_Cop" type="Button" parent="CharacterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 disabled = true
 text = "The Cop"
+
+[node name="CourseContainer" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -114.0
+offset_right = 87.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0jm70")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+script = ExtResource("6_n8e6j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CourseContainer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -142.635
+offset_top = -95.5
+offset_right = -17.635
+offset_bottom = 95.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="CourseContainer/VBoxContainer"]
+layout_mode = 2
+text = "SELECT COURSE"
+horizontal_alignment = 1
+
+[node name="Btn_Select_Clubhouse" type="Button" parent="CourseContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Clubhouse"
+
+[node name="Btn_Select_Hole_01" type="Button" parent="CourseContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "Hole 01"
+
+[node name="Btn_Select_Testing" type="Button" parent="CourseContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Testing Area"
 
 [node name="ProfileContainer" type="MarginContainer" parent="."]
 visible = false
@@ -169,4 +228,7 @@ text = "PROFILE 3"
 [connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Load" to="." method="_on_btn_load_pressed"]
 [connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
-[connection signal="pressed" from="OptionsContainer/VBoxContainer/Btn_Select_Layla" to="." method="_on_btn_select_layla_pressed"]
+[connection signal="pressed" from="CharacterContainer/VBoxContainer/Btn_Select_Layla" to="CharacterContainer" method="_on_btn_select_layla_pressed"]
+[connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Clubhouse" to="CourseContainer" method="_on_btn_select_clubhouse_pressed"]
+[connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Hole_01" to="CourseContainer" method="_on_btn_select_hole_01_pressed"]
+[connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Testing" to="CourseContainer" method="_on_btn_select_testing_pressed"]

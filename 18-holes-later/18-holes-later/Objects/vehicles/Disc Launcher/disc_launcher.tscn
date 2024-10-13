@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dyj3365fqnqx5"]
+[gd_scene load_steps=22 format=3 uid="uid://dyj3365fqnqx5"]
 
 [ext_resource type="Script" path="res://Objects/vehicles/Disc Launcher/disc_launcher.gd" id="1_kgoir"]
 [ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="2_b3n3o"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://duifu4tx8yj7j" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_disp_1k.png" id="7_osaxv"]
 [ext_resource type="Texture2D" uid="uid://dj0gedb4kxt1" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_nor_gl_1k.png" id="8_4uneu"]
 [ext_resource type="Texture2D" uid="uid://einaex0tay2o" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_rough_1k.png" id="9_0fe3w"]
-[ext_resource type="Script" path="res://Objects/vehicles/Disc Launcher/area_3d.gd" id="10_jhg78"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8ejoo"]
 radius = 0.15
@@ -107,7 +106,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_oqpv6")
 [node name="Detect Player" type="Area3D" parent="."]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("10_jhg78")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detect Player"]
 shape = SubResource("SphereShape3D_edrnr")

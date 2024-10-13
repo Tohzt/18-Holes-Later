@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdy5ooys23gqf"]
+[gd_scene load_steps=30 format=3 uid="uid://bdy5ooys23gqf"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_ny4et"]
 [ext_resource type="Resource" path="res://addons/HterrainAssets/data.hterrain" id="2_kkinq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dy06wfrstqkhl" path="res://addons/HterrainAssets/FoilageSmall/textures/aerial_grass_rock_diff_1k.jpg" id="7_xwmj1"]
 [ext_resource type="Texture2D" uid="uid://brtp7clmlxj0x" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot1_normal_roughness.png" id="8_mqepn"]
 [ext_resource type="Texture2D" uid="uid://lim3cig12730" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot2_normal_roughness.png" id="9_lvu5d"]
+[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="11_e2w4t"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="12_rnl1q"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="13_eoumv"]
 [ext_resource type="Texture2D" uid="uid://b5xl5hg6py6pf" path="res://addons/HterrainAssets/FoilageSmall/branches/grass4.png" id="14_dglk5"]
@@ -22,11 +23,26 @@
 [ext_resource type="PackedScene" uid="uid://8ysrdeetucw2" path="res://addons/HterrainAssets/BushSingle.fbx" id="20_ig7ql"]
 [ext_resource type="PackedScene" uid="uid://bafg65dbmt4mq" path="res://addons/HterrainAssets/Sidewalk.fbx" id="20_nhsuy"]
 [ext_resource type="PackedScene" uid="uid://bu5agado2yhmd" path="res://addons/HterrainAssets/KapokTree.fbx" id="22_y4wg5"]
+[ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="23_hf8gj"]
+[ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="24_61fyv"]
 
 [sub_resource type="Resource" id="Resource_tycuo"]
 script = ExtResource("3_tmw6k")
 mode = 0
 textures = [[ExtResource("4_1g6jm"), ExtResource("5_wfa1u"), ExtResource("6_1chku"), ExtResource("7_xwmj1")], [ExtResource("7_jiijr"), ExtResource("8_mqepn"), ExtResource("9_lvu5d"), null]]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jj3gq"]
+panorama = ExtResource("11_e2w4t")
+
+[sub_resource type="Sky" id="Sky_u0yvx"]
+sky_material = SubResource("PanoramaSkyMaterial_jj3gq")
+
+[sub_resource type="Environment" id="Environment_jkbgl"]
+background_mode = 2
+sky = SubResource("Sky_u0yvx")
+tonemap_mode = 2
+glow_enabled = true
+glow_hdr_luminance_cap = 27.21
 
 [node name="HTerrain" type="Node3D"]
 script = ExtResource("1_ny4et")
@@ -97,3 +113,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.585, 14.0823, 130.285)
 
 [node name="KapokTree2" parent="." instance=ExtResource("22_y4wg5")]
 transform = Transform3D(1.10261, 0, 0.779536, 0, 1.35034, 0, -0.779536, 0, 1.10261, 46.398, 1.21883, 15.1355)
+
+[node name="Player_Spawn" parent="." instance=ExtResource("23_hf8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.799, 13.8209, 25.4268)
+
+[node name="DiscLauncher" parent="." instance=ExtResource("24_61fyv")]
+transform = Transform3D(-0.76044, 0, 0.649408, 0, 1, 0, -0.649408, 0, -0.76044, 216.543, 12.8076, 62.8284)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jkbgl")

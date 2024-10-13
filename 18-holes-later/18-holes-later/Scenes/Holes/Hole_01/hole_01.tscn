@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://w1e2pm1t1k53"]
+[gd_scene load_steps=15 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="5_qt2g5"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
 [ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="9_5d10b"]
+[ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="10_d2d2h"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6mdeq"]
 panorama = ExtResource("3_vqgkm")
@@ -96,3 +97,6 @@ script = ExtResource("6_fld4g")
 
 [node name="Lightning_Particle" parent="." instance=ExtResource("9_5d10b")]
 one_shot = false
+
+[node name="DiscLauncher" parent="." instance=ExtResource("10_d2d2h")]
+transform = Transform3D(-0.597499, 0, 0.80187, 0, 1, 0, -0.80187, 0, -0.597499, 324.894, 14.1775, -46.7736)
