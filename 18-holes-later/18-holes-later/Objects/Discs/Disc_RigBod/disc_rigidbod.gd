@@ -43,6 +43,7 @@ func _launch_disc():
 	angular_velocity = Vector3.ZERO
 	# TODO: Do something with this
 	#reparent(get_parent().get_parent().get_parent())
+	reparent(get_tree().root)
 	var impulse = power + stats["Speed"]
 	impulse *= -target_dir
 	apply_central_impulse(impulse)

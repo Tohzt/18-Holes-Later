@@ -22,13 +22,9 @@ texture_filter = 0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="Disc_CharBod" type="RigidBody3D" groups=["Disc"]]
+[node name="Disc_CharBod" type="CharacterBody3D" groups=["Disc"]]
 collision_layer = 4
 collision_mask = 11
-continuous_cd = true
-contact_monitor = true
-max_contacts_reported = 5
-linear_damp = 0.5
 script = ExtResource("1_3ihc1")
 
 [node name="PickupArea" parent="." instance=ExtResource("2_p4rij")]
