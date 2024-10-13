@@ -5,9 +5,11 @@ extends Entity
 @onready var Hand = $Hand
 @onready var Bag = $Bag
 
+const MAX_POWER = 10
 var game_disc_index: int = 0
 
-const MAX_POWER = 10
+var can_interact = true
+var did_interact = false
 var can_throw = false
 var can_jump = true
 var can_look = true
@@ -42,6 +44,7 @@ func _process(delta):
 	new_dir.y = Input_Controller.rot_cam.y
 	
 	if look_around: rotation.y = new_dir.y
+	if did_interact: did_interact = false
 	if in_combat: State_Controller.state_next = "Combat"
 	if is_jumping: State_Controller.state_next = "Jump"
 	if is_throwing: 

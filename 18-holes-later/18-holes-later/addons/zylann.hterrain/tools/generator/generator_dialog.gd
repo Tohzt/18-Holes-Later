@@ -479,7 +479,6 @@ func _on_TextureGenerator_output_generated(image: Image, info: Dictionary):
 		assert(data != null)
 		var dst := data.get_image(info.maptype)
 		assert(dst != null)
-#		print("Tile ", info.sector)
 #		image.save_png(str("debug_generator_tile_", 
 #			info.sector.x, "_", info.sector.y, "_map", info.maptype, ".png"))
 		

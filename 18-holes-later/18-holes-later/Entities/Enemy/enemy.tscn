@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=4 uid="uid://dq5k8n0rtk27y"]
 
-[ext_resource type="Script" path="res://Objects/New Enemy/new_enemy.gd" id="1_s66hx"]
+[ext_resource type="Script" path="res://Entities/Enemy/enemy.gd" id="1_enopi"]
 [ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_y1l2c"]
 [ext_resource type="PackedScene" uid="uid://cadr5fmo6lq7i" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_chase.tscn" id="3_qrkqb"]
 [ext_resource type="PackedScene" uid="uid://sq6vmdb1jqo0" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_idle.tscn" id="4_jwyqa"]
@@ -1678,7 +1678,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 contact_monitor = true
 max_contacts_reported = 2
-script = ExtResource("1_s66hx")
+script = ExtResource("1_enopi")
 
 [node name="StateController" parent="." instance=ExtResource("2_y1l2c")]
 
@@ -1705,13 +1705,13 @@ process_material = SubResource("ParticleProcessMaterial_df8im")
 draw_pass_1 = SubResource("SphereMesh_nhnj1")
 script = ExtResource("6_0qbfy")
 
-[node name="Zanim" type="Node3D" parent="."]
+[node name="ZanimController" type="Node3D" parent="."]
 script = ExtResource("7_rshmj")
 
-[node name="Armature" type="Node3D" parent="Zanim"]
+[node name="Armature" type="Node3D" parent="ZanimController"]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Zanim/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="ZanimController/Armature"]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.00572586, -0.457372, -14.8353)
@@ -1944,11 +1944,11 @@ bones/32/position = Vector3(-3.45706e-06, 7.76877, -1.78826e-07)
 bones/32/rotation = Quaternion(9.92324e-07, -8.98726e-07, 1.76951e-07, 1)
 bones/32/scale = Vector3(1, 1, 1)
 
-[node name="Zombie_Mailman_0926222648" type="MeshInstance3D" parent="Zanim/Armature/Skeleton3D"]
+[node name="Zombie_Mailman_0926222648" type="MeshInstance3D" parent="ZanimController/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_q14ho")
 skin = SubResource("Skin_c1twk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Zanim"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ZanimController"]
 libraries = {
 "": SubResource("AnimationLibrary_f85wb")
 }

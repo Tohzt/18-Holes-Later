@@ -13,8 +13,13 @@ var spd_mod: float = 1.0
 func _process(_delta):
 	Camera.rotation.y = 0
 	Camera.rotation.z = 0
+	
+	if !follow_target: return
 	if follow_target == Global.Player:
 		Tripod.rotation.x = rot_x
+	if follow_target.is_in_group("Launcher"):
+		Tripod.rotation.x = rot_x
+		#follow_target.Barrel_Pivot.rotation.x = rot_x
 
 func _physics_process(delta):
 	if follow_target:
@@ -38,14 +43,18 @@ func _follow_target(delta):
 
 func _look_at_target(delta):
 	if follow_target.can_look:
-		rotation.y = lerp_angle(rotation.y, follow_target.new_dir.y, delta*10)
+		rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
 
 func set_target(new_target: Node3D, new_look: Node3D ):
+	if follow_target:
+		follow_target.accepts_input = false
+		
 	if !new_target:
 		new_target = Global.Player
 	if !new_look:
 		new_look = new_target.get_node("CamFocus")
 	
+	new_target.accepts_input = true
 	follow_target = new_target
 	look_target = new_look
 	

@@ -230,7 +230,6 @@ func _exit_tree():
 #				auto_index = used_layers[i] - 1
 #				break
 #
-#	print("Auto picked ", auto_index, " ")
 #	layer_index = auto_index
 
 
