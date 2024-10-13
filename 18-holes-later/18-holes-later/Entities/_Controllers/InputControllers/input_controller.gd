@@ -1,21 +1,19 @@
 class_name InputController
 extends Node
 
-enum Character {PLAYER, CART}
-enum Action {MOVE, LOOK, ATTACK}
+@export_category("Character Controls")
+@export var character_move   := false
+@export var character_look   := false
+@export var character_action := false
 
-@export var input_actions: Dictionary = {
-	Character.PLAYER: {
-		Action.MOVE: false,
-		Action.LOOK: false,
-		Action.ATTACK: false
-	},
-	Character.CART: {
-		Action.MOVE: false,
-		Action.LOOK: false,
-		Action.ATTACK: false
-	}
-}
+@export_category("Vehicle Controls")
+@export var vehicle_move   := false
+@export var vehicle_look   := false
+@export var vehicle_action := false
+
+@export_category("Launcher Controls")
+@export var launcher_look   := false
+@export var launcher_action := false
 
 @onready var Master: Node3D = $".."
 var input_move = Vector2.ZERO
@@ -32,13 +30,16 @@ func _process(delta):
 	if Input.get_last_mouse_velocity().length() == 0:
 		mouse_motion = null
 	
-	if input_actions[Character.PLAYER][Action.MOVE]:   _character_move(delta)
-	if input_actions[Character.PLAYER][Action.LOOK]:   _character_look(delta)
-	if input_actions[Character.PLAYER][Action.ATTACK]: _character_attack()
+	if character_move:   _character_move(delta)
+	if character_look:   _character_look(delta)
+	if character_action: _character_action()
 	
-	if input_actions[Character.CART][Action.MOVE]:   _cart_move(delta)
-	if input_actions[Character.CART][Action.LOOK]:   _cart_look(delta)
-	if input_actions[Character.CART][Action.ATTACK]: _cart_attack()
+	if vehicle_move:   _vehicle_move(delta)
+	if vehicle_look:   _vehicle_look(delta)
+	if vehicle_action: _vehicle_action()
+	
+	if launcher_look:   _launcher_look(delta)
+	if launcher_action: _launcher_action()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -68,18 +69,22 @@ func _character_look(delta):
 			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
 			Global.Cameraman.rot_x = rot_cam.x
 
-func _character_attack():
-	if !Master.in_combat and Master.can_combat:
-		if Input.is_action_just_pressed("left_click"):
-			Master.in_combat = true
+func _character_action():
+	if !Master.in_combat:
+		if Master.can_combat:
+			if Input.is_action_just_pressed("left_click"):
+				Master.in_combat = true
+		if Master.can_interact:
+			if Input.is_action_just_pressed("interact"):
+				Master.did_interact = true
 			
 	if Master.can_throw:
 		if Input.is_action_just_pressed("right_click"):
 			Master.is_throwing = true
 
-# Golf Cart Inputs
+# Vehicle Inputs
 # TODO: Rotation bugs if mouse and keys simul
-func _cart_move(delta):
+func _vehicle_move(delta):
 	var input_forward = Input.get_axis("ui_up", "ui_down")
 	var input_turn = Input.get_axis("ui_left", "ui_right")
 	
@@ -88,12 +93,29 @@ func _cart_move(delta):
 	Master.rotate_y(deg_to_rad(-Master.turn_strength  * input_turn * Global.Settings.MOUSE_H_SENSITIVITY))
 	Master.input_dir = (Master.transform.basis * Vector3(0,0,input_forward)).normalized()
 	
-func _cart_look(delta):
+func _vehicle_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if false and Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
 			Master.turn_strength = lerp(Master.turn_strength,Master.max_turn_strength,delta)
 			Master.rotate_y(deg_to_rad(-Master.turn_strength  * sign(mouse_motion.relative.x) * Global.Settings.MOUSE_H_SENSITIVITY))
 
-func _cart_attack():
+func _vehicle_action():
 	pass
+
+# Launcher Inputs
+func _launcher_look(delta):
+	print("Launcher Looking")
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if Master.can_look:
+		if mouse_motion is InputEventMouseMotion:
+			rot_cam.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
+			
+			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
+			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
+			Global.Cameraman.rot_x = rot_cam.x
+
+func _launcher_action():
+	if Master.can_shoot:
+		if Input.is_action_just_pressed("left_click"):
+			Master.did_shoot = true

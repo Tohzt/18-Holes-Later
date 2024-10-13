@@ -21,7 +21,7 @@ class HT_LoggerVerbose extends HT_LoggerBase:
 		super(p_context)
 		
 	func debug(msg: String):
-		print(_context, ": ", msg)
+		print_debug(_context, ": ", msg)
 
 
 static func get_for(owner: Object) -> HT_LoggerBase:

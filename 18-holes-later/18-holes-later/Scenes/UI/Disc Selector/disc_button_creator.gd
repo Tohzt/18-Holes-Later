@@ -5,7 +5,6 @@ var slots:int = 68
 
 func _ready():
 	var discs = await getResources()
-	print(discs)
 	for disc in discs:
 		var new_disc_button = DiscButton.instantiate()
 		new_disc_button.get_child(0).text = disc.disc_name

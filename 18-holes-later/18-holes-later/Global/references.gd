@@ -20,6 +20,6 @@ const TREE = preload("res://Objects/Trees/tree_1.tscn")
 const CHAR_BENNY = preload("res://Entities/Character/character.tscn")
 
 # Disc Things
-const DISC = preload("res://Objects/Disc/disc.tscn")
-const PICKUP = preload("res://Objects/Disc/pickup_area.tscn")
-const DISC_TRACE = preload("res://Objects/Disc/Trail/disc_trace.tscn")
+const DISC = preload("res://Objects/Discs/Disc_RigBod/disc_rigidbod.tscn")
+const PICKUP = preload("res://Objects/Discs/Pickup/pickup_area.tscn")
+const DISC_TRACE = preload("res://Objects/Discs/Trace/disc_trace.tscn")

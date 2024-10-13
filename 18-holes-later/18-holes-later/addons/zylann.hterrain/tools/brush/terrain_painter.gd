@@ -184,7 +184,6 @@ func commit() -> Dictionary:
 	assert(len(_modified_maps) > 0)
 	
 	for mm in _modified_maps:
-		#print("Flushing painter ", mm.painter_index)
 		var painter : HT_Painter = _painters[mm.painter_index]
 		var info := painter.commit()
 		
@@ -205,10 +204,6 @@ func commit() -> Dictionary:
 			# since the latter updates out of order for preview
 			terrain_data.notify_region_change(rect, mm.map_type, mm.map_index, false, true)
 	
-#	for i in len(_painters):
-#		var p = _painters[i]
-#		if p.has_modified_chunks():
-#			print("Painter ", i, " has modified chunks")
 	
 	# `commit()` is supposed to consume these chunks, there should be none left
 	assert(not has_modified_chunks())

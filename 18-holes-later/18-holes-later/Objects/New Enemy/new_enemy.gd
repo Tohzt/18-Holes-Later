@@ -1,6 +1,6 @@
-class_name NME_Zombie
+class_name NME_Zombie_New
 extends RigidBody3D
-@onready var zanim = $Zanim
+@onready var zanim = $ZanimController
 
 @export var seight_range: int = 50
 var Target: Entity_Character

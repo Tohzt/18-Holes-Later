@@ -1,0 +1,101 @@
+[gd_scene load_steps=21 format=3 uid="uid://dyj3365fqnqx5"]
+
+[ext_resource type="Script" path="res://Objects/vehicles/Disc Launcher/disc_launcher.gd" id="1_kgoir"]
+[ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="2_b3n3o"]
+[ext_resource type="Texture2D" uid="uid://5xiie0nxesiu" path="res://Objects/vehicles/Disc Launcher/src/bark_willow_diff_1k.png" id="2_onktg"]
+[ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="2_udnq0"]
+[ext_resource type="Texture2D" uid="uid://bgvgwb2yu53m3" path="res://Objects/vehicles/Disc Launcher/src/bark_willow_disp_1k.png" id="3_3hxp6"]
+[ext_resource type="Texture2D" uid="uid://xlcbujd0vpcj" path="res://Objects/vehicles/Disc Launcher/src/bark_willow_nor_gl_1k.png" id="4_mrsk8"]
+[ext_resource type="Texture2D" uid="uid://dbigux6r8fe8k" path="res://Objects/vehicles/Disc Launcher/src/bark_willow_rough_1k.png" id="5_1r4xv"]
+[ext_resource type="Texture2D" uid="uid://dw8hqye4viv" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_diff_1k.png" id="6_bytal"]
+[ext_resource type="Texture2D" uid="uid://duifu4tx8yj7j" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_disp_1k.png" id="7_osaxv"]
+[ext_resource type="Texture2D" uid="uid://dj0gedb4kxt1" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_nor_gl_1k.png" id="8_4uneu"]
+[ext_resource type="Texture2D" uid="uid://einaex0tay2o" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_rough_1k.png" id="9_0fe3w"]
+[ext_resource type="Script" path="res://Objects/vehicles/Disc Launcher/area_3d.gd" id="10_jhg78"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8ejoo"]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbba8"]
+albedo_texture = ExtResource("2_onktg")
+roughness_texture = ExtResource("5_1r4xv")
+normal_enabled = true
+normal_scale = 1.2
+normal_texture = ExtResource("4_mrsk8")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_3hxp6")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mrtv8"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k38q8"]
+albedo_texture = ExtResource("2_onktg")
+roughness_texture = ExtResource("5_1r4xv")
+normal_enabled = true
+normal_scale = 1.2
+normal_texture = ExtResource("4_mrsk8")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_3hxp6")
+
+[sub_resource type="PrismMesh" id="PrismMesh_wlngm"]
+size = Vector3(0.705, 0.51, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqpv6"]
+albedo_texture = ExtResource("6_bytal")
+metallic = 1.0
+metallic_texture = ExtResource("7_osaxv")
+roughness_texture = ExtResource("9_0fe3w")
+normal_enabled = true
+normal_texture = ExtResource("8_4uneu")
+uv1_scale = Vector3(1, 1, 0.7)
+uv1_offset = Vector3(0.83, 0, 0)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 53.8173
+uv1_world_triplanar = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_edrnr"]
+radius = 2.02661
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yjn3y"]
+size = Vector3(0.706787, 1, 0.501953)
+
+[node name="DiscLauncher" type="StaticBody3D" groups=["Launcher"]]
+script = ExtResource("1_kgoir")
+
+[node name="InputController" parent="." instance=ExtResource("2_udnq0")]
+launcher_look = true
+launcher_action = true
+
+[node name="Barrel Pivot" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994087, 0)
+mesh = SubResource("SphereMesh_8ejoo")
+surface_material_override/0 = SubResource("StandardMaterial3D_kbba8")
+
+[node name="Barrel" type="MeshInstance3D" parent="Barrel Pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.4)
+mesh = SubResource("CylinderMesh_mrtv8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_k38q8")
+
+[node name="CamFocus" parent="Barrel Pivot" instance=ExtResource("2_b3n3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505913, -1)
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0.5, 0)
+mesh = SubResource("PrismMesh_wlngm")
+surface_material_override/0 = SubResource("StandardMaterial3D_oqpv6")
+
+[node name="Detect Player" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("10_jhg78")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detect Player"]
+shape = SubResource("SphereShape3D_edrnr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498785, 0)
+shape = SubResource("BoxShape3D_yjn3y")
