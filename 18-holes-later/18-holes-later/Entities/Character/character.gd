@@ -10,14 +10,9 @@ var game_disc_index: int = 0
 
 var can_interact = true
 var did_interact = false
-var can_throw = false
-var can_jump = true
-var can_look = true
 var look_around = true
 var is_charging = false
-var is_throwing = false
 var is_on_tee = false
-var locked_in = false
 var aim_stable = false
 var prev_look_dir = look_dir
 

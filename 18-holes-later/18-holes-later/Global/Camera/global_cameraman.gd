@@ -18,7 +18,8 @@ func _process(_delta):
 	if follow_target == Global.Player:
 		Tripod.rotation.x = rot_x
 	if follow_target.is_in_group("Launcher"):
-		Tripod.rotation.x = rot_x
+		pass
+		#Camera.rotation.x = rot_x
 		#follow_target.Barrel_Pivot.rotation.x = rot_x
 
 func _physics_process(delta):

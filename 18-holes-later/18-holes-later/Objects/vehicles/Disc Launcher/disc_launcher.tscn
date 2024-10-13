@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyj3365fqnqx5"]
+[gd_scene load_steps=23 format=3 uid="uid://dyj3365fqnqx5"]
 
 [ext_resource type="Script" path="res://Objects/vehicles/Disc Launcher/disc_launcher.gd" id="1_kgoir"]
 [ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="2_b3n3o"]
@@ -39,6 +39,15 @@ normal_scale = 1.2
 normal_texture = ExtResource("4_mrsk8")
 heightmap_enabled = true
 heightmap_texture = ExtResource("3_3hxp6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xwhl"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_il4a8"]
+material = SubResource("StandardMaterial3D_3xwhl")
+top_radius = 0.13
+bottom_radius = 0.13
+height = 0.1
 
 [sub_resource type="PrismMesh" id="PrismMesh_wlngm"]
 size = Vector3(0.705, 0.51, 1)
@@ -82,6 +91,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_k38q8")
 
 [node name="CamFocus" parent="Barrel Pivot" instance=ExtResource("2_b3n3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505913, -1)
+
+[node name="Barrel Exit" type="MeshInstance3D" parent="Barrel Pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.752364)
+mesh = SubResource("CylinderMesh_il4a8")
+
+[node name="RayCast3D" type="RayCast3D" parent="Barrel Pivot"]
+transform = Transform3D(1, 0, 0, 0, -0.000924988, -1, 0, 1, -0.000924988, 0, 0, 0)
 
 [node name="Base" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0.5, 0)

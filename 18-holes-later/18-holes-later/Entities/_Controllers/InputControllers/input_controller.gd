@@ -105,7 +105,6 @@ func _vehicle_action():
 
 # Launcher Inputs
 func _launcher_look(delta):
-	print("Launcher Looking")
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
@@ -114,6 +113,7 @@ func _launcher_look(delta):
 			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
 			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
 			Global.Cameraman.rot_x = rot_cam.x
+			Master.Barrel_Pivot.rotation.x = rot_cam.x
 
 func _launcher_action():
 	if Master.can_shoot:
