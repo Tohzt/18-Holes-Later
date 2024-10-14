@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/Walk/walk.tscn" id="6_o7hwu"]
 [ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/Idle/idle.tscn" id="7_1kgre"]
 [ext_resource type="PackedScene" uid="uid://by252jyfxak" path="res://Entities/_Controllers/StateMachine/States/Character/Jump/jump.tscn" id="7_02t2y"]
-[ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="10_3uoga"]
 [ext_resource type="Script" path="res://Entities/Character/disc_bag.gd" id="11_li4e1"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="11_xp8yr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i2ynl"]
 radius = 0.243035
@@ -45,7 +45,7 @@ character_action = true
 
 [node name="Anim_Layla" parent="." instance=ExtResource("3_d4gnj")]
 
-[node name="CamFocus" parent="." instance=ExtResource("10_3uoga")]
+[node name="Cam_Mount" parent="." instance=ExtResource("11_xp8yr")]
 
 [node name="Hand" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -1.009)

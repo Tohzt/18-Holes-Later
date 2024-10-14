@@ -1,16 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://dyj3365fqnqx5"]
+[gd_scene load_steps=23 format=3 uid="uid://dyj3365fqnqx5"]
 
 [ext_resource type="Script" path="res://Objects/vehicles/Disc Launcher/disc_launcher.gd" id="1_kgoir"]
-[ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="2_b3n3o"]
 [ext_resource type="Texture2D" uid="uid://5xiie0nxesiu" path="res://Objects/vehicles/Disc Launcher/src/bark_willow_diff_1k.png" id="2_onktg"]
 [ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="2_udnq0"]
 [ext_resource type="Texture2D" uid="uid://bgvgwb2yu53m3" path="res://Objects/vehicles/Disc Launcher/src/bark_willow_disp_1k.png" id="3_3hxp6"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="3_fm4gv"]
 [ext_resource type="Texture2D" uid="uid://xlcbujd0vpcj" path="res://Objects/vehicles/Disc Launcher/src/bark_willow_nor_gl_1k.png" id="4_mrsk8"]
 [ext_resource type="Texture2D" uid="uid://dbigux6r8fe8k" path="res://Objects/vehicles/Disc Launcher/src/bark_willow_rough_1k.png" id="5_1r4xv"]
 [ext_resource type="Texture2D" uid="uid://dw8hqye4viv" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_diff_1k.png" id="6_bytal"]
 [ext_resource type="Texture2D" uid="uid://duifu4tx8yj7j" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_disp_1k.png" id="7_osaxv"]
 [ext_resource type="Texture2D" uid="uid://dj0gedb4kxt1" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_nor_gl_1k.png" id="8_4uneu"]
 [ext_resource type="Texture2D" uid="uid://einaex0tay2o" path="res://Objects/vehicles/Disc Launcher/src/rusty_metal_grid_rough_1k.png" id="9_0fe3w"]
+[ext_resource type="Script" path="res://Objects/vehicles/Disc Launcher/canvas_layer.gd" id="12_u64jm"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8ejoo"]
 radius = 0.15
@@ -77,6 +78,9 @@ script = ExtResource("1_kgoir")
 launcher_look = true
 launcher_action = true
 
+[node name="Cam_Mount" parent="." instance=ExtResource("3_fm4gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49409, 1)
+
 [node name="Barrel Pivot" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994087, 0)
 mesh = SubResource("SphereMesh_8ejoo")
@@ -87,9 +91,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 mesh = SubResource("CylinderMesh_mrtv8")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_k38q8")
-
-[node name="CamFocus" parent="Barrel Pivot" instance=ExtResource("2_b3n3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505913, -1)
 
 [node name="Barrel Exit" type="MeshInstance3D" parent="Barrel Pivot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.752364)
@@ -113,3 +114,27 @@ shape = SubResource("SphereShape3D_edrnr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498785, 0)
 shape = SubResource("BoxShape3D_yjn3y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("12_u64jm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -48.0
+offset_right = 193.0
+offset_bottom = 48.0
+grow_vertical = 2
+
+[node name="Label_AmmoType" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Ammo Type:"
+
+[node name="Label_AmmoStats" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Ammo Stats:"
+
+[node name="Label_Power" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Power:"

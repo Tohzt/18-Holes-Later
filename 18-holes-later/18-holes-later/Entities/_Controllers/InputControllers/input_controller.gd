@@ -1,6 +1,8 @@
 class_name InputController
 extends Node
 
+@onready var Master = $".."
+
 @export_category("Character Controls")
 @export var character_move   := false
 @export var character_look   := false
@@ -15,8 +17,11 @@ extends Node
 @export var launcher_look   := false
 @export var launcher_action := false
 
-@onready var Master: Node3D = $".."
 var input_move = Vector2.ZERO
+var input_look = Vector2.ZERO
+# TODO: Store queue of inputs for Master to evaluate
+var input_keys: Array[String]
+
 var mouse_motion = null
 var target_rotation = 0.0
 var rotation_speed = 5
@@ -48,26 +53,22 @@ func _input(event):
 # Character Inputs
 func _character_move(delta):
 	input_move = Vector2.ZERO
-	Master.input = input_move
 	if Master.can_move:
+		# TODO: Update Master to read input on its own
 		input_move = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		Master.input = input_move
+		Master.input_move = input_move
 		Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input_move.x, 0, input_move.y)).normalized(), delta*10)
 	
 	if Master.can_jump and Input.is_action_just_pressed("jump"):
 		Master.is_jumping = true
 	
-var rot_cam = Vector3.ZERO
 func _character_look(delta):
-	if Global.Hole_Name == "Clubhouse_Interior": return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
-			rot_cam.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
-			
-			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
-			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
-			Global.Cameraman.rot_x = rot_cam.x
+			input_look.x = Master.input_look.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
+			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
+			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 
 func _character_action():
 	if !Master.in_combat:
@@ -108,14 +109,16 @@ func _launcher_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
-			rot_cam.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
+			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 			
-			rot_cam.x = Global.Cameraman.rot_x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
-			rot_cam.x = clamp(rot_cam.x, deg_to_rad(-45), deg_to_rad(45))
-			Global.Cameraman.rot_x = rot_cam.x
-			Master.Barrel_Pivot.rotation.x = rot_cam.x
+			input_look.x = Master.input_look.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
+			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
+			
+			Master.Barrel_Pivot.rotation.x = input_look.x
 
 func _launcher_action():
+	if Input.is_action_just_pressed("tab"):
+		Master.toggle_type()
 	if Master.can_shoot:
 		if Input.is_action_just_pressed("left_click"):
 			Master.did_shoot = true

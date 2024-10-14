@@ -18,7 +18,7 @@ func update_state(delta):
 		Master.rotation.y = lerp_angle(Master.rotation.y, Master.new_dir.y, delta*5)
 	
 	if !Input.is_action_pressed("right_click"):
-		Global.Cameraman.set_target(Master, Master.get_node("CamFocus"))
+		Global.Cameraman.set_target(Master, Master.Cam_Mount)
 		exit_state("Idle")
 	
 	if Input.is_action_just_released("right_click"):
