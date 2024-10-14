@@ -12,7 +12,7 @@ func _ready():
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 	add_child(timer)
-	timer.start(1)
+	timer.start(0.5)
 
 func _on_timer_timeout():
 	slide_in = true

@@ -2,7 +2,7 @@ class_name NME_Zombie
 extends RigidBody3D
 @onready var zanim = $ZanimController
 
-@export var seight_range: int = 50
+@export var seight_range: int = 999
 var Target: Entity_Character
 var timer: Timer
 var dir_to_target = Vector3.ZERO
@@ -31,12 +31,11 @@ func _on_timer_timeout():
 	$GPUParticles3D.reparent(get_parent())
 	queue_free()
 
-func _on_body_entered(_body):
-	pass
-	#if body.is_in_group("Disc"):
-		#self.axis_lock_angular_x = false
-		#self.axis_lock_angular_z = false
-		#timer.start(1.0)
+func _on_body_entered(body):
+	if body.is_in_group("Disc"):
+		self.axis_lock_angular_x = false
+		self.axis_lock_angular_z = false
+		timer.start(1.0)
 
 func _on_area_3d_area_entered(area):
 	if area.name == "BoneHand":

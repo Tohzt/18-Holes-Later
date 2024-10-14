@@ -26,14 +26,14 @@ func _ready():
 	
 func _process(_delta):
 	if !accepts_input: 
-		input_look = Input_Controller.input_look
 		var overlap = Detect_Player.get_overlapping_bodies()
 		if overlap: _detect(overlap)
 		return
 	
-	
-	new_dir.y = Input_Controller.input_look.y
-	Barrel_Pivot.rotation.y = new_dir.y
+	input_look = Input_Controller.input_look
+	if !Input_Controller.mouse_motion: input_look.y = 0
+	Barrel_Pivot.rotation.x  = input_look.x
+	Barrel_Pivot.rotation.y += input_look.y
 	
 	if did_shoot:
 		did_shoot = false
@@ -43,10 +43,9 @@ func _detect(overlap):
 	for body in overlap:
 		if body.is_in_group("Character"):
 			if body.did_interact:
-				if !accepts_input:
-					set_active(true)
-					Global.Player.set_active(false)
-					Global.Cameraman.set_target(self, Cam_Mount)
+				set_active(true)
+				Global.Player.set_active(false)
+				Global.Cameraman.set_target(self, Cam_Mount)
 
 func set_active(TorF: bool):
 	if TorF:
@@ -75,10 +74,10 @@ func throw_disc():
 	
 	ammo.position = Barrel_Exit.global_position
 	ammo.target_dir = Barrel_Dir.global_transform.basis * -Barrel_Dir.target_position.normalized()
+	
 	ammo.power = 10
 	ammo.in_bag = false
 	ammo.in_hand = false
 	ammo.visible = true
-	#disc.target_dir.y -= deg_to_rad(20)
-	ammo.launch = true
+	ammo.is_launched = true
 	get_tree().root.add_child(ammo)

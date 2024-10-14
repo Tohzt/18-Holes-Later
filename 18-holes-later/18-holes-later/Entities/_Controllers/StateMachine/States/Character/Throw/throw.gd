@@ -66,7 +66,7 @@ func throw_disc(disc, power = 0.0):
 	var _side = -1
 	disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
 	disc.rotate_object_local(Vector3.RIGHT, Global.Cameraman.Camera.rotation.x)
-	disc.launch = true
+	disc.is_launched = true
 	
 	if !disc.is_tracer and Global.Settings.follow_all_throws:
 		Global.Cameraman.set_target(Master, Master.get_node("CamFocus"))

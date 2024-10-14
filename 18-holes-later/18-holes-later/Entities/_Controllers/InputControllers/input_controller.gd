@@ -109,12 +109,10 @@ func _launcher_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
-			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
-			
 			input_look.x = Master.input_look.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
 			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
-			
-			Master.Barrel_Pivot.rotation.x = input_look.x
+			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
+
 
 func _launcher_action():
 	if Input.is_action_just_pressed("tab"):
