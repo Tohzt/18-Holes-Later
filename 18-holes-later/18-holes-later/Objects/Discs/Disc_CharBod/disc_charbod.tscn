@@ -7,12 +7,12 @@
 [ext_resource type="Script" path="res://Objects/Discs/Trace/trail_3d.gd" id="5_r865v"]
 
 [sub_resource type="Curve" id="Curve_7t4j3"]
-min_value = -1.0
-_data = [Vector2(0, -0.340659), 0.0, 0.0, 0, 0, Vector2(0.502538, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0.473464), 0.0, 0.0090782, 0, 1, Vector2(1, 0.482542), 0.0090782, 0.0, 1, 0]
+point_count = 2
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_t8ynw"]
-radius = 0.156008
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gponj"]
+height = 0.051741
+radius = 0.183163
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07jcs"]
 transparency = 1
@@ -46,7 +46,8 @@ script = ExtResource("3_l0b24")
 script = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_t8ynw")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00724372, 0)
+shape = SubResource("CylinderShape3D_gponj")
 
 [node name="Trail3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
