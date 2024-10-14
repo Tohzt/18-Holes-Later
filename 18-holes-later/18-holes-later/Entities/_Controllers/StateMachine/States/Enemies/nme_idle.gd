@@ -10,7 +10,6 @@ func monitor_state():
 
 func update_state(_delta):
 	var dist_to_target = Master.position.distance_to(Master.Target.position)
-	print(dist_to_target)
 	if dist_to_target < Master.seight_range:
 		exit_state("Chase")
 

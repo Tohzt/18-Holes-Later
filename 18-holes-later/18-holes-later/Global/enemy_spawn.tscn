@@ -1,4 +1,3 @@
 [gd_scene format=3 uid="uid://buyy01rncsfep"]
 
 [node name="Enemy_Spawner" type="Marker3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64537, 0, 152.002)

@@ -16,6 +16,8 @@ var index = 1
 @export_category("Disc Combat Stats")
 @export var dmg = 5
 @export var SPEED = 100
+@export var curve_slice: Curve
+
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var takeoff_pos: Vector3
@@ -56,12 +58,8 @@ func _process(delta):
 	var spd = SPEED * power * delta
 	if !is_on_floor():
 		direction.y += drop_rate
-		print(direction.y)
 	if direction:
 		velocity = direction * spd
-		#velocity.x = direction.x * spd * delta
-		#velocity.y = direction.y * spd * delta
-		#velocity.z = direction.z * spd * delta
 	else:
 		velocity.x = move_toward(direction.x, 0, spd)
 		velocity.y = move_toward(direction.y, 0, spd)
