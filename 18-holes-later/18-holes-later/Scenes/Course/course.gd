@@ -21,5 +21,6 @@ func add_hole():
 	Holes.add_child(Holes.build_hole(Global.Hole_Name))
 
 func add_player():
-	var spawn_pos = Holes.get_child(-1).get_node("Player_Spawn").position
+	#var spawn_pos = Holes.get_child(-1).get_node("Player_Spawn").position
+	var spawn_pos = get_tree().get_first_node_in_group("Player_Spawn").position
 	add_child(Global.init_player(spawn_pos))

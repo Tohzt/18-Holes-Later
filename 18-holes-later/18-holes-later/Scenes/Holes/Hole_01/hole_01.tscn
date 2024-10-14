@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://w1e2pm1t1k53"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/hole_01.gd" id="1_33s3e"]
+[ext_resource type="PackedScene" uid="uid://cxy2sf0hfy7bo" path="res://Scenes/Holes/Hole_01/courseheight.tscn" id="2_xn82g"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_yx8v2"]
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="3_vqgkm"]
 [ext_resource type="PackedScene" uid="uid://chr2q4c326wr4" path="res://Structures/clubhouse.tscn" id="4_dpl60"]
-[ext_resource type="PackedScene" uid="uid://lhfvu7ak06vk" path="res://Scenes/Holes/Hole_01/west_fork_low_poly_solid.tscn" id="5_dlb5e"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="5_ojvid"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="5_qt2g5"]
 [ext_resource type="Script" path="res://Scenes/Holes/Hole_01/PathFollow3D.gd" id="6_fld4g"]
@@ -41,6 +41,9 @@ point_count = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.6537, 0)
 script = ExtResource("1_33s3e")
 
+[node name="StaticBody3D" parent="." instance=ExtResource("2_xn82g")]
+transform = Transform3D(-4.37114e-05, 0, 1000, 0, 1000, 0, -1000, 0, -4.37114e-05, 6.39703, -4.63367, -31.0117)
+
 [node name="Save" parent="." instance=ExtResource("2_yx8v2")]
 is_course = true
 
@@ -51,8 +54,6 @@ directional_shadow_split_1 = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t3w5y")
-
-[node name="WestFork_LowPoly_Solid" parent="." instance=ExtResource("5_dlb5e")]
 
 [node name="Player_Spawn" parent="." instance=ExtResource("5_qt2g5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 331.061, 105.791, -53.5932)

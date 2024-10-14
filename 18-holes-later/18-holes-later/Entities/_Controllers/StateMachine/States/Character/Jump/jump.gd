@@ -24,7 +24,7 @@ func update_state(_delta):
 	
 	# BUG: Slight glitch into walk anim when settling into idle
 	if Master.velocity.length() < 1:
-		if Master.input:
+		if Master.input_move:
 			exit_state("Walk")
 		else:
 			exit_state("Idle")

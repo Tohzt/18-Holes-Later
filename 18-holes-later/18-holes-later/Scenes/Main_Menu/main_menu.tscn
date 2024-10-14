@@ -143,9 +143,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -87.0
-offset_top = -114.0
+offset_top = -143.0
 offset_right = 87.0
-offset_bottom = 114.0
+offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_0jm70")
@@ -186,6 +186,12 @@ clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
 text = "Hole 01"
+
+[node name="Btn_Select_Hole_02" type="Button" parent="CourseContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "Hole 02"
 
 [node name="Btn_Select_Testing" type="Button" parent="CourseContainer/VBoxContainer"]
 layout_mode = 2
@@ -231,4 +237,5 @@ text = "PROFILE 3"
 [connection signal="pressed" from="CharacterContainer/VBoxContainer/Btn_Select_Layla" to="CharacterContainer" method="_on_btn_select_layla_pressed"]
 [connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Clubhouse" to="CourseContainer" method="_on_btn_select_clubhouse_pressed"]
 [connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Hole_01" to="CourseContainer" method="_on_btn_select_hole_01_pressed"]
+[connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Hole_02" to="CourseContainer" method="_on_btn_select_hole_02_pressed"]
 [connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Testing" to="CourseContainer" method="_on_btn_select_testing_pressed"]
