@@ -56,7 +56,6 @@ func _process(delta):
 		if charge_power >= 100:
 			charge_rate = -abs(charge_rate)
 	
-	
 	if Global.Settings.collect_all: _collect_discs()
 
 func _physics_process(delta):

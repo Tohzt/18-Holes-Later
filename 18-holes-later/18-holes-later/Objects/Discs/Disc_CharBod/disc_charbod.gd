@@ -15,7 +15,7 @@ var index = 1
  
 @export_category("Disc Combat Stats")
 @export var dmg = 5
-@export var SPEED = 100
+@export var SPEED = 150
 @export var curve_slice: Curve
 
 
@@ -29,13 +29,16 @@ var in_hand  = false
 var is_grounded = false
 var is_tracer = false
 var can_look = false
+var owned_by_player = false
 
 var direction := Vector3.ZERO
 var target_dir: Vector3
-var drop_rate := -0.05
+var drop_rate := -0.01
 var power: float
 var power_resist: float
 var handedness = 1
+var elapsed_time := 0.0
+var elapse_duration := 2.0
 
 func _launch_disc():
 	self.set_collision_mask_value(1, true)
@@ -57,6 +60,19 @@ func _process(delta):
 	if is_grounded: return
 	var spd = SPEED * power * delta
 	if !is_on_floor():
+		print(curve_slice)
+		#I want to pull the direction to the left/right based on the curve_slice
+		elapsed_time += delta
+		
+		# Use the curve to control the disc's rotation over 2 seconds
+		if elapsed_time <= elapse_duration:
+			var t = elapsed_time / elapse_duration  # Normalize time to 0-1 range
+			var curve_value = curve_slice.sample(t)
+			
+			# Rotate the direction vector based on the curve value
+			var rotation_angle = lerp(-PI/4, PI/4, curve_value)  # Adjust range as needed
+			direction = direction.rotated(Vector3.UP, rotation_angle * handedness * delta)
+
 		direction.y += drop_rate
 	if direction:
 		velocity = direction * spd
@@ -97,6 +113,7 @@ func _detect_impact():
 		if !collider: return
 		if collider.is_in_group("Solid"):
 			is_grounded = true
+			direction = Vector3.ZERO
 
 func pick_up(node: Node):
 	self.set_collision_mask_value(2, false)
@@ -114,4 +131,7 @@ func pick_up(node: Node):
 
 func _self_cull():
 	if position.y < -100:
-		pick_up(Global.Player.Bag)
+		if owned_by_player:
+			pick_up(Global.Player.Bag)
+		else:
+			queue_free()
