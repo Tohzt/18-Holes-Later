@@ -7,8 +7,10 @@ const ENEMY = preload("res://Entities/Enemy/enemy.tscn")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("spawn_enemies"):
-		spawn_enemies(Global.Player.position)
-		num_enemies += 1
+		var spawners = get_tree().get_nodes_in_group("Enemy Spawners")
+		for spawner in spawners:
+			spawn_enemies(spawner.position)
+			num_enemies += 1
 
 func spawn_enemies(pos):
 	for i in range(num_enemies):

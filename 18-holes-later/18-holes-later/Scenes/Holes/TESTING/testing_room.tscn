@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=68 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bu8ykyg2w8l1a" path="res://Objects/Trees/tree_2.tscn" id="13_pt36r"]
 [ext_resource type="PackedScene" uid="uid://qotkk6uroiib" path="res://Objects/Trees/tree_1.tscn" id="14_0bgg8"]
 [ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="14_qdsjn"]
+[ext_resource type="PackedScene" uid="uid://buyy01rncsfep" path="res://Global/enemy_spawn.tscn" id="15_mpiqo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
 panorama = ExtResource("1_bebql")
@@ -459,7 +460,7 @@ mesh = SubResource("BoxMesh_6pasj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Driving_Range/Teleport_Range"]
 shape = SubResource("ConcavePolygonShape3D_7elih")
 
-[node name="Walls" type="StaticBody3D" parent="Driving_Range"]
+[node name="Walls" type="StaticBody3D" parent="Driving_Range" groups=["Solid"]]
 
 [node name="Wall_Left" type="CollisionShape3D" parent="Driving_Range/Walls"]
 transform = Transform3D(0.99991, -0.0134037, 0, 0.0134037, 0.99991, 0, 0, 0, 1, 250.451, 5.35745, 210.5)
@@ -532,6 +533,9 @@ shape = SubResource("BoxShape3D_qnp1f")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Driving_Range/Walls/CollisionShape3D"]
 mesh = SubResource("BoxMesh_0bv70")
 skeleton = NodePath("../../..")
+
+[node name="Enemy_Spawner" parent="Driving_Range" groups=["Enemy Spawners"] instance=ExtResource("15_mpiqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64537, 0, 156.246)
 
 [node name="Trees" type="Node3D" parent="."]
 

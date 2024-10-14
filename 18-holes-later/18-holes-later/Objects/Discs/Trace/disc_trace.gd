@@ -17,10 +17,10 @@ func _physics_process(delta):
 	
 	var collision = move_and_collide(Vector3.ZERO, true)
 	if collision:
-		grounded = true
+		is_grounded = true
 	
 	if !in_bag:
-		if grounded or position.y < -100:
+		if is_grounded or position.y < -100:
 			queue_free()
 		else:
 			_draw_prediction()

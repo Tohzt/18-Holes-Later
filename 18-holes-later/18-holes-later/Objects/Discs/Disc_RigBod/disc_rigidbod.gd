@@ -17,14 +17,14 @@ var index = 1
 @export var dmg = 5
 
 var takeoff_pos: Vector3
-var launch   = false
+var can_launch = true
+var is_launched = false
 var in_bag   = false
 var in_play  = false
 var in_hand  = false
-var grounded = false
+var is_grounded = false
 var is_tracer = false
 var can_look = false
-var can_launch = true
 
 var target_dir: Vector3
 var power: float
@@ -49,11 +49,13 @@ func _launch_disc():
 	apply_central_impulse(impulse)
 
 func _process(_delta):
-	if launch:
+	if is_launched:
 		show()
 		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
-		if grounded:
-			_settle()
+		if is_grounded:
+			linear_velocity = Vector3.ZERO
+			freeze = true
+			#_settle()
 	elif in_bag:
 		position = Global.Player.position - Vector3(0,10,0)
 	if in_hand:
@@ -64,7 +66,7 @@ func _process(_delta):
 		
 
 func _physics_process(_delta):
-	if launch and can_launch:
+	if can_launch and is_launched:
 		can_launch = false
 		_launch_disc()
 	
@@ -72,7 +74,7 @@ func _physics_process(_delta):
 	_self_cull()
 	
 	power -= stats["Resistance"] if power > 0.0 else 0.0
-	if !grounded:
+	if !is_grounded:
 		if power < stats["Speed"]: 
 			var curve = linear_velocity.rotated(Vector3(0,1,0), deg_to_rad(10 * stats["Fade"] * handedness))
 			apply_central_force(curve)
@@ -85,11 +87,11 @@ func _physics_process(_delta):
 			var glide_amt = stats["Glide"]/2
 			apply_central_force(Vector3(0,glide_amt,0))
 
-func _settle():
-	if linear_velocity.length() < 0.2:
-		self.set_collision_mask_value(1, false)
-		linear_velocity = Vector3.ZERO
-		sleeping = true
+#func _settle():
+	#if linear_velocity.length() < 0.2:
+		#self.set_collision_mask_value(1, false)
+		#linear_velocity = Vector3.ZERO
+		#sleeping = true
 
 func _detect_impact():
 	for node in get_colliding_bodies():
@@ -101,7 +103,7 @@ func _detect_impact():
 					pick_up(node.Bag) 
 			if node.is_in_group("Solid"):
 				# TODO: Spawm pickup area
-				grounded = true
+				is_grounded = true
 				self.set_collision_mask_value(4, false)
 			if node.is_in_group("Enemy"):
 				node.take_damage(dmg)
@@ -112,9 +114,9 @@ func pick_up(node: Node):
 		Global.Player.position = takeoff_pos
 		Global.Player.locked_in = true
 		
-	launch = false
+	is_launched = false
 	can_launch = true
-	grounded = false
+	is_grounded = false
 	in_bag = true
 	in_play = false
 	reparent(node)
