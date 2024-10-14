@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://5xh0ditfqv66"]
 
-[ext_resource type="Script" path="res://Global/HUD/hud.gd" id="1_jkdcx"]
-[ext_resource type="Script" path="res://Global/HUD/bag_container.gd" id="3_wy0c7"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/hud.gd" id="1_jkdcx"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/bag_container.gd" id="3_wy0c7"]
 [ext_resource type="Texture2D" uid="uid://bojls6d0ucddj" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="4_cfqit"]
-[ext_resource type="Script" path="res://Global/HUD/hud_disc.gd" id="4_exk0s"]
-[ext_resource type="Script" path="res://Global/HUD/charge_bar.gd" id="5_1rnm5"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/hud_disc.gd" id="4_exk0s"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/charge_bar.gd" id="5_1rnm5"]
 [ext_resource type="Texture2D" uid="uid://cplq58wek8oxa" path="res://Styles/UI Assets/Theme_Placeholder/menu_button _small.png" id="5_3br8d"]
 
 [sub_resource type="Gradient" id="Gradient_p62is"]

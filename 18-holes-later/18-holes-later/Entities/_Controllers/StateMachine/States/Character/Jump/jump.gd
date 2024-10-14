@@ -6,7 +6,7 @@ func init_state():
 	Master.can_throw = false
 	Master.can_jump = false
 	Master.can_move = false
-	Master.look_around = false
+	Master.look_forward = false
 	Master.anim_play("Jump")
 	Master.velocity.y = Master.JUMP_FORCE
 
@@ -30,7 +30,6 @@ func update_state(_delta):
 			exit_state("Idle")
 
 func exit_state(next_state: String):
-	Master.look_around = true
 	Master.is_jumping = false
 	Master.is_falling = false
 	Master.can_jump = true

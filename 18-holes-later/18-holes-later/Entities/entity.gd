@@ -18,29 +18,37 @@ var speed_mult: float = 0.0
 var state: String = "Idle"
 var new_dir := Vector3.ZERO
 var look_dir := 0.0
-var input := Vector2.ZERO
+var input_move := Vector2.ZERO
+var input_look := Vector2.ZERO
 var input_dir := Vector3.ZERO
-var locked_in = false
-var is_dead = false
-var can_combat = true
-var in_combat = false
-var can_attack = true
-var is_attacking = false
-var can_throw = false
-var is_throwing = false
-var can_look = true
-var can_move = true
-var is_moving = false
-var can_jump = true
-var is_running = false
-var is_jumping = false
-var is_falling = false
-var is_landing = false
-var accepts_input = true
+var locked_in: bool
+var is_dead: bool
+var can_combat: bool
+var in_combat: bool
+var can_attack: bool
+var is_attacking: bool
+var can_throw: bool
+var is_throwing: bool
+var look_forward: bool
+var look_around: bool
+var can_look: bool
+var can_move: bool
+var is_moving: bool
+var can_jump: bool
+var is_running: bool
+var is_jumping: bool
+var is_falling: bool
+var is_landing: bool
+var accepts_input: bool
 
 func _ready():
 	health = max_health
 	set_active(true)
+
+func _process(_delta):
+	if Input_Controller:
+		input_move = Input_Controller.input_move
+		input_look = Input_Controller.input_look
 
 func take_damage(dmg_incoming: float = 0, _knockback: Vector3 = Vector3.ZERO):
 	#velocity += knockback
@@ -52,6 +60,8 @@ func take_damage(dmg_incoming: float = 0, _knockback: Vector3 = Vector3.ZERO):
 		
 func set_active(TorF: bool):
 	if TorF:
+		look_forward = true
+		look_around = true
 		can_look = true
 		can_throw = true
 		can_combat = true
@@ -65,6 +75,8 @@ func set_active(TorF: bool):
 		Input_Controller.character_look = true
 		Input_Controller.character_move = true
 	else:
+		look_forward = false
+		look_around = false
 		can_look = false
 		can_throw = false
 		can_combat = false

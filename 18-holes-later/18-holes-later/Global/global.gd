@@ -4,7 +4,7 @@ extends Node
 @onready var Refs: ReferenceClass = $References
 @onready var Settings: SettingsClass = $Settings
 
-@onready var Cameraman: Node3D = $Global_Tripod
+@onready var Cameraman: Node3D = $Camerman
 
 var Scene: String
 var HUD: HUD_Class

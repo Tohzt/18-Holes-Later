@@ -15,7 +15,9 @@ var index = 1
  
 @export_category("Disc Combat Stats")
 @export var dmg = 5
+var spd = 5000
 
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var takeoff_pos: Vector3
 var launch   = false
 var in_bag   = false
@@ -44,13 +46,23 @@ func _launch_disc():
 	velocity = Vector3.ZERO
 	direction = Vector3.ZERO
 	# TODO: Do something with this
-	#reparent(get_parent().get_parent().get_parent())
 	reparent(get_tree().root)
 	var impulse = power + stats["Speed"]
 	impulse *= -target_dir
-	direction = impulse
+	spd = impulse.length()
+	direction = impulse.normalized()
 
-func _process(_delta):
+func _process(delta):
+	if !is_on_floor():
+		velocity.y -= gravity * delta
+	if direction:
+		velocity.x = direction.x * spd * delta
+		velocity.z = direction.z * spd * delta
+	else:
+		velocity.x = move_toward(direction.x, 0, spd * delta)
+		velocity.z = move_toward(direction.z, 0, spd * delta)
+	move_and_slide()
+	
 	if launch:
 		show()
 		DebugDraw.draw_line_relative_thick(Global.Player.position, Global.Player.position - position)
@@ -93,20 +105,21 @@ func _settle():
 
 func _detect_impact():
 	var colliders = move_and_collide(velocity, true)
-	if colliders:
-		for node in colliders:
-			if node:
-				if node.is_in_group("Character"):
-					if in_play:
-						pass
-					else:
-						pick_up(node.Bag) 
-				if node.is_in_group("Solid"): 
-					# TODO: Spawm pickup area
-					grounded = true
-					self.set_collision_mask_value(4, false)
-				if node.is_in_group("Enemy"):
-					node.take_damage(dmg)
+	print(colliders)
+	#if colliders:
+		#for node in colliders:
+			#if node:
+				#if node.is_in_group("Character"):
+					#if in_play:
+						#pass
+					#else:
+						#pick_up(node.Bag) 
+				#if node.is_in_group("Solid"): 
+					## TODO: Spawm pickup area
+					#grounded = true
+					#self.set_collision_mask_value(4, false)
+				#if node.is_in_group("Enemy"):
+					#node.take_damage(dmg)
 
 func pick_up(node: Node):
 	# TODO: Doing this in two places... find them

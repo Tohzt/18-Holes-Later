@@ -5,7 +5,6 @@ extends CharacterBody3D
 
 var follow_target: Node3D
 var look_target: Node3D
-var rot_x = 0.0
 
 const SPEED = 5
 var spd_mod: float = 1.0
@@ -16,7 +15,7 @@ func _process(_delta):
 	
 	if !follow_target: return
 	if follow_target == Global.Player:
-		Tripod.rotation.x = rot_x
+		Tripod.rotation.x = follow_target.input_look.x
 	if follow_target.is_in_group("Launcher"):
 		pass
 		#Camera.rotation.x = rot_x
@@ -28,11 +27,11 @@ func _physics_process(delta):
 		_look_at_target(delta)
 
 func _follow_target(delta):
-	var follow_pos = Vector3(
-		follow_target.position.x,
-		look_target.global_position.y,
-		follow_target.position.z,
-	)
+	var follow_pos = follow_target.get_node("Cam_Mount").global_position
+		#follow_target.position.x,
+		#look_target.global_position.y,
+		#follow_target.position.z,
+	#)
 	
 	var dist_to_target = position.distance_to(follow_pos)
 	if dist_to_target > .05:
@@ -43,8 +42,12 @@ func _follow_target(delta):
 		position = follow_pos
 
 func _look_at_target(delta):
-	if follow_target.can_look:
-		rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
+	if follow_target.look_forward:
+		rotation = follow_target.Cam_Mount.global_rotation
+		#rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
+	if follow_target.look_around:
+		rotation.y = lerp_angle(rotation.y, follow_target.input_look.y, delta*10)
+		
 
 func set_target(new_target: Node3D, new_look: Node3D ):
 	if follow_target:
@@ -53,7 +56,7 @@ func set_target(new_target: Node3D, new_look: Node3D ):
 	if !new_target:
 		new_target = Global.Player
 	if !new_look:
-		new_look = new_target.get_node("CamFocus")
+		new_look = new_target.Cam_Mount
 	
 	new_target.accepts_input = true
 	follow_target = new_target

@@ -20,8 +20,8 @@ func _process(delta):
 	_update_anim(delta)
 
 func _update_anim(delta):
-	look_dir = Master.input.angle() - PI/2
-	if Master.input:
+	if Master.input_move:
+		look_dir = Master.input_move.angle() - PI/2
 		prev_look_dir = look_dir
 		rotation.y = lerp_angle(rotation.y, -look_dir, delta*5)
 	else:
