@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=4 uid="uid://c7xne0byhx4ij"]
+[gd_scene load_steps=39 format=4 uid="uid://c7xne0byhx4ij"]
 
 [ext_resource type="Script" path="res://Objects/vehicles/Golf Cart/golf_cart.gd" id="1_dqhw4"]
 [ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="2_87e4k"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="3_qxbtb"]
 [ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="4_31c13"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yuas3"]
@@ -613,6 +614,9 @@ vehicle_look = true
 
 [node name="Seat_Driver" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0647225, -0.225168, -0.243457)
+
+[node name="Cam_Mount" parent="." instance=ExtResource("3_qxbtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1)
 
 [node name="CamFocus" parent="." instance=ExtResource("4_31c13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)

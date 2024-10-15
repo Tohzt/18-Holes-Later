@@ -82,7 +82,6 @@ func _process(delta):
 		velocity.x = move_toward(direction.x, 0, spd)
 		velocity.y = move_toward(direction.y, 0, spd)
 		velocity.z = move_toward(direction.z, 0, spd)
-	#move_and_slide()
 	
 	_detect_impact()
 	_self_cull()
@@ -114,6 +113,7 @@ func _detect_impact():
 			is_grounded = true
 			direction = Vector3.ZERO
 			velocity = Vector3.ZERO
+			$GPUParticles3D.emitting = true
 
 func pick_up(node: Node):
 	self.set_collision_mask_value(2, false)

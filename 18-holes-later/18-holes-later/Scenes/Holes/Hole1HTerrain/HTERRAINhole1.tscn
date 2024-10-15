@@ -63,6 +63,14 @@ shader_params/u_depth_blending = false
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Vector4(0.1, 0.92, 5.555, 1.915)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jkbgl")
+
 [node name="clubhousOUTSIDE" parent="." instance=ExtResource("5_74cj7")]
 transform = Transform3D(-0.876001, 0, -3.07624, 0, 3.19854, 0, 3.07624, 0, -0.876001, 236.629, 12.4518, -1.81152)
 
@@ -119,10 +127,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.799, 13.8209, 25.4268)
 
 [node name="DiscLauncher" parent="." instance=ExtResource("24_61fyv")]
 transform = Transform3D(-0.76044, 0, 0.649408, 0, 1, 0, -0.649408, 0, -0.76044, 216.543, 12.8076, 62.8284)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jkbgl")

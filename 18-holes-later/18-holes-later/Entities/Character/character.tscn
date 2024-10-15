@@ -46,6 +46,7 @@ character_action = true
 [node name="Anim_Layla" parent="." instance=ExtResource("3_d4gnj")]
 
 [node name="Cam_Mount" parent="." instance=ExtResource("11_xp8yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1)
 
 [node name="Hand" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -1.009)
