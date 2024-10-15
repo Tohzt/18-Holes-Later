@@ -43,14 +43,14 @@ shader_parameter/dist_fade = 0.3
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.602484, 0.857143), -1.06154, -1.06154, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_aw3ph"]
+[sub_resource type="CurveTexture" id="CurveTexture_8uvje"]
 curve = SubResource("Curve_ox2hl")
 
 [sub_resource type="Gradient" id="Gradient_ki1yn"]
 offsets = PackedFloat32Array(0, 0.364807, 1)
 colors = PackedColorArray(7.027, 1.081, 0, 1, 0.784129, 0.120627, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cettd"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e2n84"]
 gradient = SubResource("Gradient_ki1yn")
 use_hdr = true
 
@@ -58,14 +58,14 @@ use_hdr = true
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.440994, 0.879121), -2.16873, -2.16873, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_47qbf"]
+[sub_resource type="CurveTexture" id="CurveTexture_2dvul"]
 curve = SubResource("Curve_aw6eu")
 
 [sub_resource type="Curve" id="Curve_6ampe"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.571428), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_fvnvi"]
+[sub_resource type="CurveTexture" id="CurveTexture_mrynh"]
 curve = SubResource("Curve_6ampe")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_df8im"]
@@ -81,12 +81,12 @@ initial_velocity_min = 0.5
 initial_velocity_max = 1.0
 radial_velocity_min = 1.0
 radial_velocity_max = 2.0
-radial_velocity_curve = SubResource("CurveTexture_47qbf")
+radial_velocity_curve = SubResource("CurveTexture_2dvul")
 gravity = Vector3(0, 0, 0)
 scale_min = 0.75
-scale_curve = SubResource("CurveTexture_fvnvi")
-color_ramp = SubResource("GradientTexture1D_cettd")
-alpha_curve = SubResource("CurveTexture_aw3ph")
+scale_curve = SubResource("CurveTexture_mrynh")
+color_ramp = SubResource("GradientTexture1D_e2n84")
+alpha_curve = SubResource("CurveTexture_8uvje")
 
 [sub_resource type="SphereMesh" id="SphereMesh_nhnj1"]
 

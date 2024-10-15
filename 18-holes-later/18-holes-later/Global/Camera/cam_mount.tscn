@@ -10,9 +10,9 @@ radius = 0.1
 height = 0.2
 
 [node name="Cam_Mount" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_tyjv1")
 
 [node name="Cam_Dir" type="RayCast3D" parent="."]

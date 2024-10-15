@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq0eakw0nkek0"]
+[gd_scene load_steps=20 format=3 uid="uid://cq0eakw0nkek0"]
 
 [ext_resource type="Script" path="res://Objects/Discs/Disc_CharBod/disc_charbod.gd" id="1_3ihc1"]
 [ext_resource type="Script" path="res://Objects/Discs/Mesh/Mesh.gd" id="3_l0b24"]
+[ext_resource type="Shader" uid="uid://cduy8w14habn" path="res://Objects/New Enemy/puff.tres" id="4_cbjb2"]
 [ext_resource type="PackedScene" uid="uid://cvfoujqikvtev" path="res://Objects/Discs/Mesh/classic_retro_disc_mesh.tscn" id="4_f68j3"]
-[ext_resource type="Script" path="res://Objects/Discs/Trace/trail_3d.gd" id="5_r865v"]
+[ext_resource type="Script" path="res://Objects/New Enemy/puff_shader.gd" id="5_p1oyu"]
 
 [sub_resource type="Curve" id="Curve_7t4j3"]
 _data = [Vector2(0, 0.182961), 0.0, 1.40072, 0, 1, Vector2(0.537931, 0.936453), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.137528, 0.0, 1, 0]
@@ -17,18 +18,61 @@ point_count = 3
 [sub_resource type="SphereShape3D" id="SphereShape3D_qv5ik"]
 radius = 0.15
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07jcs"]
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.0156863, 1, 0, 0.607843)
-texture_filter = 0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xdbno"]
+render_priority = 0
+shader = ExtResource("4_cbjb2")
+shader_parameter/dist_fade = 0.3
 
-[sub_resource type="Curve" id="Curve_6jgx7"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_bu1ii"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.602484, 0.857143), -1.06154, -1.06154, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_aw3ph"]
+curve = SubResource("Curve_bu1ii")
+
+[sub_resource type="Gradient" id="Gradient_hv127"]
+offsets = PackedFloat32Array(0, 0.364807, 1)
+colors = PackedColorArray(7.027, 1.081, 0, 1, 0.784129, 0.120627, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cettd"]
+gradient = SubResource("Gradient_hv127")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_ajvwj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.440994, 0.879121), -2.16873, -2.16873, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_47qbf"]
+curve = SubResource("Curve_ajvwj")
+
+[sub_resource type="Curve" id="Curve_vc3lu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.571428), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fvnvi"]
+curve = SubResource("Curve_vc3lu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tq75k"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.0
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+radial_velocity_min = 1.0
+radial_velocity_max = 2.0
+radial_velocity_curve = SubResource("CurveTexture_47qbf")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_curve = SubResource("CurveTexture_fvnvi")
+color_ramp = SubResource("GradientTexture1D_cettd")
+alpha_curve = SubResource("CurveTexture_aw3ph")
+
+[sub_resource type="SphereMesh" id="SphereMesh_22k2b"]
 
 [node name="Disc_CharBod" type="CharacterBody3D" groups=["Disc"]]
 collision_layer = 4
@@ -49,8 +93,14 @@ script = null
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00724372, 0)
 shape = SubResource("SphereShape3D_qv5ik")
 
-[node name="Trail3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_07jcs")
-script = ExtResource("5_r865v")
-base_width = 0.1
-width_profile = SubResource("Curve_6jgx7")
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_xdbno")
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_tq75k")
+draw_pass_1 = SubResource("SphereMesh_22k2b")
+script = ExtResource("5_p1oyu")
+
+[connection signal="finished" from="GPUParticles3D" to="GPUParticles3D" method="_on_finished"]

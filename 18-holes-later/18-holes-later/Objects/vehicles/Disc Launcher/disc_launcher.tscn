@@ -79,7 +79,7 @@ launcher_look = true
 launcher_action = true
 
 [node name="Cam_Mount" parent="." instance=ExtResource("3_fm4gv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49409, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 1)
 
 [node name="Barrel Pivot" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994087, 0)
