@@ -15,8 +15,9 @@ var index = 1
  
 @export_category("Disc Combat Stats")
 @export var dmg = 5
-@export var SPEED = 150
-@export var curve_slice: Curve
+@export var SPEED = 1
+@export var curve_h: Curve
+@export var curve_v: Curve
 
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -33,7 +34,6 @@ var owned_by_player = false
 
 var direction := Vector3.ZERO
 var target_dir: Vector3
-var drop_rate := -0.01
 var power: float
 var power_resist: float
 var handedness = 1
@@ -58,62 +58,62 @@ func _launch_disc():
 
 func _process(delta):
 	if is_grounded: return
-	var spd = SPEED * power * delta
-	if !is_on_floor():
-		print(curve_slice)
-		#I want to pull the direction to the left/right based on the curve_slice
-		elapsed_time += delta
+	
+	if can_launch and is_launched:
+		can_launch = false
+		_launch_disc()
+	
+	elapsed_time += delta
+	if elapsed_time <= elapse_duration:
+		var t = elapsed_time / elapse_duration
+		var sample_h = curve_h.sample(t)
+		var sample_v = curve_v.sample(t)
 		
-		# Use the curve to control the disc's rotation over 2 seconds
-		if elapsed_time <= elapse_duration:
-			var t = elapsed_time / elapse_duration  # Normalize time to 0-1 range
-			var curve_value = curve_slice.sample(t)
-			
-			# Rotate the direction vector based on the curve value
-			var rotation_angle = lerp(-PI/4, PI/4, curve_value)  # Adjust range as needed
-			direction = direction.rotated(Vector3.UP, rotation_angle * handedness * delta)
-
-		direction.y += drop_rate
+		var angle_h = lerp(-PI/4, PI/4, sample_h)  # Adjust range as needed
+		direction = direction.rotated(Vector3.UP, angle_h * handedness * delta)
+	
+		var angle_v = lerp(-PI/4, PI/4, sample_v)  # Adjust range as needed
+		direction = direction.rotated(Vector3.LEFT, angle_v * delta)
+	
+	var spd = SPEED * power * delta
 	if direction:
 		velocity = direction * spd
 	else:
 		velocity.x = move_toward(direction.x, 0, spd)
 		velocity.y = move_toward(direction.y, 0, spd)
 		velocity.z = move_toward(direction.z, 0, spd)
-	move_and_slide()
+	#move_and_slide()
 	
-	if is_launched:
-		show()
-
-func _physics_process(_delta):
-	if can_launch and is_launched:
-		can_launch = false
-		_launch_disc()
-	if !is_grounded: _detect_impact()
+	_detect_impact()
 	_self_cull()
-	
-	#power -= stats["Resistance"] if power > 0.0 else 0.0
-	if !is_grounded:
-		if power < stats["Speed"]: 
-			# TODO: Apply Curve
-			#power = 0.0
-			pass
-		else:
-			# TODO: Apply Pre-Curve
-			pass
-		
-		if stats["Glide"]:
-			var glide_amt = stats["Glide"]/2
-			# TODO: Apply glide/loft
+
+#func _physics_process(_delta):
+	##power -= stats["Resistance"] if power > 0.0 else 0.0
+	#if !is_grounded:
+		#if power < stats["Speed"]: 
+			## TODO: Apply Curve
+			##power = 0.0
+			#pass
+		#else:
+			## TODO: Apply Pre-Curve
+			#pass
+		#
+		#if stats["Glide"]:
+			#var glide_amt = stats["Glide"]/2
+			## TODO: Apply glide/loft
 
 func _detect_impact():
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
+	var collision = move_and_collide(velocity)
+	if collision:
 		var collider = collision.get_collider()
+	#for i in range(get_slide_collision_count()):
+		#var collision = get_slide_collision(i)
+		#var collider = collision.get_collider()
 		if !collider: return
 		if collider.is_in_group("Solid"):
 			is_grounded = true
 			direction = Vector3.ZERO
+			velocity = Vector3.ZERO
 
 func pick_up(node: Node):
 	self.set_collision_mask_value(2, false)

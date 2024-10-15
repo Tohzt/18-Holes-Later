@@ -12,7 +12,7 @@ func _on_body_exited(body):
 
 func _process(_delta):
 	visible = get_parent().sleeping
-	if can_pickup and disc.grounded:
+	if can_pickup and disc.is_grounded:
 		if disc.in_play:
 			if Input.is_action_just_pressed("collect"):
 				Global.Player.locked_in = true
