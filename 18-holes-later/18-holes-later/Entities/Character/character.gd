@@ -1,21 +1,18 @@
 class_name Entity_Character
 extends Entity
- 
+
+@onready var Cam_Mount = $Cam_Mount
 @onready var start_pos = position
 @onready var Hand = $Hand
 @onready var Bag = $Bag
 
+const MAX_POWER = 10
 var game_disc_index: int = 0
 
-const MAX_POWER = 10
-var can_throw = false
-var can_jump = true
-var can_look = true
-var look_around = true
+var can_interact = true
+var did_interact = false
 var is_charging = false
-var is_throwing = false
 var is_on_tee = false
-var locked_in = false
 var aim_stable = false
 var prev_look_dir = look_dir
 
@@ -32,16 +29,18 @@ var predict_cd_max = 50
 var predict_cd = 0
 
 func _ready():
-	Global.Cameraman.set_target(self, $CamFocus)
-	Global.Cameraman.position = position
-	Global.Player = self
 	super._ready()
+	Global.Player = self
+	Global.Cameraman.set_target(self, Cam_Mount)
+	Global.Cameraman.position = position
 
 func _process(delta):
+	super._process(delta)
 	visible = false if in_vehicle else true
-	new_dir.y = Input_Controller.rot_cam.y
+	new_dir.y = input_look.y
 	
-	if look_around: rotation.y = new_dir.y
+	if look_forward: rotation.y = new_dir.y
+	if did_interact: did_interact = false
 	if in_combat: State_Controller.state_next = "Combat"
 	if is_jumping: State_Controller.state_next = "Jump"
 	if is_throwing: 
@@ -56,7 +55,6 @@ func _process(delta):
 			charge_rate = abs(charge_rate)
 		if charge_power >= 100:
 			charge_rate = -abs(charge_rate)
-	
 	
 	if Global.Settings.collect_all: _collect_discs()
 

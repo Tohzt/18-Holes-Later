@@ -203,6 +203,9 @@ func commit() -> Dictionary:
 			# This will update vertical bounds and notify normal map baker,
 			# since the latter updates out of order for preview
 			terrain_data.notify_region_change(rect, mm.map_type, mm.map_index, false, true)
+	
+	
+	# `commit()` is supposed to consume these chunks, there should be none left
 	assert(not has_modified_chunks())
 	
 	return {

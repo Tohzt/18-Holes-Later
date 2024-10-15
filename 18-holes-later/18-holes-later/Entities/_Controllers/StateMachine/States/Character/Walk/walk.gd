@@ -3,6 +3,7 @@ extends CharacterStateClass
 
 func init_state():
 	State_Controller.state_options = state_options
+	Master.look_forward = true
 	Master.is_moving = true
 	Master.can_throw = false
 	Master.anim_play("Run")

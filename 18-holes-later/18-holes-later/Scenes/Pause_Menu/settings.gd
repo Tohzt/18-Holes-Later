@@ -3,8 +3,8 @@ extends Control
 @onready var settings_container := $MarginContainer/Settings
 @onready var show_pos: Vector2
 @onready var hide_pos: Vector2
-var slide_in = true
-var slide_out = false
+var slide_in = false
+var slide_out = true
 
 func _ready():
 	var exported_variables = Global.Settings.export_variables()
@@ -12,6 +12,7 @@ func _ready():
 		create_setting_control(var_name)
 	show_pos = position
 	hide_pos = Vector2(show_pos.x + 500, show_pos.y)
+	position = hide_pos
 
 func _process(delta):
 	if slide_in:

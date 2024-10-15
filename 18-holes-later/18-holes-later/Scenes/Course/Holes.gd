@@ -3,6 +3,7 @@ extends Node
 
 func build_hole(hole_name):
 	var hole
+	# TODO: I shouldn't have to do this here. Try removing name passed into go_to
 	match hole_name:
 		"Clubhouse_Interior":
 			hole = Global.Refs.CLUBHOUSE_INTERIOR.instantiate()

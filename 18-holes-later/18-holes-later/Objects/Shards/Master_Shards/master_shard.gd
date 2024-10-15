@@ -1,4 +1,4 @@
-class_name master_shard
+class_name master_shard_class
 extends Resource
 enum element_type {Earth,Wind,Fire,Water,Lightning,Metal,Holy,Dark}
 @export var name:String

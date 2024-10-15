@@ -36,6 +36,10 @@ Global="*res://Global/global.tscn"
 
 window/size/initial_position_type=0
 
+[editor]
+
+movie_writer/movie_file="C:/Users/Steve/Projects/Godot/18-Holes-Later/Recordings/movies.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
@@ -58,7 +62,7 @@ import/blender/enabled=false
 
 [global_group]
 
-temp=""
+Solid=""
 
 [gui]
 
@@ -173,6 +177,7 @@ jump={
 interact={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":69,"location":0,"echo":false,"script":null)
 ]
 }
 

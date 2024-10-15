@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://2qqrnls6qqtk" path="res://Scenes/Pause_Menu/pause_menu.tscn" id="5_dkybb"]
 [ext_resource type="PackedScene" uid="uid://i30yt8hxuh12" path="res://Scenes/Gem_Overlay/Gem_Overlay.tscn" id="6_05crr"]
 [ext_resource type="Script" path="res://Scenes/Course/EnemiesContainer.gd" id="6_gx0c0"]
-[ext_resource type="PackedScene" uid="uid://5xh0ditfqv66" path="res://Global/HUD/hud.tscn" id="7_iorvm"]
+[ext_resource type="PackedScene" uid="uid://5xh0ditfqv66" path="res://Scenes/UI/HUD/hud.tscn" id="7_iorvm"]
 
 [node name="Course" type="Node3D"]
 script = ExtResource("1_wfw1c")
