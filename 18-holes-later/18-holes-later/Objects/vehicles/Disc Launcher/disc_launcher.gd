@@ -25,10 +25,10 @@ func _ready():
 	set_active(false)
 	
 func _process(_delta):
-	if !accepts_input: 
-		var overlap = Detect_Player.get_overlapping_bodies()
-		if overlap: _detect(overlap)
-		return
+	var overlap = Detect_Player.get_overlapping_bodies()
+	if overlap: _detect(overlap)
+	
+	if !accepts_input: return
 	
 	input_look = Input_Controller.input_look
 	if !Input_Controller.mouse_motion: input_look.y = 0
@@ -42,10 +42,17 @@ func _process(_delta):
 func _detect(overlap):
 	for body in overlap:
 		if body.is_in_group("Character"):
-			if body.did_interact:
-				set_active(true)
-				Global.Player.set_active(false)
-				Global.Cameraman.set_target(self, Cam_Mount)
+			# TODO: Do both from player input... maybe
+			if Input.is_action_just_pressed("interact"):
+			#if body.did_interact:
+				if accepts_input:
+					set_active(false)
+					Global.Player.set_active(true)
+					Global.Cameraman.set_target(Global.Player, Global.Player.Cam_Mount)
+				else:
+					set_active(true)
+					Global.Player.set_active(false)
+					Global.Cameraman.set_target(self, Cam_Mount)
 
 func set_active(TorF: bool):
 	if TorF:

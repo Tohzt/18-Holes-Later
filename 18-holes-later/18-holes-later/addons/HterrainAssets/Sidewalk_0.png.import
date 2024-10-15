@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3ttupyw6ywns"
+uid="uid://ygu6q18rono2"
 path.s3tc="res://.godot/imported/Sidewalk_0.png-ca459154c103e88e91cfa0be496bf449.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "a2b18009bbc9a2f7843c9847082a0ffb"
 }
 
 [deps]
