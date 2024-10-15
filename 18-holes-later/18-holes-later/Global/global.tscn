@@ -10,7 +10,7 @@
 [node name="Global" type="Node"]
 script = ExtResource("1_pokw4")
 
-[node name="Global_Tripod" parent="." instance=ExtResource("2_h741v")]
+[node name="Camerman" parent="." instance=ExtResource("2_h741v")]
 
 [node name="Settings" parent="." instance=ExtResource("2_0aosd")]
 collect_all = true

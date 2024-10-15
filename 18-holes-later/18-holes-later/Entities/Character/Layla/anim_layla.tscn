@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bqr7m241m0ewj"]
+[gd_scene load_steps=44 format=4 uid="uid://bqr7m241m0ewj"]
 
 [ext_resource type="Script" path="res://Entities/Character/Layla/anim_layla.gd" id="1_cioyi"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://dgv6ky0lxdtq6" path="res://Entities/Character/Layla/src/anim_layla.tres" id="4_rrkli"]
@@ -10904,13 +10904,7 @@ _data = {
 "Idlefight": SubResource("Animation_w0mcx")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8n142"]
-radius = 0.2
-height = 1.8517
-
-[node name="LaylaAnimOCT" type="RigidBody3D"]
-collision_layer = 2
-collision_mask = 28
+[node name="LaylaAnimOCT" type="Node3D"]
 script = ExtResource("1_cioyi")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -11356,7 +11350,3 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = ExtResource("4_rrkli")
 anim_player = NodePath("../AnimationPlayer")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.927872, 0)
-shape = SubResource("CapsuleShape3D_8n142")

@@ -14,7 +14,6 @@ func _process(delta):
 	if state_current.name != state_next:
 		_change_state(state_next)
 	
-	#if get_parent() == Global.Player: print(state_current.name)
 	state_current.update_state(delta)
 
 func _change_state(next: String):

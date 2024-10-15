@@ -1,13 +1,13 @@
-[gd_scene load_steps=34 format=4 uid="uid://dpuj70awtoml4"]
+[gd_scene load_steps=34 format=4 uid="uid://dq5k8n0rtk27y"]
 
-[ext_resource type="Script" path="res://Entities/Enemy/enemy.gd" id="1_i5hcc"]
-[ext_resource type="Shader" uid="uid://cduy8w14habn" path="res://Entities/Enemy/puff.tres" id="2_sl2kb"]
-[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_u5eyf"]
-[ext_resource type="Script" path="res://Entities/Enemy/puff_shader.gd" id="3_0i8rj"]
-[ext_resource type="PackedScene" uid="uid://cadr5fmo6lq7i" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_chase.tscn" id="3_1asuh"]
-[ext_resource type="PackedScene" uid="uid://sq6vmdb1jqo0" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_idle.tscn" id="3_7amed"]
-[ext_resource type="Script" path="res://Entities/Enemy/zanim.gd" id="7_obmf5"]
-[ext_resource type="Texture2D" uid="uid://d3mqosar0s7hp" path="res://Entities/Enemy/src/newzam/Zanim_Zombie_Mailman_0926222648.png" id="8_c6kg5"]
+[ext_resource type="Script" path="res://Entities/Enemy/enemy.gd" id="1_enopi"]
+[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_y1l2c"]
+[ext_resource type="PackedScene" uid="uid://cadr5fmo6lq7i" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_chase.tscn" id="3_qrkqb"]
+[ext_resource type="PackedScene" uid="uid://sq6vmdb1jqo0" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_idle.tscn" id="4_jwyqa"]
+[ext_resource type="Shader" uid="uid://cduy8w14habn" path="res://Objects/New Enemy/puff.tres" id="5_tccq8"]
+[ext_resource type="Script" path="res://Objects/New Enemy/puff_shader.gd" id="6_0qbfy"]
+[ext_resource type="Script" path="res://Objects/New Enemy/zanim.gd" id="7_rshmj"]
+[ext_resource type="Texture2D" uid="uid://d3mqosar0s7hp" path="res://Objects/New Enemy/src/newzam/Zanim_Zombie_Mailman_0926222648.png" id="8_fisbr"]
 
 [sub_resource type="Gradient" id="Gradient_ml0cd"]
 interpolation_mode = 1
@@ -36,21 +36,21 @@ height = 1.70982
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wvah4"]
 render_priority = 0
-shader = ExtResource("2_sl2kb")
+shader = ExtResource("5_tccq8")
 shader_parameter/dist_fade = 0.3
 
 [sub_resource type="Curve" id="Curve_ox2hl"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.602484, 0.857143), -1.06154, -1.06154, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_aw3ph"]
+[sub_resource type="CurveTexture" id="CurveTexture_8uvje"]
 curve = SubResource("Curve_ox2hl")
 
 [sub_resource type="Gradient" id="Gradient_ki1yn"]
 offsets = PackedFloat32Array(0, 0.364807, 1)
 colors = PackedColorArray(7.027, 1.081, 0, 1, 0.784129, 0.120627, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cettd"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e2n84"]
 gradient = SubResource("Gradient_ki1yn")
 use_hdr = true
 
@@ -58,14 +58,14 @@ use_hdr = true
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.440994, 0.879121), -2.16873, -2.16873, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_47qbf"]
+[sub_resource type="CurveTexture" id="CurveTexture_2dvul"]
 curve = SubResource("Curve_aw6eu")
 
 [sub_resource type="Curve" id="Curve_6ampe"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.571428), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_fvnvi"]
+[sub_resource type="CurveTexture" id="CurveTexture_mrynh"]
 curve = SubResource("Curve_6ampe")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_df8im"]
@@ -81,19 +81,19 @@ initial_velocity_min = 0.5
 initial_velocity_max = 1.0
 radial_velocity_min = 1.0
 radial_velocity_max = 2.0
-radial_velocity_curve = SubResource("CurveTexture_47qbf")
+radial_velocity_curve = SubResource("CurveTexture_2dvul")
 gravity = Vector3(0, 0, 0)
 scale_min = 0.75
-scale_curve = SubResource("CurveTexture_fvnvi")
-color_ramp = SubResource("GradientTexture1D_cettd")
-alpha_curve = SubResource("CurveTexture_aw3ph")
+scale_curve = SubResource("CurveTexture_mrynh")
+color_ramp = SubResource("GradientTexture1D_e2n84")
+alpha_curve = SubResource("CurveTexture_8uvje")
 
 [sub_resource type="SphereMesh" id="SphereMesh_nhnj1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_237n5"]
 resource_name = "Material.001"
 cull_mode = 2
-albedo_texture = ExtResource("8_c6kg5")
+albedo_texture = ExtResource("8_fisbr")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_q14ho"]
@@ -1678,13 +1678,13 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 contact_monitor = true
 max_contacts_reported = 2
-script = ExtResource("1_i5hcc")
+script = ExtResource("1_enopi")
 
-[node name="StateController" parent="." instance=ExtResource("2_u5eyf")]
+[node name="StateController" parent="." instance=ExtResource("2_y1l2c")]
 
-[node name="Chase" parent="StateController" instance=ExtResource("3_1asuh")]
+[node name="Chase" parent="StateController" instance=ExtResource("3_qrkqb")]
 
-[node name="Idle" parent="StateController" instance=ExtResource("3_7amed")]
+[node name="Idle" parent="StateController" instance=ExtResource("4_jwyqa")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -1703,15 +1703,15 @@ one_shot = true
 explosiveness = 0.85
 process_material = SubResource("ParticleProcessMaterial_df8im")
 draw_pass_1 = SubResource("SphereMesh_nhnj1")
-script = ExtResource("3_0i8rj")
+script = ExtResource("6_0qbfy")
 
-[node name="Zanim" type="Node3D" parent="."]
-script = ExtResource("7_obmf5")
+[node name="ZanimController" type="Node3D" parent="."]
+script = ExtResource("7_rshmj")
 
-[node name="Armature" type="Node3D" parent="Zanim"]
+[node name="Armature" type="Node3D" parent="ZanimController"]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Zanim/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="ZanimController/Armature"]
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.00572586, -0.457372, -14.8353)
@@ -1944,11 +1944,11 @@ bones/32/position = Vector3(-3.45706e-06, 7.76877, -1.78826e-07)
 bones/32/rotation = Quaternion(9.92324e-07, -8.98726e-07, 1.76951e-07, 1)
 bones/32/scale = Vector3(1, 1, 1)
 
-[node name="Zombie_Mailman_0926222648" type="MeshInstance3D" parent="Zanim/Armature/Skeleton3D"]
+[node name="Zombie_Mailman_0926222648" type="MeshInstance3D" parent="ZanimController/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_q14ho")
 skin = SubResource("Skin_c1twk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Zanim"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ZanimController"]
 libraries = {
 "": SubResource("AnimationLibrary_f85wb")
 }

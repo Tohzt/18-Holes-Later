@@ -1,8 +1,7 @@
 class_name AnimController3D
-extends RigidBody3D
+extends Node3D
 
 @onready var Bone_Hand = $Armature/Skeleton3D/BoneAttachment3D/Anchor
-#@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 var anim_state: AnimationNodeStateMachinePlayback
 @onready var Bones: Skeleton3D = $Armature/Skeleton3D
@@ -21,8 +20,8 @@ func _process(delta):
 	_update_anim(delta)
 
 func _update_anim(delta):
-	look_dir = Master.input.angle() - PI/2
-	if Master.input:
+	if Master.input_move:
+		look_dir = Master.input_move.angle() - PI/2
 		prev_look_dir = look_dir
 		rotation.y = lerp_angle(rotation.y, -look_dir, delta*5)
 	else:

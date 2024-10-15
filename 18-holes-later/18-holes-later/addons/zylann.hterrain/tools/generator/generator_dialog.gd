@@ -479,7 +479,16 @@ func _on_TextureGenerator_output_generated(image: Image, info: Dictionary):
 		assert(data != null)
 		var dst := data.get_image(info.maptype)
 		assert(dst != null)
+#		image.save_png(str("debug_generator_tile_", 
+#			info.sector.x, "_", info.sector.y, "_map", info.maptype, ".png"))
 		
+		# Converting in case Viewport texture isn't the format we expect for this map.
+		# Note, in Godot 4 it seems the chosen renderer also influences what you get.
+		# Forward+ non-transparent viewport gives RGB8, but Compatibility gives RGBA8.
+		# I don't know if it's expected or is a bug...
+		# Also, since RF heightmaps we use RGBA8 so we can pack floats in pixels, because
+		# Godot 4.0 does not support RF viewports. But that also means the same viewport may be
+		# re-used for other maps that don't need to be RGBA8.
 		if image.get_format() != dst.get_format():
 			image.convert(dst.get_format())
 

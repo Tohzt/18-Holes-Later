@@ -1,0 +1,129 @@
+[gd_scene load_steps=30 format=3 uid="uid://bdy5ooys23gqf"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_ny4et"]
+[ext_resource type="Resource" path="res://addons/HterrainAssets/data.hterrain" id="2_kkinq"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_tmw6k"]
+[ext_resource type="Texture2D" uid="uid://bl1pqnfwspewy" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot0_albedo_bump.png" id="4_1g6jm"]
+[ext_resource type="PackedScene" uid="uid://b0w11h4a5iw5n" path="res://addons/HterrainAssets/clubhousOUTSIDE.glb" id="5_74cj7"]
+[ext_resource type="Texture2D" uid="uid://ps00tbht0yk7" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot1_albedo_bump.png" id="5_wfa1u"]
+[ext_resource type="Texture2D" uid="uid://dxujtt4vbu8bw" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot2_albedo_bump.png" id="6_1chku"]
+[ext_resource type="Texture2D" uid="uid://bkmdhmwpvd3b6" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot0_normal_roughness.png" id="7_jiijr"]
+[ext_resource type="Texture2D" uid="uid://dy06wfrstqkhl" path="res://addons/HterrainAssets/FoilageSmall/textures/aerial_grass_rock_diff_1k.jpg" id="7_xwmj1"]
+[ext_resource type="Texture2D" uid="uid://brtp7clmlxj0x" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot1_normal_roughness.png" id="8_mqepn"]
+[ext_resource type="Texture2D" uid="uid://lim3cig12730" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot2_normal_roughness.png" id="9_lvu5d"]
+[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="11_e2w4t"]
+[ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="12_rnl1q"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="13_eoumv"]
+[ext_resource type="Texture2D" uid="uid://b5xl5hg6py6pf" path="res://addons/HterrainAssets/FoilageSmall/branches/grass4.png" id="14_dglk5"]
+[ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="15_ovwgq"]
+[ext_resource type="ArrayMesh" uid="uid://cism8qe63t4tk" path="res://addons/zylann.hterrain/models/grass_quad_x4.obj" id="15_xibh3"]
+[ext_resource type="PackedScene" uid="uid://b585ead15lb5m" path="res://addons/HterrainAssets/FoilageSmall/SrenityTreeSmall.fbx" id="17_tdvmb"]
+[ext_resource type="PackedScene" uid="uid://bnkl2c2cruu0f" path="res://addons/HterrainAssets/Hole1sign.glb" id="18_2aojd"]
+[ext_resource type="PackedScene" uid="uid://bhw3qmognryej" path="res://addons/HterrainAssets/SidewalkPAD.fbx" id="19_4k6xu"]
+[ext_resource type="PackedScene" uid="uid://8ysrdeetucw2" path="res://addons/HterrainAssets/BushSingle.fbx" id="20_ig7ql"]
+[ext_resource type="PackedScene" uid="uid://bafg65dbmt4mq" path="res://addons/HterrainAssets/Sidewalk.fbx" id="20_nhsuy"]
+[ext_resource type="PackedScene" uid="uid://bu5agado2yhmd" path="res://addons/HterrainAssets/KapokTree.fbx" id="22_y4wg5"]
+[ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="23_hf8gj"]
+[ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="24_61fyv"]
+
+[sub_resource type="Resource" id="Resource_tycuo"]
+script = ExtResource("3_tmw6k")
+mode = 0
+textures = [[ExtResource("4_1g6jm"), ExtResource("5_wfa1u"), ExtResource("6_1chku"), ExtResource("7_xwmj1")], [ExtResource("7_jiijr"), ExtResource("8_mqepn"), ExtResource("9_lvu5d"), null]]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jj3gq"]
+panorama = ExtResource("11_e2w4t")
+
+[sub_resource type="Sky" id="Sky_u0yvx"]
+sky_material = SubResource("PanoramaSkyMaterial_jj3gq")
+
+[sub_resource type="Environment" id="Environment_jkbgl"]
+background_mode = 2
+sky = SubResource("Sky_u0yvx")
+tonemap_mode = 2
+glow_enabled = true
+glow_hdr_luminance_cap = 27.21
+
+[node name="HTerrain" type="Node3D" groups=["Solid"]]
+script = ExtResource("1_ny4et")
+map_scale = Vector3(0.49, 1.165, 0.5)
+_terrain_data = ExtResource("2_kkinq")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_tycuo")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 30.35
+shader_params/u_depth_blending = false
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Vector4(0.1, 0.92, 5.555, 1.915)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jkbgl")
+
+[node name="clubhousOUTSIDE" parent="." instance=ExtResource("5_74cj7")]
+transform = Transform3D(-0.876001, 0, -3.07624, 0, 3.19854, 0, 3.07624, 0, -0.876001, 236.629, 12.4518, -1.81152)
+
+[node name="HTerrainDetailLayer" type="Node3D" parent="."]
+script = ExtResource("13_eoumv")
+texture = ExtResource("14_dglk5")
+view_distance = 500.0
+instance_mesh = ExtResource("15_xibh3")
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = null
+shader_params/u_roughness = null
+metadata/_editor_icon = ExtResource("15_ovwgq")
+
+[node name="Basket" parent="." instance=ExtResource("12_rnl1q")]
+transform = Transform3D(-3.002, 0, -10.5421, 0, 10.9612, 0, 10.5421, 0, -3.002, 96.9131, 1.81835, 169.929)
+
+[node name="SrenityTreeSmall" parent="." instance=ExtResource("17_tdvmb")]
+transform = Transform3D(23.7296, 0, 0, 0, 23.7296, 0, 0, 0, 23.7296, 82.6107, 38.7658, 78.8378)
+
+[node name="SrenityTreeSmall2" parent="." instance=ExtResource("17_tdvmb")]
+transform = Transform3D(17.9378, 0, 2.45493, -0.275224, 17.9908, 2.01101, -2.43946, -2.02976, 17.8247, 53.5477, 29.9453, 66.4476)
+
+[node name="SrenityTreeSmall3" parent="." instance=ExtResource("17_tdvmb")]
+transform = Transform3D(-28.4092, -2.05711, -18.5163, -3.47655, 33.7576, 1.58363, 18.303, 3.2191, -28.4396, 199.214, 45.8154, 167.048)
+
+[node name="SidewalkPAD" parent="." instance=ExtResource("19_4k6xu")]
+transform = Transform3D(11.4254, 0, -8.5927, 0, 8.54862, 0, 7.36457, 0, 13.3307, 219.338, 12.8296, 56.6257)
+
+[node name="Sidewalk" parent="." instance=ExtResource("20_nhsuy")]
+transform = Transform3D(-0.344439, 0, -26.2295, 0, 12.8341, 0, 13.1799, 0, -0.68547, 13.1264, -0.269439, 175.107)
+
+[node name="BushSingle" parent="." instance=ExtResource("20_ig7ql")]
+transform = Transform3D(-0.140427, 0, -4.76774, 0, 5.31026, 0, 5.37344, 0, -0.124598, 90.9431, 20.2928, 72.2428)
+
+[node name="BushSingle2" parent="." instance=ExtResource("20_ig7ql")]
+transform = Transform3D(-0.211067, 0, -7.1661, 0, 7.98153, 0, 8.07648, 0, -0.187276, 69.0662, 22.1228, 74.2029)
+
+[node name="BushSingle3" parent="." instance=ExtResource("20_ig7ql")]
+transform = Transform3D(-0.211067, 0, -7.1661, 0, 7.98153, 0, 8.07648, 0, -0.187276, 208.176, 22.1228, 161.514)
+
+[node name="Hole1sign" parent="." instance=ExtResource("18_2aojd")]
+transform = Transform3D(2.24149, -0.283647, 0.932799, 0.325017, 2.42224, -0.044449, -0.919203, 0.164791, 2.25893, 219.268, 15.435, 29.434)
+
+[node name="KapokTree" parent="." instance=ExtResource("22_y4wg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.585, 14.0823, 130.285)
+
+[node name="KapokTree2" parent="." instance=ExtResource("22_y4wg5")]
+transform = Transform3D(1.10261, 0, 0.779536, 0, 1.35034, 0, -0.779536, 0, 1.10261, 46.398, 1.21883, 15.1355)
+
+[node name="Player_Spawn" parent="." instance=ExtResource("23_hf8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.799, 13.8209, 25.4268)
+
+[node name="DiscLauncher" parent="." instance=ExtResource("24_61fyv")]
+transform = Transform3D(-0.76044, 0, 0.649408, 0, 1, 0, -0.649408, 0, -0.76044, 216.543, 12.8076, 62.8284)

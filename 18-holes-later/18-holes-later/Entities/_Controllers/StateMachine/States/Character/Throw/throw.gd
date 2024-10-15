@@ -18,7 +18,7 @@ func update_state(delta):
 		Master.rotation.y = lerp_angle(Master.rotation.y, Master.new_dir.y, delta*5)
 	
 	if !Input.is_action_pressed("right_click"):
-		Global.Cameraman.set_target(Master, Master.get_node("CamFocus"))
+		Global.Cameraman.set_target(Master, Master.Cam_Mount)
 		exit_state("Idle")
 	
 	if Input.is_action_just_released("right_click"):
@@ -66,7 +66,7 @@ func throw_disc(disc, power = 0.0):
 	var _side = -1
 	disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
 	disc.rotate_object_local(Vector3.RIGHT, Global.Cameraman.Camera.rotation.x)
-	disc.launch = true
+	disc.is_launched = true
 	
 	if !disc.is_tracer and Global.Settings.follow_all_throws:
 		Global.Cameraman.set_target(Master, Master.get_node("CamFocus"))

@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/Walk/walk.tscn" id="6_o7hwu"]
 [ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/Idle/idle.tscn" id="7_1kgre"]
 [ext_resource type="PackedScene" uid="uid://by252jyfxak" path="res://Entities/_Controllers/StateMachine/States/Character/Jump/jump.tscn" id="7_02t2y"]
-[ext_resource type="PackedScene" uid="uid://dih4uqric7vvv" path="res://Global/Camera/cam_focus.tscn" id="10_3uoga"]
 [ext_resource type="Script" path="res://Entities/Character/disc_bag.gd" id="11_li4e1"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="11_xp8yr"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_m2q1k"]
-radius = 0.25
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i2ynl"]
+radius = 0.243035
 
 [node name="Character" type="CharacterBody3D" groups=["Character"]]
 collision_layer = 2
@@ -27,18 +27,9 @@ script = ExtResource("1_6qoy3")
 is_char = true
 
 [node name="InputController" parent="." instance=ExtResource("4_6kuy8")]
-input_actions = {
-0: {
-0: true,
-1: true,
-2: true
-},
-1: {
-0: false,
-1: false,
-2: false
-}
-}
+character_move = true
+character_look = true
+character_action = true
 
 [node name="StateController" parent="." instance=ExtResource("4_lwxmm")]
 
@@ -54,7 +45,8 @@ input_actions = {
 
 [node name="Anim_Layla" parent="." instance=ExtResource("3_d4gnj")]
 
-[node name="CamFocus" parent="." instance=ExtResource("10_3uoga")]
+[node name="Cam_Mount" parent="." instance=ExtResource("11_xp8yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1)
 
 [node name="Hand" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -1.009)
@@ -63,5 +55,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -1.009)
 script = ExtResource("11_li4e1")
 
 [node name="Character_Base" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-shape = SubResource("SphereShape3D_m2q1k")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_i2ynl")
