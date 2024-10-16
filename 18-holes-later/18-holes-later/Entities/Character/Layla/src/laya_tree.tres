@@ -329,7 +329,7 @@ xfade_time = 0.2
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sfgpr"]
-xfade_time = 0.2
+xfade_time = 0.4
 
 [resource]
 states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_h4v7h")
