@@ -7,7 +7,7 @@ var bag_of_discs: Array = [
 	["Cold Stone","Putter",2,2,-1,0],
 	["Midrock","Hybrid",5,4,0,3],
 	["Innova Boss","Driver",13,5,-1,3]]
-var discs: Array[RigidBody3D]
+var discs: Array[CharacterBody3D]
 
 func _ready():
 	var index = 0
@@ -31,7 +31,7 @@ func _ready():
 		add_child(disc)
 		
 func _process(_delta):
-	for disc: Disc in Global.Player.Bag.get_children():
+	for disc: Disc_CharBod_Class in Global.Player.Bag.get_children():
 		if disc.index == Global.selected_disc:
 			disc.in_bag = false
 			disc.in_hand = true

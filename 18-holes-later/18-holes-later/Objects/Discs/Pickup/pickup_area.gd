@@ -1,5 +1,5 @@
 extends Area3D
-@onready var disc: Disc = get_parent()
+@onready var disc: Disc_CharBod_Class = get_parent()
 var can_pickup = false
 
 func _on_body_entered(body):

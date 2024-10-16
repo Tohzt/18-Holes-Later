@@ -33,7 +33,7 @@ func update_state(delta):
 		Master.clear_trace()
 		Master.is_charging = false
 		
-		for disc: Disc in Master.Bag.discs:
+		for disc: Disc_CharBod_Class in Master.Bag.discs:
 			if disc.in_hand:
 				Global.select_next_disc()
 				throw_disc(disc)
@@ -43,11 +43,11 @@ func update_state(delta):
 						disc.in_play = true
 					if disc.in_play:
 						Global.HUD.update_strokes(1)
-						Global.Cameraman.set_target(disc, disc)
+						#Global.Cameraman.set_target(disc, disc)
 				else:
 					if Master.is_on_tee:
 						Global.HUD.update_strokes(1)
-						Global.Cameraman.set_target(disc, disc)
+						#Global.Cameraman.set_target(disc, disc)
 						Global.game_on = true
 						Global.hole_over = false
 						disc.in_play = true

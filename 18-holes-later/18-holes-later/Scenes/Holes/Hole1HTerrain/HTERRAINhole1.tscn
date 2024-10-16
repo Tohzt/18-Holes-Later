@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bdy5ooys23gqf"]
+[gd_scene load_steps=31 format=3 uid="uid://bdy5ooys23gqf"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_ny4et"]
 [ext_resource type="Resource" path="res://addons/HterrainAssets/data.hterrain" id="2_kkinq"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bu5agado2yhmd" path="res://addons/HterrainAssets/KapokTree.fbx" id="22_y4wg5"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="23_hf8gj"]
 [ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="24_61fyv"]
+[ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Global/tee_box.tscn" id="26_vkibo"]
 
 [sub_resource type="Resource" id="Resource_tycuo"]
 script = ExtResource("3_tmw6k")
@@ -66,7 +67,6 @@ shader_params/u_tile_reduction = Vector4(0.1, 0.92, 5.555, 1.915)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-sky_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jkbgl")
@@ -88,6 +88,7 @@ metadata/_editor_icon = ExtResource("15_ovwgq")
 
 [node name="Basket" parent="." instance=ExtResource("12_rnl1q")]
 transform = Transform3D(-3.002, 0, -10.5421, 0, 10.9612, 0, 10.5421, 0, -3.002, 96.9131, 1.81835, 169.929)
+hole = 1
 
 [node name="SrenityTreeSmall" parent="." instance=ExtResource("17_tdvmb")]
 transform = Transform3D(23.7296, 0, 0, 0, 23.7296, 0, 0, 0, 23.7296, 82.6107, 38.7658, 78.8378)
@@ -127,3 +128,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 228.799, 13.8209, 25.4268)
 
 [node name="DiscLauncher" parent="." instance=ExtResource("24_61fyv")]
 transform = Transform3D(-0.76044, 0, 0.649408, 0, 1, 0, -0.649408, 0, -0.76044, 216.543, 12.8076, 62.8284)
+
+[node name="TeeBox" parent="." instance=ExtResource("26_vkibo")]
+transform = Transform3D(0.938524, 0, 1.19226, 0, 1, 0, -1.5757, 0, 0.710135, 218.86, 12.4849, 57.4817)
+tee_number = 1

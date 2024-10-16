@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b33laml6cwl5a"]
 
-[ext_resource type="Script" path="res://Scenes/Holes/TESTING/tee_box.gd" id="1_ebdpl"]
+[ext_resource type="Script" path="res://Global/tee_box.gd" id="1_ebdpl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xaoo2"]
 size = Vector3(5, 1, 5)
