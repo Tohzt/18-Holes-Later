@@ -19,7 +19,7 @@ func _process(_delta):
 
 func _check_for_disc():
 	has_disc = false
-	for _disc: Disc in Global.Player.Bag.get_children():
+	for _disc: Disc_CharBod_Class in Global.Player.Bag.get_children():
 		if _disc.index == slot:
 			has_disc = true
 	if !has_disc:

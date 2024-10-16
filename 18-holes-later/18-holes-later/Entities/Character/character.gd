@@ -110,18 +110,19 @@ func get_aim_trace():
 		prev_look_dir = look_dir
 
 func trace_disc():
-	if !predict_trace and aim_stable: 
-		var trace_path = get_tree().get_nodes_in_group("Trace")
-		if trace_path:
-			for trace in trace_path:
-				trace.queue_free()
-		var trace = Global.Refs.DISC_TRACE.instantiate()
-		add_child(trace)
-		trace.position = Hand.position
-		predict_trace = true
-		Global.HUD.charge_bar.value += 2
-	else:
-		predict_trace = false
+	pass
+	#if !predict_trace and aim_stable: 
+		#var trace_path = get_tree().get_nodes_in_group("Trace")
+		#if trace_path:
+			#for trace in trace_path:
+				#trace.queue_free()
+		#var trace = Global.Refs.DISC_TRACE.instantiate()
+		#add_child(trace)
+		#trace.position = Hand.position
+		#predict_trace = true
+		#Global.HUD.charge_bar.value += 2
+	#else:
+		#predict_trace = false
 
 func clear_trace():
 	predict_cd = 0

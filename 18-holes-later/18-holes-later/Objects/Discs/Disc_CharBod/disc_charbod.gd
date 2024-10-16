@@ -113,7 +113,8 @@ func _detect_impact():
 			is_grounded = true
 			direction = Vector3.ZERO
 			velocity = Vector3.ZERO
-			$GPUParticles3D.emitting = true
+			if $GPUParticles3D:
+				$GPUParticles3D.emitting = true
 
 func pick_up(node: Node):
 	self.set_collision_mask_value(2, false)
