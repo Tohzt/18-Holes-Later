@@ -13,7 +13,6 @@ func _process(delta):
 		
 	if state_current.name != state_next:
 		_change_state(state_next)
-		print(state_next)
 	
 	state_current.update_state(delta)
 

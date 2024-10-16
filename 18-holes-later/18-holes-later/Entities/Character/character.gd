@@ -38,9 +38,6 @@ func _ready():
 	Global.Cameraman.position = position
 
 func _process(delta):
-	#printt(velocity.length(), slide_thresh)
-	#printt(SPEED,SPEED_MULT)
-	
 	super._process(delta)
 	visible = false if in_vehicle else true
 	new_dir.y = input_look.y
