@@ -6,40 +6,47 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var health: float
 
 @export var SPEED: float = 10.0
-@export var SPEED_MULT: float = 2
+@export var SPEED_MULT: float = 1
 @export var JUMP_FORCE: float = 5
-var speed_mult: float = 0.0
 
 @export var Anim_Controller   : AnimController3D
 @onready var Input_Controller  : InputController = $InputController
 @onready var State_Controller : StateController  = $StateController
 @onready var Collision_Mask   : CollisionShape3D = $Character_Base
 
+var is_dead: bool
 var state: String = "Idle"
+var accepts_input: bool
+
 var new_dir := Vector3.ZERO
 var look_dir := 0.0
 var input_move := Vector2.ZERO
 var input_look := Vector2.ZERO
 var input_dir := Vector3.ZERO
+var can_look: bool
+var can_move: bool
+var is_moving: bool
+var can_crouch: bool = true
+var is_crouching: bool = false
+var can_slide: bool = true
+var is_sliding: bool = false
+
 var locked_in: bool
-var is_dead: bool
+var look_forward: bool
+var look_around: bool
+
 var can_combat: bool
 var in_combat: bool
 var can_attack: bool
 var is_attacking: bool
 var can_throw: bool
 var is_throwing: bool
-var look_forward: bool
-var look_around: bool
-var can_look: bool
-var can_move: bool
-var is_moving: bool
+var can_run: bool = false
+var is_running: bool = false
 var can_jump: bool
-var is_running: bool
 var is_jumping: bool
 var is_falling: bool
 var is_landing: bool
-var accepts_input: bool
 
 func _ready():
 	health = max_health
