@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4osg53eilqk7"]
+
+[ext_resource type="AnimationNodeStateMachine" uid="uid://clfvdmgaigpvm" path="res://Entities/Character/Layla/src/laya_tree.tres" id="1_rdskk"]
+
+[node name="AnimationTree" type="AnimationTree"]
+tree_root = ExtResource("1_rdskk")
+anim_player = NodePath("../AnimationPlayer")
+parameters/BlendSpace1D/blend_position = 0

@@ -28,6 +28,9 @@ var predict_search = false
 var predict_cd_max = 50
 var predict_cd = 0
 
+# Move to Entity?
+var slide_thresh = 7.1
+
 func _ready():
 	super._ready()
 	Global.Player = self
@@ -35,6 +38,9 @@ func _ready():
 	Global.Cameraman.position = position
 
 func _process(delta):
+	#printt(velocity.length(), slide_thresh)
+	#printt(SPEED,SPEED_MULT)
+	
 	super._process(delta)
 	visible = false if in_vehicle else true
 	new_dir.y = input_look.y
@@ -59,20 +65,7 @@ func _process(delta):
 	if Global.Settings.collect_all: _collect_discs()
 
 func _physics_process(delta):
-	speed_mult = 1
-	if Input.is_action_pressed("run"):
-		speed_mult = SPEED_MULT
-	var spd = SPEED * speed_mult
-	if is_landing: 
-		velocity = lerp(velocity, Vector3.ZERO, delta*5)
-	else:
-		if input_dir:
-			velocity.x = input_dir.x * spd
-			velocity.z = input_dir.z * spd
-		else:
-			velocity.x = move_toward(velocity.x, 0, spd)
-			velocity.z = move_toward(velocity.z, 0, spd)
-	
+	_update_velocity(delta)
 	
 	if in_vehicle:
 		is_moving = false
@@ -82,6 +75,18 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 		if !locked_in:
 			move_and_slide()
+
+func _update_velocity(delta):
+	var spd = SPEED * SPEED_MULT
+	if is_landing: 
+		velocity = lerp(velocity, Vector3.ZERO, delta*5)
+	else:
+		if input_dir:
+			velocity.x = input_dir.x * spd
+			velocity.z = input_dir.z * spd
+		else:
+			velocity.x = move_toward(velocity.x, 0, spd)
+			velocity.z = move_toward(velocity.z, 0, spd)
 
 func _collect_discs():
 	if Input.is_action_just_pressed("collect"):

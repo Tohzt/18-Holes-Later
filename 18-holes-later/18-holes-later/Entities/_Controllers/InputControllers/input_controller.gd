@@ -59,9 +59,18 @@ func _character_move(delta):
 		Master.input_move = input_move
 		Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input_move.x, 0, input_move.y)).normalized(), delta*10)
 	
+	if Master.can_run and Input.is_action_just_pressed("sprint"):
+		Master.is_running = !Master.is_running
+	
 	if Master.can_jump and Input.is_action_just_pressed("jump"):
 		Master.is_jumping = true
 	
+	if Master.can_crouch and Input.is_action_just_pressed("crouch"):
+		Master.is_crouching = !Master.is_crouching
+	
+	if Master.can_slide and Master.is_crouching:
+		Master.is_sliding = true
+
 func _character_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:

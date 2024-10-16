@@ -2,7 +2,7 @@ class_name AnimController3D
 extends Node3D
 
 @onready var Bone_Hand = $Armature/Skeleton3D/BoneAttachment3D/Anchor
-@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_tree: AnimationTree = $Layla_Tree
 var anim_state: AnimationNodeStateMachinePlayback
 @onready var Bones: Skeleton3D = $Armature/Skeleton3D
 @onready var Master: Entity_Character = get_parent()
@@ -15,6 +15,7 @@ func _ready():
 	anim_state = animation_tree["parameters/playback"]
 	anim_state.travel("Idle")
 	Master.Anim_Controller = self
+	Master.SPEED = 7.0
 
 func _process(delta):
 	_update_anim(delta)

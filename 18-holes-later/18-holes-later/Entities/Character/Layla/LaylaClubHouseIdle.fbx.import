@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://f50ymxbthxns"
-path="res://.godot/imported/BennyClubHouse.fbx-c1cdd6375db64cb17d2cbbfb1b5ba03f.scn"
+uid="uid://bffa4ry6tfb7i"
+path="res://.godot/imported/LaylaClubHouseIdle.fbx-1b5909c6b8b68bdf71d8fbf79f280ec3.scn"
 
 [deps]
 
-source_file="res://_AddThese_/BennyClubHouse.fbx"
-dest_files=["res://.godot/imported/BennyClubHouse.fbx-c1cdd6375db64cb17d2cbbfb1b5ba03f.scn"]
+source_file="res://Entities/Character/Layla/LaylaClubHouseIdle.fbx"
+dest_files=["res://.godot/imported/LaylaClubHouseIdle.fbx-1b5909c6b8b68bdf71d8fbf79f280ec3.scn"]
 
 [params]
 

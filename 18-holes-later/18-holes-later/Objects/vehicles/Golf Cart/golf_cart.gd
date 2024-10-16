@@ -38,7 +38,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	speed_mult = 1
-	if Input.is_action_pressed("run"):
+	if Input.is_action_pressed("sprint"):
 		speed_mult = SPEED_MULT
 	
 	if input_dir:
