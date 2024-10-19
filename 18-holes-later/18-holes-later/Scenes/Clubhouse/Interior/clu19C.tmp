@@ -4051,18 +4051,17 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 1.79736, 0, -3.05269
 [node name="Door_Exit" parent="Objects" instance=ExtResource("34_fjs3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9672, 0, -3.52669)
 
-[node name="Door_Exit3" type="Area3D" parent="Objects" groups=["Interact"]]
+[node name="Door_Exit2" type="Area3D" parent="Objects" groups=["Interact"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0425, 0, 0.627451)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("36_8ivxy")
-destination = "res://Scenes/Holes/TESTING/testing_room.tscn"
 
-[node name="Door_Exit" type="MeshInstance3D" parent="Objects/Door_Exit3"]
+[node name="Door_Exit" type="MeshInstance3D" parent="Objects/Door_Exit2"]
 transform = Transform3D(3.49879, 0, 0, 0, -4.17088e-07, -3.49879, 0, 3.49879, -4.17088e-07, 0, 1.346, 0)
 mesh = SubResource("ArrayMesh_x4vpb")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Door_Exit3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Door_Exit2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989241, 0)
 shape = SubResource("CylinderShape3D_ccddq")

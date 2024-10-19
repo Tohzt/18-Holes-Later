@@ -11,8 +11,6 @@ func _process(_delta):
 			ds.slide_in = false
 			ds.slide_out = true
 	pass
-	
-
 
 func _on_area_body_3d_body_entered(_body):
 	isInside = true

@@ -11,6 +11,8 @@ var game_disc_index: int = 0
 
 var can_interact = true
 var did_interact = false
+var cd_interact_dur := 0.5
+var cd_interact := cd_interact_dur
 var is_charging = false
 var is_on_tee = false
 var aim_stable = false
@@ -42,8 +44,12 @@ func _process(delta):
 	visible = false if in_vehicle else true
 	new_dir.y = input_look.y
 	
+	if did_interact: 
+		cd_interact -= delta
+		if cd_interact <= 0:
+			cd_interact = cd_interact_dur
+			did_interact = false
 	if look_forward: rotation.y = new_dir.y
-	if did_interact: did_interact = false
 	if in_combat: State_Controller.state_next = "Combat"
 	if is_jumping: State_Controller.state_next = "Jump"
 	if is_throwing: 
@@ -133,3 +139,6 @@ func clear_trace():
 
 func anim_play(anim):
 	Anim_Controller.anim_state.travel(anim)
+
+func cull():
+	queue_free()
