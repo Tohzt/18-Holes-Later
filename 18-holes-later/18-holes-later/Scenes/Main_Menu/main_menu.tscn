@@ -28,13 +28,17 @@ expand_mode = 3
 
 [node name="MenuContainer" type="NinePatchRect" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -332.0
-offset_right = 332.0
-offset_bottom = 93.0
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -175.0
+offset_right = 103.0
+offset_bottom = 175.0
 grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_0jm70")
 patch_margin_left = 22
 patch_margin_top = 22
@@ -42,41 +46,44 @@ patch_margin_right = 22
 patch_margin_bottom = 22
 script = ExtResource("4_pewpv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = 23.0
-offset_bottom = -23.0
+offset_left = -71.0
+offset_right = 71.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Btn_NewGame" type="Button" parent="MenuContainer/HBoxContainer"]
+[node name="Btn_NewGame" type="Button" parent="MenuContainer/VBoxContainer"]
 layout_mode = 2
-text = "New Game"
+text = "NEW GAME"
 
-[node name="Btn_Continue" type="Button" parent="MenuContainer/HBoxContainer"]
+[node name="Btn_Continue" type="Button" parent="MenuContainer/VBoxContainer"]
 layout_mode = 2
 text = "CONTINUE"
 
-[node name="Btn_Load" type="Button" parent="MenuContainer/HBoxContainer"]
+[node name="Btn_Load" type="Button" parent="MenuContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 disabled = true
 text = "LOAD PROFILE"
 
-[node name="Btn_Options" type="Button" parent="MenuContainer/HBoxContainer"]
+[node name="Btn_Settings" type="Button" parent="MenuContainer/VBoxContainer"]
 layout_mode = 2
 disabled = true
-text = "OPTIONS"
+text = "SETTINGS"
 
-[node name="Btn_Exit" type="Button" parent="MenuContainer/HBoxContainer"]
+[node name="Btn_Exit" type="Button" parent="MenuContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit Game"
 
 [node name="CharacterContainer" type="NinePatchRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -136,6 +143,7 @@ disabled = true
 text = "The Cop"
 
 [node name="CourseContainer" type="NinePatchRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -230,11 +238,11 @@ text = "PROFILE 2"
 layout_mode = 2
 text = "PROFILE 3"
 
-[connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_NewGame" to="." method="_on_btn_new_game_pressed"]
-[connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Continue" to="." method="_on_btn_continue_pressed"]
-[connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Load" to="." method="_on_btn_load_pressed"]
-[connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Options" to="." method="_on_btn_options_pressed"]
-[connection signal="pressed" from="MenuContainer/HBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Btn_NewGame" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Btn_Continue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Btn_Load" to="." method="_on_btn_load_pressed"]
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Btn_Settings" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="MenuContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="CharacterContainer/VBoxContainer/Btn_Select_Layla" to="CharacterContainer" method="_on_btn_select_layla_pressed"]
 [connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Clubhouse" to="CourseContainer" method="_on_btn_select_clubhouse_pressed"]
 [connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Hole_01" to="CourseContainer" method="_on_btn_select_hole_01_pressed"]

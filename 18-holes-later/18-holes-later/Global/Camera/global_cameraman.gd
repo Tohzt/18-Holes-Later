@@ -9,7 +9,7 @@ var look_target: Node3D
 const SPEED = 5
 var spd_mod: float = 1.0
 
-func _process(_delta):
+func _process(delta):
 	Camera.rotation.y = 0
 	Camera.rotation.z = 0
 	
@@ -20,8 +20,7 @@ func _process(_delta):
 		pass
 		#Camera.rotation.x = rot_x
 		#follow_target.Barrel_Pivot.rotation.x = rot_x
-
-func _physics_process(delta):
+	
 	if follow_target:
 		_follow_target(delta)
 		_look_at_target(delta)
@@ -50,6 +49,10 @@ func _look_at_target(delta):
 		
 
 func set_target(new_target: Node3D, new_look: Node3D ):
+	if !new_target and !new_look:
+		follow_target.queue_free()
+		look_target.queue_free()
+		return
 	if follow_target:
 		follow_target.accepts_input = false
 		

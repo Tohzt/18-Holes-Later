@@ -110,7 +110,9 @@ func _detect_impact():
 		#var collider = collision.get_collider()
 		if !collider: return
 		if collider.is_in_group("Solid"):
-			is_grounded = true
+			#is_grounded = true
+			direction.y = deg_to_rad(45)
+			printt(velocity)
 			direction = Vector3.ZERO
 			velocity = Vector3.ZERO
 			if $GPUParticles3D:

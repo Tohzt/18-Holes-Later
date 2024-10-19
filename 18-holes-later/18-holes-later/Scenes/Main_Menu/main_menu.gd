@@ -14,11 +14,8 @@ func _unhandled_input(event):
 		Course_Container.slide_out = true
 
 func _on_btn_new_game_pressed():
-	Menu_Container.slide_in = false
-	Menu_Container.slide_out = true
-	Character_Container.slide_in = true
-	Character_Container.slide_out = false
-
+	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.CLUBHOUSE_INTERIOR, "Clubhouse_Interior")
+ 
 func _on_btn_continue_pressed():
 	# TODO: Default Test Profile 1.. Remove later
 	Global.Profile = "Profile 1"

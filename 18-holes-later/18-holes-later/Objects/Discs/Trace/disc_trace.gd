@@ -12,7 +12,7 @@ func _ready():
 			stats = disc.stats
 	Global.Player.State_Controller.get_node("Throw").throw_disc(self, 10.0)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass#super._physics_process(delta)
 	
 	var collision = move_and_collide(Vector3.ZERO, true)

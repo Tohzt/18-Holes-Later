@@ -14,9 +14,6 @@ func _process(delta):
 	if slide_out:
 		position = lerp(position, hide_pos, delta*10)
 
-func _on_btn_select_clubhouse_pressed():
-	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.CLUBHOUSE_INTERIOR, "Clubhouse_Interior")
-
 func _on_btn_select_hole_01_pressed():
 	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.HOLE_01, "Hole_01")
 
