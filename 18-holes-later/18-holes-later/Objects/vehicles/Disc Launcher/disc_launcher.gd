@@ -67,12 +67,6 @@ func set_active(TorF: bool):
 		Input_Controller.launcher_action = false
 		Input_Controller.launcher_look = false
 
-func toggle_type():
-	if ammo_type == "CharacterBody3D":
-		ammo_type = "RigidBody3D"
-	else:
-		ammo_type = "CharacterBody3D"
-
 func throw_disc():
 	var ammo
 	if ammo_type == "CharacterBody3D": ammo = ammo_char.instantiate() 

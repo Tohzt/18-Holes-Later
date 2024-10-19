@@ -59,13 +59,13 @@ func throw_disc(disc, power = 0.0):
 	if power > 0.0:
 		disc.power = power
 	disc.target_dir = Global.Cameraman.Camera.get_global_transform().basis.z
-	disc.target_dir.y -= deg_to_rad(20)
+	#disc.target_dir.y -= deg_to_rad(20)
 	
 	# Apply tilt (rotation around local z-axis)
 	var _tilt = 50
 	var _side = -1
-	disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
-	disc.rotate_object_local(Vector3.RIGHT, Global.Cameraman.Camera.rotation.x)
+	#disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
+	#disc.rotate_object_local(Vector3.RIGHT, Global.Cameraman.Camera.rotation.x)
 	disc.is_launched = true
 	
 	if !disc.is_tracer and Global.Settings.follow_all_throws:
