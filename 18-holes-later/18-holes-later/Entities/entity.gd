@@ -9,7 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var SPEED_MULT: float = 1
 @export var JUMP_FORCE: float = 5
 
-@export var Anim_Controller   : AnimController3D
+@onready var Anim_Controller   : AnimController3D = $AnimController
 @onready var Input_Controller  : InputController = $InputController
 @onready var State_Controller : StateController  = $StateController
 @onready var Collision_Mask   : CollisionShape3D = $Character_Base

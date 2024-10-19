@@ -1,4 +1,5 @@
 extends Node3D
 
-func queue_yourself():
-	queue_free()
+func _ready():
+	var benny = get_tree().get_first_node_in_group("Benny")
+	benny.set_active(false)
