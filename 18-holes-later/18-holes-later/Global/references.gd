@@ -17,7 +17,9 @@ const HOLE_01 = preload("res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1.tscn")
 const TREE = preload("res://Objects/Trees/tree_1.tscn")
 
 # Characters
-const CHAR_BENNY = preload("res://Entities/Character/character.tscn")
+const CHARACTER = preload("res://Entities/Character/character.tscn")
+const LAYLA = preload("res://Entities/Character/Layla/anim_layla.tscn")
+const BENNY = preload("res://Entities/Character/Benny/benny.tscn")
 
 # Disc Things
 const DISC = preload("res://Objects/Discs/Disc_CharBod/disc_charbod.tscn")

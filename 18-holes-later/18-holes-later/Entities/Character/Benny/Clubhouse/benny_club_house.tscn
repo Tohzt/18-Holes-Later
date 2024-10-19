@@ -1,12 +1,11 @@
 [gd_scene load_steps=8 format=4 uid="uid://dw26xdt1yissl"]
 
-[ext_resource type="Texture2D" uid="uid://cxwrxv6ayid32" path="res://Entities/Character/Benny/BennyClubHouse_0.png" id="1_5m1hm"]
-[ext_resource type="Script" path="res://Entities/Character/Benny/benny_club_house.gd" id="1_wbqut"]
+[ext_resource type="Texture2D" uid="uid://cxwrxv6ayid32" path="res://Entities/Character/Benny/Clubhouse/BennyClubHouse_0.png" id="1_5m1hm"]
+[ext_resource type="Script" path="res://Entities/Character/Benny/Clubhouse/benny_club_house.gd" id="1_wbqut"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mh0ks"]
 resource_name = "Material.001"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_5m1hm")
 emission_enabled = true
 emission_energy_multiplier = 0.0

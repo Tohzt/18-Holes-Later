@@ -116,7 +116,6 @@ text = "Lyla"
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
-disabled = true
 text = "Benny"
 
 [node name="Btn_Select_The_Cop" type="Button" parent="CanvasLayer/CharacterContainer/VBoxContainer"]
@@ -126,3 +125,4 @@ disabled = true
 text = "The Cop"
 
 [connection signal="pressed" from="CanvasLayer/CharacterContainer/VBoxContainer/Btn_Select_Layla" to="CanvasLayer/CharacterContainer" method="_on_btn_select_layla_pressed"]
+[connection signal="pressed" from="CanvasLayer/CharacterContainer/VBoxContainer/Btn_Select_Benny" to="CanvasLayer/CharacterContainer" method="_on_btn_select_benny_pressed"]

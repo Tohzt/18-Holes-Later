@@ -32,7 +32,7 @@ func init_current_hole() -> Node3D:
 	return hole
  
 func init_player(spawn_pos) -> Entity:
-	var new_player = Refs.CHAR_BENNY.instantiate()
+	var new_player = Refs.CHARACTER.instantiate()
 	Player = new_player
 	Player.position = spawn_pos
 	return Player

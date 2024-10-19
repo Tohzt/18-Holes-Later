@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://f50ymxbthxns"
-path="res://.godot/imported/BennyClubHouse.fbx-96d85d9531430e8128f94168fa996a5f.scn"
+path="res://.godot/imported/BennyClubHouse.fbx-2436bf5a4c2885b5f2deeb0c3d65655c.scn"
 
 [deps]
 
-source_file="res://Entities/Character/Benny/BennyClubHouse.fbx"
-dest_files=["res://.godot/imported/BennyClubHouse.fbx-96d85d9531430e8128f94168fa996a5f.scn"]
+source_file="res://Entities/Character/Benny/Clubhouse/BennyClubHouse.fbx"
+dest_files=["res://.godot/imported/BennyClubHouse.fbx-2436bf5a4c2885b5f2deeb0c3d65655c.scn"]
 
 [params]
 
