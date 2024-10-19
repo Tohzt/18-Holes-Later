@@ -10,7 +10,6 @@ var look_dir: float = 0.0
 var prev_look_dir: float = 0.0
 
 func _ready():
-	print("BENNY")
 	anim_state = animation_tree["parameters/playback"]
 	anim_state.travel("Idle")
 	Master.Anim_Controller = self

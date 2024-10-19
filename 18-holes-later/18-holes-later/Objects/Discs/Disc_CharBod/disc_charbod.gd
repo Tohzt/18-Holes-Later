@@ -31,6 +31,7 @@ var is_grounded = false
 var is_tracer = false
 var can_look = false
 var owned_by_player = false
+var should_curve = false
 
 var direction := Vector3.ZERO
 var target_dir: Vector3
@@ -39,8 +40,10 @@ var power_resist: float
 var handedness = 1
 var elapsed_time := 0.0
 var elapse_duration := 2.0
-
+var angle_h: float = 0.0
+var angle_v: float = 0.0
 func _launch_disc():
+	should_curve = true
 	self.set_collision_mask_value(1, true)
 	self.set_collision_mask_value(2, true)
 	self.set_collision_mask_value(4, true)
@@ -63,17 +66,10 @@ func _process(delta):
 		can_launch = false
 		_launch_disc()
 	
-	elapsed_time += delta
-	if elapsed_time <= elapse_duration:
-		var t = elapsed_time / elapse_duration
-		var sample_h = curve_h.sample(t)
-		var sample_v = curve_v.sample(t)
-		
-		var angle_h = lerp(-PI/4, PI/4, sample_h)  # Adjust range as needed
-		direction = direction.rotated(Vector3.UP, angle_h * handedness * delta)
-	
-		var angle_v = lerp(-PI/4, PI/4, sample_v)  # Adjust range as needed
-		direction = direction.rotated(Vector3.LEFT, angle_v * delta)
+	if should_curve:
+		curve(delta)
+		if Input.is_action_pressed("interact"):
+			direction = direction.rotated(Vector3.UP, -1 * delta)
 	
 	var spd = SPEED * power * delta
 	if direction:
@@ -86,6 +82,23 @@ func _process(delta):
 	_detect_impact()
 	_self_cull()
 
+func curve(delta):
+	elapsed_time += delta
+	if elapsed_time <= elapse_duration:
+		var t = elapsed_time / elapse_duration
+		var sample_h = curve_h.sample(t)
+		var sample_v = curve_v.sample(t)
+		
+		angle_h = lerp(angle_h, angle_h + sample_h, delta*3)
+		direction = direction.rotated(Vector3.UP, angle_h * delta)
+	
+		angle_v = lerp(angle_v, angle_v + sample_v, delta*3)
+		direction = direction.rotated(Vector3.LEFT, angle_v * delta)
+	
+	else:
+		elapsed_time = 0
+		should_curve = false
+		
 #func _physics_process(_delta):
 	##power -= stats["Resistance"] if power > 0.0 else 0.0
 	#if !is_grounded:

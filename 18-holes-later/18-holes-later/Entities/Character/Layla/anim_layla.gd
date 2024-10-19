@@ -17,7 +17,6 @@ func _ready():
 	Master.SPEED = 7.0
 
 func _process(delta):
-	print("Layla")
 	_update_anim(delta)
 
 func _update_anim(delta):

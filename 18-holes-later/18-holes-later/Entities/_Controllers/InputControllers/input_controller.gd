@@ -124,8 +124,6 @@ func _launcher_look(delta):
 
 
 func _launcher_action():
-	if Input.is_action_just_pressed("tab"):
-		Master.toggle_type()
 	if Master.can_shoot:
 		if Input.is_action_just_pressed("left_click"):
 			Master.did_shoot = true
