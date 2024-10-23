@@ -34,7 +34,6 @@ Global="*res://Global/global.tscn"
 
 [display]
 
-window/size/mode=3
 window/size/initial_position_type=2
 
 [editor]

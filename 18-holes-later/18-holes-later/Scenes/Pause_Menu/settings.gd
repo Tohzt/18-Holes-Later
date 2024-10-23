@@ -1,10 +1,6 @@
-extends Control
+extends UI_Class
 
 @onready var settings_container := $MarginContainer/Settings
-@onready var show_pos: Vector2
-@onready var hide_pos: Vector2
-var slide_in = false
-var slide_out = true
 
 func _ready():
 	var exported_variables = Global.Settings.export_variables()
@@ -15,10 +11,7 @@ func _ready():
 	position = hide_pos
 
 func _process(delta):
-	if slide_in:
-		position = lerp(position, show_pos, delta * 10)
-	if slide_out:
-		position = lerp(position, hide_pos, delta * 10)
+	super._process(delta)
 
 func create_setting_control(var_name: String):
 	var value = Global.Settings.get_property_value(var_name)

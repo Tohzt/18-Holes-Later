@@ -1,4 +1,4 @@
-[gd_scene load_steps=283 format=4 uid="uid://be188bor4mic4"]
+[gd_scene load_steps=268 format=4 uid="uid://be188bor4mic4"]
 
 [ext_resource type="PackedScene" uid="uid://b1flq11c6t3up" path="res://Scenes/UI/Disc Selector/DiscSelector.tscn" id="1_6epv5"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/clubhouse_interior.gd" id="1_idadp"]
@@ -33,24 +33,10 @@
 [ext_resource type="Texture2D" uid="uid://bpw07b7jwn4wc" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1_28.png" id="30_w4mi0"]
 [ext_resource type="PackedScene" uid="uid://dw26xdt1yissl" path="res://Entities/Character/Benny/Clubhouse/benny_club_house.tscn" id="31_vp3ae"]
 [ext_resource type="PackedScene" uid="uid://rktny8fyi1c0" path="res://Objects/Gem Machine/gem_machine.tscn" id="32_2s0u0"]
-[ext_resource type="Script" path="res://Entities/Character/character.gd" id="32_lpcv8"]
-[ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="33_12db8"]
-[ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="34_berb1"]
 [ext_resource type="PackedScene" uid="uid://b177kmpe8ky2j" path="res://Scenes/Clubhouse/Interior/door_exit.tscn" id="34_fjs3b"]
 [ext_resource type="PackedScene" uid="uid://datdddgm3105b" path="res://Scenes/Clubhouse/Interior/character_select.tscn" id="34_y1s7t"]
-[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="35_n7npq"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/door_exit.gd" id="36_8ivxy"]
-[ext_resource type="PackedScene" uid="uid://crhjkqpg0jbvm" path="res://Entities/_Controllers/StateMachine/States/Character/Slide/Slide.tscn" id="36_x6km6"]
-[ext_resource type="PackedScene" uid="uid://b6h4yvto3di1" path="res://Entities/_Controllers/StateMachine/States/Character/Crouch/Crouch.tscn" id="37_ahhae"]
-[ext_resource type="PackedScene" uid="uid://dnj5vxhpa2l5n" path="res://Entities/_Controllers/StateMachine/States/Character/Combat/attack.tscn" id="38_6m8s0"]
 [ext_resource type="Texture2D" uid="uid://ccd2lgwl5sbx4" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3.png" id="38_ppdyg"]
-[ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/Idle/idle.tscn" id="39_0knle"]
-[ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/Walk/walk.tscn" id="40_kakhe"]
-[ext_resource type="PackedScene" uid="uid://by252jyfxak" path="res://Entities/_Controllers/StateMachine/States/Character/Jump/jump.tscn" id="41_i7ch1"]
-[ext_resource type="PackedScene" uid="uid://c5y6r3625xfy1" path="res://Entities/_Controllers/StateMachine/States/Character/Throw/throw.tscn" id="42_vvq6a"]
-[ext_resource type="PackedScene" uid="uid://b5unimcjp2553" path="res://Entities/Character/Benny/benny.tscn" id="43_o6321"]
-[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="44_lm60u"]
-[ext_resource type="Script" path="res://Entities/Character/disc_bag.gd" id="45_nmigi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy3jc"]
 resource_name = "OIG1 (5)"
@@ -3450,9 +3436,6 @@ size = Vector3(2.00098, 0.662537, 0.977898)
 [sub_resource type="BoxShape3D" id="BoxShape3D_eqc6w"]
 size = Vector3(2.04218, 1.07138, 1.42587)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i2ynl"]
-radius = 0.243035
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sehlk"]
 resource_name = "OIG3.hJJqHTGNiAuA4kz5N"
 transparency = 4
@@ -4054,79 +4037,32 @@ shape = SubResource("BoxShape3D_eqc6w")
 
 [node name="NPCs" type="Node" parent="."]
 
-[node name="Character" type="CharacterBody3D" parent="NPCs" groups=["Benny", "Character"]]
-collision_layer = 2
-collision_mask = 57
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-script = ExtResource("32_lpcv8")
-
-[node name="Save" parent="NPCs/Character" instance=ExtResource("33_12db8")]
-is_char = true
-
-[node name="InputController" parent="NPCs/Character" instance=ExtResource("34_berb1")]
-character_move = true
-character_look = true
-character_action = true
-
-[node name="StateController" parent="NPCs/Character" instance=ExtResource("35_n7npq")]
-
-[node name="Slide" parent="NPCs/Character/StateController" instance=ExtResource("36_x6km6")]
-
-[node name="Crouch" parent="NPCs/Character/StateController" instance=ExtResource("37_ahhae")]
-
-[node name="Combat" parent="NPCs/Character/StateController" instance=ExtResource("38_6m8s0")]
-
-[node name="Idle" parent="NPCs/Character/StateController" instance=ExtResource("39_0knle")]
-
-[node name="Walk" parent="NPCs/Character/StateController" instance=ExtResource("40_kakhe")]
-
-[node name="Jump" parent="NPCs/Character/StateController" instance=ExtResource("41_i7ch1")]
-
-[node name="Throw" parent="NPCs/Character/StateController" instance=ExtResource("42_vvq6a")]
-
-[node name="AnimController" parent="NPCs/Character" instance=ExtResource("43_o6321")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0157, 0, 1.92311)
-
-[node name="Cam_Mount" parent="NPCs/Character" instance=ExtResource("44_lm60u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1)
-
-[node name="Hand" type="Node3D" parent="NPCs/Character"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -1.009)
-
-[node name="Bag" type="Node" parent="NPCs/Character"]
-script = ExtResource("45_nmigi")
-
-[node name="Character_Base" type="CollisionShape3D" parent="NPCs/Character"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_i2ynl")
-
 [node name="NPC" parent="NPCs" instance=ExtResource("31_vp3ae")]
 transform = Transform3D(0.524001, 0, 0.851717, 0, 1, 0, -0.851717, 0, 0.524001, -15.4967, 0.00769877, 0.420026)
 
 [node name="Objects" type="Node" parent="."]
 
-[node name="Character Select" parent="Objects" instance=ExtResource("34_y1s7t")]
+[node name="Door_CharacterSelect" parent="Objects" instance=ExtResource("34_y1s7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2429, 0, 1.46285)
 
-[node name="GemMachine" parent="Objects" instance=ExtResource("32_2s0u0")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 1.79736, 0, -3.05269)
-
-[node name="Door_Exit" parent="Objects" instance=ExtResource("34_fjs3b")]
+[node name="Door_Hoel1" parent="Objects" instance=ExtResource("34_fjs3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9672, 0, -3.52669)
 
-[node name="Door_Exit3" type="Area3D" parent="Objects" groups=["Interact"]]
+[node name="Door_TrainingRoom" type="Area3D" parent="Objects" groups=["Interact"]]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0425, 0, 0.627451)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("36_8ivxy")
 destination = "res://Scenes/Holes/TESTING/testing_room.tscn"
 
-[node name="Door_Exit" type="MeshInstance3D" parent="Objects/Door_Exit3"]
+[node name="Door_Exit" type="MeshInstance3D" parent="Objects/Door_TrainingRoom"]
 transform = Transform3D(3.49879, 0, 0, 0, -4.17088e-07, -3.49879, 0, 3.49879, -4.17088e-07, 0, 1.346, 0)
 mesh = SubResource("ArrayMesh_x4vpb")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Door_Exit3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Door_TrainingRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989241, 0)
 shape = SubResource("CylinderShape3D_ccddq")
+
+[node name="GemMachine" parent="Objects" instance=ExtResource("32_2s0u0")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 1.79736, 0, -3.05269)

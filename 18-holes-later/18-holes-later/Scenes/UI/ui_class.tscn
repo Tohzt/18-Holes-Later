@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0vldbs7bfatq"]
+
+[ext_resource type="Script" path="res://Scenes/UI/ui_class.gd" id="1_viidn"]
+
+[node name="GameUI" type="NinePatchRect"]
+script = ExtResource("1_viidn")

@@ -6,12 +6,9 @@ extends Control
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		Menu_Container.slide_in = true
-		Menu_Container.slide_out = false
-		Character_Container.slide_in = false
-		Character_Container.slide_out = true
-		Course_Container.slide_in = false
-		Course_Container.slide_out = true
+		Menu_Container.toggle_slide(true)
+		Character_Container.toggle_slide(false)
+		Course_Container.toggle_slide(false)
 
 func _on_btn_new_game_pressed():
 	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.CLUBHOUSE_INTERIOR, "Clubhouse_Interior")

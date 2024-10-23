@@ -1,1 +1,1 @@
-extends NinePatchRect
+extends UI_Class

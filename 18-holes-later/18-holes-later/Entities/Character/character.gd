@@ -1,8 +1,6 @@
 class_name Entity_Character
 extends Entity
 
-@onready var Cam_Mount = $Cam_Mount
-@onready var start_pos = position
 @onready var Hand = $Hand
 @onready var Bag = $Bag
 
