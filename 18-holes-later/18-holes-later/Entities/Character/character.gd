@@ -29,6 +29,7 @@ var predict_cd_max = 50
 var predict_cd = 0
 
 # Move to Entity?
+@onready var Input_Array: Array[String]
 var slide_thresh = 7.1
 
 func _ready():
@@ -38,6 +39,7 @@ func _ready():
 	Global.Cameraman.position = position
 
 func _process(delta):
+	Input_Array = Input_Controller.combo_controller.input_sequence
 	super._process(delta)
 	visible = false if in_vehicle else true
 	new_dir.y = input_look.y

@@ -1,13 +1,9 @@
-[gd_scene load_steps=34 format=4 uid="uid://dq5k8n0rtk27y"]
+[gd_scene load_steps=60 format=4 uid="uid://dq5k8n0rtk27y"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/enemy.gd" id="1_enopi"]
 [ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_y1l2c"]
 [ext_resource type="PackedScene" uid="uid://cadr5fmo6lq7i" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_chase.tscn" id="3_qrkqb"]
 [ext_resource type="PackedScene" uid="uid://sq6vmdb1jqo0" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_idle.tscn" id="4_jwyqa"]
-[ext_resource type="Shader" uid="uid://cduy8w14habn" path="res://Objects/New Enemy/puff.tres" id="5_tccq8"]
-[ext_resource type="Script" path="res://Objects/New Enemy/puff_shader.gd" id="6_0qbfy"]
-[ext_resource type="Script" path="res://Objects/New Enemy/zanim.gd" id="7_rshmj"]
-[ext_resource type="Texture2D" uid="uid://d3mqosar0s7hp" path="res://Objects/New Enemy/src/newzam/Zanim_Zombie_Mailman_0926222648.png" id="8_fisbr"]
 
 [sub_resource type="Gradient" id="Gradient_ml0cd"]
 interpolation_mode = 1
@@ -34,9 +30,280 @@ height = 1.0
 radius = 0.32424
 height = 1.70982
 
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_882ra"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeProximityFade" id="VisualShaderNodeProximityFade_66j1i"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_qbqqy"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_g8cw5"]
+parameter_name = "dist_fade"
+default_value_enabled = true
+default_value = 0.3
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_0a7e0"]
+constant = 1.0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_c6rsm"]
+input_name = "normal"
+
+[sub_resource type="VisualShaderNodeDotProduct" id="VisualShaderNodeDotProduct_5of7u"]
+
+[sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_xi4s2"]
+default_input_values = [2, true, 3, 1.0]
+
+[sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_gxm4i"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_rotkp"]
+constant = 0.1
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_4jqrs"]
+
+[sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_bq16n"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0, 0, 0), 2, Vector3(1, 1, 1)]
+op_type = 4
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_faawd"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hnhjr"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_64fkx"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Constant" id="VisualShaderNodeVec2Constant_vmql4"]
+constant = Vector2(0.1, 0.5)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_a6u4d"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_36l6t"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_srxop"]
+input_name = "normal"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_xiisy"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_mlf3v"]
+constant = -0.3
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ftjk5"]
+noise_type = 2
+frequency = 0.0151
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_saa5e"]
+noise = SubResource("FastNoiseLite_ftjk5")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_2w0vy"]
+expanded_output_ports = [0]
+texture = SubResource("NoiseTexture2D_saa5e")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ifld8"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_5ev44"]
+
+[sub_resource type="VisualShader" id="VisualShader_xuqto"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_vtx_7;
+uniform float dist_fade = 0.30000001192093;
+uniform sampler2D depth_tex_frg_3 : hint_depth_texture;
+
+
+
+void vertex() {
+// Input:2
+	vec3 n_out2p0 = VERTEX;
+
+
+// Input:10
+	float n_out10p0 = TIME;
+
+
+// Vector2Constant:12
+	vec2 n_out12p0 = vec2(0.100000, 0.500000);
+
+
+// VectorOp:11
+	vec2 n_out11p0 = vec2(n_out10p0) * n_out12p0;
+
+
+// UVFunc:9
+	vec2 n_in9p1 = vec2(1.00000, 1.00000);
+	vec2 n_out9p0 = n_out11p0 * n_in9p1 + UV;
+
+
+// Texture2D:7
+	vec4 n_out7p0 = texture(tex_vtx_7, n_out9p0);
+	float n_out7p1 = n_out7p0.r;
+
+
+// Input:4
+	vec3 n_out4p0 = NORMAL;
+
+
+// VectorOp:8
+	vec3 n_out8p0 = vec3(n_out7p1) * n_out4p0;
+
+
+// FloatConstant:6
+	float n_out6p0 = -0.300000;
+
+
+// VectorOp:5
+	vec3 n_out5p0 = n_out8p0 * vec3(n_out6p0);
+
+
+// VectorOp:3
+	vec3 n_out3p0 = n_out2p0 + n_out5p0;
+
+
+// Output:0
+	VERTEX = n_out3p0;
+
+
+}
+
+void fragment() {
+// Input:2
+	vec4 n_out2p0 = COLOR;
+	float n_out2p4 = n_out2p0.a;
+
+
+// FloatParameter:5
+	float n_out5p0 = dist_fade;
+
+
+	float n_out3p0;
+// ProximityFade:3
+	{
+		float __depth_tex = texture(depth_tex_frg_3, SCREEN_UV).r;
+		vec4 __depth_world_pos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, __depth_tex, 1.0);
+		__depth_world_pos.xyz /= __depth_world_pos.w;
+		n_out3p0 = clamp(1.0 - smoothstep(__depth_world_pos.z + n_out5p0, __depth_world_pos.z, VERTEX.z), 0.0, 1.0);
+	}
+
+
+// FloatOp:4
+	float n_out4p0 = n_out3p0 * n_out2p4;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out4p0;
+
+
+}
+
+void light() {
+// FloatConstant:7
+	float n_out7p0 = 0.000000;
+
+
+// FloatConstant:6
+	float n_out6p0 = 0.100000;
+
+
+// Input:2
+	vec3 n_out2p0 = NORMAL;
+
+
+// Fresnel:4
+	float n_in4p3 = 1.00000;
+	float n_out4p0 = pow(clamp(dot(NORMAL, VIEW), 0.0, 1.0), n_in4p3);
+
+
+// DotProduct:3
+	float n_out3p0 = dot(n_out2p0, vec3(n_out4p0));
+
+
+// SmoothStep:5
+	float n_out5p0 = smoothstep(n_out7p0, n_out6p0, n_out3p0);
+
+
+// FloatConstant:9
+	float n_out9p0 = 0.000000;
+
+
+// FloatConstant:10
+	float n_out10p0 = 1.000000;
+
+
+// Clamp:8
+	vec3 n_out8p0 = clamp(vec3(n_out5p0), vec3(n_out9p0), vec3(n_out10p0));
+
+
+// Output:0
+	DIFFUSE_LIGHT = n_out8p0;
+
+
+}
+"
+nodes/vertex/0/position = Vector2(160, 520)
+nodes/vertex/2/node = SubResource("VisualShaderNodeInput_a6u4d")
+nodes/vertex/2/position = Vector2(-560, 140)
+nodes/vertex/3/node = SubResource("VisualShaderNodeVectorOp_36l6t")
+nodes/vertex/3/position = Vector2(-180, 260)
+nodes/vertex/4/node = SubResource("VisualShaderNodeInput_srxop")
+nodes/vertex/4/position = Vector2(-1140, 260)
+nodes/vertex/5/node = SubResource("VisualShaderNodeVectorOp_xiisy")
+nodes/vertex/5/position = Vector2(-520, 280)
+nodes/vertex/6/node = SubResource("VisualShaderNodeFloatConstant_mlf3v")
+nodes/vertex/6/position = Vector2(-780, 360)
+nodes/vertex/7/node = SubResource("VisualShaderNodeTexture_2w0vy")
+nodes/vertex/7/position = Vector2(-1100, -40)
+nodes/vertex/8/node = SubResource("VisualShaderNodeVectorOp_ifld8")
+nodes/vertex/8/position = Vector2(-760, 140)
+nodes/vertex/9/node = SubResource("VisualShaderNodeUVFunc_5ev44")
+nodes/vertex/9/position = Vector2(-1380, 60)
+nodes/vertex/10/node = SubResource("VisualShaderNodeInput_hnhjr")
+nodes/vertex/10/position = Vector2(-1920, 40)
+nodes/vertex/11/node = SubResource("VisualShaderNodeVectorOp_64fkx")
+nodes/vertex/11/position = Vector2(-1620, 80)
+nodes/vertex/12/node = SubResource("VisualShaderNodeVec2Constant_vmql4")
+nodes/vertex/12/position = Vector2(-1860, 140)
+nodes/vertex/connections = PackedInt32Array(2, 0, 3, 0, 3, 0, 0, 0, 6, 0, 5, 1, 5, 0, 3, 1, 7, 1, 8, 0, 4, 0, 8, 1, 8, 0, 5, 0, 9, 0, 7, 0, 10, 0, 11, 0, 12, 0, 11, 1, 11, 0, 9, 2)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_882ra")
+nodes/fragment/2/position = Vector2(-200, 40)
+nodes/fragment/3/node = SubResource("VisualShaderNodeProximityFade_66j1i")
+nodes/fragment/3/position = Vector2(-200, 320)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatOp_qbqqy")
+nodes/fragment/4/position = Vector2(80, 300)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatParameter_g8cw5")
+nodes/fragment/5/position = Vector2(-676.481, 380.301)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 4, 0, 2, 4, 4, 1, 4, 0, 0, 1, 5, 0, 3, 0)
+nodes/light/0/position = Vector2(900, 180)
+nodes/light/2/node = SubResource("VisualShaderNodeInput_c6rsm")
+nodes/light/2/position = Vector2(-240, 160)
+nodes/light/3/node = SubResource("VisualShaderNodeDotProduct_5of7u")
+nodes/light/3/position = Vector2(111.686, 204.106)
+nodes/light/4/node = SubResource("VisualShaderNodeFresnel_xi4s2")
+nodes/light/4/position = Vector2(-220, 320)
+nodes/light/5/node = SubResource("VisualShaderNodeSmoothStep_gxm4i")
+nodes/light/5/position = Vector2(400, 100)
+nodes/light/6/node = SubResource("VisualShaderNodeFloatConstant_rotkp")
+nodes/light/6/position = Vector2(140, 100)
+nodes/light/7/node = SubResource("VisualShaderNodeFloatConstant_4jqrs")
+nodes/light/7/position = Vector2(140, -20)
+nodes/light/8/node = SubResource("VisualShaderNodeClamp_bq16n")
+nodes/light/8/position = Vector2(593.686, 285.106)
+nodes/light/9/node = SubResource("VisualShaderNodeFloatConstant_faawd")
+nodes/light/9/position = Vector2(300, 280)
+nodes/light/10/node = SubResource("VisualShaderNodeFloatConstant_0a7e0")
+nodes/light/10/position = Vector2(300, 380)
+nodes/light/connections = PackedInt32Array(2, 0, 3, 0, 4, 0, 3, 1, 3, 0, 5, 2, 7, 0, 5, 0, 6, 0, 5, 1, 5, 0, 8, 0, 9, 0, 8, 1, 10, 0, 8, 2, 8, 0, 0, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wvah4"]
 render_priority = 0
-shader = ExtResource("5_tccq8")
+shader = SubResource("VisualShader_xuqto")
 shader_parameter/dist_fade = 0.3
 
 [sub_resource type="Curve" id="Curve_ox2hl"]
@@ -90,10 +357,28 @@ alpha_curve = SubResource("CurveTexture_8uvje")
 
 [sub_resource type="SphereMesh" id="SphereMesh_nhnj1"]
 
+[sub_resource type="GDScript" id="GDScript_0lxxu"]
+script/source = "extends GPUParticles3D
+
+func _on_finished():
+	queue_free()
+"
+
+[sub_resource type="GDScript" id="GDScript_jwht3"]
+script/source = "extends Node3D
+@onready var anim = $AnimationPlayer
+
+func _ready():
+	anim.play(\"Zidle\")
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jh5vh"]
+load_path = "res://.godot/imported/Zanim_Zombie_Mailman_0926222648.png-e2a6fdb77a11a475c4bd6b9d14f74a1f.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_237n5"]
 resource_name = "Material.001"
 cull_mode = 2
-albedo_texture = ExtResource("8_fisbr")
+albedo_texture = SubResource("CompressedTexture2D_jh5vh")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_q14ho"]
@@ -1671,13 +1956,11 @@ _data = {
 "Zidle": SubResource("Animation_u4e44")
 }
 
-[node name="Enemy" type="RigidBody3D" groups=["Zombie"]]
+[node name="Enemy" type="CharacterBody3D" groups=["Zombie"]]
 collision_layer = 8
 collision_mask = 15
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-contact_monitor = true
-max_contacts_reported = 2
 script = ExtResource("1_enopi")
 
 [node name="StateController" parent="." instance=ExtResource("2_y1l2c")]
@@ -1703,10 +1986,10 @@ one_shot = true
 explosiveness = 0.85
 process_material = SubResource("ParticleProcessMaterial_df8im")
 draw_pass_1 = SubResource("SphereMesh_nhnj1")
-script = ExtResource("6_0qbfy")
+script = SubResource("GDScript_0lxxu")
 
 [node name="ZanimController" type="Node3D" parent="."]
-script = ExtResource("7_rshmj")
+script = SubResource("GDScript_jwht3")
 
 [node name="Armature" type="Node3D" parent="ZanimController"]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
@@ -1961,6 +2244,5 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.843979, 0)
 shape = SubResource("CapsuleShape3D_hxks6")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="GPUParticles3D" to="GPUParticles3D" method="_on_finished"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

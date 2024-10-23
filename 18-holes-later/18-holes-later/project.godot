@@ -64,6 +64,8 @@ import/blender/enabled=false
 
 Solid=""
 Interact=""
+"Enemy Spawners"=""
+Player_Spawn=""
 
 [gui]
 

@@ -9,6 +9,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("spawn_enemies"):
 		var spawners = get_tree().get_nodes_in_group("Enemy Spawners")
 		for spawner in spawners:
+			print("spawning enemy")
 			spawn_enemies(spawner.position)
 			num_enemies += 1
 

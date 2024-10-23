@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://v6gnxcxiubm8"]
+[gd_scene load_steps=3 format=3 uid="uid://v6gnxcxiubm8"]
 
 [ext_resource type="Script" path="res://Entities/_Controllers/InputControllers/input_controller.gd" id="1_68071"]
+[ext_resource type="Script" path="res://Entities/_Controllers/InputControllers/Combos/combo_controller.gd" id="2_a8hqc"]
 
 [node name="InputController" type="Node"]
 script = ExtResource("1_68071")
+
+[node name="ComboController" type="Node" parent="."]
+script = ExtResource("2_a8hqc")

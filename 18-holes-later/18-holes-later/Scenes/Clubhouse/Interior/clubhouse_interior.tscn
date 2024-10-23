@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1flq11c6t3up" path="res://Scenes/UI/Disc Selector/DiscSelector.tscn" id="1_6epv5"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/clubhouse_interior.gd" id="1_idadp"]
-[ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/player_spawn.tscn" id="1_wqyhj"]
+[ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="1_wqyhj"]
 [ext_resource type="Texture2D" uid="uid://dtlrwiavyjwyr" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (5).png" id="2_2j6nl"]
 [ext_resource type="Texture2D" uid="uid://bl5ph5r2o1w0u" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (5)_n.png" id="3_gib28"]
 [ext_resource type="Texture2D" uid="uid://cxrlqb51i3xw2" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3 (4).png" id="4_aow6k"]
