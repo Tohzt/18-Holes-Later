@@ -1,5 +1,7 @@
-# ATTACK STATE
+# COMBAT STATE
 extends CharacterStateClass
+
+var input: Array[String]
 
 func init_state():
 	State_Controller.state_options = state_options
@@ -14,8 +16,7 @@ func update_state(_delta):
 	var path = Master.Anim_Controller.anim_state.get_travel_path()
 	var current = Master.Anim_Controller.anim_state.get_current_node()
 	
-	# TODO: Create a combo counter/countdown/cooldown
-	if Input.is_action_just_pressed("left_click"):
+	if Master.Input_Array and Master.Input_Array[0] == "left_click":
 		if current == "Idle_Fight":
 			Master.anim_play("Jab")
 		if current == "Jab":
@@ -26,7 +27,6 @@ func update_state(_delta):
 			Master.anim_play("KickUp")
 		if current == "KickUp":
 			Master.anim_play("Cheat720")
-	
 	
 	if !path and current == "Idle":
 		exit_state("Idle")

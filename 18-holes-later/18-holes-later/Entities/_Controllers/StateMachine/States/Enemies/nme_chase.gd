@@ -8,10 +8,15 @@ func monitor_state():
 	pass
 
 func update_state(delta):
-	var dir_to_target = Master.position.direction_to(Master.Target.position)
-	dir_to_target.y = 0
-	Master.apply_central_force(dir_to_target.normalized() * 550 * delta)
-	var dist_to_target = Master.position.distance_to(Master.Target.position)
+	if Master.position.distance_to(Master.Target.position) < 50:
+		Master.zanim.anim.play("Run")
+		Master.direction = (Master.global_position - Master.Target.global_position).normalized()
+	else:
+		Master.direction = Vector3.ZERO
+		Master.zanim.anim.play("Zidle")
+		Master.velocity = Vector3.ZERO
+	
+	var dist_to_target = abs(Master.global_position - Master.Target.global_position)
 	if dist_to_target > Master.seight_range:
 		exit_state("Idle")
 

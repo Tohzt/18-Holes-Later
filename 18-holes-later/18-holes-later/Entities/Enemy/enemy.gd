@@ -1,5 +1,6 @@
-class_name NME_Zombie
-extends RigidBody3D
+class_name Entity_Zombie
+extends Entity
+
 @onready var zanim = $ZanimController
 
 @export var seight_range: int = 999
@@ -8,39 +9,35 @@ var timer: Timer
 var dir_to_target = Vector3.ZERO
 var is_walking = false
 
+var direction: Vector3
+
 func _ready():
 	timer = Timer.new()
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 	add_child(timer)
 
-func _process(_delta):
+func _process(delta):
 	if !Target:
 		Target = Global.Player
-		
-func _physics_process(_delta):
-	if Target:
-		if position.distance_to(Target.position) < 50:
-			zanim.anim.play("Run")
-		else:
-			zanim.anim.play("Zidle")
-			linear_velocity = Vector3.ZERO
+	
+	var spd = SPEED * delta
+	if direction:
+		velocity = direction * spd
+	else:
+		velocity.x = move_toward(direction.x, 0, spd)
+		velocity.y = move_toward(direction.y, 0, spd)
+		velocity.z = move_toward(direction.z, 0, spd)
+
+func _on_body_entered(body):
+	if body.is_in_group("Disc"):
+		take_damage(10,Vector3.UP*10)
+
+func _on_area_3d_area_entered(area):
+	if area.name == "BoneHand":
+		take_damage(10,Vector3.UP*10)
 
 func _on_timer_timeout():
 	$GPUParticles3D.emitting = true
 	$GPUParticles3D.reparent(get_parent())
 	queue_free()
-
-func _on_body_entered(body):
-	if body.is_in_group("Disc"):
-		self.axis_lock_angular_x = false
-		self.axis_lock_angular_z = false
-		timer.start(1.0)
-
-func _on_area_3d_area_entered(area):
-	if area.name == "BoneHand":
-		apply_central_impulse((position - area.position).normalized() * 10)
-		zanim.anim.play("Death")
-		self.axis_lock_angular_x = false
-		self.axis_lock_angular_z = false
-		timer.start(1.0)

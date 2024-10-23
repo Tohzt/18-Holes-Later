@@ -59,9 +59,12 @@ func _process(_delta):
 	if Input_Controller:
 		input_move = Input_Controller.input_move
 		input_look = Input_Controller.input_look
+	# TODO: Not sure if I should be doing this next part
+	else:
+		return
 
-func take_damage(dmg_incoming: float = 0, _knockback: Vector3 = Vector3.ZERO):
-	#velocity += knockback
+func take_damage(dmg_incoming: float = 0, knockback: Vector3 = Vector3.ZERO):
+	velocity += knockback
 	health -= dmg_incoming
 	if health <= 0:
 		health = 0

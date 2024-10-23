@@ -2,6 +2,7 @@ extends Control
 @onready var pause_header = $PauseHeader
 @onready var debug_settings = $Settings
 
+# TODO: This needs some work. Not yet explored since UI_Class
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if(Global.is_paused):

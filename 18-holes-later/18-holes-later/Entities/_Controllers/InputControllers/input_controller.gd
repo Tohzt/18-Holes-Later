@@ -2,6 +2,7 @@ class_name InputController
 extends Node
 
 @onready var Master = $".."
+@onready var combo_controller = $ComboController
 
 @export_category("Character Controls")
 @export var character_move   := false
