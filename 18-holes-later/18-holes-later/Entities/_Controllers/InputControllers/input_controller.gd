@@ -52,6 +52,7 @@ func _input(event):
 
 # Character Inputs
 func _character_move(delta):
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	input_move = Vector2.ZERO
 	if Master.can_move:
 		# TODO: Update Master to read input on its own
@@ -80,12 +81,28 @@ func _character_look(delta):
 			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 
 func _character_action():
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if !Master.in_combat:
 		if Master.can_combat:
 			if Input.is_action_just_pressed("left_click"):
 				Master.in_combat = true
+		
 		if Master.can_interact:
 			if Input.is_action_just_pressed("interact"):
+				var collisions = Master.get_overlapping_areas()
+				var closest_distance = INF
+				var closest_collision = null
+				
+				for collision in collisions:
+					if collision.is_in_group("Interact"):
+						var distance = Master.global_position.distance_to(collision.global_position)
+						if distance < closest_distance:
+							closest_distance = distance
+							closest_collision = collision
+				
+				if closest_collision:
+					closest_collision.interact()
+			
 				Master.did_interact = true
 			
 	if Master.can_throw:

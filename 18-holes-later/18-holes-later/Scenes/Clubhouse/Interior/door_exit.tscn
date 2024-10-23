@@ -47,7 +47,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8mniq")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ccddq"]
-radius = 0.909557
+radius = 2.0
 
 [node name="Door_Exit" type="Area3D" groups=["Interact"]]
 collision_layer = 4

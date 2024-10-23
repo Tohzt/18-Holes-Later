@@ -663,7 +663,10 @@ shadow_mesh = SubResource("ArrayMesh_hhn5y")
 height = 1.27261
 radius = 1.57516
 
-[node name="GemMachine" type="Node3D"]
+[node name="GemMachine" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_u4x3g")
 
 [node name="Mesh" type="Node3D" parent="."]
 
@@ -753,14 +756,9 @@ transform = Transform3D(46.6509, -29.8242, 32.3847, 22.2303, 56.6847, 20.1796, -
 mesh = SubResource("ArrayMesh_2nt5f")
 skeleton = NodePath("")
 
-[node name="AreaBody3d" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaBody3d"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624735, 0)
 shape = SubResource("CylinderShape3D_wf3ck")
-script = ExtResource("2_u4x3g")
 
-[connection signal="body_entered" from="AreaBody3d" to="AreaBody3d/CollisionShape3D" method="_on_area_body_3d_body_entered"]
-[connection signal="body_exited" from="AreaBody3d" to="AreaBody3d/CollisionShape3D" method="_on_area_body_3d_body_exited"]
+[connection signal="body_entered" from="." to="CollisionShape3D" method="_on_area_body_3d_body_entered"]
+[connection signal="body_exited" from="." to="CollisionShape3D" method="_on_area_body_3d_body_exited"]

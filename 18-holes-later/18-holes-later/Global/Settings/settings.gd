@@ -9,9 +9,13 @@ class_name SettingsClass
 @export_range(0.1, 1.0) var MOUSE_H_SENSITIVITY: float = 0.2
 @export_range(0.1, 1.0) var MOUSE_V_SENSITIVITY: float = 0.2
 
+@onready var viewport_size = get_viewport().size
+@onready var view_width = viewport_size[0]
+@onready var view_height = viewport_size[1]
 var debug_log: Dictionary
 
 func _ready():
+	get_tree().get_root().size_changed.connect(_resize)
 	# Ensure that the mouse sensitivity values are correctly initialized
 	if MOUSE_H_SENSITIVITY == 0:
 		MOUSE_H_SENSITIVITY = 0.2
@@ -30,7 +34,10 @@ func export_variables() -> Array:
 func _process(_delta):
 	_update_debug_info()
 
-var line_count = 0
+func _resize():
+	viewport_size = get_viewport().size
+	view_width = viewport_size[0]
+	view_height = viewport_size[1]
 
 func _update_debug_info():
 	if print_debug_log and debug_log.size():

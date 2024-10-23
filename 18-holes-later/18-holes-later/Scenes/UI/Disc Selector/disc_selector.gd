@@ -1,13 +1,12 @@
-extends NinePatchRect
-@onready var show_pos: Vector2 = position
-@onready var hide_pos := Vector2(show_pos.x + 330,show_pos.y)
+extends UI_Class
 
-var slide_in = false
-var slide_out = false
 func _ready():
+	show_pos = position
+	hide_pos = Vector2(show_pos.x + 330,show_pos.y)
 	position = hide_pos
 
 func _process(delta):
+	super._process(delta)
 	if slide_in:
 		position = lerp(position, show_pos, delta*10)
 	if slide_out:

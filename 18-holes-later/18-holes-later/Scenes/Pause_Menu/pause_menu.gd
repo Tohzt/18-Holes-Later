@@ -11,15 +11,11 @@ func _process(_delta):
 
 func _show_pause():
 	Global.is_paused = true
-	pause_header.slide_in = true
-	pause_header.slide_out = false
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	pause_header.toggle_slide(true)
 
 func _hide_pause():
 	Global.is_paused = false
-	pause_header.slide_in = false
-	pause_header.slide_out = true
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pause_header.toggle_slide(false)
 
 func _on_btn_exit_pressed():
 	# WARNING: This could close before save is complete 

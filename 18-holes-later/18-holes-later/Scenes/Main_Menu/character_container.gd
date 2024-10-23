@@ -5,9 +5,11 @@ func _ready():
 	hide_pos = Vector2(show_pos.x-700,show_pos.y)
 	position = hide_pos
 
+func _process(delta):
+	super._process(delta)
+
 func _on_btn_select_layla_pressed():
-	slide_in = false
-	slide_out = true
+	toggle_slide()
 	Global.Player.Anim_Controller.queue_free()
 	var layla = Global.Refs.LAYLA.instantiate()
 	

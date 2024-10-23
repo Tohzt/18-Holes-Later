@@ -9,11 +9,14 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var SPEED_MULT: float = 1
 @export var JUMP_FORCE: float = 5
 
-@onready var Anim_Controller   : AnimController3D = $AnimController
-@onready var Input_Controller  : InputController = $InputController
-@onready var State_Controller : StateController  = $StateController
-@onready var Collision_Mask   : CollisionShape3D = $Character_Base
+@onready var Area_Interact: Area3D = $Area_Interact
+@onready var Anim_Controller: AnimController3D = $Anim_Controller
+@onready var Input_Controller: InputController = $Input_Controller
+@onready var State_Controller: StateController = $State_Controller
+@onready var Collision_Mask: CollisionShape3D = $Character_Base
 
+@onready var Cam_Mount = $Cam_Mount
+@onready var start_pos = position
 var is_dead: bool
 var state: String = "Idle"
 var accepts_input: bool
@@ -96,3 +99,6 @@ func set_active(TorF: bool):
 		Input_Controller.character_action = false
 		Input_Controller.character_look = false
 		Input_Controller.character_move = false
+
+func get_overlapping_areas():
+	return Area_Interact.get_overlapping_areas()
