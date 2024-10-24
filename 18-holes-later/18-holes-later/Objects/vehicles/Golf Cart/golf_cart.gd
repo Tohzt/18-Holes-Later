@@ -1,5 +1,6 @@
 class_name VehicleClass
 extends CharacterBody3D
+@onready var Cam_Mount = $Cam_Mount
 
 @onready var pickup_area: Area3D = $Area3D
 @onready var seats: Array = [$Seat_Driver]
@@ -65,7 +66,7 @@ func _enter_exit_vehicle():
 					_enter_vehicle(collision)
 
 func _enter_vehicle(collision):
-	Global.Cameraman.set_target(self, $CamFocus)
+	Global.Cameraman.set_target(self)
 	collision.in_vehicle = self
 	collision.accepts_input = false
 	Global.Player.set_collision_mask_value(6,false)
@@ -75,7 +76,7 @@ func _enter_vehicle(collision):
 func _exit_vehicle(collision):
 	collision.in_vehicle = null
 	collision.accepts_input = true
-	Global.Cameraman.set_target(collision, collision.get_node("CamFocus"))
+	Global.Cameraman.set_target(collision)
 	Global.Player.set_collision_mask_value(6,true)
 	has_driver = false
 	accepts_input = false

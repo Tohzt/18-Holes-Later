@@ -127,7 +127,7 @@ func _detect_impact():
 			direction.y = deg_to_rad(45)
 			direction = Vector3.ZERO
 			velocity = Vector3.ZERO
-			if $GPUParticles3D:
+			if get_node("GPUParticles3D"):
 				$GPUParticles3D.emitting = true
 
 func pick_up(node: Node):

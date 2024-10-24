@@ -8,6 +8,9 @@ extends Node3D
 @onready var Detect_Player = $"Detect Player"
 @onready var Input_Controller: InputController = $InputController
 
+var input_move = Vector2.ZERO
+var input_look = Vector2.ZERO
+
 var look_forward = true
 var look_around = false
 var accepts_input = false
@@ -15,7 +18,6 @@ var can_look = true
 var can_shoot = true
 var did_shoot = false
 var new_dir := Vector3.ZERO
-var input_look: Vector2
 
 var ammo_type = "CharacterBody3D"
 var ammo_char = preload("res://Objects/Discs/Disc_CharBod/disc_charbod.tscn")
@@ -47,11 +49,11 @@ func _detect(overlap):
 				if accepts_input:
 					set_active(false)
 					Global.Player.set_active(true)
-					Global.Cameraman.set_target(Global.Player, Global.Player.Cam_Mount)
+					Global.Cameraman.set_target(Global.Player)
 				else:
 					set_active(true)
 					Global.Player.set_active(false)
-					Global.Cameraman.set_target(self, Cam_Mount)
+					Global.Cameraman.set_target(self)
 
 func set_active(TorF: bool):
 	if TorF:

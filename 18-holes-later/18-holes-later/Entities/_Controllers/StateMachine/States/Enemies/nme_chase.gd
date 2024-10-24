@@ -3,20 +3,16 @@ extends StateClass
 
 func init_state():
 	State_Controller.state_options = state_options
+	Master.can_move = true
 
 func monitor_state():
 	pass
 
-func update_state(delta):
+func update_state(_delta):
 	if Master.position.distance_to(Master.Target.position) < 50:
-		Master.zanim.anim.play("Run")
-		Master.direction = (Master.global_position - Master.Target.global_position).normalized()
-	else:
-		Master.direction = Vector3.ZERO
-		Master.zanim.anim.play("Zidle")
-		Master.velocity = Vector3.ZERO
+		Master.Anim_Controller.anim.play("Run")
 	
-	var dist_to_target = abs(Master.global_position - Master.Target.global_position)
+	var dist_to_target = Master.global_position.distance_to(Master.Target.global_position)
 	if dist_to_target > Master.seight_range:
 		exit_state("Idle")
 

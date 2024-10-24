@@ -1,33 +1,47 @@
 class_name Entity_Zombie
 extends Entity
 
-@onready var zanim = $ZanimController
-
+var rotation_speed: float = 5.0
 @export var seight_range: int = 999
-var Target: Entity_Character
 var timer: Timer
-var dir_to_target = Vector3.ZERO
 var is_walking = false
 
-var direction: Vector3
-
 func _ready():
+	accepts_input = true
+	can_move = true
+	SPEED = 200
 	timer = Timer.new()
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 	add_child(timer)
 
 func _process(delta):
-	if !Target:
-		Target = Global.Player
+	if Target:
+		dir_to_target = global_position.direction_to(Target.global_position)
+		dist_to_target = global_position.distance_to(Target.global_position)
+	new_dir.y = input_look.y
 	
-	var spd = SPEED * delta
-	if direction:
-		velocity = direction * spd
-	else:
-		velocity.x = move_toward(direction.x, 0, spd)
-		velocity.y = move_toward(direction.y, 0, spd)
-		velocity.z = move_toward(direction.z, 0, spd)
+	_update_velocity(delta)
+	if !Target: return
+	var direction = global_position - Target.global_position
+	direction.y = 0
+	if direction.length() > 0.01:  # Check if we're not too close to prevent jitter
+		# Get the rotation to look at target
+		var look_at_point = global_position + direction.normalized()
+		var target_basis = global_transform.looking_at(look_at_point).basis
+		
+		# Smoothly interpolate rotation
+		var current_basis = global_transform.basis
+		global_transform.basis = current_basis.slerp(target_basis, rotation_speed * delta)
+
+# Alternative version using look_at() if you want instant rotation
+func instant_look_at_target() -> void:
+	if Target:
+		var direction = Target.global_position - global_position
+		direction.y = 0  # Keep character upright
+		
+		if direction.length() > 0.01:
+			look_at(Target.global_position, Vector3.UP)
 
 func _on_body_entered(body):
 	if body.is_in_group("Disc"):
