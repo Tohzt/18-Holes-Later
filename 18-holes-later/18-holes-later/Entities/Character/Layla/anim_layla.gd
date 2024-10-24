@@ -14,7 +14,7 @@ func _ready():
 	anim_state = animation_tree["parameters/playback"]
 	anim_state.travel("Idle")
 	Master.Anim_Controller = self
-	Master.SPEED = 7.0
+	Master.SPEED = 550.0
 
 func _process(delta):
 	_update_anim(delta)

@@ -9,6 +9,11 @@ extends Node
 @export var character_look   := false
 @export var character_action := false
 
+@export_category("Zombie Controls")
+@export var zombie_move   := false
+@export var zombie_look   := false
+@export var zombie_action := false
+
 @export_category("Vehicle Controls")
 @export var vehicle_move   := false
 @export var vehicle_look   := false
@@ -32,20 +37,22 @@ func _init():
 
 func _process(delta):
 	if !Master.accepts_input: return
-	
-	if Input.get_last_mouse_velocity().length() == 0:
-		mouse_motion = null
+	if Input.get_last_mouse_velocity().length() == 0: mouse_motion = null
 	
 	if character_move:   _character_move(delta)
 	if character_look:   _character_look(delta)
 	if character_action: _character_action()
-	
 	if vehicle_move:   _vehicle_move(delta)
 	if vehicle_look:   _vehicle_look(delta)
 	if vehicle_action: _vehicle_action()
-	
 	if launcher_look:   _launcher_look(delta)
 	if launcher_action: _launcher_action()
+	if zombie_move:   _zombie_move(delta)
+	if zombie_look:   _zombie_look(delta)
+	if zombie_action: _zombie_action()
+	
+	Master.input_move = input_move
+	Master.input_look = input_look
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -56,13 +63,12 @@ func _character_move(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	input_move = Vector2.ZERO
 	if Master.can_move:
-		# TODO: Update Master to read input on its own
 		input_move = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		Master.input_move = input_move
 		Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input_move.x, 0, input_move.y)).normalized(), delta*10)
 	
-	if Master.can_run and Input.is_action_just_pressed("sprint"):
-		Master.is_running = !Master.is_running
+	if Master.can_run:
+		Master.is_running = Input.is_action_pressed("sprint")
 	
 	if Master.can_jump and Input.is_action_just_pressed("jump"):
 		Master.is_jumping = true
@@ -104,7 +110,6 @@ func _character_action():
 				if closest_collision:
 					closest_collision.interact()
 			
-				Master.did_interact = true
 			
 	if Master.can_throw:
 		if Input.is_action_just_pressed("right_click"):
@@ -140,8 +145,19 @@ func _launcher_look(delta):
 			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
 			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 
-
 func _launcher_action():
 	if Master.can_shoot:
 		if Input.is_action_just_pressed("left_click"):
 			Master.did_shoot = true
+
+# Zombie Inputs
+func _zombie_move(_delta):
+	if Master.Target and Master.can_move:
+		input_move = Vector2(Master.dir_to_target.x, Master.dir_to_target.z)
+		Master.input_dir = Master.dir_to_target
+
+func _zombie_look(_delta):
+	input_look = Vector2(Master.dir_to_target.x, Master.dir_to_target.z)
+
+func _zombie_action():
+	pass

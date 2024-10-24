@@ -3,8 +3,6 @@ extends CharacterStateClass
 
 func init_state():
 	State_Controller.state_options = state_options
-	Master.is_moving = false
-	Master.is_throwing = true
 	Master.can_combat = false
 	Master.can_move = false
 	Master.locked_in = true
@@ -17,8 +15,8 @@ func update_state(delta):
 	if Master.rotation.y != Master.new_dir.y:
 		Master.rotation.y = lerp_angle(Master.rotation.y, Master.new_dir.y, delta*5)
 	
-	if !Input.is_action_pressed("right_click"):
-		Global.Cameraman.set_target(Master, Master.Cam_Mount)
+	if Input.is_action_just_released("right_click"):
+		Global.Cameraman.set_target(Master)
 		exit_state("Idle")
 	
 	if Input.is_action_just_released("right_click"):
@@ -43,11 +41,13 @@ func update_state(delta):
 						disc.in_play = true
 					if disc.in_play:
 						Global.HUD.update_strokes(1)
-						#Global.Cameraman.set_target(disc, disc)
+						# TODO: Spawn Cam_Mount as disc child
+						#Global.Cameraman.set_target(disc)
 				else:
 					if Master.is_on_tee:
 						Global.HUD.update_strokes(1)
-						#Global.Cameraman.set_target(disc, disc)
+						# TODO: Spawn Cam_Mount as disc child
+						#Global.Cameraman.set_target(disc)
 						Global.game_on = true
 						Global.hole_over = false
 						disc.in_play = true
@@ -69,7 +69,7 @@ func throw_disc(disc, power = 0.0):
 	disc.is_launched = true
 	
 	if !disc.is_tracer and Global.Settings.follow_all_throws:
-		Global.Cameraman.set_target(Master, Master.get_node("CamFocus"))
+		Global.Cameraman.set_target(Master)
 
 func exit_state(next_state: String):
 	Master.is_charging = false

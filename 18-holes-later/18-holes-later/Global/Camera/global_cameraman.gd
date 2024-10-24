@@ -48,21 +48,17 @@ func _look_at_target(delta):
 		rotation.y = lerp_angle(rotation.y, follow_target.input_look.y, delta*10)
 		
 
-func set_target(new_target: Node3D, new_look: Node3D ):
-	if !new_target and !new_look:
+func set_target(new_target: Node3D):
+	if !new_target:
 		follow_target.queue_free()
 		look_target.queue_free()
-		return
-	if follow_target:
-		follow_target.accepts_input = false
-		
-	if !new_target:
 		new_target = Global.Player
-	if !new_look:
-		new_look = new_target.Cam_Mount
+		
+	if follow_target:
+		follow_target.set_active(false)
 	
-	new_target.accepts_input = true
 	follow_target = new_target
-	look_target = new_look
+	follow_target.set_active(true)
+	look_target = follow_target.Cam_Mount
 	
 	Tripod.rotation = Tripos_StartRot

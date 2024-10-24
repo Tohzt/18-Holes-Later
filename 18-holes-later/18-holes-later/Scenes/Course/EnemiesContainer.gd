@@ -2,7 +2,7 @@ extends Node
 
 const ENEMY = preload("res://Entities/Enemy/enemy.tscn")
 
-@export var num_enemies: int = 5
+@export var num_enemies: int = 1
 @export var spawn_distance: float = 10.0
 
 func _process(_delta):

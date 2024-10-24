@@ -1,6 +1,9 @@
 class_name Entity_Character
 extends Entity
 
+@onready var Collision_Mask: CollisionShape3D = $Character_Base
+@onready var Area_Interact: Area3D = $Area_Interact
+@onready var Cam_Mount = $Cam_Mount
 @onready var Hand = $Hand
 @onready var Bag = $Bag
 
@@ -35,20 +38,13 @@ var slide_thresh = 7.1
 func _ready():
 	super._ready()
 	Global.Player = self
-	Global.Cameraman.set_target(self, Cam_Mount)
+	Global.Cameraman.set_target(self)
 	Global.Cameraman.position = position
 
 func _process(delta):
 	Input_Array = Input_Controller.combo_controller.input_sequence
-	super._process(delta)
-	visible = false if in_vehicle else true
 	new_dir.y = input_look.y
 	
-	if did_interact: 
-		cd_interact -= delta
-		if cd_interact <= 0:
-			cd_interact = cd_interact_dur
-			did_interact = false
 	if look_forward: rotation.y = new_dir.y
 	if in_combat: State_Controller.state_next = "Combat"
 	if is_jumping: State_Controller.state_next = "Jump"
@@ -67,29 +63,13 @@ func _process(delta):
 	
 	if Global.Settings.collect_all: _collect_discs()
 
-func _physics_process(delta):
-	_update_velocity(delta)
 	
 	if in_vehicle:
 		is_moving = false
 		global_position = in_vehicle.seats[0].global_position
 	else:
-		if !is_on_floor():
-			velocity.y -= gravity * delta
 		if !locked_in:
-			move_and_slide()
-
-func _update_velocity(delta):
-	var spd = SPEED * SPEED_MULT
-	if is_landing: 
-		velocity = lerp(velocity, Vector3.ZERO, delta*5)
-	else:
-		if input_dir:
-			velocity.x = input_dir.x * spd
-			velocity.z = input_dir.z * spd
-		else:
-			velocity.x = move_toward(velocity.x, 0, spd)
-			velocity.z = move_toward(velocity.z, 0, spd)
+			_update_velocity(delta)
 
 func _collect_discs():
 	if Input.is_action_just_pressed("collect"):
@@ -137,8 +117,9 @@ func clear_trace():
 		for trace in trace_path:
 			trace.queue_free()
 
-func anim_play(anim):
-	Anim_Controller.anim_state.travel(anim)
+
+func get_overlapping_areas():
+	return Area_Interact.get_overlapping_areas()
 
 func cull():
 	queue_free()
