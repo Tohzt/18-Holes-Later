@@ -1,4 +1,4 @@
-extends Node3D
+extends AnimController3D
 @onready var anim = $AnimationPlayer
 
 func _ready():

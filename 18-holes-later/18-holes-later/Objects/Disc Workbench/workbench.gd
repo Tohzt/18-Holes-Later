@@ -5,7 +5,6 @@ var look_forward = true
 var look_around = false
 
 func _process(delta):
-	printt(can_interact, interact_cd)
 	if active:
 		if Input.is_action_just_pressed("interact"):
 			interact_cd = interact_cd_max

@@ -40,11 +40,20 @@ func _ready():
 	Global.Cameraman.position = position
 
 func _process(delta):
+	if Global.Settings.collect_all: _collect_discs()
 	Input_Array = Input_Controller.combo_controller.input_sequence
 	new_dir.y = input_look.y
 	
-	if look_forward: rotation.y = new_dir.y
-	if Global.Settings.collect_all: _collect_discs()
+	if Target:
+		look_forward = true
+		dir_to_target = Target.global_position - global_position
+		dir_to_target.y = 0
+		dist_to_target = abs(dir_to_target.length())
+		if dir_to_target != Vector3.ZERO:
+			var look_transform = Transform3D().looking_at(dir_to_target, Vector3.UP)
+			new_dir.y = look_transform.basis.get_euler().y
+		
+	if look_forward: rotation.y = lerp_angle(rotation.y, new_dir.y, delta*10)
 
 	if in_vehicle:
 		is_moving = false
