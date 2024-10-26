@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b8dab4c4m156e"
-path="res://.godot/imported/Zanim.glb-7107601f0d9d599d782d59587e25c1a6.scn"
+path="res://.godot/imported/Zanim.glb-72d690277d8b5eaabc320c1d7d154019.scn"
 
 [deps]
 
-source_file="res://Entities/Enemy/src/newzam/Zanim.glb"
-dest_files=["res://.godot/imported/Zanim.glb-7107601f0d9d599d782d59587e25c1a6.scn"]
+source_file="res://Entities/Zombie/src/newzam/Zanim.glb"
+dest_files=["res://.godot/imported/Zanim.glb-72d690277d8b5eaabc320c1d7d154019.scn"]
 
 [params]
 

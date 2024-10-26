@@ -1,0 +1,76 @@
+[gd_scene load_steps=17 format=3 uid="uid://mgaxgwqsomw8"]
+
+[ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_qjxgn"]
+[ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
+[ext_resource type="PackedScene" uid="uid://bqr7m241m0ewj" path="res://Entities/Character/Layla/anim_layla.tscn" id="3_d4gnj"]
+[ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="4_6kuy8"]
+[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="4_lwxmm"]
+[ext_resource type="PackedScene" uid="uid://c5y6r3625xfy1" path="res://Entities/_Controllers/StateMachine/States/Character/Throw/throw.tscn" id="5_0ow1w"]
+[ext_resource type="PackedScene" uid="uid://crhjkqpg0jbvm" path="res://Entities/_Controllers/StateMachine/States/Character/Slide/Slide.tscn" id="5_2kgwd"]
+[ext_resource type="PackedScene" uid="uid://b6h4yvto3di1" path="res://Entities/_Controllers/StateMachine/States/Character/Crouch/Crouch.tscn" id="5_hxwn3"]
+[ext_resource type="PackedScene" uid="uid://dnj5vxhpa2l5n" path="res://Entities/_Controllers/StateMachine/States/Character/Combat/attack.tscn" id="5_y063u"]
+[ext_resource type="PackedScene" uid="uid://bp4acjuwdfo3j" path="res://Entities/_Controllers/StateMachine/States/Character/Walk/walk.tscn" id="6_o7hwu"]
+[ext_resource type="PackedScene" uid="uid://cwrgqx177vt4t" path="res://Entities/_Controllers/StateMachine/States/Character/Idle/idle.tscn" id="7_1kgre"]
+[ext_resource type="PackedScene" uid="uid://by252jyfxak" path="res://Entities/_Controllers/StateMachine/States/Character/Jump/jump.tscn" id="7_02t2y"]
+[ext_resource type="Script" path="res://Entities/Character/disc_bag.gd" id="11_li4e1"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="11_xp8yr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i2ynl"]
+radius = 0.243035
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qkfkk"]
+radius = 0.6
+
+[node name="Character" type="CharacterBody3D" groups=["Character"]]
+collision_layer = 2
+collision_mask = 57
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_qjxgn")
+
+[node name="Save" parent="." instance=ExtResource("2_neyin")]
+is_char = true
+
+[node name="Input_Controller" parent="." instance=ExtResource("4_6kuy8")]
+character_move = true
+character_look = true
+character_action = true
+
+[node name="State_Controller" parent="." instance=ExtResource("4_lwxmm")]
+
+[node name="Slide" parent="State_Controller" instance=ExtResource("5_2kgwd")]
+
+[node name="Crouch" parent="State_Controller" instance=ExtResource("5_hxwn3")]
+
+[node name="Combat" parent="State_Controller" instance=ExtResource("5_y063u")]
+
+[node name="Idle" parent="State_Controller" instance=ExtResource("7_1kgre")]
+
+[node name="Walk" parent="State_Controller" instance=ExtResource("6_o7hwu")]
+
+[node name="Jump" parent="State_Controller" instance=ExtResource("7_02t2y")]
+
+[node name="Throw" parent="State_Controller" instance=ExtResource("5_0ow1w")]
+
+[node name="Anim_Controller" parent="." instance=ExtResource("3_d4gnj")]
+
+[node name="Cam_Mount" parent="." instance=ExtResource("11_xp8yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1)
+
+[node name="Hand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.352, -1.009)
+
+[node name="Bag" type="Node" parent="."]
+script = ExtResource("11_li4e1")
+
+[node name="Character_Base" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_i2ynl")
+
+[node name="Area_Interact" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area_Interact"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_qkfkk")

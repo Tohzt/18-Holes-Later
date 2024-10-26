@@ -41,7 +41,7 @@ func _process(delta):
 	
 	if character_move:   _character_move(delta)
 	if character_look:   _character_look(delta)
-	if character_action: _character_action(delta)
+	if character_action: _character_action()
 	if vehicle_move:   _vehicle_move(delta)
 	if vehicle_look:   _vehicle_look(delta)
 	if vehicle_action: _vehicle_action()
@@ -87,7 +87,7 @@ func _character_look(delta):
 			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
 			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 
-func _character_action(delta):
+func _character_action():
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if !Master.in_combat:
 		if Master.can_combat:
@@ -110,10 +110,29 @@ func _character_action(delta):
 				if closest_collision:
 					closest_collision.interact()
 			
-			
 	if Master.can_throw:
 		if Input.is_action_just_pressed("right_click"):
 			Master.is_throwing = true
+	
+	if Input.is_action_just_pressed("lock_on"):
+		var nearest_nme: Node3D
+		if Master.Target:
+			# Find next-nearest target
+			nearest_nme = Global.get_nearest_object(Master, "Target")
+		else:
+			nearest_nme = Global.get_nearest_object(Master, "Target")
+		
+		if nearest_nme:
+			print("Found Nearest: ", nearest_nme.name)
+			for marker in get_tree().get_nodes_in_group("Target Marker"):
+				marker.queue_free()
+			var tar_mark = Global.Refs.TARGET_MARKER.instantiate()
+			tar_mark.global_position = nearest_nme.global_position
+			tar_mark.global_position.y += 2
+			nearest_nme.add_child(tar_mark)
+			Master.Target = nearest_nme
+		else:
+			print("No nearby target found..")
 
 # Vehicle Inputs
 # TODO: Rotation bugs if mouse and keys simul

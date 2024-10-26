@@ -56,22 +56,20 @@ func select_next_disc():
 func save_game(profile): $SaveController.save_game(profile)
 func load_game(profile): $SaveController.load_game(profile)
 
-
-# TODO: Might be useful
-#func get_nearest_object(origin: Node3D, group: String) -> Node3D:
-	#var objects_in_group = get_tree().get_nodes_in_group(group)
-	#
-	#if objects_in_group.is_empty():
-		#return null
-	#
-	#var nearest_object: Node3D = null
-	#var min_distance: float = INF
-	#
-	#for obj in objects_in_group:
-		#if obj is Node3D:
-			#var distance = origin.global_position.distance_to(obj.global_position)
-			#if distance < min_distance:
-				#min_distance = distance
-				#nearest_object = obj
-	#
-	#return nearest_object
+func get_nearest_object(origin: Node3D, group: String) -> Node3D:
+	var objects_in_group = get_tree().get_nodes_in_group(group)
+	
+	if objects_in_group.is_empty():
+		return null
+	
+	var nearest_object: Node3D = null
+	var min_distance: float = INF
+	
+	for obj in objects_in_group:
+		if obj is Node3D:
+			var distance = origin.global_position.distance_to(obj.global_position)
+			if distance < min_distance:
+				min_distance = distance
+				nearest_object = obj
+	
+	return nearest_object

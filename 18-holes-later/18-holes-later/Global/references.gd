@@ -15,6 +15,7 @@ const HOLE_01 = preload("res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1.tscn")
 
 # Spawnables
 const TREE = preload("res://Objects/Trees/tree_1.tscn")
+const TARGET_MARKER = preload("res://Scenes/UI/Target Marker/target_marker.tscn")
 
 # Characters
 const CHARACTER = preload("res://Entities/Character/character.tscn")

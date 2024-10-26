@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drag787yxlct8"
-path.s3tc="res://.godot/imported/Zanim_Zombie_Mailman_0926222648.png-e964a35cffc16e58e628b4c9f7dcce3c.s3tc.ctex"
+path.s3tc="res://.godot/imported/Zanim_Zombie_Mailman_0926222648.png-b3e509db04e2acd715cb430973290d15.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Entities/Enemy/src/newzam/Zanim_Zombie_Mailman_0926222648.png"
-dest_files=["res://.godot/imported/Zanim_Zombie_Mailman_0926222648.png-e964a35cffc16e58e628b4c9f7dcce3c.s3tc.ctex"]
+source_file="res://Entities/Zombie/src/newzam/Zanim_Zombie_Mailman_0926222648.png"
+dest_files=["res://.godot/imported/Zanim_Zombie_Mailman_0926222648.png-b3e509db04e2acd715cb430973290d15.s3tc.ctex"]
 
 [params]
 
