@@ -19,11 +19,22 @@ func monitor_state():
 	pass
 
 func update_state(_delta):
+	#Master.input
 	if Master.is_crouching:
 		exit_state("Crouch")
+		return
 	
 	if Master.velocity.length() >= 0.1:
 		exit_state("Walk")
+		return
+	
+	if Master.is_jumping:
+		exit_state("Jump")
+		return
+	 
+	if Master.in_combat:
+		exit_state("Combat")
+		return
 
 func exit_state(next_state: String):
 	State_Controller.state_next = next_state

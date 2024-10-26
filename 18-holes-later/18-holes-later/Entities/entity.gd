@@ -16,6 +16,7 @@ var JUMP_FORCE: float = 5
 var is_dead: bool
 var accepts_input: bool
 
+var input := Vector2.ZERO
 var input_move := Vector2.ZERO
 var input_look := Vector2.ZERO
 var input_dir := Vector3.ZERO
@@ -29,10 +30,11 @@ var is_crouching: bool = false
 var can_slide: bool = true
 var is_sliding: bool = false
 
-var locked_in: bool
 var look_forward: bool
 var look_around: bool
 
+var can_interact = true
+var locked_in: bool
 var can_combat: bool
 var in_combat: bool
 var can_attack: bool
@@ -87,6 +89,7 @@ func set_active(TorF: bool):
 		can_look = true
 		can_move = true
 		can_jump = true
+		can_interact = true
 		accepts_input = true
 		Input_Controller.character_action = true
 		Input_Controller.character_look = true
@@ -102,6 +105,7 @@ func set_active(TorF: bool):
 		can_look = false
 		can_move = false
 		can_jump = false
+		can_interact = false
 		accepts_input = false
 		Input_Controller.character_action = false
 		Input_Controller.character_look = false

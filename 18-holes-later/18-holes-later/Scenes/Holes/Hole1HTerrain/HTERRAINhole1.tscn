@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bu5agado2yhmd" path="res://addons/HterrainAssets/KapokTree.fbx" id="22_y4wg5"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="23_hf8gj"]
 [ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="24_61fyv"]
-[ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Global/tee_box.tscn" id="26_vkibo"]
+[ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="26_vkibo"]
 [ext_resource type="PackedScene" uid="uid://buyy01rncsfep" path="res://Global/Spawners/enemy_spawn.tscn" id="29_qvmar"]
 
 [sub_resource type="Resource" id="Resource_tycuo"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=61 format=4 uid="uid://dq5k8n0rtk27y"]
+[gd_scene load_steps=60 format=4 uid="uid://dq5k8n0rtk27y"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/enemy.gd" id="1_enopi"]
 [ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_y1l2c"]
-[ext_resource type="PackedScene" uid="uid://cadr5fmo6lq7i" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_chase.tscn" id="3_qrkqb"]
-[ext_resource type="PackedScene" uid="uid://sq6vmdb1jqo0" path="res://Entities/_Controllers/StateMachine/States/Enemies/nme_idle.tscn" id="4_jwyqa"]
+[ext_resource type="Script" path="res://Entities/_Controllers/StateMachine/States/Zombie/state_idle_zombie.gd" id="3_1suhn"]
 [ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="5_fys2v"]
 
 [sub_resource type="GDScript" id="GDScript_jwht3"]
@@ -1957,7 +1956,7 @@ func _on_finished():
 	queue_free()
 "
 
-[node name="Enemy" type="CharacterBody3D" groups=["Zombie"]]
+[node name="Zombie" type="CharacterBody3D" groups=["Zombie"]]
 collision_layer = 8
 collision_mask = 15
 axis_lock_angular_x = true
@@ -1966,9 +1965,10 @@ script = ExtResource("1_enopi")
 
 [node name="State_Controller" parent="." instance=ExtResource("2_y1l2c")]
 
-[node name="Chase" parent="State_Controller" instance=ExtResource("3_qrkqb")]
+[node name="Idle" type="Node" parent="State_Controller"]
+script = ExtResource("3_1suhn")
 
-[node name="Idle" parent="State_Controller" instance=ExtResource("4_jwyqa")]
+[node name="Chase" type="Node" parent="State_Controller"]
 
 [node name="Input_Controller" parent="." instance=ExtResource("5_fys2v")]
 zombie_move = true

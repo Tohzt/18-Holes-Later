@@ -1,4 +1,4 @@
-[gd_scene load_steps=268 format=4 uid="uid://be188bor4mic4"]
+[gd_scene load_steps=269 format=4 uid="uid://be188bor4mic4"]
 
 [ext_resource type="PackedScene" uid="uid://b1flq11c6t3up" path="res://Scenes/UI/Disc Selector/DiscSelector.tscn" id="1_6epv5"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/clubhouse_interior.gd" id="1_idadp"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://b177kmpe8ky2j" path="res://Scenes/Clubhouse/Interior/door_exit.tscn" id="34_fjs3b"]
 [ext_resource type="PackedScene" uid="uid://datdddgm3105b" path="res://Scenes/Clubhouse/Interior/character_select.tscn" id="34_y1s7t"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/door_exit.gd" id="36_8ivxy"]
+[ext_resource type="PackedScene" uid="uid://dpuxul7fpr7fy" path="res://Objects/Disc Workbench/disc_workbench.tscn" id="38_jpwj5"]
 [ext_resource type="Texture2D" uid="uid://ccd2lgwl5sbx4" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3.png" id="38_ppdyg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy3jc"]
@@ -4066,3 +4067,6 @@ shape = SubResource("CylinderShape3D_ccddq")
 
 [node name="GemMachine" parent="Objects" instance=ExtResource("32_2s0u0")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 1.79736, 0, -3.05269)
+
+[node name="Disc Workbench" parent="Objects" instance=ExtResource("38_jpwj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75181, 0.334688, -2.72929)

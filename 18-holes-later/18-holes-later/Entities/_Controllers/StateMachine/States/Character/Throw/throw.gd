@@ -12,6 +12,18 @@ func monitor_state():
 	pass
 
 func update_state(delta):
+	Master.get_aim_trace()
+	if Master.is_charging: 
+		Master.charge_power += Master.charge_rate * delta
+	elif Master.charge_power > 0:
+		Master.charge_rate = abs(Master.charge_rate)
+		Master.charge_power -= Master.charge_rate * delta
+	Master.charge_power = clamp(Master.charge_power,0,100)
+	if Master.charge_power <= 0:
+		Master.charge_rate = abs(Master.charge_rate)
+	if Master.charge_power >= 100:
+		Master.charge_rate = -abs(Master.charge_rate)
+	
 	if Master.rotation.y != Master.new_dir.y:
 		Master.rotation.y = lerp_angle(Master.rotation.y, Master.new_dir.y, delta*5)
 	
