@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpuxul7fpr7fy"]
+
+[ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/disc_workbench.gd" id="1_jsv6e"]
+[ext_resource type="Script" path="res://Objects/Disc Workbench/workbench.gd" id="2_wh587"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="3_1cug5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nn3hd"]
+size = Vector3(1.64, 0.65, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d833y"]
+size = Vector3(1.64, 0.65, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_notky"]
+height = 0.65238
+radius = 1.37051
+
+[node name="Disc Workbench" type="RigidBody3D"]
+collision_layer = 5
+collision_mask = 2
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+script = ExtResource("1_jsv6e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_nn3hd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_d833y")
+
+[node name="Workbench" type="Area3D" parent="." groups=["Interact"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.384709, 0)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_wh587")
+
+[node name="Cam_Mount" parent="Workbench" instance=ExtResource("3_1cug5")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Workbench"]
+shape = SubResource("CylinderShape3D_notky")

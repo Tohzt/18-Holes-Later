@@ -3,7 +3,7 @@ class_name CharacterStateClass
 extends Node
 
 @onready var State_Controller: StateController = get_parent()
-@onready var Master: Entity_Character = State_Controller.get_parent()
+@onready var Master: Entity = State_Controller.get_parent()
 
 @export var state_options: Array[String]
 

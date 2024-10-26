@@ -41,7 +41,7 @@ func _process(delta):
 	
 	if character_move:   _character_move(delta)
 	if character_look:   _character_look(delta)
-	if character_action: _character_action()
+	if character_action: _character_action(delta)
 	if vehicle_move:   _vehicle_move(delta)
 	if vehicle_look:   _vehicle_look(delta)
 	if vehicle_action: _vehicle_action()
@@ -87,7 +87,7 @@ func _character_look(delta):
 			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
 			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 
-func _character_action():
+func _character_action(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if !Master.in_combat:
 		if Master.can_combat:

@@ -10,8 +10,6 @@ extends Entity
 const MAX_POWER = 10
 var game_disc_index: int = 0
 
-var can_interact = true
-var did_interact = false
 var cd_interact_dur := 0.5
 var cd_interact := cd_interact_dur
 var is_charging = false
@@ -46,24 +44,8 @@ func _process(delta):
 	new_dir.y = input_look.y
 	
 	if look_forward: rotation.y = new_dir.y
-	if in_combat: State_Controller.state_next = "Combat"
-	if is_jumping: State_Controller.state_next = "Jump"
-	if is_throwing: 
-		get_aim_trace()
-		if is_charging: 
-			charge_power += charge_rate * delta
-		elif charge_power > 0:
-			charge_rate = abs(charge_rate)
-			charge_power -= charge_rate * delta
-		charge_power = clamp(charge_power,0,100)
-		if charge_power <= 0:
-			charge_rate = abs(charge_rate)
-		if charge_power >= 100:
-			charge_rate = -abs(charge_rate)
-	
 	if Global.Settings.collect_all: _collect_discs()
 
-	
 	if in_vehicle:
 		is_moving = false
 		global_position = in_vehicle.seats[0].global_position
@@ -90,13 +72,25 @@ func get_aim_trace():
 					predict_search = false
 					predict_cd = predict_cd_max
 					predict_trace = false
-					trace_disc()
+					#trace_disc()
 			else:
 				predict_cd -= 1
 		prev_look_dir = look_dir
 
-func trace_disc():
-	pass
+func clear_trace():
+	predict_cd = 0
+	var trace_path = get_tree().get_nodes_in_group("Trace")
+	if trace_path:
+		for trace in trace_path:
+			trace.queue_free()
+
+func get_overlapping_areas():
+	return Area_Interact.get_overlapping_areas()
+
+func cull():
+	queue_free()
+
+#func trace_disc():
 	#if !predict_trace and aim_stable: 
 		#var trace_path = get_tree().get_nodes_in_group("Trace")
 		#if trace_path:
@@ -109,17 +103,3 @@ func trace_disc():
 		#Global.HUD.charge_bar.value += 2
 	#else:
 		#predict_trace = false
-
-func clear_trace():
-	predict_cd = 0
-	var trace_path = get_tree().get_nodes_in_group("Trace")
-	if trace_path:
-		for trace in trace_path:
-			trace.queue_free()
-
-
-func get_overlapping_areas():
-	return Area_Interact.get_overlapping_areas()
-
-func cull():
-	queue_free()

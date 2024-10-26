@@ -36,13 +36,25 @@ func update_state(delta):
 	else: 
 		Master.can_slide = false
 	
-	if Master.is_sliding:
-		exit_state("Slide")
-	elif Master.is_crouching:
-		exit_state("Crouch")
-	
 	if Master.velocity.length() < 0.1:
 		exit_state("Idle")
+		return
+	
+	if Master.is_crouching:
+		exit_state("Crouch")
+		return
+	
+	if Master.is_sliding:
+		exit_state("Slide")
+		return
+	
+	if Master.is_jumping:
+		exit_state("Jump")
+		return
+		
+	if Master.in_combat:
+		exit_state("Combat")
+		return
 
 func exit_state(next_state: String):
 	Master.SPEED_MULT = 1
