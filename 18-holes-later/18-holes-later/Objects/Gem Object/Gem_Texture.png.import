@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb06xw6oru7kc"
-path.s3tc="res://.godot/imported/report136347717617404118244b22ef7a-9508-497a-9bfc-ecf0d2d75a31_piclumen_contentRefer_31565_.png-0929e00afdd3508b76c4214a2e686ab2.s3tc.ctex"
+uid="uid://dr2nub7cnuc35"
+path.s3tc="res://.godot/imported/Gem_Texture.png-76d1e81e8bfb80a2185ef24259821182.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/HterrainAssets/FoilageSmall/branches/report136347717617404118244b22ef7a-9508-497a-9bfc-ecf0d2d75a31_piclumen_contentRefer_31565_.png"
-dest_files=["res://.godot/imported/report136347717617404118244b22ef7a-9508-497a-9bfc-ecf0d2d75a31_piclumen_contentRefer_31565_.png-0929e00afdd3508b76c4214a2e686ab2.s3tc.ctex"]
+source_file="res://Objects/Gem Object/Gem_Texture.png"
+dest_files=["res://.godot/imported/Gem_Texture.png-76d1e81e8bfb80a2185ef24259821182.s3tc.ctex"]
 
 [params]
 

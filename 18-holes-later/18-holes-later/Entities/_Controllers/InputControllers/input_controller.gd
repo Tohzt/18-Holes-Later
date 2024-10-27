@@ -101,6 +101,9 @@ func _character_action():
 				var closest_collision = null
 				
 				for collision in collisions:
+					if collision.is_in_group("Collect"):
+						collision.collect()
+					
 					if collision.is_in_group("Interact"):
 						var distance = Master.global_position.distance_to(collision.global_position)
 						if distance < closest_distance:
@@ -127,8 +130,7 @@ func _character_action():
 			for marker in get_tree().get_nodes_in_group("Target Marker"):
 				marker.queue_free()
 			var tar_mark = Global.Refs.TARGET_MARKER.instantiate()
-			tar_mark.global_position = nearest_nme.global_position
-			tar_mark.global_position.y += 2
+			tar_mark.position.y = 2
 			nearest_nme.add_child(tar_mark)
 			Master.Target = nearest_nme
 		else:

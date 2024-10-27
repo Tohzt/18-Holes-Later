@@ -1,4 +1,4 @@
-[gd_scene load_steps=267 format=4 uid="uid://be188bor4mic4"]
+[gd_scene load_steps=271 format=4 uid="uid://be188bor4mic4"]
 
 [ext_resource type="PackedScene" uid="uid://b1flq11c6t3up" path="res://Scenes/UI/Disc Selector/DiscSelector.tscn" id="1_6epv5"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/clubhouse_interior.gd" id="1_idadp"]
@@ -33,11 +33,26 @@
 [ext_resource type="Texture2D" uid="uid://bpw07b7jwn4wc" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1_28.png" id="30_w4mi0"]
 [ext_resource type="PackedScene" uid="uid://dw26xdt1yissl" path="res://Entities/Character/Benny/Clubhouse/benny_club_house.tscn" id="31_vp3ae"]
 [ext_resource type="PackedScene" uid="uid://rktny8fyi1c0" path="res://Objects/Gem Machine/gem_machine.tscn" id="32_2s0u0"]
+[ext_resource type="PackedScene" uid="uid://bmikfauyo8lht" path="res://Objects/Gem Object/Gem.tscn" id="32_owqdk"]
 [ext_resource type="PackedScene" uid="uid://b177kmpe8ky2j" path="res://Scenes/Clubhouse/Interior/door_exit.tscn" id="34_fjs3b"]
 [ext_resource type="PackedScene" uid="uid://datdddgm3105b" path="res://Scenes/Clubhouse/Interior/character_select.tscn" id="34_y1s7t"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/door_exit.gd" id="36_8ivxy"]
 [ext_resource type="PackedScene" uid="uid://dpuxul7fpr7fy" path="res://Objects/Disc Workbench/disc_workbench.tscn" id="38_jpwj5"]
 [ext_resource type="Texture2D" uid="uid://ccd2lgwl5sbx4" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3.png" id="38_ppdyg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mskq3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_5budb"]
+sky_material = SubResource("ProceduralSkyMaterial_mskq3")
+
+[sub_resource type="Environment" id="Environment_i5jke"]
+background_mode = 2
+sky = SubResource("Sky_5budb")
+tonemap_exposure = 1.14
+glow_enabled = true
+glow_blend_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy3jc"]
 resource_name = "OIG1 (5)"
@@ -3454,6 +3469,9 @@ radius = 0.909557
 [node name="Clubhouse_Interior" type="Node3D"]
 script = ExtResource("1_idadp")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i5jke")
+
 [node name="UI" type="Node" parent="."]
 
 [node name="DiscSelector" parent="UI" groups=["DiscSelector"] instance=ExtResource("1_6epv5")]
@@ -4005,6 +4023,35 @@ shape = SubResource("BoxShape3D_eqc6w")
 transform = Transform3D(0.524001, 0, 0.851717, 0, 1, 0, -0.851717, 0, 0.524001, -15.4967, 0.00769877, 0.420026)
 
 [node name="Objects" type="Node" parent="."]
+
+[node name="Gems" type="Node" parent="Objects"]
+
+[node name="Gem" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1527, 1.17521, -2.7039)
+
+[node name="Gem2" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1527, 1.09767, -2.48267)
+
+[node name="Gem3" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58727, 1.03394, -2.37249)
+
+[node name="Gem4" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40452, 1.03394, -2.54861)
+
+[node name="Gem5" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05201, 1.03394, -2.9715)
+
+[node name="Gem6" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98098, 1.03394, -2.25534)
+
+[node name="Gem7" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83751, 1.03394, -2.74983)
+
+[node name="Gem8" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43911, 1.03394, -2.63145)
+
+[node name="Gem9" parent="Objects/Gems" instance=ExtResource("32_owqdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78623, 1.03394, -2.31048)
 
 [node name="Disc Workbench" parent="Objects" instance=ExtResource("38_jpwj5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.29905, 0.595345, -2.76361)
