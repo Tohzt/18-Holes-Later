@@ -26,3 +26,15 @@ const BENNY = preload("res://Entities/Character/Benny/benny.tscn")
 const DISC = preload("res://Objects/Discs/Disc_CharBod/disc_charbod.tscn")
 const PICKUP = preload("res://Objects/Discs/Pickup/pickup_area.tscn")
 const DISC_TRACE = preload("res://Objects/Discs/Trace/disc_trace.tscn")
+
+# Gems
+
+@onready var GEM_BLOOD   = preload("res://Objects/Gem Object/src/gem_blood.tres")
+@onready var GEM_CRIMSON = preload("res://Objects/Gem Object/src/gem_crimson.tres")
+@onready var GEM_GREEN   = preload("res://Objects/Gem Object/src/gem_green.tres")
+@onready var GEM_ORANGE  = preload("res://Objects/Gem Object/src/gem_orange.tres")
+@onready var GEM_PINK    = preload("res://Objects/Gem Object/src/gem_pink.tres")
+@onready var GEM_RED     = preload("res://Objects/Gem Object/src/gem_red.tres")
+@onready var GEM_WATER   = preload("res://Objects/Gem Object/src/gem_water.tres")
+@onready var GEM_YELLOW  = preload("res://Objects/Gem Object/src/gem_yellow.tres")
+@onready var GEM_ARRAY = [GEM_BLOOD, GEM_CRIMSON, GEM_GREEN, GEM_ORANGE, GEM_PINK, GEM_RED, GEM_WATER, GEM_YELLOW]

@@ -67,6 +67,7 @@ Interact=""
 "Enemy Spawners"=""
 Player_Spawn=""
 Target=""
+Collect=""
 
 [gui]
 
