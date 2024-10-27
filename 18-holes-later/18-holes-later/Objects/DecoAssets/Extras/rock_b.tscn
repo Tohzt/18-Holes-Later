@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c43dv4kykpx6d"]
+
+[ext_resource type="ArrayMesh" uid="uid://cqhax84hlc6l2" path="res://Structures/DecoAssets/Extras/rockB.res" id="1_cd5ea"]
+[ext_resource type="Texture2D" uid="uid://b2v18d47leymh" path="res://Structures/DecoAssets/Extras/rock030_alb_ht.png" id="2_7rcan"]
+[ext_resource type="Texture2D" uid="uid://7g8nkbgp3136" path="res://Structures/DecoAssets/Extras/rock030_nrm_rgh.png" id="3_u1if4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqni2"]
+albedo_texture = ExtResource("2_7rcan")
+normal_enabled = true
+normal_texture = ExtResource("3_u1if4")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ury1k"]
+size = Vector3(3.66344, 9.35974, 3.40581)
+
+[node name="RockB" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 11
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_cd5ea")
+surface_material_override/0 = SubResource("StandardMaterial3D_jqni2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161644, 0.253479, -0.151863)
+shape = SubResource("BoxShape3D_ury1k")

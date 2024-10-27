@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctkbly66m7hju"]
+
+[ext_resource type="PackedScene" uid="uid://c6wfgbcjbgdt5" path="res://Structures/DecoAssets/Brickwall.fbx" id="1_b0tku"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bc5h1"]
+size = Vector3(1.9989, 0.768494, 0.167725)
+
+[node name="Brickwall" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 3
+
+[node name="Brickwall" parent="." instance=ExtResource("1_b0tku")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10352e-05, 0.384186, 0.0726318)
+shape = SubResource("BoxShape3D_bc5h1")
