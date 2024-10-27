@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlqx66r6fflmt"]
+
+[ext_resource type="PackedScene" uid="uid://b2dwapncy28wc" path="res://Structures/DecoAssets/mailbox.glb" id="1_owhnv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cgwoy"]
+size = Vector3(0.288452, 0.596558, 0.372314)
+
+[node name="Mailbox" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 11
+
+[node name="mailbox" parent="." instance=ExtResource("1_owhnv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.132141, 0.13031, -0.00598145)
+shape = SubResource("BoxShape3D_cgwoy")

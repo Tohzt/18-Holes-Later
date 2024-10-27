@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://d076efyk8rbfp"]
+
+[ext_resource type="ArrayMesh" uid="uid://0t2cl0ii18xc" path="res://Structures/DecoAssets/truckTiresmesh.res" id="1_ol8j4"]
+[ext_resource type="Texture2D" uid="uid://dw3amba7vul1m" path="res://Structures/DecoAssets/IceCreamTruck_OIG4 (11).png" id="2_vi4je"]
+[ext_resource type="ArrayMesh" uid="uid://d4fd2304ojxqg" path="res://Structures/DecoAssets/truckMesh.res" id="3_iajq5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnjgb"]
+albedo_texture = ExtResource("2_vi4je")
+albedo_texture_force_srgb = true
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yj2kp"]
+size = Vector3(1.28979, 0.75238, 0.680695)
+
+[node name="IceCreamTruck" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 11
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.174783, 0, 0, 0, -1.40781e-08, -0.174783, 0, 0.322069, -7.64e-09, -0.288171, 0.172791, 0.0249891)
+mesh = ExtResource("1_ol8j4")
+skeleton = NodePath("MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_rnjgb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45818, -8.19564e-08, 0)
+mesh = ExtResource("1_ol8j4")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_rnjgb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2"]
+transform = Transform3D(-2.5009e-07, 5.72138, 0, -3.10493, -1.35721e-07, 0, 0, 0, 5.72138, -1.74096, 0.0639596, -1.3207)
+mesh = ExtResource("3_iajq5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0493851, 0.379145, 0.0280569)
+shape = SubResource("BoxShape3D_yj2kp")

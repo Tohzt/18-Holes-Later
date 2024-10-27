@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://8tbrfel50hpy"]
+
+[ext_resource type="PackedScene" uid="uid://mho32yw8w4db" path="res://Structures/DecoAssets/gate.glb" id="1_jxsup"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n7of5"]
+size = Vector3(0.0927734, 0.270752, 0.368286)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0hhm"]
+size = Vector3(0.0782471, 0.476685, 0.0873413)
+
+[node name="Gate" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 3
+
+[node name="gate" parent="." instance=ExtResource("1_jxsup")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0297852, -0.115112, 0.315857)
+shape = SubResource("BoxShape3D_n7of5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0297852, -0.115112, -0.324123)
+shape = SubResource("BoxShape3D_n7of5")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027771, -0.0194702, 0.18277)
+shape = SubResource("BoxShape3D_m0hhm")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027771, -0.0194702, -0.182668)
+shape = SubResource("BoxShape3D_m0hhm")

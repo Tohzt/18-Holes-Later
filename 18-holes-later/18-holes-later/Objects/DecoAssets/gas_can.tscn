@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://q66nt17uik02"]
+
+[ext_resource type="PackedScene" uid="uid://dfa5cdp3521sv" path="res://Structures/DecoAssets/GasCan.glb" id="1_8um7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkxk3"]
+size = Vector3(0.205994, 0.514648, 0.426514)
+
+[node name="GasCan" type="StaticBody3D" groups=["Solid"]]
+collision_layer = 5
+collision_mask = 11
+
+[node name="GasCan" parent="." instance=ExtResource("1_8um7s")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0882874, -0.00732422, -0.0604248)
+shape = SubResource("BoxShape3D_mkxk3")
