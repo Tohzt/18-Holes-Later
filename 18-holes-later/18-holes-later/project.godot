@@ -68,6 +68,7 @@ Interact=""
 Player_Spawn=""
 Target=""
 Collect=""
+"Character Select"=""
 
 [gui]
 

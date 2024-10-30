@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs4wb783154ui"]
+
+[ext_resource type="PackedScene" uid="uid://k6xhpoi8jvi0" path="res://Objects/Weapons_Assets/Ak47U.glb" id="1_pikuj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_meb0u"]
+size = Vector3(0.371948, 1, 1)
+
+[node name="AK47U" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Ak47U" parent="." instance=ExtResource("1_pikuj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0336304, 0, 0)
+shape = SubResource("BoxShape3D_meb0u")

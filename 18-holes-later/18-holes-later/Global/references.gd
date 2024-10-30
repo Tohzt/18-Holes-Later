@@ -21,7 +21,7 @@ const TARGET_MARKER = preload("res://Scenes/UI/Target Marker/target_marker.tscn"
 # Characters
 const CHARACTER = preload("res://Entities/Character/character.tscn")
 const LAYLA = preload("res://Entities/Character/Layla/anim_layla.tscn")
-const BENNY = preload("res://Entities/Character/Benny/benny.tscn")
+const BENNY = preload("res://Entities/Character/Benny/club_benny.tscn")
 
 # Disc Things
 const DISC = preload("res://Objects/Discs/Disc_CharBod/disc_charbod.tscn")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt02fticmfuyo"]
+
+[ext_resource type="PackedScene" uid="uid://bbdjctpnrrvwr" path="res://Objects/Weapons_Assets/BaseballBat.glb" id="1_lajj1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rsifr"]
+size = Vector3(0.109451, 0.827881, 0.113059)
+
+[node name="AreaBody3D" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="BaseballBat" parent="." instance=ExtResource("1_lajj1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0290447, 0.0430907, 0.0017878)
+shape = SubResource("BoxShape3D_rsifr")

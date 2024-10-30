@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="15_d2sbq"]
 [ext_resource type="Texture2D" uid="uid://cb06xw6oru7kc" path="res://addons/HterrainAssets/FoilageSmall/branches/report136347717617404118244b22ef7a-9508-497a-9bfc-ecf0d2d75a31_piclumen_contentRefer_31565_.png" id="16_5s2t0"]
 [ext_resource type="Texture2D" uid="uid://ndnwlw3s0rld" path="res://addons/HterrainAssets/FoilageSmall/branches/nush3.png" id="17_5ghhc"]
-[ext_resource type="Texture2D" uid="uid://edk60lmqvsag" path="res://Objects/DecoAssets/Extras/WheatGrass.png" id="18_8mt4v"]
+[ext_resource type="Texture2D" uid="uid://edk60lmqvsag" path="res://Objects/DecoAssets/WheatGrass.png" id="18_8mt4v"]
 [ext_resource type="PackedScene" uid="uid://mgaxgwqsomw8" path="res://Entities/Character/character.tscn" id="19_36fio"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="20_goh2x"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="21_u4ho7"]
@@ -33,9 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://dagfbmnnvh22s" path="res://Objects/DecoAssets/castle_wall.tscn" id="31_jqrea"]
 [ext_resource type="PackedScene" uid="uid://8tbrfel50hpy" path="res://Objects/DecoAssets/gate.tscn" id="32_0nyls"]
 [ext_resource type="PackedScene" uid="uid://ct5cvsbobao3o" path="res://Objects/DecoAssets/fence.tscn" id="33_hx520"]
-[ext_resource type="PackedScene" uid="uid://b1b4c7c388fa4" path="res://Objects/DecoAssets/Extras/rock_a.tscn" id="34_6vjol"]
-[ext_resource type="PackedScene" uid="uid://c43dv4kykpx6d" path="res://Objects/DecoAssets/Extras/rock_b.tscn" id="35_w8sin"]
-[ext_resource type="PackedScene" uid="uid://caesuuayson0j" path="res://Objects/DecoAssets/Extras/rock_c.tscn" id="36_6j56y"]
+[ext_resource type="PackedScene" uid="uid://b1b4c7c388fa4" path="res://Objects/DecoAssets/rock_a.tscn" id="34_6vjol"]
+[ext_resource type="PackedScene" uid="uid://c43dv4kykpx6d" path="res://Objects/DecoAssets/rock_b.tscn" id="35_w8sin"]
+[ext_resource type="PackedScene" uid="uid://caesuuayson0j" path="res://Objects/DecoAssets/rock_c.tscn" id="36_6j56y"]
 
 [sub_resource type="Resource" id="Resource_d16cg"]
 script = ExtResource("3_2t1cs")

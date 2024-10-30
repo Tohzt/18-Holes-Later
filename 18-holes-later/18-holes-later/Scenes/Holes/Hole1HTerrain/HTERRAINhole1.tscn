@@ -11,11 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://dy06wfrstqkhl" path="res://addons/HterrainAssets/FoilageSmall/textures/aerial_grass_rock_diff_1k.jpg" id="7_xwmj1"]
 [ext_resource type="Texture2D" uid="uid://brtp7clmlxj0x" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot1_normal_roughness.png" id="8_mqepn"]
 [ext_resource type="Texture2D" uid="uid://lim3cig12730" path="res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1_slot2_normal_roughness.png" id="9_lvu5d"]
-[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="11_e2w4t"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/door_exit.gd" id="11_juhhg"]
 [ext_resource type="Texture2D" uid="uid://ccd2lgwl5sbx4" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3.png" id="12_ghb8d"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="12_rnl1q"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="13_eoumv"]
+[ext_resource type="Texture2D" uid="uid://b4tw8saglnfp0" path="res://Scenes/Holes/Hole2/Hole2HterrainReformatted/highhdri.png" id="13_xhkam"]
 [ext_resource type="Texture2D" uid="uid://b5xl5hg6py6pf" path="res://addons/HterrainAssets/FoilageSmall/branches/grass4.png" id="14_dglk5"]
 [ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="15_ovwgq"]
 [ext_resource type="ArrayMesh" uid="uid://cism8qe63t4tk" path="res://addons/zylann.hterrain/models/grass_quad_x4.obj" id="15_xibh3"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bhw3qmognryej" path="res://addons/HterrainAssets/SidewalkPAD.fbx" id="19_4k6xu"]
 [ext_resource type="PackedScene" uid="uid://8ysrdeetucw2" path="res://addons/HterrainAssets/BushSingle.fbx" id="20_ig7ql"]
 [ext_resource type="PackedScene" uid="uid://bafg65dbmt4mq" path="res://addons/HterrainAssets/Sidewalk.fbx" id="20_nhsuy"]
-[ext_resource type="PackedScene" uid="uid://bu5agado2yhmd" path="res://addons/HterrainAssets/KapokTree.fbx" id="22_y4wg5"]
+[ext_resource type="PackedScene" uid="uid://bu5agado2yhmd" path="res://Scenes/Holes/Hole2/Hole2HterrainReformatted/KapokTree.fbx" id="22_y4wg5"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="23_hf8gj"]
 [ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="24_61fyv"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="26_vkibo"]
@@ -82,7 +82,7 @@ shadow_mesh = SubResource("ArrayMesh_8mniq")
 radius = 0.909557
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jj3gq"]
-panorama = ExtResource("11_e2w4t")
+panorama = ExtResource("13_xhkam")
 
 [sub_resource type="Sky" id="Sky_u0yvx"]
 sky_material = SubResource("PanoramaSkyMaterial_jj3gq")

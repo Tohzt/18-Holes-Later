@@ -1,0 +1,6 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://rc5t7ndi6sqb"]
+
+[resource]
+bus/0/solo = true
+bus/0/bypass_fx = true
+bus/0/volume_db = -8.79822
