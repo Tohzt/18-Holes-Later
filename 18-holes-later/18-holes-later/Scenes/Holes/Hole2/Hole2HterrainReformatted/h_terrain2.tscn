@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ndnwlw3s0rld" path="res://addons/HterrainAssets/FoilageSmall/branches/nush3.png" id="18_q4uhd"]
 [ext_resource type="PackedScene" uid="uid://dywvcemysv2i2" path="res://Scenes/Holes/Hole2/Hole2HterrainReformatted/Treeweird.tscn" id="20_8ha88"]
 [ext_resource type="PackedScene" uid="uid://cv2fcaqny2gpq" path="res://Scenes/Holes/Hole2/Hole2HterrainReformatted/hole_2_sign.tscn" id="21_ll34h"]
-[ext_resource type="Texture2D" uid="uid://edk60lmqvsag" path="res://Objects/DecoAssets/Extras/WheatGrass.png" id="22_ansag"]
+[ext_resource type="Texture2D" uid="uid://edk60lmqvsag" path="res://Objects/DecoAssets/WheatGrass.png" id="22_ansag"]
 [ext_resource type="Texture2D" uid="uid://b4tw8saglnfp0" path="res://Scenes/Holes/Hole2/Hole2HterrainReformatted/highhdri.png" id="22_mcfgw"]
 [ext_resource type="PackedScene" uid="uid://32o0nw6lc0tx" path="res://Scenes/Holes/Hole2/Hole2HterrainReformatted/srenity_tree_small.tscn" id="24_pga47"]
 [ext_resource type="PackedScene" uid="uid://bu5agado2yhmd" path="res://Scenes/Holes/Hole2/Hole2HterrainReformatted/KapokTree.fbx" id="25_nrcbu"]
@@ -33,10 +33,10 @@
 [ext_resource type="PackedScene" uid="uid://ckd153tkvf81a" path="res://Objects/DecoAssets/cactus.tscn" id="35_gg4wg"]
 [ext_resource type="PackedScene" uid="uid://8tbrfel50hpy" path="res://Objects/DecoAssets/gate.tscn" id="35_n1eyk"]
 [ext_resource type="PackedScene" uid="uid://ct5cvsbobao3o" path="res://Objects/DecoAssets/fence.tscn" id="35_qseer"]
-[ext_resource type="PackedScene" uid="uid://b1b4c7c388fa4" path="res://Objects/DecoAssets/Extras/rock_a.tscn" id="36_yku3h"]
+[ext_resource type="PackedScene" uid="uid://b1b4c7c388fa4" path="res://Objects/DecoAssets/rock_a.tscn" id="36_yku3h"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="37_6djbw"]
-[ext_resource type="PackedScene" uid="uid://c43dv4kykpx6d" path="res://Objects/DecoAssets/Extras/rock_b.tscn" id="37_82wyq"]
-[ext_resource type="PackedScene" uid="uid://caesuuayson0j" path="res://Objects/DecoAssets/Extras/rock_c.tscn" id="38_515q6"]
+[ext_resource type="PackedScene" uid="uid://c43dv4kykpx6d" path="res://Objects/DecoAssets/rock_b.tscn" id="37_82wyq"]
+[ext_resource type="PackedScene" uid="uid://caesuuayson0j" path="res://Objects/DecoAssets/rock_c.tscn" id="38_515q6"]
 
 [sub_resource type="Resource" id="Resource_d16cg"]
 script = ExtResource("3_07kfn")

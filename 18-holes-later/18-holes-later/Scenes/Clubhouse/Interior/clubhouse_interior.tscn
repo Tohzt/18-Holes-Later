@@ -1,9 +1,10 @@
-[gd_scene load_steps=271 format=4 uid="uid://be188bor4mic4"]
+[gd_scene load_steps=272 format=4 uid="uid://be188bor4mic4"]
 
 [ext_resource type="PackedScene" uid="uid://b1flq11c6t3up" path="res://Scenes/UI/Disc Selector/DiscSelector.tscn" id="1_6epv5"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/clubhouse_interior.gd" id="1_idadp"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="1_wqyhj"]
 [ext_resource type="Texture2D" uid="uid://dtlrwiavyjwyr" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (5).png" id="2_2j6nl"]
+[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="2_xvmsk"]
 [ext_resource type="Texture2D" uid="uid://bl5ph5r2o1w0u" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (5)_n.png" id="3_gib28"]
 [ext_resource type="Texture2D" uid="uid://cxrlqb51i3xw2" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3 (4).png" id="4_aow6k"]
 [ext_resource type="Texture2D" uid="uid://i08b7ocqfo0g" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3 (4)_n.png" id="5_pah2v"]
@@ -31,21 +32,20 @@
 [ext_resource type="Texture2D" uid="uid://bpt6utw1xcpj8" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3 (7).png" id="28_vj2a2"]
 [ext_resource type="Texture2D" uid="uid://bogx3i3c5akk" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1 (14).png" id="29_a2fku"]
 [ext_resource type="Texture2D" uid="uid://bpw07b7jwn4wc" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG1_28.png" id="30_w4mi0"]
-[ext_resource type="PackedScene" uid="uid://dw26xdt1yissl" path="res://Entities/Character/Benny/Clubhouse/benny_club_house.tscn" id="31_vp3ae"]
 [ext_resource type="PackedScene" uid="uid://rktny8fyi1c0" path="res://Objects/Gem Machine/gem_machine.tscn" id="32_2s0u0"]
 [ext_resource type="PackedScene" uid="uid://bmikfauyo8lht" path="res://Objects/Gem Object/Gem.tscn" id="32_owqdk"]
 [ext_resource type="PackedScene" uid="uid://b177kmpe8ky2j" path="res://Scenes/Clubhouse/Interior/door_exit.tscn" id="34_fjs3b"]
-[ext_resource type="PackedScene" uid="uid://datdddgm3105b" path="res://Scenes/Clubhouse/Interior/character_select.tscn" id="34_y1s7t"]
+[ext_resource type="PackedScene" uid="uid://datdddgm3105b" path="res://Scenes/Clubhouse/Interior/door_character_select.tscn" id="34_y1s7t"]
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/door_exit.gd" id="36_8ivxy"]
 [ext_resource type="PackedScene" uid="uid://dpuxul7fpr7fy" path="res://Objects/Disc Workbench/disc_workbench.tscn" id="38_jpwj5"]
 [ext_resource type="Texture2D" uid="uid://ccd2lgwl5sbx4" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3.png" id="38_ppdyg"]
+[ext_resource type="PackedScene" uid="uid://cbyamfxpl8nuf" path="res://Scenes/Clubhouse/Interior/Char Club/char_club.tscn" id="41_jrdx3"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mskq3"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ky7ca"]
+panorama = ExtResource("2_xvmsk")
 
 [sub_resource type="Sky" id="Sky_5budb"]
-sky_material = SubResource("ProceduralSkyMaterial_mskq3")
+sky_material = SubResource("PanoramaSkyMaterial_ky7ca")
 
 [sub_resource type="Environment" id="Environment_i5jke"]
 background_mode = 2
@@ -4019,9 +4019,6 @@ shape = SubResource("BoxShape3D_eqc6w")
 
 [node name="NPCs" type="Node" parent="."]
 
-[node name="NPC" parent="NPCs" instance=ExtResource("31_vp3ae")]
-transform = Transform3D(0.524001, 0, 0.851717, 0, 1, 0, -0.851717, 0, 0.524001, -15.4967, 0.00769877, 0.420026)
-
 [node name="Objects" type="Node" parent="."]
 
 [node name="Gems" type="Node" parent="Objects"]
@@ -4080,3 +4077,6 @@ shape = SubResource("CylinderShape3D_ccddq")
 
 [node name="GemMachine" parent="Objects" instance=ExtResource("32_2s0u0")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 1.79736, 0, -3.05269)
+
+[node name="CharClub" parent="." instance=ExtResource("41_jrdx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.876, 0)
