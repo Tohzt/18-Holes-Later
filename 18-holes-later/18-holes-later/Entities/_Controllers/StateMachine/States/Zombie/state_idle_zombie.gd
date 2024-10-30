@@ -12,7 +12,7 @@ func monitor_state():
 func update_state(_delta):
 	if Master.Target:
 		var dist_to_target = Master.position.distance_to(Master.Target.position)
-		if dist_to_target < Master.seight_range:
+		if dist_to_target < Master.sight_range:
 			exit_state("Chase")
 	else:
 		Master.Target = Global.Player

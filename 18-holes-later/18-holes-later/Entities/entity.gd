@@ -12,6 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var SPEED: float = 10000.0
 var SPEED_MULT: float = 1
 var JUMP_FORCE: float = 5
+var sight: float = 20.0
 
 var is_dead: bool
 var accepts_input: bool

@@ -13,7 +13,7 @@ func update_state(_delta):
 		Master.Anim_Controller.anim.play("Run")
 	
 	var dist_to_target = Master.global_position.distance_to(Master.Target.global_position)
-	if dist_to_target > Master.seight_range:
+	if dist_to_target > Master.sight_range:
 		exit_state("Idle")
 
 func exit_state(next_state: String):

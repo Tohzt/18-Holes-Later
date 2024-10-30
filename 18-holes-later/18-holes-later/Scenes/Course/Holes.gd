@@ -11,6 +11,8 @@ func build_hole(hole_name):
 			hole = Global.Refs.TESTING_ROOM.instantiate()
 		"Hole_01": 
 			hole = Global.Refs.HOLE_01.instantiate()
+		"Hole_02": 
+			hole = Global.Refs.HOLE_02.instantiate()
 	
 	if hole: return hole
 	

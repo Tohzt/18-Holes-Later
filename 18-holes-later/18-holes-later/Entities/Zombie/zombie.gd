@@ -2,7 +2,7 @@ class_name Entity_Zombie
 extends Entity
 
 var rotation_speed: float = 5.0
-@export var seight_range: int = 999
+@export var sight_range: int = 999
 var timer: Timer
 var is_walking = false
 
@@ -49,7 +49,8 @@ func _on_body_entered(body):
 
 func _on_area_3d_area_entered(area):
 	if area.name == "BoneHand":
-		take_damage(10,Vector3.UP*10)
+		print_debug("Disabled bcollision with bone")
+		#take_damage(10,Vector3.UP*10)
 
 func _on_timer_timeout():
 	$GPUParticles3D.emitting = true
