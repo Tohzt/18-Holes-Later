@@ -567,7 +567,7 @@ radius = 0.0254705
 height = 0.106109
 radius = 0.172593
 
-[node name="Basket" type="StaticBody3D" groups=["Basket"]]
+[node name="Basket" type="StaticBody3D" groups=["Basket", "Target"]]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 collision_layer = 17
 axis_lock_angular_x = true

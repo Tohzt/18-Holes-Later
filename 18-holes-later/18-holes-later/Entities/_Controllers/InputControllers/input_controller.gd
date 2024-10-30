@@ -32,6 +32,8 @@ var mouse_motion = null
 var target_rotation = 0.0
 var rotation_speed = 5
 
+var target_offset_index = 0
+
 func _init():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -117,24 +119,67 @@ func _character_action():
 		if Input.is_action_just_pressed("right_click"):
 			Master.is_throwing = true
 	
-	if Input.is_action_just_pressed("lock_on"):
-		var nearest_nme: Node3D
-		if Master.Target:
-			# Find next-nearest target
-			nearest_nme = Global.get_nearest_object(Master, "Target")
-		else:
-			nearest_nme = Global.get_nearest_object(Master, "Target")
+	if Master.Target:
+		if Input.is_action_just_pressed("lock_cycle_up"):
+			target_offset_index += 1
+		if Input.is_action_just_pressed("lock_cycle_down"):
+			target_offset_index -= 1
 		
-		if nearest_nme:
-			print("Found Nearest: ", nearest_nme.name)
-			for marker in get_tree().get_nodes_in_group("Target Marker"):
-				marker.queue_free()
-			var tar_mark = Global.Refs.TARGET_MARKER.instantiate()
-			tar_mark.position.y = 2
-			nearest_nme.add_child(tar_mark)
-			Master.Target = nearest_nme
+	if Input.is_action_just_pressed("lock_on"):
+		# Get all enemies in renge, sorted by distance
+		var enemies_in_range: Array[Node3D]
+		enemies_in_range = Global.get_objects_in_range(Master, "Target", Master.sight)
+		
+		# TODO: get current enemy and shift by offset_index
+		#if Master.Target:
+			#var current_target_index = enemies_in_range.find(Master.Target)
+			#if current_target: 
+			
+		
+		if enemies_in_range:
+			var enemy_nearest = enemies_in_range.pop_front()
+			
+			# Untarget Self
+			if enemy_nearest == Master.Target:
+				Master.set_target(null)
+				enemy_nearest = null
+				_queue_marker()
+			
+			if enemy_nearest:
+				Master.set_target(enemy_nearest)
+				_set_marker(enemy_nearest)
+			
+			# Target next closest
+			if enemies_in_range:
+				enemy_nearest = enemies_in_range.pop_front()
+				print("Found Nearest: ", enemy_nearest.name)
+				
+				Master.set_target(enemy_nearest)
+				_set_marker(enemy_nearest)
 		else:
 			print("No nearby target found..")
+
+func _target_further():
+	pass
+func _target_closer():
+	pass
+
+func _queue_marker():
+	var marker = get_tree().get_first_node_in_group("Target Marker")
+	if marker:
+		marker.queue_free()
+
+func _set_marker(enemy_nearest: Node3D):
+	if !enemy_nearest: return
+	
+	var marker = get_tree().get_first_node_in_group("Target Marker")
+	if marker:
+		marker.reparent(enemy_nearest)
+	else:
+		var tar_mark = Global.Refs.TARGET_MARKER.instantiate()
+		tar_mark.position.y = 2
+		enemy_nearest.add_child(tar_mark)
+		Master.Target = enemy_nearest
 
 # Vehicle Inputs
 # TODO: Rotation bugs if mouse and keys simul

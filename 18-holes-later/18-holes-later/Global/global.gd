@@ -56,7 +56,34 @@ func select_next_disc():
 func save_game(profile): $SaveController.save_game(profile)
 func load_game(profile): $SaveController.load_game(profile)
 
-func get_nearest_object(origin: Node3D, group: String) -> Node3D:
+func get_objects_in_range(origin: Node3D, group: String, max_distance: float = INF) -> Array[Node3D]:
+	var objects_in_group = get_tree().get_nodes_in_group(group)
+	
+	# First create an array of dictionaries containing both object and distance
+	var objects_with_distances = objects_in_group.filter(
+		func(obj): 
+			if not obj is Node3D:
+				return false
+			var distance = origin.global_position.distance_to(obj.global_position)
+			return distance <= max_distance
+	).map(
+		func(obj): 
+			return {
+				"node": obj,
+				"distance": origin.global_position.distance_to(obj.global_position)
+			}
+	)
+	
+	# Sort the array based on distances
+	objects_with_distances.sort_custom(func(a, b): return a.distance < b.distance)
+	
+	# Convert back to array of nodes and explicitly cast to Array[Node3D]
+	var nodes: Array[Node3D] = []
+	for item in objects_with_distances:
+		nodes.append(item.node)
+	return nodes
+
+func get_nearest_object(origin: Node3D, group: String, max_distance: float = INF) -> Node3D:
 	var objects_in_group = get_tree().get_nodes_in_group(group)
 	
 	if objects_in_group.is_empty():
@@ -68,7 +95,7 @@ func get_nearest_object(origin: Node3D, group: String) -> Node3D:
 	for obj in objects_in_group:
 		if obj is Node3D:
 			var distance = origin.global_position.distance_to(obj.global_position)
-			if distance < min_distance:
+			if distance < min_distance and distance < max_distance:
 				min_distance = distance
 				nearest_object = obj
 	

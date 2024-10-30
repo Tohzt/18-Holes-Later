@@ -99,6 +99,16 @@ func get_overlapping_areas():
 func cull():
 	queue_free()
 
+func set_target(new_target):
+	if new_target: 
+		Target = new_target
+	
+	else:
+		Target = null
+		var markers = get_tree().get_nodes_in_group("Target Marker")
+		for marker in markers:
+			marker.queue_free()
+
 #func trace_disc():
 	#if !predict_trace and aim_stable: 
 		#var trace_path = get_tree().get_nodes_in_group("Trace")
