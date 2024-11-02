@@ -182,6 +182,7 @@ horizontal_alignment = 1
 [node name="Btn_Select_Clubhouse" type="Button" parent="CourseContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+disabled = true
 text = "Clubhouse"
 
 [node name="Btn_Select_Hole_01" type="Button" parent="CourseContainer/VBoxContainer"]
@@ -194,6 +195,7 @@ text = "Hole 01"
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
+disabled = true
 text = "Hole 02"
 
 [node name="Btn_Select_Testing" type="Button" parent="CourseContainer/VBoxContainer"]
@@ -238,7 +240,6 @@ text = "PROFILE 3"
 [connection signal="pressed" from="MenuContainer/VBoxContainer/Btn_Settings" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="MenuContainer/VBoxContainer/Btn_Exit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="CharacterContainer/VBoxContainer/Btn_Select_Layla" to="CharacterContainer" method="_on_btn_select_layla_pressed"]
-[connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Clubhouse" to="CourseContainer" method="_on_btn_select_clubhouse_pressed"]
 [connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Hole_01" to="CourseContainer" method="_on_btn_select_hole_01_pressed"]
 [connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Hole_02" to="CourseContainer" method="_on_btn_select_hole_02_pressed"]
 [connection signal="pressed" from="CourseContainer/VBoxContainer/Btn_Select_Testing" to="CourseContainer" method="_on_btn_select_testing_pressed"]
