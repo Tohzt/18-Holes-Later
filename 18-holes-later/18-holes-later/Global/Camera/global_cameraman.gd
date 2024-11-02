@@ -61,4 +61,4 @@ func set_target(new_target: Node3D):
 	follow_target.set_active(true)
 	look_target = follow_target.Cam_Mount
 	
-	Tripod.rotation = Tripos_StartRot
+	#Tripod.rotation = Tripos_StartRot

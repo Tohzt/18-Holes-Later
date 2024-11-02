@@ -1,8 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://cq0eakw0nkek0"]
+[gd_scene load_steps=47 format=3 uid="uid://cq0eakw0nkek0"]
 
 [ext_resource type="Script" path="res://Objects/Discs/Disc_CharBod/disc_charbod.gd" id="1_3ihc1"]
 [ext_resource type="Script" path="res://Objects/Discs/Mesh/Mesh.gd" id="3_l0b24"]
 [ext_resource type="PackedScene" uid="uid://cvfoujqikvtev" path="res://Objects/Discs/Mesh/classic_retro_disc_mesh.tscn" id="4_f68j3"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="4_k2wgi"]
 
 [sub_resource type="Curve" id="Curve_7t4j3"]
 min_value = -1.0
@@ -381,5 +382,7 @@ explosiveness = 0.85
 process_material = SubResource("ParticleProcessMaterial_tq75k")
 draw_pass_1 = SubResource("SphereMesh_22k2b")
 script = SubResource("GDScript_0lxxu")
+
+[node name="Cam_Mount" parent="." instance=ExtResource("4_k2wgi")]
 
 [connection signal="finished" from="GPUParticles3D" to="GPUParticles3D" method="_on_finished"]

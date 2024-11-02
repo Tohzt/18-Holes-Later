@@ -1,5 +1,6 @@
 class_name Disc_CharBod_Class
 extends CharacterBody3D
+@onready var Cam_Mount = $Cam_Mount
 
 @export_category("Disc Base Stats")
 var index = 1
@@ -42,6 +43,10 @@ var elapsed_time := 0.0
 var elapse_duration := 2.0
 var angle_h: float = 0.0
 var angle_v: float = 0.0
+
+var look_forward = true
+var look_around = false
+
 func _launch_disc():
 	should_curve = true
 	self.set_collision_mask_value(1, true)
@@ -150,3 +155,6 @@ func _self_cull():
 			pick_up(Global.Player.Bag)
 		else:
 			queue_free()
+
+func set_active(_TorF):
+	pass
