@@ -347,6 +347,7 @@ _data = {
 }
 
 [node name="Club Benny" type="Node3D" groups=["Target"]]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("1_sudng")
 
 [node name="Armature" type="Node3D" parent="."]

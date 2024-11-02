@@ -1,8 +1,10 @@
 extends Node
-
+# TODO: Temp as fuck
+@onready var audio_stream_player = $AudioStreamPlayer
 @onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var Refs: ReferenceClass = $References
 @onready var Settings: SettingsClass = $Settings
+@onready var Transition = $Transition
 
 @onready var Cameraman: Node3D = $Camerman
 

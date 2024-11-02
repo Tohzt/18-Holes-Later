@@ -23,7 +23,7 @@ func getResources ():
 			if dir.current_is_dir():
 				file_name = dir.get_next()
 			elif file_name.ends_with("tres"):
-				print("DiscButton Path: ", folder_path + "/" + file_name)
+				print_debug("DiscButton Path: ", folder_path + "/" + file_name)
 				#var scene:Disc_Stats = load(folder_path + "/" + file_name)
 				#scenes.push_back(scene)
 				file_name = dir.get_next()

@@ -5,6 +5,7 @@ extends Area3D
 func interact():
 	var holes = get_tree().root.get_node("Course").get_node("Holes")
 	var clubhouse = holes.get_child(0)
+	Global.Player.Input_Controller.character_look = true
 	Global.Player.position = Vector3(0,-1000,0)
 	Global.Cameraman.position = Vector3(0,-1000,0)
 	clubhouse.queue_free()

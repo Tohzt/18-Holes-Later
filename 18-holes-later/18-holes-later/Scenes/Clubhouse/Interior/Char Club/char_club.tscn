@@ -5864,7 +5864,15 @@ mesh = SubResource("ArrayMesh_fbofn")
 skeleton = NodePath("")
 
 [node name="Club Layla" parent="." instance=ExtResource("1_aax1m")]
-transform = Transform3D(0.90041, 0, -0.435043, 0, 1, 0, 0.435043, 0, 0.90041, 3, 0, -3)
+transform = Transform3D(-0.0303994, 0, -0.999538, 0, 1, 0, 0.999538, 0, -0.0303994, 0.404409, 2.12512, -5.37541)
+
+[node name="Cam_Mount" parent="Club Layla" index="2"]
+transform = Transform3D(0.0888942, 0.291214, 0.952518, 0, 0.956305, -0.292372, -0.996041, 0.0259902, 0.08501, 1.258, 1.232, 0.922)
+
+[node name="Camera3D" type="Camera3D" parent="Club Layla/Cam_Mount" index="2"]
+transform = Transform3D(1, -7.45058e-09, -7.45058e-09, 0, 1, -2.98023e-07, 0, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="Club Benny" parent="." instance=ExtResource("26_2dc25")]
-transform = Transform3D(0.893379, 0, 0.449302, 0, 1, 0, -0.449302, 0, 0.893379, -3, 0, -3)
+transform = Transform3D(0.670035, 0, 0.336977, 0, 0.75, 0, -0.336977, 0, 0.670035, -2.50302, 0, -3)
+
+[editable path="Club Layla"]
