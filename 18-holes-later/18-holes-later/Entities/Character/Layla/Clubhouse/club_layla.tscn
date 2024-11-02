@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=4 uid="uid://c5bbej5h3kgfm"]
+[gd_scene load_steps=47 format=4 uid="uid://c5bbej5h3kgfm"]
 
 [ext_resource type="Script" path="res://Entities/Character/Layla/Clubhouse/club_layla.gd" id="1_2yy1k"]
 [ext_resource type="AnimationLibrary" uid="uid://b1uawyw5rp16o" path="res://Entities/Character/Layla/src/SlideAnims.res" id="2_tirr5"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="3_dmtmu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sid3v"]
 load_path = "res://.godot/imported/LaylaAnimOCT_0.png-e1dc72c25c9e872aaaa85c53ae0f63a1.s3tc.ctex"
@@ -11910,7 +11911,7 @@ mesh = SubResource("ArrayMesh_myfjt")
 skin = SubResource("Skin_ltv3h")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.131524, -0.250534, 0.959132, 0.0858241, -0.961026, -0.262798, 0.98759, 0.116881, -0.104896, -0.184366, 0.955458, -0.0280153)
+transform = Transform3D(0.131523, -0.250534, 0.959131, 0.0858248, -0.961026, -0.262798, 0.987591, 0.116881, -0.104896, -0.184366, 0.955462, -0.028015)
 bone_name = "mixamorig_RightHand"
 bone_idx = 30
 
@@ -11922,3 +11923,6 @@ libraries = {
 "CrouchAnims": SubResource("AnimationLibrary_5opic"),
 "SlideAnims": ExtResource("2_tirr5")
 }
+
+[node name="Cam_Mount" parent="." instance=ExtResource("3_dmtmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09907, 1.0324)

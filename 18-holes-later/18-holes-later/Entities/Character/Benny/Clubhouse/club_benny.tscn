@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://dw26xdt1yissl"]
+[gd_scene load_steps=9 format=4 uid="uid://dw26xdt1yissl"]
 
 [ext_resource type="Script" path="res://Entities/Character/Benny/Clubhouse/club_benny.gd" id="1_sudng"]
 [ext_resource type="Texture2D" uid="uid://cxwrxv6ayid32" path="res://Entities/Character/Benny/Clubhouse/BennyClubHouse_0.png" id="2_awsmc"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="3_nq80n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mh0ks"]
 resource_name = "Material.001"
@@ -592,3 +593,6 @@ skin = SubResource("Skin_7pi6p")
 libraries = {
 "": SubResource("AnimationLibrary_qts6c")
 }
+
+[node name="Cam_Mount" parent="." instance=ExtResource("3_nq80n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.903421, 1.39465)

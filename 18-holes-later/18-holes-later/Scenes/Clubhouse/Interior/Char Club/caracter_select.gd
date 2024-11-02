@@ -1,40 +1,51 @@
 extends Node3D
 @onready var Cam_Mount = $Cam_Mount
+@onready var Target: Node3D
 
-var look_forward = false
+var target_offset_index = 0
+var look_forward = true
 var look_around = false
-var input_look: Vector2
-var input_move: Vector2
-var accepts_input = true
-var can_look = true
-var new_dir: Vector2
-var in_combat = false
-
-var can_interact = true
-var locked_in: bool
-var can_combat: bool
-var can_attack: bool
-var is_attacking: bool
-var can_throw: bool
-var is_throwing: bool
-var can_run: bool = false
-var is_running: bool = false
-var can_jump: bool
-var is_jumping: bool
-var is_falling: bool
-var is_landing: bool
-var Target: Node3D
+var accepts_input = false
 var sight = INF
 
-func set_active(TorF: bool = false):
-	pass
+var enemies_in_range: Array[Node3D]
 
-func set_target(new_target):
-	if new_target: 
-		Target = new_target
+func _ready():
+	enemies_in_range = Global.get_objects_in_range(self, "Target", sight)
+	Target = enemies_in_range.front()
+
+func _process(_delta):
+	print(Target)
+	if !accepts_input: return
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	if Target:
+		if Input.is_action_just_pressed("lock_cycle_up"):
+			target_offset_index += 1
+			update_index()
+		if Input.is_action_just_pressed("lock_cycle_down"):
+			target_offset_index -= 1
+			update_index()
+		if Input.is_action_just_pressed("left_click"):
+			print("Selecting: ", Target.name)
+			Global.Cameraman.set_target(Global.Player)
+			accepts_input = false
+			_select_character()
+
+func _select_character():
+	if !Target: return
+	var anim = Target.character_reference.instantiate()
 	
-	else:
-		Target = null
-		var markers = get_tree().get_nodes_in_group("Target Marker")
-		for marker in markers:
-			marker.queue_free()
+	Global.Player.Anim_Controller.queue_free()
+	Global.Player.add_child(anim)
+
+func update_index():
+	#target_offset_index = clamp(target_offset_index, -1, 1)
+	target_offset_index = target_offset_index % enemies_in_range.size()
+	if enemies_in_range:
+		var enemy_nearest = enemies_in_range[target_offset_index]
+		if enemy_nearest:
+			Target = enemy_nearest
+			Global.Cameraman.set_target(Target)
+
+func set_active(_TorF: bool = false):
+	accepts_input = true

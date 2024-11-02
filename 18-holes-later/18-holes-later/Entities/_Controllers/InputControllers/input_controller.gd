@@ -14,11 +14,6 @@ extends Node
 @export var zombie_look   := false
 @export var zombie_action := false
 
-@export_category("Character Select Controls")
-@export var select_move   := false
-@export var select_look   := false
-@export var select_action := false
-
 @export_category("Vehicle Controls")
 @export var vehicle_move   := false
 @export var vehicle_look   := false
@@ -49,9 +44,6 @@ func _process(delta):
 	if character_move:   _character_move(delta)
 	if character_look:   _character_look(delta)
 	if character_action: _character_action()
-	if select_move:   _select_move(delta)
-	if select_look:   _select_look(delta)
-	if select_action: _select_action()
 	if vehicle_move:   _vehicle_move(delta)
 	if vehicle_look:   _vehicle_look(delta)
 	if vehicle_action: _vehicle_action()
@@ -160,80 +152,7 @@ func _character_action():
 			# Target next closest
 			if enemies_in_range:
 				enemy_nearest = enemies_in_range.pop_front()
-				print("Found Nearest: ", enemy_nearest.name)
-				
-				Master.set_target(enemy_nearest)
-				_set_marker(enemy_nearest)
-		else:
-			print("No nearby target found..")
-#endregion
-
-#region Character Select Inputs
-func _select_move(delta):
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
-	input_move = Vector2.ZERO
-	if Master.can_move:
-		input_move = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		Master.input_move = input_move
-		Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input_move.x, 0, input_move.y)).normalized(), delta*10)
-	
-	if Master.can_run:
-		Master.is_running = Input.is_action_pressed("sprint")
-	
-	if Master.can_jump and Input.is_action_just_pressed("jump"):
-		Master.is_jumping = true
-	
-	if Master.can_crouch and Input.is_action_just_pressed("crouch"):
-		Master.is_crouching = !Master.is_crouching
-	
-	if Master.can_slide and Master.is_crouching:
-		Master.is_sliding = true
-
-func _select_look(delta):
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
-	if Master.can_look:
-		if mouse_motion is InputEventMouseMotion:
-			input_look.x = Master.input_look.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
-			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
-			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
-
-func _select_action():
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
-
-	if Master.Target:
-		if Input.is_action_just_pressed("lock_cycle_up"):
-			target_offset_index += 1
-		if Input.is_action_just_pressed("lock_cycle_down"):
-			target_offset_index -= 1
-		
-	if Input.is_action_just_pressed("lock_on"):
-		# Get all enemies in renge, sorted by distance
-		var enemies_in_range: Array[Node3D]
-		enemies_in_range = Global.get_objects_in_range(Master, "Target", Master.sight)
-		
-		# TODO: get current enemy and shift by offset_index
-		#if Master.Target:
-			#var current_target_index = enemies_in_range.find(Master.Target)
-			#if current_target: 
-				#pass
-		
-		if enemies_in_range:
-			var enemy_nearest = enemies_in_range.pop_front()
-			
-			# Untarget Self
-			if enemy_nearest == Master.Target:
-				Master.set_target(null)
-				enemy_nearest = null
-				_queue_marker()
-			
-			if enemy_nearest:
-				Master.set_target(enemy_nearest)
-				_set_marker(enemy_nearest)
-			
-			# Target next closest
-			if enemies_in_range:
-				enemy_nearest = enemies_in_range.pop_front()
-				print("Found Nearest: ", enemy_nearest.name)
+				printt("Found Nearest: ", enemy_nearest.name, enemies_in_range)
 				
 				Master.set_target(enemy_nearest)
 				_set_marker(enemy_nearest)
