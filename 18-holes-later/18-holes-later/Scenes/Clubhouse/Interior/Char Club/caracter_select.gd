@@ -15,7 +15,6 @@ func _ready():
 	Target = enemies_in_range.front()
 
 func _process(_delta):
-	print(Target)
 	if !accepts_input: return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Target:
@@ -26,7 +25,6 @@ func _process(_delta):
 			target_offset_index -= 1
 			update_index()
 		if Input.is_action_just_pressed("left_click"):
-			print("Selecting: ", Target.name)
 			Global.Cameraman.set_target(Global.Player)
 			accepts_input = false
 			_select_character()
