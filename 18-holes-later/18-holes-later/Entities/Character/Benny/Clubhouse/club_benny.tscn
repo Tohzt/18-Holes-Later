@@ -137,6 +137,7 @@ bind/32/pose = Transform3D(-94.1985, -14.1752, -30.4222, -30.5033, -1.64621, 95.
 [sub_resource type="Animation" id="Animation_hmwuk"]
 resource_name = "Armature|Armature|mixamo_com|Layer0"
 length = 13.9333
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true

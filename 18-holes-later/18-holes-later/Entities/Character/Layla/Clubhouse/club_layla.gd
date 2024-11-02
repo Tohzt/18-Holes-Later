@@ -7,7 +7,7 @@ var look_forward = true
 var look_around = false
 var in_focus = false
 func _ready():
-	animation_player.play("CrouchIdle")
+	animation_player.play("CrouchAnims/CrouchIdle")
 
 func _process(_delta):
 	if in_focus:

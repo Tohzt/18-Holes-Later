@@ -6,7 +6,7 @@ extends CharacterBody3D
 var follow_target: Node3D
 var look_target: Node3D
 
-const SPEED = 5
+var SPEED = 2.5
 var spd_mod: float = 1.0
 
 func _process(delta):

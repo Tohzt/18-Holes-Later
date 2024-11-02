@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c5bbej5h3kgfm" path="res://Entities/Character/Layla/Clubhouse/club_layla.tscn" id="1_aax1m"]
 [ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="1_klrsi"]
-[ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/Char Club/caracter_select.gd" id="1_qqnrk"]
+[ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/Char Club/character_select.gd" id="1_qqnrk"]
 [ext_resource type="Texture2D" uid="uid://bnuefctugq6nd" path="res://Scenes/Clubhouse/Interior/Char Club/CharClub_OIG2 (17).png" id="2_e5i85"]
 [ext_resource type="Texture2D" uid="uid://b48ul4u31l1uk" path="res://Scenes/Clubhouse/Interior/Char Club/CharClub_OIG2 (17)_n.png" id="3_ka26m"]
 [ext_resource type="Texture2D" uid="uid://ixayina888ch" path="res://Scenes/Clubhouse/Interior/Char Club/CharClub_plant.png" id="4_gjclc"]
@@ -5111,6 +5111,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.281, 0)
 script = ExtResource("1_qqnrk")
 
 [node name="Cam_Mount" parent="Character_Select" instance=ExtResource("1_klrsi")]
+transform = Transform3D(1, 0, 0, 0, 0.960269, -0.279075, 0, 0.279075, 0.960269, 0, 0, 0)
 
 [node name="Mesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.94904)
@@ -5691,7 +5692,7 @@ mesh = SubResource("ArrayMesh_7pcyi")
 skeleton = NodePath("")
 
 [node name="OIG1__001" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(2.63413, 0.931607, 0.26417, 0.169621, 0.309881, -2.78416, -0.953365, 2.62915, 0.234545, -3.43955, 0.902436, -1.89283)
+transform = Transform3D(2.80122, -0.0454604, 0.165601, 0.169621, 0.309881, -2.78416, 0.0268124, 2.78895, 0.312047, -3.36772, 0.765447, -2.53958)
 mesh = SubResource("ArrayMesh_2fjsc")
 skeleton = NodePath("")
 
@@ -5701,7 +5702,7 @@ mesh = SubResource("ArrayMesh_vag8s")
 skeleton = NodePath("")
 
 [node name="OIG3_35t0REhur_007" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(0, 0.441855, 0, 0, 0, -0.441855, -0.441855, 0, 0, -5.31239, 0.692842, 4.79098)
+transform = Transform3D(0, 0.441855, 0, 0, 0, -0.441855, -0.441855, 0, 0, -5.97242, 0.692842, 4.79098)
 mesh = SubResource("ArrayMesh_y2bcg")
 skeleton = NodePath("")
 
@@ -5869,10 +5870,13 @@ transform = Transform3D(-0.0303994, 0, -0.999538, 0, 1, 0, 0.999538, 0, -0.03039
 [node name="Cam_Mount" parent="Club Layla" index="2"]
 transform = Transform3D(0.0888942, 0.291214, 0.952518, 0, 0.956305, -0.292372, -0.996041, 0.0259902, 0.08501, 1.258, 1.232, 0.922)
 
-[node name="Camera3D" type="Camera3D" parent="Club Layla/Cam_Mount" index="2"]
-transform = Transform3D(1, -7.45058e-09, -7.45058e-09, 0, 1, -2.98023e-07, 0, 2.98023e-08, 1, 0, 0, 0)
-
 [node name="Club Benny" parent="." instance=ExtResource("26_2dc25")]
-transform = Transform3D(0.670035, 0, 0.336977, 0, 0.75, 0, -0.336977, 0, 0.670035, -2.50302, 0, -3)
+transform = Transform3D(-0.444906, 0, 0.603787, 0, 0.75, 0, -0.603787, 0, -0.444906, -4.86826, 0, 3.48034)
+
+[node name="Cam_Mount" parent="Club Benny" index="2"]
+transform = Transform3D(0.967268, 0.126111, 0.220202, 0, 0.867765, -0.496974, -0.253758, 0.480707, 0.839362, -1.03, 1.218, 3.025)
+
+[node name="Camera3D" type="Camera3D" parent="Club Benny/Cam_Mount" index="2"]
 
 [editable path="Club Layla"]
+[editable path="Club Benny"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://c501bn70mhy8j"]
+[gd_scene load_steps=22 format=3 uid="uid://c501bn70mhy8j"]
 
 [ext_resource type="Terrain3DMaterial" uid="uid://d3pvbjb12n5yt" path="res://Scenes/Holes/T3D Test/Hole1T3D/matshole_3d.tres" id="1_mdr8j"]
-[ext_resource type="Terrain3DAssets" path="res://Scenes/Holes/T3D Test/Hole1T3D/assetshole_3d.tres" id="2_uyc61"]
-[ext_resource type="PackedScene" uid="uid://mgaxgwqsomw8" path="res://Entities/Character/character.tscn" id="17_mchjp"]
+[ext_resource type="Terrain3DAssets" uid="uid://fpmbocqhcjem" path="res://Scenes/Holes/T3D Test/Hole1T3D/assetshole_3d.tres" id="2_uyc61"]
+[ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="17_6bjc7"]
+[ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="18_b7jpv"]
 [ext_resource type="PackedScene" uid="uid://b50ymaf7jmeak" path="res://Scenes/Holes/Hole1HTerrain/clubhous_outside.tscn" id="18_mfm8v"]
+[ext_resource type="PackedScene" uid="uid://b177kmpe8ky2j" path="res://Scenes/Clubhouse/Interior/door_exit.tscn" id="18_u1ylt"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="19_5l52g"]
 [ext_resource type="PackedScene" uid="uid://b6k5ir50gol2m" path="res://Scenes/Holes/T3D Test/Hole1T3D/hole_1_sign.tscn" id="20_2jk2f"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="28_10t6g"]
@@ -29,6 +31,15 @@ sky = SubResource("Sky_byaew")
 
 [node name="Hole3D" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_reverse_cull_face = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yo78l")
+
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://Scenes/Holes/T3D Test/Hole1T3D/data"
 material = ExtResource("1_mdr8j")
@@ -37,20 +48,19 @@ mesh_lods = 9
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="Character" parent="." instance=ExtResource("17_mchjp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.066, 0.374707, -109.441)
-
 [node name="clubhousOUTSIDE" parent="." instance=ExtResource("18_mfm8v")]
 transform = Transform3D(-1.93485, 0, 1.4944, 0, 2.44477, 0, -1.4944, 0, -1.93485, -104.976, -1.71788, -90.5093)
 
 [node name="TeeBox" parent="." instance=ExtResource("19_5l52g")]
 transform = Transform3D(1.10533, 0, -0.352005, 0, 1, 0, 0.71825, 0, 0.541708, -140.761, -0.394939, -120.402)
+tee_number = 1
 
 [node name="Hole1Sign" parent="." instance=ExtResource("20_2jk2f")]
 transform = Transform3D(0.611634, 0, -1.77601, 0, 1.87838, 0, 1.77601, 0, 0.611634, -133.346, 2.15662, -121.709)
 
 [node name="Basket" parent="." instance=ExtResource("28_10t6g")]
-transform = Transform3D(10.8336, 0, 0, 0, 10.8336, 0, 0, 0, 10.8336, -328.408, -3.79329, -187.363)
+transform = Transform3D(10.8336, 0, 0, 0, 10.8336, 0, 0, 0, 10.8336, -189.057, -11.974, -206.21)
+hole = 1
 
 [node name="pine_tree" parent="." instance=ExtResource("29_ea44k")]
 transform = Transform3D(4.78486, 0, 0, 0, 4.78486, 0, 0, 0, 4.78486, -128.564, 0, -93.0485)
@@ -259,5 +269,12 @@ transform = Transform3D(15.3859, 0, 11.6236, -2.2569, 18.916, 2.98741, -11.4024,
 [node name="Cactus3" parent="." instance=ExtResource("36_8mr1p")]
 transform = Transform3D(-2.50592, -1.65412e-07, 13.1415, -2.55163, 13.1237, -0.486565, -12.8914, -2.59761, -2.45823, -208.974, 20.145, 21.3922)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_yo78l")
+[node name="Player_Spawn" parent="." instance=ExtResource("17_6bjc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.038, -2.38419e-07, -105.983)
+
+[node name="Door_Exit" parent="." instance=ExtResource("18_u1ylt")]
+transform = Transform3D(0.696389, 0, 0.717665, 0, 1, 0, -0.717665, 0, 0.696389, -122.108, 0, -104.932)
+destination = "res://Scenes/Clubhouse/Interior/clubhouse_interior.tscn"
+
+[node name="Lightning_Particle" parent="." groups=["Lightning"] instance=ExtResource("18_b7jpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -188.999, -11.5495, -205.975)
