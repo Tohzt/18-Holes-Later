@@ -25,16 +25,23 @@ func _process(_delta):
 			target_offset_index -= 1
 			update_index()
 		if Input.is_action_just_pressed("left_click"):
-			Global.Cameraman.set_target(Global.Player)
-			accepts_input = false
 			_select_character()
 
 func _select_character():
 	if !Target: return
-	var anim = Target.character_reference.instantiate()
+	accepts_input = false
 	
+	Global.Transition.toggle_fade(true)
+	Global.audio_stream_player.play()
+	
+	await get_tree().create_timer(1.0).timeout
+	var anim = Target.character_reference.instantiate()
+	Global.Cameraman.set_target(Global.Player)
 	Global.Player.Anim_Controller.queue_free()
 	Global.Player.add_child(anim)
+	await get_tree().create_timer(1.0).timeout
+	Global.Transition.toggle_fade(false)
+	
 
 func update_index():
 	#target_offset_index = clamp(target_offset_index, -1, 1)
