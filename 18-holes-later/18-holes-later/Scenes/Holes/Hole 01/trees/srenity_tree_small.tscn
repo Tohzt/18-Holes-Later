@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsmudxyunk6dd"]
+
+[ext_resource type="PackedScene" uid="uid://b585ead15lb5m" path="res://Scenes/Holes/Hole1T3D/trees/SrenityTreeSmall.fbx" id="1_u6p3q"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gncfl"]
+radius = 0.108506
+
+[node name="SrenityTreeSmall" instance=ExtResource("1_u6p3q")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
+shape = SubResource("CylinderShape3D_gncfl")

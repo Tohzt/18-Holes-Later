@@ -11,9 +11,7 @@ const SCENE_CLUBHOUSE = "res://Scenes/Clubhouse/clubhouse.tscn"
 const CLUBHOUSE_INTERIOR = preload("res://Scenes/Clubhouse/Interior/clubhouse_interior.tscn")
 const TESTING_ROOM = preload("res://Scenes/Holes/TESTING/testing_room.tscn")
 const MENU_PAUSE = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
-const HOLE_01 = preload("res://Scenes/Holes/T3D Test/Hole1T3D/hole_3d.tscn")
-#const HOLE_01 = preload("res://Scenes/Holes/Hole1HTerrain/HTERRAINhole1.tscn")
-#const HOLE_02 = preload("res://Scenes/Holes/Hole2/Hole2HterrainReformatted/h_terrain2.tscn")
+const HOLE_01 = preload("res://Scenes/Holes/Hole 01/hole_3d.tscn")
 
 # Spawnables
 const TREE = preload("res://Objects/Trees/tree_1.tscn")
@@ -30,7 +28,6 @@ const PICKUP = preload("res://Objects/Discs/Pickup/pickup_area.tscn")
 const DISC_TRACE = preload("res://Objects/Discs/Trace/disc_trace.tscn")
 
 # Gems
-
 @onready var GEM_BLOOD   = preload("res://Objects/Gem Object/src/gem_blood.tres")
 @onready var GEM_CRIMSON = preload("res://Objects/Gem Object/src/gem_crimson.tres")
 @onready var GEM_GREEN   = preload("res://Objects/Gem Object/src/gem_green.tres")

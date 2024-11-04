@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://kvwwf5kpsd22"]
-
-[ext_resource type="PackedScene" uid="uid://c5g0ko0k84bth" path="res://Structures/DecoAssets/CitysKyline.glb" id="1_1sbri"]
-
-[node name="Cityskyline" type="StaticBody3D"]
-transform = Transform3D(3.5369, 0, 0, 0, 3.5369, 0, 0, 0, 3.5369, 0, 0, 0)
-
-[node name="CitysKyline" parent="." instance=ExtResource("1_1sbri")]

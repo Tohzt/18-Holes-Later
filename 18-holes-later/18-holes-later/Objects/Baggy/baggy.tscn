@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://dlysw7emvqme"]
+[gd_scene load_steps=7 format=4 uid="uid://cvgxf8liocqa"]
 
 [ext_resource type="Script" path="res://Objects/Baggy/baggy.gd" id="1_61m33"]
-[ext_resource type="Texture2D" uid="uid://b0skub0rmku14" path="res://Objects/Baggy/src/Baggy_baggy.png" id="2_6a3f7"]
+[ext_resource type="Texture2D" uid="uid://4cpwvppacawg" path="res://Objects/Baggy/src/Baggy_baggy.png" id="2_6a3f7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkxv1"]
 resource_name = "baggy"

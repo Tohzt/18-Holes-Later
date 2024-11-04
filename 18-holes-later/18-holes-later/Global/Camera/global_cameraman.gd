@@ -42,7 +42,8 @@ func _follow_target(delta):
 
 func _look_at_target(delta):
 	if follow_target.look_forward:
-		rotation = follow_target.Cam_Mount.global_rotation
+		rotation.y = lerp_angle(rotation.y, follow_target.Cam_Mount.global_rotation.y, delta)
+		#rotation = follow_target.Cam_Mount.global_rotation
 		#rotation.y = lerp_angle(rotation.y, follow_target.rotation.y, delta*10)
 	if follow_target.look_around:
 		rotation.y = lerp_angle(rotation.y, follow_target.input_look.y, delta*10)
