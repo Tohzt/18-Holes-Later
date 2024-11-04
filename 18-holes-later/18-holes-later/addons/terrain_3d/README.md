@@ -12,7 +12,6 @@ A high performance, editable terrain system for Godot 4.
 * Up to 10 levels of detail
 * Foliage instancing
 * Sculpting, holes, texture painting, texture detiling, painting colors and wetness
-* Imports heightmaps from [HTerrain](https://github.com/Zylann/godot_heightmap_plugin/), WorldMachine, Unity, Unreal and any tool that can export a heightmap (raw/r16/exr/+). See [importing data](https://terrain3d.readthedocs.io/en/stable/docs/import_export.html)
 
 See [Project Status](https://terrain3d.readthedocs.io/en/stable/docs/project_status.html) for details.
 

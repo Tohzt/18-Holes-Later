@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://0f0y2ahg7thg"]
+
+[ext_resource type="PackedScene" uid="uid://duc7v2tsea6jy" path="res://Objects/DecoAssets/Cactus/Cactus.glb" id="1_2f32v"]
+
+[node name="Cactus" instance=ExtResource("1_2f32v")]

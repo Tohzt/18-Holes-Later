@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=67 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="7_llovg"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="8_1k3xo"]
 [ext_resource type="PackedScene" uid="uid://c7xne0byhx4ij" path="res://Objects/vehicles/Golf Cart/golf_cart.tscn" id="9_5mk3v"]
-[ext_resource type="PackedScene" uid="uid://dlysw7emvqme" path="res://Objects/Baggy/baggy.tscn" id="9_o5b6i"]
 [ext_resource type="PackedScene" uid="uid://dq5k8n0rtk27y" path="res://Entities/Zombie/zombie.tscn" id="9_y6gln"]
 [ext_resource type="PackedScene" uid="uid://bu8ykyg2w8l1a" path="res://Objects/Trees/tree_2.tscn" id="13_pt36r"]
 [ext_resource type="PackedScene" uid="uid://qotkk6uroiib" path="res://Objects/Trees/tree_1.tscn" id="14_0bgg8"]
@@ -442,9 +441,6 @@ shape = SubResource("BoxShape3D_fwy72")
 
 [node name="Things" type="Node3D" parent="Testing"]
 
-[node name="Baggy" parent="Testing/Things" instance=ExtResource("9_o5b6i")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.00419, 1, -24.8886)
-
 [node name="Driving_Range" type="Node" parent="."]
 
 [node name="DiscLauncher" parent="Driving_Range" instance=ExtResource("14_qdsjn")]
@@ -534,7 +530,7 @@ shape = SubResource("BoxShape3D_qnp1f")
 mesh = SubResource("BoxMesh_0bv70")
 skeleton = NodePath("../../..")
 
-[node name="Enemy_Spawner" parent="Driving_Range" groups=["Enemy Spawners"] instance=ExtResource("15_mpiqo")]
+[node name="Enemy_Spawner" parent="Driving_Range" instance=ExtResource("15_mpiqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64537, 0, 156.246)
 
 [node name="Trees" type="Node3D" parent="."]

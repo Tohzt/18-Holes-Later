@@ -1,16 +1,14 @@
 [gd_scene load_steps=47 format=4 uid="uid://c5bbej5h3kgfm"]
 
 [ext_resource type="Script" path="res://Entities/Character/Layla/Clubhouse/club_layla.gd" id="1_2yy1k"]
+[ext_resource type="Texture2D" uid="uid://2alvnern5xgo" path="res://Entities/Character/Layla/src/LaylaAnimOCT_0.png" id="2_rh7up"]
 [ext_resource type="AnimationLibrary" uid="uid://b1uawyw5rp16o" path="res://Entities/Character/Layla/src/SlideAnims.res" id="2_tirr5"]
 [ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="3_dmtmu"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sid3v"]
-load_path = "res://.godot/imported/LaylaAnimOCT_0.png-e1dc72c25c9e872aaaa85c53ae0f63a1.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37vui"]
 resource_name = "Material.002"
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("CompressedTexture2D_sid3v")
+albedo_texture = ExtResource("2_rh7up")
 emission_enabled = true
 emission_energy_multiplier = 0.0
 
@@ -11906,12 +11904,12 @@ bones/57/position = Vector3(0, 0.0657795, 0)
 bones/57/rotation = Quaternion(0, 0, 0, 1)
 bones/57/scale = Vector3(1, 1, 1)
 
-[node name="Summer_Explorer_0924193453" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+[node name="LaylaSkin" type="MeshInstance3D" parent="Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_myfjt")
 skin = SubResource("Skin_ltv3h")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.35221, -0.353321, 0.866667, 0.424514, -0.76496, -0.484379, 0.834107, 0.538516, -0.119436, -0.252559, 0.597167, 0.306584)
+transform = Transform3D(0.35221, -0.353321, 0.866667, 0.424515, -0.76496, -0.484378, 0.834108, 0.538516, -0.119436, -0.252559, 0.597167, 0.306584)
 bone_name = "mixamorig_RightHand"
 bone_idx = 30
 

@@ -9,6 +9,7 @@ func init_state():
 	Master.can_throw = true
 	Master.can_move = true
 	Master.can_crouch = true
+	Master.can_jump = true
 	Master.can_slide = false
 	Master.look_forward = false
 	Master.SPEED_MULT = 1
