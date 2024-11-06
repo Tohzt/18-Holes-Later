@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=65 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="8_1k3xo"]
 [ext_resource type="PackedScene" uid="uid://c7xne0byhx4ij" path="res://Objects/vehicles/Golf Cart/golf_cart.tscn" id="9_5mk3v"]
 [ext_resource type="PackedScene" uid="uid://dq5k8n0rtk27y" path="res://Entities/Zombie/zombie.tscn" id="9_y6gln"]
-[ext_resource type="PackedScene" uid="uid://bu8ykyg2w8l1a" path="res://Objects/Trees/tree_2.tscn" id="13_pt36r"]
-[ext_resource type="PackedScene" uid="uid://qotkk6uroiib" path="res://Objects/Trees/tree_1.tscn" id="14_0bgg8"]
 [ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="14_qdsjn"]
 [ext_resource type="PackedScene" uid="uid://buyy01rncsfep" path="res://Global/Spawners/enemy_spawn.tscn" id="15_mpiqo"]
 
@@ -532,26 +530,6 @@ skeleton = NodePath("../../..")
 
 [node name="Enemy_Spawner" parent="Driving_Range" instance=ExtResource("15_mpiqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.64537, 0, 156.246)
-
-[node name="Trees" type="Node3D" parent="."]
-
-[node name="Tree_3D_2" parent="Trees" instance=ExtResource("13_pt36r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -62)
-
-[node name="Tree_3D_3" parent="Trees" instance=ExtResource("13_pt36r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5158, 0, -65.669)
-
-[node name="Tree_3D_4" parent="Trees" instance=ExtResource("13_pt36r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5349, 0, -78.0779)
-
-[node name="Tree_3D" parent="Trees" instance=ExtResource("14_0bgg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1097, -3.8147e-06, -33.5978)
-
-[node name="Tree_3D2" parent="Trees" instance=ExtResource("14_0bgg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0682, -7.62939e-06, -25.9455)
-
-[node name="Tree_3D3" parent="Trees" instance=ExtResource("14_0bgg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6631, -1.14441e-05, -39.3169)
 
 [connection signal="body_entered" from="Testing/Teleport_Testing" to="." method="_on_teleport_testing_body_entered"]
 [connection signal="body_entered" from="Driving_Range/Teleport_Range" to="." method="_on_teleport_range_body_entered"]

@@ -152,7 +152,6 @@ func _character_action():
 			# Target next closest
 			if enemies_in_range:
 				enemy_nearest = enemies_in_range.pop_front()
-				printt("Found Nearest: ", enemy_nearest.name, enemies_in_range)
 				
 				Master.set_target(enemy_nearest)
 				_set_marker(enemy_nearest)

@@ -40,7 +40,6 @@ func _ready():
 	Global.Cameraman.position = position
 
 func _process(delta):
-	printt(State_Controller.state_current, State_Controller.state_next)
 	if Global.Settings.collect_all: _collect_discs()
 	Input_Array = Input_Controller.combo_controller.input_sequence
 	new_dir.y = input_look.y

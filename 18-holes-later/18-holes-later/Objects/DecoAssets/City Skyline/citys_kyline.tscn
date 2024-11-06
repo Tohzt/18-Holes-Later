@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm5tf3a66y3ne"]
-
-[ext_resource type="PackedScene" uid="uid://c5g0ko0k84bth" path="res://Objects/DecoAssets/City Skyline/CitysKyline.glb" id="1_y06fw"]
-
-[node name="CitySkyline" instance=ExtResource("1_y06fw")]

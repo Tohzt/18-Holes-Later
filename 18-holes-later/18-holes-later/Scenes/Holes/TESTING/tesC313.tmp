@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://c7xne0byhx4ij" path="res://Objects/vehicles/Golf Cart/golf_cart.tscn" id="9_5mk3v"]
 [ext_resource type="PackedScene" uid="uid://dlysw7emvqme" path="res://Objects/Baggy/baggy.tscn" id="9_o5b6i"]
 [ext_resource type="PackedScene" uid="uid://dpuj70awtoml4" path="res://Objects/New Enemy/new_enemy.tscn" id="9_y6gln"]
-[ext_resource type="PackedScene" uid="uid://bu8ykyg2w8l1a" path="res://Objects/Trees/tree_2.tscn" id="13_pt36r"]
-[ext_resource type="PackedScene" uid="uid://qotkk6uroiib" path="res://Objects/Trees/tree_1.tscn" id="14_0bgg8"]
 [ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="14_qdsjn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
