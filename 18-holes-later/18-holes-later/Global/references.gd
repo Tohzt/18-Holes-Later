@@ -14,7 +14,7 @@ const MENU_PAUSE = preload("res://Scenes/Pause_Menu/pause_menu.tscn")
 const HOLE_01 = preload("res://Scenes/Holes/Hole 01/hole_3d.tscn")
 
 # Spawnables
-const TREE = preload("res://Objects/Trees/tree_1.tscn")
+#const TREE = preload("res://Objects/Trees/tree_1.tscn")
 const TARGET_MARKER = preload("res://Scenes/UI/Target Marker/target_marker.tscn")
 
 # Characters

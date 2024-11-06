@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dw7qnn40jbaam" path="res://Scenes/Holes/Hole 01/Foilage/Branch1.png" id="1_ovf70"]
 [ext_resource type="Texture2D" uid="uid://b5xl5hg6py6pf" path="res://Scenes/Holes/Hole 01/Foilage/grass4.png" id="2_uqgyk"]
-[ext_resource type="Texture2D" uid="uid://876dgo8ebf2n" path="res://Scenes/Holes/Hole 01/Foilage/leaves.png" id="3_w2jqc"]
+[ext_resource type="Texture2D" uid="uid://ttqfi47kfihi" path="res://Scenes/Holes/Hole 01/Foilage/leaves.png" id="3_w2jqc"]
 [ext_resource type="Texture2D" uid="uid://bwi4jgumqsriy" path="res://Scenes/Holes/Hole 01/Foilage/nush3.png" id="4_fvncr"]
 [ext_resource type="Texture2D" uid="uid://ndqhlibyt8ja" path="res://Scenes/Holes/Hole 01/Foilage/PineNeedles.png" id="5_ec3ho"]
 [ext_resource type="Texture2D" uid="uid://diqb32mgk1g5n" path="res://Scenes/Holes/Hole 01/Foilage/report136347717617404118244b22ef7a-9508-497a-9bfc-ecf0d2d75a31_piclumen_contentRefer_31565_.png" id="6_ku6he"]

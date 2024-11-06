@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bffyantoiqbvv"
-path="res://.godot/imported/pine_tree.glb-03771fbf812d066bf1b8865b6002ae19.scn"
+uid="uid://bckvacj0kpjbo"
+path="res://.godot/imported/Hole1sign.glb-793424eb5b10ee31de31136d07147f70.scn"
 
 [deps]
 
-source_file="res://Scenes/Holes/Hole 01/trees/pine_tree.glb"
-dest_files=["res://.godot/imported/pine_tree.glb-03771fbf812d066bf1b8865b6002ae19.scn"]
+source_file="res://Objects/DecoAssets/Hole Sign/Hole1sign.glb"
+dest_files=["res://.godot/imported/Hole1sign.glb-793424eb5b10ee31de31136d07147f70.scn"]
 
 [params]
 

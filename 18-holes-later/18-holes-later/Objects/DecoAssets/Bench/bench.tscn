@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2acggxq7rkl0"]
 
-[ext_resource type="ArrayMesh" uid="uid://dxb2whj38kpcv" path="res://Structures/DecoAssets/BenchMesh.res" id="1_dx8cb"]
+[ext_resource type="ArrayMesh" uid="uid://dxb2whj38kpcv" path="res://Objects/DecoAssets/Bench/BenchMesh.res" id="1_dx8cb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyrld"]
 albedo_color = Color(0.50204, 0.394867, 0.261904, 1)

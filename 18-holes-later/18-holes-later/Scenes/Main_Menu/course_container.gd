@@ -15,8 +15,8 @@ func _process(delta):
 func _on_btn_select_hole_01_pressed():
 	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.HOLE_01, "Hole_01")
 	
-func _on_btn_select_hole_02_pressed():
-	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.HOLE_02, "Hole_02")
+#func _on_btn_select_hole_02_pressed():
+	#Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.HOLE_02, "Hole_02")
 
 func _on_btn_select_testing_pressed():
 	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.TESTING_ROOM, "Testing_Room")
