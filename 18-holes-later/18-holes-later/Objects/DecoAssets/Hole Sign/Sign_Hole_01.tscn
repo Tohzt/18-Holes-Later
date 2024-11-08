@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://mpa2s0rkioxs"]
+[gd_scene load_steps=8 format=4 uid="uid://2yhn28lxlayw"]
 
 [ext_resource type="Texture2D" uid="uid://bie7pnwf8ukkl" path="res://Objects/DecoAssets/Hole Sign/Hole1sign_OIG4 (12).png" id="1_36trw"]
 
@@ -78,9 +78,9 @@ shadow_mesh = SubResource("ArrayMesh_r4axi")
 [sub_resource type="BoxShape3D" id="BoxShape3D_46m4b"]
 size = Vector3(0.164063, 1.5463, 0.771484)
 
-[node name="Hole1sign" type="StaticBody3D"]
+[node name="Sign_Hole_01" type="StaticBody3D"]
 
-[node name="Mesh" type="Node" parent="."]
+[node name="Mesh" type="Node3D" parent="."]
 
 [node name="OIG4 (12)" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, 0.0426419, 1.31582, 0.0114441)
@@ -105,3 +105,5 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.774185, 0)
 shape = SubResource("BoxShape3D_46m4b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
