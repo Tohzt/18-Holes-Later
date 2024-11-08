@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://c501bn70mhy8j"]
+[gd_scene load_steps=18 format=3 uid="uid://c501bn70mhy8j"]
 
 [ext_resource type="Terrain3DMaterial" uid="uid://d3pvbjb12n5yt" path="res://Scenes/Holes/Hole 01/matshole_3d.tres" id="1_mdr8j"]
 [ext_resource type="Terrain3DAssets" uid="uid://fpmbocqhcjem" path="res://Scenes/Holes/Hole 01/assetshole_3d.tres" id="2_uyc61"]
+[ext_resource type="PackedScene" uid="uid://2yhn28lxlayw" path="res://Objects/DecoAssets/Hole Sign/Sign_Hole_01.tscn" id="10_3aiwv"]
+[ext_resource type="PackedScene" uid="uid://dq5k8n0rtk27y" path="res://Entities/Zombie/zombie.tscn" id="14_wo8xa"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="17_6bjc7"]
 [ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="18_b7jpv"]
 [ext_resource type="PackedScene" uid="uid://c6roh5iu8v8u7" path="res://Structures/Clubhouse Outside/clubhous_outside.tscn" id="18_ihmlv"]
 [ext_resource type="PackedScene" uid="uid://b177kmpe8ky2j" path="res://Scenes/Clubhouse/Interior/door_exit.tscn" id="18_u1ylt"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="19_5l52g"]
-[ext_resource type="PackedScene" uid="uid://mpa2s0rkioxs" path="res://Objects/DecoAssets/Hole Sign/hole_1_sign.tscn" id="20_2jk2f"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="28_10t6g"]
 [ext_resource type="PackedScene" uid="uid://b2acggxq7rkl0" path="res://Objects/DecoAssets/Bench/bench.tscn" id="29_cjnug"]
 [ext_resource type="PackedScene" uid="uid://caesuuayson0j" path="res://Objects/DecoAssets/rock_c.tscn" id="33_hy10l"]
@@ -44,25 +45,11 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="Player_Spawn" parent="." instance=ExtResource("17_6bjc7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.038, -2.38419e-07, -105.983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.99, 1.55426, -104.869)
 
 [node name="Door_Exit" parent="." instance=ExtResource("18_u1ylt")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -120.052, 1.58641, -103.027)
 destination = "res://Scenes/Clubhouse/Interior/clubhouse_interior.tscn"
-
-[node name="TeeBox" parent="." instance=ExtResource("19_5l52g")]
-transform = Transform3D(1.10533, 0, -0.352005, 0, 1, 0, 0.71825, 0, 0.541708, -140.761, -0.394939, -120.402)
-tee_number = 1
-
-[node name="Basket" parent="." instance=ExtResource("28_10t6g")]
-transform = Transform3D(10.8336, 0, 0, 0, 10.8336, 0, 0, 0, 10.8336, -189.057, -11.974, -206.21)
-hole = 1
-
-[node name="Lightning_Particle" parent="Basket" groups=["Lightning"] instance=ExtResource("18_b7jpv")]
-transform = Transform3D(0.0923054, 0, 0, 0, 0.0923054, 0, 0, 0, 0.0923054, 0, 0, 0)
-
-[node name="Hole1sign" parent="." instance=ExtResource("20_2jk2f")]
-transform = Transform3D(0.881823, 0, -0.471581, 0, 1, 0, 0.471581, 0, 0.881823, -134.887, 0, -120.005)
 
 [node name="Obstacles" type="Node" parent="."]
 
@@ -92,3 +79,69 @@ transform = Transform3D(-0.515427, 0.797218, -0.31429, -0.856933, -0.47951, 0.18
 
 [node name="Clubhouse Outside" parent="." instance=ExtResource("18_ihmlv")]
 transform = Transform3D(-2.47487, 0, 2.47487, 0, 3.5, 0, -2.47487, 0, -2.47487, -121.04, -0.0578918, -103.94)
+
+[node name="Baskets and Tees" type="Node3D" parent="."]
+
+[node name="Basket2" parent="Baskets and Tees" instance=ExtResource("28_10t6g")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -404.338, 13.2908, -4.6415)
+hole = 2
+
+[node name="Basket" parent="Baskets and Tees" instance=ExtResource("28_10t6g")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -186.266, -11.2726, -207.809)
+hole = 1
+
+[node name="Lightning_Particle" parent="Baskets and Tees/Basket" groups=["Lightning"] instance=ExtResource("18_b7jpv")]
+transform = Transform3D(0.0923054, 0, 0, 0, 0.0923054, 0, 0, 0, 0.0923054, 0, 0, 0)
+
+[node name="TeeBox2" parent="Baskets and Tees" instance=ExtResource("19_5l52g")]
+transform = Transform3D(2.96098, 0, 0, 0, 2.96098, 0, 0, 0, 2.96098, -331.576, -6.31922, -192.278)
+tee_number = 2
+
+[node name="TeeBox" parent="Baskets and Tees" instance=ExtResource("19_5l52g")]
+transform = Transform3D(1.25778, 0, -0.817311, 0, 1.5, 0, 0.817311, 0, 1.25778, -140.547, -0.736039, -119.667)
+tee_number = 1
+
+[node name="Signs" type="Node3D" parent="."]
+
+[node name="Sign_Hole_01" parent="Signs" instance=ExtResource("10_3aiwv")]
+transform = Transform3D(-0.0217451, 0, -0.999764, 0, 1, 0, 0.999764, 0, -0.0217451, -135.043, 0, -120.218)
+
+[node name="Sign_Hole_02" parent="Signs" instance=ExtResource("10_3aiwv")]
+transform = Transform3D(0.206631, 0, -0.978419, 0, 1, 0, 0.978419, 0, 0.206631, -199.862, -10.5486, -218.151)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Zombie2" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.868, -28.9995, -175.494)
+sight_range = 10
+is_burried = true
+
+[node name="Zombie3" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.269, -28.9995, -174.306)
+sight_range = 10
+is_burried = true
+
+[node name="Zombie4" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.891, -28.9995, -173.206)
+sight_range = 10
+is_burried = true
+
+[node name="Zombie5" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.571, -28.9995, -173.886)
+sight_range = 10
+is_burried = true
+
+[node name="Zombie6" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.876, -28.9995, -175.922)
+sight_range = 10
+is_burried = true
+
+[node name="Zombie7" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.218, -28.9995, -175.698)
+sight_range = 10
+is_burried = true
+
+[node name="Zombie8" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.707, -28.9995, -171.935)
+sight_range = 10
+is_burried = true

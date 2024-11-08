@@ -1,8 +1,12 @@
 class_name Entity_Zombie
 extends Entity
 
-var rotation_speed: float = 5.0
 @export var sight_range: int = 999
+@export var is_burried := false
+@onready var start_pos := global_position
+
+var burry_depth = 1.5
+var rotation_speed: float = 5.0
 var timer: Timer
 var is_walking = false
 
@@ -14,18 +18,21 @@ func _ready():
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
 	add_child(timer)
+	if is_burried:
+		State_Controller.state_next = "Burried"
 
-func _process(delta):
+func _process(delta): 
 	if Target:
 		dir_to_target = global_position.direction_to(Target.global_position)
 		dist_to_target = global_position.distance_to(Target.global_position)
 	new_dir.y = input_look.y
-	
-	_update_velocity(delta)
+	if !is_burried: _update_velocity(delta)
 	if !Target: return
+	
+	# TODO: use dist_to_target (also in burried state)
 	var direction = global_position - Target.global_position
 	direction.y = 0
-	if direction.length() > 0.01:  # Check if we're not too close to prevent jitter
+	if direction.length() > 0.01:  
 		# Get the rotation to look at target
 		var look_at_point = global_position + direction.normalized()
 		var target_basis = global_transform.looking_at(look_at_point).basis
