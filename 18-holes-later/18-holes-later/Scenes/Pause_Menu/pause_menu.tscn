@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://2qqrnls6qqtk"]
 
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_menu.gd" id="1_c82d8"]
-[ext_resource type="Texture2D" uid="uid://bojls6d0ucddj" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="2_l8vn1"]
+[ext_resource type="Texture2D" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="2_l8vn1"]
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/pause_header.gd" id="3_adi3j"]
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/btn_settings.gd" id="3_du1g1"]
 [ext_resource type="Script" path="res://Scenes/Pause_Menu/settings.gd" id="4_6oy5w"]
-[ext_resource type="Texture2D" uid="uid://dhw4no2ewyj6l" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small_bw.png" id="5_e3qe8"]
+[ext_resource type="Texture2D" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small_bw.png" id="5_e3qe8"]
 
 [node name="Pause_Menu" type="Control" groups=["Pause Menu"]]
 layout_mode = 3

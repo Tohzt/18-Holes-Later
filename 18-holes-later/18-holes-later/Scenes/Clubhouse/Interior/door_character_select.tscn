@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Clubhouse/Interior/door_character_select.gd" id="1_refnq"]
 [ext_resource type="Texture2D" uid="uid://ccd2lgwl5sbx4" path="res://Scenes/Clubhouse/src/Interior/ClubHouseInteriorgr_OIG3.png" id="2_pu31a"]
-[ext_resource type="Texture2D" uid="uid://bojls6d0ucddj" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="3_slwa6"]
+[ext_resource type="Texture2D" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="3_slwa6"]
 [ext_resource type="Script" path="res://Scenes/Main_Menu/character_container.gd" id="4_i0vph"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sehlk"]
