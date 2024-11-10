@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1flq11c6t3up"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Disc Selector/disc_button_creator.gd" id="1_aiym6"]
-[ext_resource type="Texture2D" uid="uid://bojls6d0ucddj" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="1_oiexq"]
+[ext_resource type="Texture2D" path="res://Styles/UI Assets/Theme_Placeholder/menu_frame _small.png" id="1_oiexq"]
 [ext_resource type="Script" path="res://Scenes/UI/Disc Selector/disc_selector.gd" id="2_l2ds2"]
 
 [node name="DiscSelector" type="NinePatchRect"]

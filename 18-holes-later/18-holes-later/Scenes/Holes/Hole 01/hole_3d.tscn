@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c501bn70mhy8j"]
+[gd_scene load_steps=17 format=3 uid="uid://c501bn70mhy8j"]
 
 [ext_resource type="Terrain3DMaterial" uid="uid://d3pvbjb12n5yt" path="res://Scenes/Holes/Hole 01/matshole_3d.tres" id="1_mdr8j"]
 [ext_resource type="Terrain3DAssets" uid="uid://fpmbocqhcjem" path="res://Scenes/Holes/Hole 01/assetshole_3d.tres" id="2_uyc61"]
 [ext_resource type="PackedScene" uid="uid://2yhn28lxlayw" path="res://Objects/DecoAssets/Hole Sign/Sign_Hole_01.tscn" id="10_3aiwv"]
 [ext_resource type="PackedScene" uid="uid://dq5k8n0rtk27y" path="res://Entities/Zombie/zombie.tscn" id="14_wo8xa"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="17_6bjc7"]
-[ext_resource type="PackedScene" uid="uid://dehcylf8ob10y" path="res://Styles/Effects/lightning_particle.tscn" id="18_b7jpv"]
 [ext_resource type="PackedScene" uid="uid://c6roh5iu8v8u7" path="res://Structures/Clubhouse Outside/clubhous_outside.tscn" id="18_ihmlv"]
 [ext_resource type="PackedScene" uid="uid://b177kmpe8ky2j" path="res://Scenes/Clubhouse/Interior/door_exit.tscn" id="18_u1ylt"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="19_5l52g"]
@@ -89,9 +88,6 @@ hole = 2
 [node name="Basket" parent="Baskets and Tees" instance=ExtResource("28_10t6g")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -186.266, -11.2726, -207.809)
 hole = 1
-
-[node name="Lightning_Particle" parent="Baskets and Tees/Basket" groups=["Lightning"] instance=ExtResource("18_b7jpv")]
-transform = Transform3D(0.0923054, 0, 0, 0, 0.0923054, 0, 0, 0, 0.0923054, 0, 0, 0)
 
 [node name="TeeBox2" parent="Baskets and Tees" instance=ExtResource("19_5l52g")]
 transform = Transform3D(2.96098, 0, 0, 0, 2.96098, 0, 0, 0, 2.96098, -331.576, -6.31922, -192.278)
