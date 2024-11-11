@@ -8,7 +8,6 @@ func _ready():
 	v_slider.value = Global.Settings.MOUSE_V_SENSITIVITY
 
 func _on_h_slider_value_changed(value):
-	print(Global.Settings.MOUSE_H_SENSITIVITY)
 	Global.Settings.MOUSE_H_SENSITIVITY = value
 
 func _on_v_slider_value_changed(value):

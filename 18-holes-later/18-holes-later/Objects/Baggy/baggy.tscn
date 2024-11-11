@@ -1,7 +1,15 @@
-[gd_scene load_steps=7 format=4 uid="uid://cvgxf8liocqa"]
+[gd_scene load_steps=13 format=4 uid="uid://cvgxf8liocqa"]
 
 [ext_resource type="Script" path="res://Objects/Baggy/baggy.gd" id="1_61m33"]
 [ext_resource type="Texture2D" uid="uid://4cpwvppacawg" path="res://Objects/Baggy/src/Baggy_baggy.png" id="2_6a3f7"]
+[ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="3_c25as"]
+[ext_resource type="Script" path="res://Objects/Baggy/baggy_idle.gd" id="3_ov3iq"]
+[ext_resource type="PackedScene" uid="uid://v6gnxcxiubm8" path="res://Entities/_Controllers/InputControllers/input_controller.tscn" id="5_lbeqc"]
+[ext_resource type="Script" path="res://Entities/Zombie/zanim.gd" id="6_n1106"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cklmv"]
+radius = 0.19686
+height = 0.748001
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkxv1"]
 resource_name = "baggy"
@@ -45,26 +53,41 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iwm8n")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cklmv"]
-radius = 0.19686
-height = 0.748001
+[sub_resource type="Animation" id="Animation_t2oby"]
+resource_name = "Idle"
 
-[node name="Baggy" type="RigidBody3D"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgn4s"]
+_data = {
+"Idle": SubResource("Animation_t2oby")
+}
+
+[node name="Baggy" type="CharacterBody3D" groups=["Target"]]
 collision_layer = 8
 collision_mask = 15
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-mass = 0.01
-continuous_cd = true
-contact_monitor = true
-angular_velocity = Vector3(0, 0.174533, 0)
 script = ExtResource("1_61m33")
 
-[node name="baggy" type="MeshInstance3D" parent="."]
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.008)
+shape = SubResource("CapsuleShape3D_cklmv")
+
+[node name="State_Controller" parent="." instance=ExtResource("3_c25as")]
+
+[node name="Idle" type="Node" parent="State_Controller"]
+script = ExtResource("3_ov3iq")
+
+[node name="Input_Controller" parent="." instance=ExtResource("5_lbeqc")]
+
+[node name="Anim_Controller" type="Node3D" parent="."]
+script = ExtResource("6_n1106")
+
+[node name="baggy" type="MeshInstance3D" parent="Anim_Controller"]
 transform = Transform3D(-2, -1.74846e-07, 7.64274e-15, 0, -8.74228e-08, -2, 1.74846e-07, -2, 8.74228e-08, 0.00543058, 0.84, 0.25762)
 mesh = SubResource("ArrayMesh_c48df")
 skeleton = NodePath("")
 
-[node name="Baggy_Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.008)
-shape = SubResource("CapsuleShape3D_cklmv")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Anim_Controller"]
+libraries = {
+"": SubResource("AnimationLibrary_fgn4s")
+}
