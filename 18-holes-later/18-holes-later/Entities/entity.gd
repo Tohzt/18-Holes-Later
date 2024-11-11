@@ -9,10 +9,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var Input_Controller: InputController = $Input_Controller
 @onready var State_Controller: StateController = $State_Controller
 
-var SPEED: float = 10000.0
+@export var SPEED: float = 10000.0
 var SPEED_MULT: float = 1
-var JUMP_FORCE: float = 5
-var sight: float = 20.0
+@export var JUMP_FORCE: float = 5
+@export var SIGHT_RANGE: int = 999
+var Target: Node3D
 
 var is_dead: bool
 var accepts_input: bool
@@ -49,7 +50,6 @@ var is_jumping: bool
 var is_falling: bool
 var is_landing: bool
 
-var Target: Node3D
 var dir_to_target = Vector3.ZERO
 var dist_to_target = 0.0
 
@@ -92,9 +92,6 @@ func set_active(TorF: bool):
 		can_jump = true
 		can_interact = true
 		accepts_input = true
-		Input_Controller.character_action = true
-		Input_Controller.character_look = true
-		Input_Controller.character_move = true
 	else:
 		look_forward = false
 		look_around = false
@@ -108,9 +105,6 @@ func set_active(TorF: bool):
 		can_jump = false
 		can_interact = false
 		accepts_input = false
-		Input_Controller.character_action = false
-		Input_Controller.character_look = false
-		Input_Controller.character_move = false
 
 func anim_play(anim):
 	Anim_Controller.anim_state.travel(anim)

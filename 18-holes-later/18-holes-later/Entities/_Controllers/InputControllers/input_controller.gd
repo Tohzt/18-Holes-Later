@@ -89,7 +89,7 @@ func _character_look(delta):
 			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
 			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
 
-func _character_action():
+func _character_action(): 
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if !Master.in_combat:
 		if Master.can_combat:
@@ -126,9 +126,10 @@ func _character_action():
 			target_offset_index -= 1
 		
 	if Input.is_action_just_pressed("lock_on"):
+		# TODO: Toggle target with middle click. Cycle with wheel
 		# Get all enemies in renge, sorted by distance
 		var enemies_in_range: Array[Node3D]
-		enemies_in_range = Global.get_objects_in_range(Master, "Target", Master.sight)
+		enemies_in_range = Global.get_objects_in_range(Master, "Target", Master.SIGHT_RANGE)
 		
 		# TODO: get current enemy and shift by offset_index
 		#if Master.Target:
@@ -176,9 +177,9 @@ func _set_marker(enemy_nearest: Node3D):
 	if marker:
 		marker.reparent(enemy_nearest)
 	else:
-		var tar_mark = Global.Refs.TARGET_MARKER.instantiate()
-		tar_mark.position.y = 2
-		enemy_nearest.add_child(tar_mark)
+		var new_target_marker = Global.Refs.TARGET_MARKER.instantiate()
+		new_target_marker.position.y = 2
+		enemy_nearest.add_child(new_target_marker)
 		Master.Target = enemy_nearest
 
 # Vehicle Inputs

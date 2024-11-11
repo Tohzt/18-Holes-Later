@@ -1,7 +1,6 @@
 class_name Entity_Zombie
 extends Entity
 
-@export var sight_range: int = 999
 @export var is_burried := false
 @onready var start_pos := global_position
 
@@ -56,10 +55,11 @@ func _on_body_entered(body):
 
 func _on_area_3d_area_entered(area):
 	if area.name == "BoneHand":
-		print_debug("Disabled bcollision with bone")
+		print_debug("Disabled collision with bone")
 		#take_damage(10,Vector3.UP*10)
 
 func _on_timer_timeout():
-	$GPUParticles3D.emitting = true
-	$GPUParticles3D.reparent(get_parent())
-	queue_free()
+	pass
+	#$GPUParticles3D.emitting = true
+	#$GPUParticles3D.reparent(get_parent())
+	#queue_free()

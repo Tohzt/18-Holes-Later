@@ -6,12 +6,12 @@ var target_offset_index = 0
 var look_forward = true
 var look_around = false
 var accepts_input = false
-var sight = INF
+var sight_range = INF
 
 var enemies_in_range: Array[Node3D]
 
 func _ready():
-	enemies_in_range = Global.get_objects_in_range(self, "Target", sight)
+	enemies_in_range = Global.get_objects_in_range(self, "Target", sight_range)
 	Target = enemies_in_range.front()
 
 func _process(_delta):

@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="7_llovg"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="8_1k3xo"]
 [ext_resource type="PackedScene" uid="uid://c7xne0byhx4ij" path="res://Objects/vehicles/Golf Cart/golf_cart.tscn" id="9_5mk3v"]
-[ext_resource type="PackedScene" uid="uid://dq5k8n0rtk27y" path="res://Entities/Zombie/zombie.tscn" id="9_y6gln"]
 [ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="14_qdsjn"]
+[ext_resource type="PackedScene" uid="uid://cvgxf8liocqa" path="res://Objects/Baggy/baggy.tscn" id="15_1jp3y"]
 [ext_resource type="PackedScene" uid="uid://buyy01rncsfep" path="res://Global/Spawners/enemy_spawn.tscn" id="15_mpiqo"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
@@ -339,26 +339,8 @@ hole = 1
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2881, 0, -42.7061)
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.2774, 0, -48.9641)
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.4377, 0, -52.4993)
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.4311, 0, -45.4648)
-
-[node name="Enemy5" parent="Enemies" instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.2335, 0, -47.7544)
-
-[node name="Enemy6" parent="Enemies" instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.796, 0, -50.141)
-
-[node name="Enemy7" parent="Enemies" instance=ExtResource("9_y6gln")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8876, 0, -45.8101)
+[node name="Baggy" parent="Enemies" instance=ExtResource("15_1jp3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0432, 0.134629, -15.0133)
 
 [node name="Testing" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)

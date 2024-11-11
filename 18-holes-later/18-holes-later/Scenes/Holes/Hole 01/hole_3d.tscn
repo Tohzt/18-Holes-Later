@@ -109,35 +109,42 @@ transform = Transform3D(0.206631, 0, -0.978419, 0, 1, 0, 0.978419, 0, 0.206631, 
 
 [node name="Zombie2" parent="Enemies" instance=ExtResource("14_wo8xa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.868, -28.9995, -175.494)
-sight_range = 10
 is_burried = true
+max_health = null
+health = null
 
 [node name="Zombie3" parent="Enemies" instance=ExtResource("14_wo8xa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.269, -28.9995, -174.306)
-sight_range = 10
 is_burried = true
+max_health = null
+health = null
 
 [node name="Zombie4" parent="Enemies" instance=ExtResource("14_wo8xa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.891, -28.9995, -173.206)
-sight_range = 10
 is_burried = true
+max_health = null
+health = null
 
 [node name="Zombie5" parent="Enemies" instance=ExtResource("14_wo8xa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.571, -28.9995, -173.886)
-sight_range = 10
 is_burried = true
+max_health = null
+health = null
 
 [node name="Zombie6" parent="Enemies" instance=ExtResource("14_wo8xa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.876, -28.9995, -175.922)
-sight_range = 10
 is_burried = true
+max_health = null
+health = null
 
 [node name="Zombie7" parent="Enemies" instance=ExtResource("14_wo8xa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.218, -28.9995, -175.698)
-sight_range = 10
 is_burried = true
+max_health = null
+health = null
 
 [node name="Zombie8" parent="Enemies" instance=ExtResource("14_wo8xa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.707, -28.9995, -171.935)
-sight_range = 10
 is_burried = true
+max_health = null
+health = null

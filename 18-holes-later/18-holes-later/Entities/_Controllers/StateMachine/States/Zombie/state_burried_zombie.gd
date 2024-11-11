@@ -13,7 +13,7 @@ func update_state(delta):
 	if !Master.Target: Master.Target = Global.Player 
 	
 	var dist_to_target = Master.position.distance_to(Master.Target.position)
-	if dist_to_target < Master.sight_range:
+	if dist_to_target < Master.SIGHT_RANGE:
 		climb_out = true
 	
 	if climb_out:
