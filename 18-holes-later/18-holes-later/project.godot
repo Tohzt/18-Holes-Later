@@ -70,6 +70,7 @@ Player_Spawn=""
 Target=""
 Collect=""
 "Character Select"=""
+"Target Marker"=""
 
 [gui]
 

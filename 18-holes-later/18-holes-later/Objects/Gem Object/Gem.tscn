@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmikfauyo8lht"]
+[gd_scene load_steps=4 format=3 uid="uid://bmikfauyo8lht"]
 
 [ext_resource type="ArrayMesh" uid="uid://bn44hq80nlvxy" path="res://Objects/Gem Object/Gem_Mesh.res" id="1_6nba5"]
 [ext_resource type="Script" path="res://Objects/Gem Object/gem.gd" id="1_rgy3u"]
-[ext_resource type="Material" uid="uid://drco6b57o132g" path="res://Objects/Gem Object/src/gem_blood.tres" id="3_2j2vl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uv5do"]
 radius = 0.122221
@@ -15,7 +14,6 @@ script = ExtResource("1_rgy3u")
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = ExtResource("1_6nba5")
-surface_material_override/0 = ExtResource("3_2j2vl")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00537109, -0.00537109, 0.0107422)
