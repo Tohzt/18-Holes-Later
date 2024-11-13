@@ -6,7 +6,7 @@ func init_state():
 	Master.look_forward = true
 	Master.is_moving = true
 	Master.can_run = true
-	Master.can_throw = false
+	Master.can_throw = true
 	Master.can_crouch = true
 	Master.is_crouching = false
 	Master.SPEED_MULT = 1
