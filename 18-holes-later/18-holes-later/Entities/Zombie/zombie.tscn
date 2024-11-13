@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dq5k8n0rtk27y"]
+[gd_scene load_steps=25 format=4 uid="uid://dq5k8n0rtk27y"]
 
 [ext_resource type="Script" path="res://Entities/Zombie/zombie.gd" id="1_0wgci"]
 [ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_26udu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Entities/Zombie/zanim.gd" id="6_aoeh1"]
 [ext_resource type="Texture2D" uid="uid://35vu1o14ahi1" path="res://Entities/Zombie/src/Zanim_Zombie_Mailman_0926222648.png" id="7_ymbtb"]
 [ext_resource type="PackedScene" uid="uid://dotxitr8kggxf" path="res://Styles/Particles/Dust/dust.tscn" id="9_hrn0x"]
+[ext_resource type="PackedScene" uid="uid://ck2eb5ytkoyx6" path="res://Styles/Particles/Explosion/explosions.tscn" id="9_ixke5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ass4t"]
 resource_name = "Material.001"
@@ -1897,6 +1898,8 @@ mesh = SubResource("CapsuleMesh_g0qpo")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.843979, 0)
 shape = SubResource("CapsuleShape3D_hxks6")
+
+[node name="GPUParticles3D" parent="." instance=ExtResource("9_ixke5")]
 
 [node name="Dust" parent="." instance=ExtResource("9_hrn0x")]
 
