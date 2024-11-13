@@ -342,6 +342,12 @@ hole = 1
 [node name="Baggy" parent="Enemies" instance=ExtResource("15_1jp3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0432, 0.134629, -15.0133)
 
+[node name="Baggy2" parent="Enemies" instance=ExtResource("15_1jp3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.16556, 0.134629, -12.5024)
+
+[node name="Baggy3" parent="Enemies" instance=ExtResource("15_1jp3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0109, 0.134629, -12.5024)
+
 [node name="Testing" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 

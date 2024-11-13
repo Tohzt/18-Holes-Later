@@ -122,42 +122,34 @@ func _character_action():
 	if Master.Target:
 		if Input.is_action_just_pressed("lock_cycle_up"):
 			target_offset_index += 1
+			_update_target()
 		if Input.is_action_just_pressed("lock_cycle_down"):
 			target_offset_index -= 1
+			_update_target()
 		
 	if Input.is_action_just_pressed("lock_on"):
-		# TODO: Toggle target with middle click. Cycle with wheel
-		# Get all enemies in renge, sorted by distance
-		var enemies_in_range: Array[Node3D]
-		enemies_in_range = Global.get_objects_in_range(Master, "Target", Master.SIGHT_RANGE)
+		if Master.Target:
+			Master.Target = null
+			var marker = get_tree().get_first_node_in_group("Target Marker")
+			if marker: marker.queue_free()
+			target_offset_index = 0
+			return
 		
-		# TODO: get current enemy and shift by offset_index
-		#if Master.Target:
-			#var current_target_index = enemies_in_range.find(Master.Target)
-			#if current_target: 
-				#pass
+		_update_target()
+	
+func _update_target():
+	var enemies_in_range: Array[Node3D]
+	enemies_in_range = Global.get_objects_in_range(Master, "Target", Master.SIGHT_RANGE)
+	
+	if enemies_in_range:
+		target_offset_index = target_offset_index % enemies_in_range.size()
+		var enemy_at_index = enemies_in_range[target_offset_index]
+		if enemy_at_index:
+			Master.set_target(enemy_at_index)
+			_set_marker(enemy_at_index)
 		
-		if enemies_in_range:
-			var enemy_nearest = enemies_in_range.pop_front()
-			
-			# Untarget Self
-			if enemy_nearest == Master.Target:
-				Master.set_target(null)
-				enemy_nearest = null
-				_queue_marker()
-			
-			if enemy_nearest:
-				Master.set_target(enemy_nearest)
-				_set_marker(enemy_nearest)
-			
-			# Target next closest
-			if enemies_in_range:
-				enemy_nearest = enemies_in_range.pop_front()
-				
-				Master.set_target(enemy_nearest)
-				_set_marker(enemy_nearest)
-		else:
-			print("No nearby target found..")
+	else:
+		print("No nearby target found..")
 #endregion
 
 func _target_further():
@@ -171,16 +163,17 @@ func _queue_marker():
 		marker.queue_free()
 
 func _set_marker(enemy_nearest: Node3D):
-	if !enemy_nearest: return
+	if !enemy_nearest or !Master.Target: return
 	
 	var marker = get_tree().get_first_node_in_group("Target Marker")
 	if marker:
-		marker.reparent(enemy_nearest)
+		marker.global_position = Master.Target.global_position
+		marker.reparent(Master.Target)
 	else:
 		var new_target_marker = Global.Refs.TARGET_MARKER.instantiate()
 		new_target_marker.position.y = 2
-		enemy_nearest.add_child(new_target_marker)
 		Master.Target = enemy_nearest
+		Master.Target.add_child(new_target_marker)
 
 # Vehicle Inputs
 # TODO: Rotation bugs if mouse and keys simul

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cvgxf8liocqa"]
+[gd_scene load_steps=15 format=4 uid="uid://cvgxf8liocqa"]
 
 [ext_resource type="Script" path="res://Objects/Baggy/baggy.gd" id="1_61m33"]
 [ext_resource type="Texture2D" uid="uid://4cpwvppacawg" path="res://Objects/Baggy/src/Baggy_baggy.png" id="2_6a3f7"]
@@ -61,12 +61,22 @@ _data = {
 "Idle": SubResource("Animation_t2oby")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu658"]
+transparency = 1
+albedo_color = Color(1, 0, 0.988235, 0.129412)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vqdif"]
+material = SubResource("StandardMaterial3D_cu658")
+radius = 15.0
+height = 30.0
+
 [node name="Baggy" type="CharacterBody3D" groups=["Target"]]
 collision_layer = 8
 collision_mask = 15
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_61m33")
+SIGHT_RANGE = 15
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.008)
@@ -91,3 +101,7 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_fgn4s")
 }
+
+[node name="_sight_bubble" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_vqdif")

@@ -27,7 +27,7 @@ collision_mask = 57
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_qjxgn")
-SIGHT_RANGE = 10
+SIGHT_RANGE = 20
 
 [node name="Save" parent="." instance=ExtResource("2_neyin")]
 is_char = true
