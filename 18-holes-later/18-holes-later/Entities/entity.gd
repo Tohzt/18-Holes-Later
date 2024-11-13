@@ -2,8 +2,8 @@ class_name Entity
 extends CharacterBody3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@export var max_health: int = 100
-@export var health: float
+@export var MAX_HP: int = 100
+@export var HP: float
 
 @onready var Anim_Controller: AnimController3D = $Anim_Controller
 @onready var Input_Controller: InputController = $Input_Controller
@@ -54,7 +54,7 @@ var dir_to_target = Vector3.ZERO
 var dist_to_target = 0.0
 
 func _ready():
-	health = max_health
+	HP = MAX_HP
 	set_active(true)
 
 func _update_velocity(delta):
@@ -72,11 +72,14 @@ func _update_velocity(delta):
 
 func take_damage(dmg_incoming: float = 0, knockback: Vector3 = Vector3.ZERO):
 	velocity += knockback
-	health -= dmg_incoming
-	if health <= 0:
-		health = 0
+	HP -= dmg_incoming
+	if HP <= 0:
+		HP = 0
 		is_dead = true
-		queue_free()
+		if self.is_in_group("Zombie"):
+			self.timer.start()
+		else:
+			queue_free()
 		
 func set_active(TorF: bool):
 	if TorF:
@@ -86,7 +89,6 @@ func set_active(TorF: bool):
 		can_throw = true
 		can_combat = true
 		can_attack = true
-		can_throw = true
 		can_look = true
 		can_move = true
 		can_jump = true

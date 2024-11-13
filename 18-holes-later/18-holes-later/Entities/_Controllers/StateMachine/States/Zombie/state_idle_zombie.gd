@@ -5,7 +5,8 @@ func init_state():
 	State_Controller.state_options = state_options
 	Master.can_move = true
 	Master.Anim_Controller.anim.play("Idle")
-	if Master.get_node("Dust"):
+	var _dust = Master.get_node("Dust")
+	if _dust:
 		Master.get_node("Dust").queue_free()
 
 func monitor_state():
