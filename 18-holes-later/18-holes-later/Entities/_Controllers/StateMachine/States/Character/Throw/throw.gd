@@ -11,7 +11,25 @@ func init_state():
 func monitor_state():
 	pass
 
+func _combat_throw():
+	for disc: Disc_CharBod_Class in Master.Bag.discs:
+			if disc.in_hand:
+				Global.select_next_disc()
+				disc.position = Master.Hand.global_position
+				disc.target_dir = -Master.global_position.direction_to(Master.Target.global_position)
+				disc.power = 8.0
+				disc.curve_h.clear_points()
+				disc.curve_v.clear_points()
+				disc.is_launched = true
+		
+	print("combat throw")
+	exit_state("Idle")
+
 func update_state(delta):
+	if Master.Target:
+		_combat_throw()
+		return
+	
 	Master.get_aim_trace()
 	if Master.is_charging: 
 		Master.charge_power += Master.charge_rate * delta

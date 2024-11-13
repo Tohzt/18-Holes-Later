@@ -50,14 +50,24 @@ func instant_look_at_target() -> void:
 			look_at(Target.global_position, Vector3.UP)
 
 func _on_body_entered(body):
+	# TODO: this not happening
 	if body.is_in_group("Disc"):
-		take_damage(10,Vector3.UP*10)
+		take_damage(10)
 
-func _on_area_3d_area_entered(area):
+func _on_area_3d_area_entered(area): 
 	if area.name == "BoneHand":
-		take_damage(10,Vector3.UP*10)
+		take_damage(10.0)
+
+func take_damage(dmg_incoming: float = 0, knockback: Vector3 = Vector3.ZERO):
+	if self.is_in_group("Zombie"):
+		self.timer.start()
+	super.take_damage(dmg_incoming)
 
 func _on_timer_timeout():
 	$GPUParticles3D.emitting = true
 	$GPUParticles3D.reparent(get_parent())
 	queue_free()
+
+
+func _on_area_3d_body_entered(body):
+	pass # Replace with function body.

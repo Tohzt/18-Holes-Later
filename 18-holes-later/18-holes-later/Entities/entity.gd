@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var MAX_HP: int = 100
-@export var HP: float
+var HP: float
 
 @onready var Anim_Controller: AnimController3D = $Anim_Controller
 @onready var Input_Controller: InputController = $Input_Controller
@@ -76,10 +76,7 @@ func take_damage(dmg_incoming: float = 0, knockback: Vector3 = Vector3.ZERO):
 	if HP <= 0:
 		HP = 0
 		is_dead = true
-		if self.is_in_group("Zombie"):
-			self.timer.start()
-		else:
-			queue_free()
+		queue_free()
 		
 func set_active(TorF: bool):
 	if TorF:
