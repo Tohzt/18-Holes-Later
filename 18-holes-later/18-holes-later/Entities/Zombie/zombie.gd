@@ -9,10 +9,13 @@ var rotation_speed: float = 5.0
 var timer: Timer
 var is_walking = false
 
+var i_frames = 0.0
+var i_frames_max = 0.5
+
 func _ready():
+	super._ready()
 	accepts_input = true
 	can_move = true
-	SPEED = 200
 	timer = Timer.new()
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
@@ -21,6 +24,12 @@ func _ready():
 		State_Controller.state_next = "Burried"
 
 func _process(delta): 
+	if i_frames > 0:
+		i_frames -= delta
+	
+	if HP < 0:
+		timer.start()
+	
 	if Target:
 		dir_to_target = global_position.direction_to(Target.global_position)
 		dist_to_target = global_position.distance_to(Target.global_position)
@@ -55,19 +64,22 @@ func _on_body_entered(body):
 		take_damage(10)
 
 func _on_area_3d_area_entered(area): 
-	if area.name == "BoneHand":
-		take_damage(10.0)
+	if area.name == "Combat":
+		var dmg = 30
+		var kb := Vector3(50, 5, 50)
+		#kb = area.global_position - global_position
+		#kb.y = 0.5
+		take_damage(dmg, kb)
 
 func take_damage(dmg_incoming: float = 0, knockback: Vector3 = Vector3.ZERO):
-	if self.is_in_group("Zombie"):
-		self.timer.start()
-	super.take_damage(dmg_incoming)
+	if i_frames > 0: return
+	i_frames = i_frames_max
+	super.take_damage(dmg_incoming, knockback)
 
 func _on_timer_timeout():
 	$GPUParticles3D.emitting = true
 	$GPUParticles3D.reparent(get_parent())
 	queue_free()
 
-
-func _on_area_3d_body_entered(body):
+func _on_area_3d_body_entered(_body):
 	pass # Replace with function body.

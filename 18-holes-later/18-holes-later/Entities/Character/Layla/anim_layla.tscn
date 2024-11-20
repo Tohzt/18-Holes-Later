@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://bqr7m241m0ewj"]
+[gd_scene load_steps=47 format=4 uid="uid://bqr7m241m0ewj"]
 
 [ext_resource type="Script" path="res://Entities/Character/Layla/anim_layla.gd" id="1_cioyi"]
 [ext_resource type="AnimationLibrary" uid="uid://b1uawyw5rp16o" path="res://Entities/Character/Layla/src/SlideAnims.res" id="2_6a4t2"]
@@ -182,9 +182,6 @@ bind/47/pose = Transform3D(-99.748, -2.79078, 6.52263, 6.41343, 3.84058, 99.7202
 bind/48/name = &"mixamorig_RightToe_End"
 bind/48/bone = -1
 bind/48/pose = Transform3D(-99.748, -2.79069, 6.52271, 6.41352, 3.84058, 99.7202, -3.03339, 99.8873, -3.65193, -0.171384, -0.158002, 0.985089)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_a8a6l"]
-radius = 0.142363
 
 [sub_resource type="Animation" id="Animation_m6uk4"]
 resource_name = "Armature|Charge"
@@ -11911,23 +11908,13 @@ bones/57/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_lek4e")
 skin = SubResource("Skin_dv87o")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
+[node name="HandBone" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
 transform = Transform3D(0.943931, -0.285294, 0.166135, 0.18062, 0.0250369, -0.983234, 0.276351, 0.958113, 0.0751629, -0.403618, 1.31858, 1.27694)
 bone_name = "mixamorig_RightHand"
 bone_idx = 30
 
-[node name="Anchor" type="Node3D" parent="Armature/Skeleton3D/BoneAttachment3D"]
-transform = Transform3D(0.991819, 0.0700146, -0.106747, -0.0566943, -0.507621, -0.859713, -0.114379, 0.858731, -0.499498, -0.0107246, 0.184953, 0.0729326)
-
-[node name="BoneHand" type="Area3D" parent="Armature/Skeleton3D/BoneAttachment3D/Anchor" groups=["Attack_Jab"]]
-transform = Transform3D(0.902708, -0.176842, -0.392231, 0.429054, 0.438017, 0.789971, 0.0321041, -0.881402, 0.471276, -0.0198494, 0.185934, 0.0814973)
-visible = false
-collision_layer = 2
-collision_mask = 8
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/Anchor/BoneHand"]
-transform = Transform3D(0.988223, 0.151096, -0.0241876, -0.151643, 0.988177, -0.0226135, 0.020485, 0.0260151, 0.999452, 0, 0, 0)
-shape = SubResource("SphereShape3D_a8a6l")
+[node name="Anchor" type="Node3D" parent="Armature/Skeleton3D/HandBone"]
+transform = Transform3D(0.991819, 0.0700146, -0.106747, -0.0566944, -0.507621, -0.859713, -0.114379, 0.858731, -0.499498, 0.0228803, 0.0793262, 0.00622308)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

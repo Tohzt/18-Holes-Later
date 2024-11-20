@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mgaxgwqsomw8"]
+[gd_scene load_steps=21 format=3 uid="uid://mgaxgwqsomw8"]
 
 [ext_resource type="Script" path="res://Entities/Character/character.gd" id="1_qjxgn"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="2_neyin"]
@@ -14,12 +14,22 @@
 [ext_resource type="PackedScene" uid="uid://by252jyfxak" path="res://Entities/_Controllers/StateMachine/States/Character/Jump/jump.tscn" id="7_02t2y"]
 [ext_resource type="Script" path="res://Entities/Character/disc_bag.gd" id="11_li4e1"]
 [ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="11_xp8yr"]
+[ext_resource type="Script" path="res://Entities/Character/Layla/combat_bone.gd" id="15_lh2ub"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i2ynl"]
 radius = 0.243035
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qkfkk"]
 radius = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iotrr"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.25098)
+
+[sub_resource type="SphereMesh" id="SphereMesh_oesco"]
+material = SubResource("StandardMaterial3D_iotrr")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ill8k"]
 
 [node name="Character" type="CharacterBody3D" groups=["Character"]]
 collision_layer = 2
@@ -75,3 +85,15 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area_Interact"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_qkfkk")
+
+[node name="Combat" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.154, -0.376)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("15_lh2ub")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Combat"]
+mesh = SubResource("SphereMesh_oesco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Combat"]
+shape = SubResource("SphereShape3D_ill8k")

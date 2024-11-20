@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dq5k8n0rtk27y"]
+[gd_scene load_steps=29 format=4 uid="uid://dq5k8n0rtk27y"]
 
 [ext_resource type="Script" path="res://Entities/Zombie/zombie.gd" id="1_0wgci"]
 [ext_resource type="PackedScene" uid="uid://bp50a2ukg1fxu" path="res://Entities/_Controllers/StateMachine/state_controller.tscn" id="2_26udu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://35vu1o14ahi1" path="res://Entities/Zombie/src/Zanim_Zombie_Mailman_0926222648.png" id="7_ymbtb"]
 [ext_resource type="PackedScene" uid="uid://dotxitr8kggxf" path="res://Styles/Particles/Dust/dust.tscn" id="9_hrn0x"]
 [ext_resource type="PackedScene" uid="uid://ck2eb5ytkoyx6" path="res://Styles/Particles/Explosion/explosions.tscn" id="9_ixke5"]
+[ext_resource type="Script" path="res://Entities/Character/Layla/combat_bone.gd" id="11_kn70s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ass4t"]
 resource_name = "Material.001"
@@ -1617,6 +1618,15 @@ height = 1.0
 radius = 0.32424
 height = 1.70982
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32vfu"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.25098)
+
+[sub_resource type="SphereMesh" id="SphereMesh_t818w"]
+material = SubResource("StandardMaterial3D_32vfu")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_08ar6"]
+
 [node name="Zombie" type="CharacterBody3D" groups=["Target", "Zombie"]]
 collision_layer = 8
 collision_mask = 15
@@ -1624,6 +1634,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_0wgci")
 MAX_HP = 30
+SPEED = 200.0
 SIGHT_RANGE = 5
 
 [node name="State_Controller" parent="." instance=ExtResource("2_26udu")]
@@ -1911,6 +1922,18 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.843979, 0)
 shape = SubResource("CapsuleShape3D_hxks6")
+
+[node name="Combat" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.154, -0.376)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("11_kn70s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Combat"]
+mesh = SubResource("SphereMesh_t818w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Combat"]
+shape = SubResource("SphereShape3D_08ar6")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

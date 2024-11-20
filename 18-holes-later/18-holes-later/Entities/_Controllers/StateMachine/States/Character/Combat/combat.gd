@@ -4,6 +4,7 @@ extends CharacterStateClass
 var input: Array[String]
 
 func init_state():
+	Master.Combat.set_collision_layer_value(2,true)
 	State_Controller.state_options = state_options
 	if Master.is_attacking:
 		Master.anim_play("Jab")
@@ -32,5 +33,6 @@ func update_state(_delta):
 		exit_state("Idle")
 
 func exit_state(next_state: String):
+	Master.Combat.set_collision_layer_value(2,false)
 	Master.in_combat = false
 	State_Controller.state_next = next_state

@@ -1,6 +1,6 @@
 extends AnimController3D
 
-@onready var Bone_Hand = $Armature/Skeleton3D/BoneAttachment3D/Anchor
+@onready var combat_bone = $Armature/Skeleton3D/CombatBone
 @onready var animation_tree: AnimationTree = $Layla_Tree
 var anim_state: AnimationNodeStateMachinePlayback
 @onready var Bones: Skeleton3D = $Armature/Skeleton3D

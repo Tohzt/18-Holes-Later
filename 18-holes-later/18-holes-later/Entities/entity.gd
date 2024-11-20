@@ -53,6 +53,8 @@ var is_landing: bool
 var dir_to_target = Vector3.ZERO
 var dist_to_target = 0.0
 
+@onready var Combat: Area3D = $Combat
+
 func _ready():
 	HP = MAX_HP
 	set_active(true)
@@ -71,7 +73,8 @@ func _update_velocity(delta):
 	move_and_slide()
 
 func take_damage(dmg_incoming: float = 0, knockback: Vector3 = Vector3.ZERO):
-	velocity += knockback
+	input_dir = knockback
+	velocity.y = knockback.y
 	HP -= dmg_incoming
 	if HP <= 0:
 		HP = 0
