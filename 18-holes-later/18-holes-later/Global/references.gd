@@ -23,7 +23,7 @@ const LAYLA = preload("res://Entities/Character/Layla/anim_layla.tscn")
 const BENNY = preload("res://Entities/Character/Benny/anim_benny.tscn")
 
 # Disc Things
-const DISC = preload("res://Objects/Discs/Disc_CharBod/disc_charbod.tscn")
+const DISC = preload("res://Objects/Discs/Disc/disc.tscn")
 const PICKUP = preload("res://Objects/Discs/Pickup/pickup_area.tscn")
 const DISC_TRACE = preload("res://Objects/Discs/Trace/disc_trace.tscn")
 

@@ -20,7 +20,8 @@ var did_shoot = false
 var new_dir := Vector3.ZERO
 
 var ammo_type = "CharacterBody3D"
-var ammo_char = preload("res://Objects/Discs/Disc_CharBod/disc_charbod.tscn")
+var ammo_char = Global.Refs.DISC
+				#preload("res://Objects/Discs/Disc/disc.tscn")
 
 func _ready():
 	set_active(false)

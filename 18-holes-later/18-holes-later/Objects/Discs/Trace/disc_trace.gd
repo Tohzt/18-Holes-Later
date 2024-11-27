@@ -1,5 +1,5 @@
 class_name DiscTraceClass
-extends Disc_CharBod_Class
+extends _Disc_CharBod_Class
 
 var trace_cd_max = 4
 var trace_cd = trace_cd_max/2.0

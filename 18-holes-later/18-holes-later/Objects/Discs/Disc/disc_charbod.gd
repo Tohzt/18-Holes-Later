@@ -1,4 +1,4 @@
-class_name Disc_CharBod_Class
+class_name _Disc_CharBod_Class
 extends CharacterBody3D
 
 @onready var Cam_Mount = $Cam_Mount
@@ -59,6 +59,7 @@ func _launch_disc():
 	reparent(get_tree().root) 
 	target_dir = -target_dir.normalized()
 	power_init = power
+
 func _process(delta):
 	if is_grounded: return
 	
@@ -66,65 +67,75 @@ func _process(delta):
 		can_launch = false
 		_launch_disc()
 	
-	var spd = SPEED * power * delta
-	if target_dir:
-		velocity = target_dir * spd
-	else:
-		velocity.x = move_toward(target_dir.x, 0, spd)
-		velocity.z = move_toward(target_dir.z, 0, spd)
-	
 	if is_launched:
 		# Calculate horizontal trajectory
 		_apply_flight_path(delta)
 		
-		# Update power and vertical movement
-		power -= stats["Resistance"] * delta
+		# Softer power reduction
+		power = max(0, power - stats["Resistance"] * delta)
 		
+		# More nuanced vertical movement
+		var speed_rating = float(stats["Speed"])
+		var power_ratio = power / power_init
 		var glide_factor = stats["Glide"] / 7.0
-		var speed_factor = power / power_init
-		var descent_rate = gravity * delta * (1.0 - (glide_factor * speed_factor))
+		
+		# Speed reduction based on power loss
+		var speed_reduction = max(0.1, power_ratio)
+		var spd = SPEED * power * delta * speed_reduction
+		
+		# Update velocity with speed reduction
+		if target_dir:
+			velocity = target_dir * spd
+		else:
+			velocity.x = move_toward(velocity.x, 0, spd)
+			velocity.z = move_toward(velocity.z, 0, spd)
+		
+		# Lift and descent calculation
+		var lift_factor = glide_factor * (1.0 - (1.0 - power_ratio) * 0.5)
+		var descent_rate = gravity * delta * (1.0 - lift_factor * 1.5)
+		
 		velocity.y -= descent_rate
 		
-		if Input.is_action_just_pressed("interact"):
-			printt("power: ", power)
-			printt("velocity.y: ", velocity.y)
+		# Prevent too rapid descent
+		velocity.y = max(velocity.y, -gravity * delta * 2)
 	
 	_detect_impact()
 	_self_cull()
+
+
 
 func _apply_flight_path(delta: float) -> void:
 	var speed_rating = float(stats["Speed"])
 	var power_ratio = power / power_init
 	
-	# Calculate turn (right drift during high speed)
+	# Right-handed throw dynamics
+	# Turn (early stage right drift for right-handed throw)
 	var turn_factor = 0.0
-	if power_ratio > (speed_rating / 14.0):  # Only turn if thrown hard enough
-		turn_factor = float(stats["Turn"]) * power_ratio * 0.5
+	if power_ratio > 0.7:  # Early flight stage
+		turn_factor = float(stats["Turn"]) * (power_ratio - 0.7) * 0.5
 	
-	# Calculate fade (left drift during low speed)
-	var fade_threshold = 0.4  # Start fade when disc slows to 40% power
+	# Fade (late stage left drift)
 	var fade_factor = 0.0
-	if power_ratio < fade_threshold:
-		var fade_strength = (fade_threshold - power_ratio) / fade_threshold
-		fade_factor = float(stats["Fade"]) * fade_strength * 0.5
+	if power_ratio < 0.4:  # Late flight stage
+		fade_factor = float(stats["Fade"]) * (1.0 - power_ratio) * 0.5
 	
 	# Combine turn and fade
-	var total_curve = (turn_factor + fade_factor) * delta * handedness
+	# For right-handed throw, turn is positive (right), fade is negative (left)
+	var total_curve = (turn_factor - fade_factor) * delta * handedness
 	
 	# Apply the curve to the flight path
 	target_dir = target_dir.rotated(Vector3.UP, total_curve)
-# I dont know if this is needed
-func curve(delta):
-	elapsed_time += delta
-	if elapsed_time <= elapse_duration:
-		var t = elapsed_time / elapse_duration
-		var sample_h = curve_h.sample(t)
-		
-		angle_h = lerp(angle_h, angle_h + sample_h, delta*3)
-		target_dir = target_dir.rotated(Vector3.UP, angle_h * delta)
 	
-	else:
-		elapsed_time = 0
+	# Soft wobble for slight realism
+	var wobble_amplitude = 0.02 * (1.0 - power_ratio)
+	var wobble = sin(elapsed_time * 3) * wobble_amplitude
+	target_dir = target_dir.rotated(Vector3.UP, wobble)
+	
+	# Maintain horizontal speed
+	var speed_reduction = 1.0 - (delta * 0.2 * (1.0 - power_ratio))
+	velocity.x *= speed_reduction
+	velocity.z *= speed_reduction
+
 
 func _detect_impact():
 	var collision = move_and_collide(velocity)

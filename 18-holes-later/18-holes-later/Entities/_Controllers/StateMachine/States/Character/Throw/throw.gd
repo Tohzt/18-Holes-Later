@@ -20,7 +20,7 @@ func _combat_throw():
 				disc.power = 8.0
 				disc.curve_h.clear_points()
 				disc.curve_v.clear_points()
-				disc.is_launched = true
+				disc.launch_disc()
 		
 	print("combat throw")
 	exit_state("Idle")
@@ -96,9 +96,9 @@ func throw_disc(disc, power = 0.0):
 	var _side = -1
 	#disc.rotate_object_local(Vector3.FORWARD, deg_to_rad( _tilt * _side))
 	#disc.rotate_object_local(Vector3.RIGHT, Global.Cameraman.Camera.rotation.x)
-	disc.is_launched = true
+	disc.launch_disc()
 	
-	if !disc.is_tracer and Global.Settings.follow_all_throws:
+	if  Global.Settings.follow_all_throws:
 		Global.Cameraman.set_target(disc)
 
 func exit_state(next_state: String):
