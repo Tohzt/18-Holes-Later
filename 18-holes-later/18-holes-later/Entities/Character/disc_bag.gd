@@ -31,10 +31,12 @@ func _ready():
 		add_child(disc)
 		
 func _process(_delta):
+	# TODO: do this somewhere else. shouldn't need to happen every frame
 	for disc: Disc_CharBod_Class in Global.Player.Bag.get_children():
 		if disc.index == Global.selected_disc:
 			disc.in_bag = false
 			disc.in_hand = true
 	
+	# TODO: move to character input
 	if Input.is_action_just_pressed("tab"):
 		Global.select_next_disc()
