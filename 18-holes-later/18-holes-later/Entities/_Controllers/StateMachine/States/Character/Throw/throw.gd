@@ -90,8 +90,9 @@ func throw_disc(disc, power = 0.0):
 	disc.power = lerpf(0.0, Master.MAX_POWER, Global.HUD.charge_bar.value/100)
 	if power > 0.0:
 		disc.power = power
+	
 	disc.target_dir = Global.Cameraman.Camera.get_global_transform().basis.z
-	disc.target_dir.y -= deg_to_rad(20)
+	#disc.target_dir.y -= deg_to_rad(20)
 	
 	# Apply tilt (rotation around local z-axis)
 	var _tilt = 50

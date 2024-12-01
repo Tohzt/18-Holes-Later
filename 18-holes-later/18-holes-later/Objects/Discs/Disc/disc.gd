@@ -27,6 +27,7 @@ var takeoff_pos: Vector3
 var in_throw = false
 var in_bag = false
 var in_hand = false
+var in_play = false
 
 # Needed for Cameraman to follow
 var look_forward = true
@@ -41,13 +42,13 @@ var look_around = false
 # might yoink
 var owned_by_player = false
 var h_strafe = 0.0
-var h_strafe_spd = 0.5
-var h_strafe_min = -0.5
-var h_strafe_max = 1.0
-var h_strafe_rate = 0.05
+@export var h_strafe_min = -1.5
+@export var h_strafe_max = 1.5
+@export var h_strafe_rate = 0.05
+
 
 func launch_disc():
-	stats = { "Speed": Global.Settings.DISC_SPEED, "Glide": Global.Settings.DISC_GLIDE, "Turn": Global.Settings.DISC_TURN, "Fade": Global.Settings.DISC_FADE, "Resistance": 0.5 }
+	#stats = { "Speed": Global.Settings.DISC_SPEED, "Glide": Global.Settings.DISC_GLIDE, "Turn": Global.Settings.DISC_TURN, "Fade": Global.Settings.DISC_FADE, "Resistance": 0.5 }
 	print(stats)
 	self.set_collision_mask_value(1, true)
 	self.set_collision_mask_value(2, true)
@@ -63,8 +64,6 @@ func launch_disc():
 	power += 6.0
 	power_init = power
 	
-	# Make the disc face the direction it's traveling
-	# Option 1: Using look_at
 	look_at(position + target_dir)
 
 func _calculate_power(delta):
@@ -77,29 +76,41 @@ func _fight_gravity(delta):
 	if !in_hand and !in_bag and !is_on_floor():
 		velocity.y += up_force * delta
 
-func _calculate_drift():
-	h_strafe += h_strafe_rate
-	if h_strafe < h_strafe_min:
-		h_strafe_rate = abs(h_strafe_rate)
-	if h_strafe > h_strafe_max:
-		h_strafe_rate = -abs(h_strafe_rate)
+var push := Vector3.ZERO
+
+func _calculate_drift(delta):
+	# Calculate power ratio to transition at 50% of flight
+	var power_ratio = power / power_init
 	
-	velocity.x += h_strafe*h_strafe_spd
-	print(h_strafe)
+	# Adjust the curve factors to work in the first/second half of flight
+	var turn_factor = stats["Turn"] * smoothstep(0.5, 1.0, power_ratio)  # Turn effect in first half
+	var fade_factor = stats["Fade"] * smoothstep(0.0, 0.5, power_ratio)  # Fade effect in second half
+	var glide_factor = stats["Glide"] * power_ratio
 	
+	
+	var h_force = (turn_factor + fade_factor) * .25
+	push.x = h_force#target_dir.cross(Vector3.UP) * h_force
+	print(push.x)
+	position -= push
+	#velocity.y += glide_factor
+	if push.x >= 0:
+		push.x = lerp(push.x, 10.0, delta*10)
+
+func _twist_it(_delta):
+	rotation.z = push.z * 120
+
 func _process(delta):
-	if in_throw: 
-		
-		
-		#DebugDraw.draw_line_relative(global_position, target_dir_init * 2, Color.BLUE)
-		#DebugDraw.draw_line_relative(global_position, target_dir * 2, Color.RED)
-		#DebugDraw.draw_line_relative(global_position, velocity, Color.GREEN)
+	if in_throw:
 		_calculate_power(delta)
 		_fight_gravity(delta)
-		_calculate_drift()
+		_calculate_drift(delta)
+		_twist_it(delta)
+		
+		# Update disc orientation to face travel direction
+		look_at(position + target_dir)
 	
-	#Bounce off shit
 	var collision = move_and_collide(velocity)
+	#Bounce off shit
 	if collision:
 		var collider = collision.get_collider()
 		if collider and collider.is_in_group("Solid"):

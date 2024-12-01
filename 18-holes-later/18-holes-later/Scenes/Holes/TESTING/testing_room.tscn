@@ -1,6 +1,5 @@
-[gd_scene load_steps=66 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=62 format=4 uid="uid://cs41td5q7pd58"]
 
-[ext_resource type="Texture2D" uid="uid://dli2lepbm5wf6" path="res://Scenes/Course/src/blue_desert.jpg" id="1_bebql"]
 [ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="1_ogoy1"]
 [ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="2_ldg4q"]
@@ -15,19 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dyj3365fqnqx5" path="res://Objects/vehicles/Disc Launcher/disc_launcher.tscn" id="14_qdsjn"]
 [ext_resource type="PackedScene" uid="uid://cvgxf8liocqa" path="res://Objects/Baggy/baggy.tscn" id="15_1jp3y"]
 [ext_resource type="PackedScene" uid="uid://buyy01rncsfep" path="res://Global/Spawners/enemy_spawn.tscn" id="15_mpiqo"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5w3w8"]
-panorama = ExtResource("1_bebql")
-
-[sub_resource type="Sky" id="Sky_b76k1"]
-sky_material = SubResource("PanoramaSkyMaterial_5w3w8")
-
-[sub_resource type="Environment" id="Environment_u3xmk"]
-background_mode = 2
-sky = SubResource("Sky_b76k1")
-tonemap_mode = 2
-glow_enabled = true
-glow_hdr_luminance_cap = 27.21
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rsvbg"]
 load_path = "res://.godot/imported/grid_orange_512x512.png-362bcde55020129d5154d444386242a9.s3tc.ctex"
@@ -316,7 +302,6 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_u3xmk")
 
 [node name="Player_Spawn" parent="." instance=ExtResource("2_ldg4q")]
 
