@@ -22,6 +22,8 @@ script = ExtResource("1_pokw4")
 
 [node name="Settings" parent="." instance=ExtResource("2_0aosd")]
 collect_all = true
+draw_debug_lines = true
+follow_all_throws = true
 
 [node name="SaveController" type="Node" parent="."]
 script = ExtResource("3_q4s14")

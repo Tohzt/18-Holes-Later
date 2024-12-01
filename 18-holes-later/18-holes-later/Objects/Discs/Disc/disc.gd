@@ -40,9 +40,15 @@ var look_around = false
 
 # might yoink
 var owned_by_player = false
+var h_strafe = 0.0
+var h_strafe_spd = 0.5
+var h_strafe_min = -0.5
+var h_strafe_max = 1.0
+var h_strafe_rate = 0.05
 
 func launch_disc():
-	stats = { "Speed": 0, "Glide": 0, "Turn": 0, "Fade": 0, "Resistance": 0.5 }
+	stats = { "Speed": Global.Settings.DISC_SPEED, "Glide": Global.Settings.DISC_GLIDE, "Turn": Global.Settings.DISC_TURN, "Fade": Global.Settings.DISC_FADE, "Resistance": 0.5 }
+	print(stats)
 	self.set_collision_mask_value(1, true)
 	self.set_collision_mask_value(2, true)
 	self.set_collision_mask_value(4, true)
@@ -56,23 +62,41 @@ func launch_disc():
 	target_dir = -target_dir.normalized()
 	power += 6.0
 	power_init = power
-
+	
+	# Make the disc face the direction it's traveling
+	# Option 1: Using look_at
+	look_at(position + target_dir)
 
 func _calculate_power(delta):
 	velocity = power * target_dir * delta
 	power -= stats["Resistance"] * delta * 10
 
-func _figh_gravity(delta):
+func _fight_gravity(delta):
 	if !is_on_floor(): velocity.y -= gravity * delta
 	var up_force: float = lerp(0.0, gravity, power/power_init)
 	if !in_hand and !in_bag and !is_on_floor():
 		velocity.y += up_force * delta
 
+func _calculate_drift():
+	h_strafe += h_strafe_rate
+	if h_strafe < h_strafe_min:
+		h_strafe_rate = abs(h_strafe_rate)
+	if h_strafe > h_strafe_max:
+		h_strafe_rate = -abs(h_strafe_rate)
+	
+	velocity.x += h_strafe*h_strafe_spd
+	print(h_strafe)
+	
 func _process(delta):
 	if in_throw: 
-		print(power)
+		
+		
+		#DebugDraw.draw_line_relative(global_position, target_dir_init * 2, Color.BLUE)
+		#DebugDraw.draw_line_relative(global_position, target_dir * 2, Color.RED)
+		#DebugDraw.draw_line_relative(global_position, velocity, Color.GREEN)
 		_calculate_power(delta)
-		_figh_gravity(delta)
+		_fight_gravity(delta)
+		_calculate_drift()
 	
 	#Bounce off shit
 	var collision = move_and_collide(velocity)

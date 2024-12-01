@@ -85,9 +85,14 @@ func _character_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
 		if mouse_motion is InputEventMouseMotion:
-			input_look.x = Master.input_look.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
+			var h_sense = Global.Settings.MOUSE_H_SENSITIVITY
+			var v_sense = Global.Settings.MOUSE_V_SENSITIVITY
+			if Master.is_charging:
+				h_sense = Global.Settings.MOUSE_H_SENSITIVITY/20
+				v_sense = Global.Settings.MOUSE_V_SENSITIVITY/20
+			input_look.x = Master.input_look.x - mouse_motion.relative.y * v_sense * delta
 			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
-			input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
+			input_look.y = Master.new_dir.y - mouse_motion.relative.x * h_sense * delta
 
 func _character_action(): 
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return

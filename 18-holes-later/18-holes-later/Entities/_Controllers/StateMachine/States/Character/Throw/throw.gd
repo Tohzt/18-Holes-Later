@@ -7,6 +7,8 @@ func init_state():
 	Master.can_move = false
 	Master.locked_in = true
 	Master.anim_play("Idle")
+	Master.Cam_Mount.position.z -= 1
+	Master.Cam_Mount.position.x -= 1
 
 func monitor_state():
 	pass
@@ -102,6 +104,8 @@ func throw_disc(disc, power = 0.0):
 		Global.Cameraman.set_target(disc)
 
 func exit_state(next_state: String):
+	Master.Cam_Mount.position.x += 1
+	Master.Cam_Mount.position.z += 1
 	Master.is_charging = false
 	Master.is_throwing = false
 	Master.locked_in = false
