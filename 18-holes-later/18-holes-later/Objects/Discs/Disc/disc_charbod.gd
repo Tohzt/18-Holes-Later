@@ -75,7 +75,7 @@ func _process(delta):
 		power = max(0, power - stats["Resistance"] * delta)
 		
 		# More nuanced vertical movement
-		var speed_rating = float(stats["Speed"])
+		#var speed_rating = float(stats["Speed"])
 		var power_ratio = power / power_init
 		var glide_factor = stats["Glide"] / 7.0
 		
@@ -105,7 +105,7 @@ func _process(delta):
 
 
 func _apply_flight_path(delta: float) -> void:
-	var speed_rating = float(stats["Speed"])
+	#var speed_rating = float(stats["Speed"])
 	var power_ratio = power / power_init
 	
 	# Right-handed throw dynamics

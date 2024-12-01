@@ -15,10 +15,9 @@ var index = 1
 	"Fade":  0,  # (0-5)  How hard it wants to curve
 	"Resistance": 0.01  # Rate that disc loses power
 }
- 
+
 @export_category("Disc Combat Stats")
 @export var dmg = 5
-
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var target_dir: Vector3
 var power: float
@@ -36,7 +35,7 @@ var look_around = false
 #var handedness = 1
 #var elapsed_time := 0.0
 #var elapse_duration := 2.0
-#var angle_h: float = 0.0
+#var angle_h: float = 0.
 #var angle_v: float = 0.0
 
 # might yoink
@@ -58,6 +57,7 @@ func launch_disc():
 	power += 6.0
 	power_init = power
 
+
 func _calculate_power(delta):
 	velocity = power * target_dir * delta
 	power -= stats["Resistance"] * delta * 10
@@ -66,19 +66,31 @@ func _figh_gravity(delta):
 	if !is_on_floor(): velocity.y -= gravity * delta
 	var up_force: float = lerp(0.0, gravity, power/power_init)
 	if !in_hand and !in_bag and !is_on_floor():
-		print(up_force)
-	velocity.y += up_force * delta
+		velocity.y += up_force * delta
 
 func _process(delta):
 	if in_throw: 
+		print(power)
 		_calculate_power(delta)
 		_figh_gravity(delta)
 	
-	# TODO: Bounce off shit
+	#Bounce off shit
+	var collision = move_and_collide(velocity)
+	if collision:
+		var collider = collision.get_collider()
+		if collider and collider.is_in_group("Solid"):
+			# Calculate bounce direction using reflection
+			var normal = collision.get_normal()
+			target_dir = velocity.bounce(normal).normalized()
+			# Reduce velocity on bounce to simulate energy loss
+			power *= 0.7
+
 	# TODO: Handedness
 	# TODO: Curve
+	#		relation between target dir and initital target dir
+
 	# TODO: Glide
-	_detect_impact()
+	#_detect_impact()
 	_self_cull()
 
 func _detect_impact():
@@ -86,7 +98,7 @@ func _detect_impact():
 	if collision:
 		var collider = collision.get_collider()
 		if !collider: return
-		if collider.is_in_group("Solid"):
+		if false and collider.is_in_group("Solid"):
 			in_throw = true
 			target_dir = Vector3.ZERO
 			velocity = Vector3.ZERO

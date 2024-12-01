@@ -22,6 +22,9 @@ var hole_over = false
 var selected_disc = 1
 var is_paused: bool = 	false
 
+func _ready():
+	Engine.max_fps = 60
+
 func _process(_delta):
 	
 	if !HUD:

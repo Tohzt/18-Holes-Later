@@ -9,7 +9,7 @@ var HP: float
 @onready var Input_Controller: InputController = $Input_Controller
 @onready var State_Controller: StateController = $State_Controller
 
-@export var SPEED: float = 10000.0
+@export var SPEED: float = 8.0
 var SPEED_MULT: float = 1
 @export var JUMP_FORCE: float = 5
 @export var SIGHT_RANGE: int = 999
@@ -60,16 +60,15 @@ func _ready():
 	set_active(true)
 
 func _update_velocity(delta):
-	var spd = SPEED * SPEED_MULT * delta
-	
+	var spd = SPEED * SPEED_MULT
 	if !is_on_floor(): velocity.y -= gravity * delta
 	
 	if input_dir:
 		velocity.x = input_dir.x * spd
 		velocity.z = input_dir.z * spd
 	else:
-		velocity.x = move_toward(velocity.x, 0, spd)
-		velocity.z = move_toward(velocity.z, 0, spd)
+		velocity.x = move_toward(velocity.x, 0, spd * delta)
+		velocity.z = move_toward(velocity.z, 0, spd * delta)
 	move_and_slide()
 
 func take_damage(dmg_incoming: float = 0, knockback: Vector3 = Vector3.ZERO):

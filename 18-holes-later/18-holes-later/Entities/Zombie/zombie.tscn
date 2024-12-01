@@ -1634,7 +1634,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("1_0wgci")
 MAX_HP = 30
-SPEED = 200.0
+SPEED = 6.0
 SIGHT_RANGE = 5
 
 [node name="State_Controller" parent="." instance=ExtResource("2_26udu")]
