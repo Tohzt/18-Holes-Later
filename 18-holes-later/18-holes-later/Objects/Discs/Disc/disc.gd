@@ -89,12 +89,10 @@ func _calculate_drift(delta):
 	
 	
 	var h_force = (turn_factor + fade_factor) * .25
-	push.x = h_force#target_dir.cross(Vector3.UP) * h_force
+	push.x = h_force
 	print(push.x)
 	position -= push
-	#velocity.y += glide_factor
-	if push.x >= 0:
-		push.x = lerp(push.x, 10.0, delta*10)
+	#position.y += glide_factor
 
 func _twist_it(_delta):
 	rotation.z = push.z * 120
