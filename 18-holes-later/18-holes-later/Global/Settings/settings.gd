@@ -9,10 +9,15 @@ class_name SettingsClass
 @export_range(0.1, 1.0) var MOUSE_H_SENSITIVITY: float = 0.2
 @export_range(0.1, 1.0) var MOUSE_V_SENSITIVITY: float = 0.2
 
-@export_range(1.0, 14.0) var DISC_SPEED: float = 1.0
-@export_range(1.0, 7.0) var DISC_GLIDE: float = 1.0
-@export_range(-5.0, 1.0) var DISC_TURN: float = 1.0
-@export_range(0.0, 5.0) var DISC_FADE: float = 0.0
+@export_range(1, 14) var DISC_SPEED: int = 1
+@export_range(1, 7) var DISC_GLIDE: int = 1 
+@export_range(-5, 1) var DISC_TURN: int = 1
+@export_range(0, 5) var DISC_FADE: int = 0
+
+#@export var DISC_SPEED: int = 1
+#@export var DISC_GLIDE: int = 1
+#@export var DISC_TURN: int = 1
+#@export var DISC_FADE: int = 0
 
 @onready var viewport_size = get_viewport().size
 @onready var view_width = viewport_size[0]

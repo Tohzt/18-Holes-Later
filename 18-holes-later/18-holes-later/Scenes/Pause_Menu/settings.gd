@@ -83,13 +83,37 @@ func create_setting_control(var_name: String):
 					vbox.add_child(hbox)
 				
 				TYPE_INT:
+					var int_vbox = VBoxContainer.new()
+					int_vbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+					
+					var int_label = Label.new()
+					int_label.text = var_name
+					int_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+					int_label.add_theme_color_override("font_color", Color.BLACK)
+					int_vbox.add_child(int_label)
+					
+					# Get property info to check for export range
+					var property_list = Global.Settings.get_property_list()
+					var min_value = 0
+					var max_value = 100
+					
+					for property in property_list:
+						if property["name"] == var_name:
+							if "hint" in property and property["hint"] == PROPERTY_HINT_RANGE:
+								var hint_string = property["hint_string"].split(",")
+								min_value = float(hint_string[0])
+								max_value = float(hint_string[1])
+							break
+					
 					var slider = HSlider.new()
-					slider.min_value = 0
-					slider.max_value = 100
+					slider.min_value = min_value
+					slider.max_value = max_value
 					slider.value = value
 					slider.connect("value_changed", Callable(self, "_on_int_setting_changed").bind(var_name))
 					slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 					vbox.add_child(slider)
+					
+					#settings_container.add_child(vbox)
 			
 			settings_container.add_child(vbox)
 		_:

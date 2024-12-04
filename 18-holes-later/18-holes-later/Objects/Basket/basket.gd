@@ -23,7 +23,9 @@ func _on_area_3d_body_entered(body):
 	if disc.is_in_group("Disc"):
 		Global.audio.play()
 		#get_tree().get_first_node_in_group("Lightning").emitting = true
-		if disc.in_play:
+		
+		# HACK 
+		if false:#disc.in_play:
 			Global.game_on = false
 			Global.hole_over = true
 			disc.in_play = false

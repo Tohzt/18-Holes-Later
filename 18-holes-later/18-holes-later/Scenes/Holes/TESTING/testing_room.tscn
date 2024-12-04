@@ -326,7 +326,7 @@ hole = 1
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Zombie" parent="Enemies" instance=ExtResource("6_wfrjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.0582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88054, 9.53674e-07, -10.9001)
 is_burried = true
 MAX_HP = 100
 SIGHT_RANGE = 10

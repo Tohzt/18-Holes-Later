@@ -1650,9 +1650,6 @@ script = ExtResource("5_cfhdm")
 state_options = null
 
 [node name="Input_Controller" parent="." instance=ExtResource("5_u1dnu")]
-zombie_move = true
-zombie_look = true
-zombie_action = true
 
 [node name="Anim_Controller" type="Node3D" parent="."]
 script = ExtResource("6_aoeh1")

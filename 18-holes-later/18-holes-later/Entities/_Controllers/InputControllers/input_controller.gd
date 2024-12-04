@@ -84,15 +84,17 @@ func _character_move(delta):
 func _character_look(delta):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
 	if Master.can_look:
-		if mouse_motion is InputEventMouseMotion:
-			var h_sense = Global.Settings.MOUSE_H_SENSITIVITY
-			var v_sense = Global.Settings.MOUSE_V_SENSITIVITY
-			if Master.is_charging:
-				h_sense = Global.Settings.MOUSE_H_SENSITIVITY/20
-				v_sense = Global.Settings.MOUSE_V_SENSITIVITY/20
+		var h_sense = Global.Settings.MOUSE_H_SENSITIVITY
+		var v_sense = Global.Settings.MOUSE_V_SENSITIVITY
+		if Master.is_charging:
+			h_sense = Global.Settings.MOUSE_H_SENSITIVITY/20
+			v_sense = Global.Settings.MOUSE_V_SENSITIVITY/20
+		
+		if mouse_motion:
 			input_look.x = Master.input_look.x - mouse_motion.relative.y * v_sense * delta
 			input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
-			input_look.y = Master.new_dir.y - mouse_motion.relative.x * h_sense * delta
+			input_look.y -= mouse_motion.relative.x * h_sense * delta
+			Master.new_dir.y = input_look.y
 
 func _character_action(): 
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
@@ -226,3 +228,235 @@ func _zombie_look(_delta):
 
 func _zombie_action():
 	pass
+
+
+
+
+#class_name InputController
+#extends Node
+#
+#@onready var Master = $".."
+#@onready var combo_controller = $ComboController
+#
+#@export_category("Character Controls")
+#@export var character_move   := false
+#@export var character_look   := false
+#@export var character_action := false
+#
+#@export_category("Zombie Controls")
+#@export var zombie_move   := false
+#@export var zombie_look   := false
+#@export var zombie_action := false
+#
+#@export_category("Vehicle Controls")
+#@export var vehicle_move   := false
+#@export var vehicle_look   := false
+#@export var vehicle_action := false
+#
+#@export_category("Launcher Controls")
+#@export var launcher_look   := false
+#@export var launcher_action := false
+#
+#var input_move = Vector2.ZERO
+#var input_look = Vector2.ZERO
+## TODO: Store queue of inputs for Master to evaluate
+#var input_keys: Array[String]
+#
+#var mouse_motion = null
+#var target_rotation = 0.0
+#var rotation_speed = 5
+#
+#var target_offset_index = 0
+#
+#func _init():
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#
+#func _process(delta):
+	#if !Master.accepts_input: return
+	#if Input.get_last_mouse_velocity().length() == 0: mouse_motion = null
+	#
+	#if character_move:   _character_move(delta)
+	#if character_look:   _character_look(delta)
+	#if character_action: _character_action()
+	#if vehicle_move:   _vehicle_move(delta)
+	#if vehicle_look:   _vehicle_look(delta)
+	#if vehicle_action: _vehicle_action()
+	#if launcher_look:   _launcher_look(delta)
+	#if launcher_action: _launcher_action()
+	#if zombie_move:   _zombie_move(delta)
+	#if zombie_look:   _zombie_look(delta)
+	#if zombie_action: _zombie_action()
+	#
+	#Master.input_move = input_move
+	#Master.input_look = input_look
+#
+#func _input(event):
+	#if event is InputEventMouseMotion:
+		#mouse_motion = event
+		#
+##region Character Inputs
+#func _character_move(delta):
+	#if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	#input_move = Vector2.ZERO
+	#if Master.can_move:
+		#input_move = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		#Master.input_move = input_move
+		#Master.input_dir = lerp(Master.input_dir, (Master.transform.basis * Vector3(input_move.x, 0, input_move.y)).normalized(), delta*10)
+	#
+	#if Master.can_run:
+		#Master.is_running = Input.is_action_pressed("sprint")
+	#
+	#if Master.can_jump and Input.is_action_just_pressed("jump"):
+		#Master.is_jumping = true
+	#
+	#if Master.can_crouch and Input.is_action_just_pressed("crouch"):
+		#Master.is_crouching = !Master.is_crouching
+	#
+	#if Master.can_slide and Master.is_crouching:
+		#Master.is_sliding = true
+#
+#func _character_look(delta):
+	#if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	#if Master.can_look:
+		#if mouse_motion is InputEventMouseMotion:
+			#var h_sense = Global.Settings.MOUSE_H_SENSITIVITY
+			#var v_sense = Global.Settings.MOUSE_V_SENSITIVITY
+			#if Master.is_charging:
+				#h_sense = Global.Settings.MOUSE_H_SENSITIVITY/20
+				#v_sense = Global.Settings.MOUSE_V_SENSITIVITY/20
+			#input_look.x = Master.input_look.x - mouse_motion.relative.y * v_sense * delta
+			#input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
+			#input_look.y = Master.new_dir.y - mouse_motion.relative.x * h_sense * delta
+#
+#func _character_action(): 
+	#if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	#if !Master.in_combat:
+		#if Master.can_combat:
+			#if Input.is_action_just_pressed("left_click"):
+				#Master.in_combat = true
+		#
+		#if Master.can_interact:
+			#if Input.is_action_just_pressed("interact"):
+				#var collisions = Master.get_overlapping_areas()
+				#var closest_distance = INF
+				#var closest_collision = null
+				#
+				#for collision in collisions:
+					#if collision.is_in_group("Collect"):
+						#collision.collect()
+					#
+					#if collision.is_in_group("Interact"):
+						#var distance = Master.global_position.distance_to(collision.global_position)
+						#if distance < closest_distance:
+							#closest_distance = distance
+							#closest_collision = collision
+				#
+				#if closest_collision:
+					#closest_collision.interact()
+			#
+	#if Master.can_throw:
+		#if Input.is_action_just_pressed("right_click"):
+			#Master.is_throwing = true
+	#
+	#if Master.Target:
+		#if Input.is_action_just_pressed("lock_cycle_up"):
+			#target_offset_index += 1
+			#_update_target()
+		#if Input.is_action_just_pressed("lock_cycle_down"):
+			#target_offset_index -= 1
+			#_update_target()
+		#
+	#if Input.is_action_just_pressed("lock_on"):
+		#if Master.Target:
+			#Master.Target = null
+			#var marker = get_tree().get_first_node_in_group("Target Marker")
+			#if marker: marker.queue_free()
+			#target_offset_index = 0
+			#return
+		#
+		#_update_target()
+	#
+#func _update_target():
+	#var enemies_in_range: Array[Node3D]
+	#enemies_in_range = Global.get_objects_in_range(Master, "Target", Master.SIGHT_RANGE)
+	#
+	#if enemies_in_range:
+		#target_offset_index = target_offset_index % enemies_in_range.size()
+		#var enemy_at_index = enemies_in_range[target_offset_index]
+		#if enemy_at_index:
+			#Master.set_target(enemy_at_index)
+			#_set_marker(enemy_at_index)
+		#
+	#else:
+		#print("No nearby target found..")
+##endregion
+#
+#func _target_further():
+	#pass
+#func _target_closer():
+	#pass
+#
+#func _queue_marker():
+	#var marker = get_tree().get_first_node_in_group("Target Marker")
+	#if marker:
+		#marker.queue_free()
+#
+#func _set_marker(enemy_nearest: Node3D):
+	#if !enemy_nearest or !Master.Target: return
+	#
+	#var marker = get_tree().get_first_node_in_group("Target Marker")
+	#if marker:
+		#marker.global_position = Master.Target.global_position
+		#marker.reparent(Master.Target)
+	#else:
+		#var new_target_marker = Global.Refs.TARGET_MARKER.instantiate()
+		#new_target_marker.position.y = 2
+		#Master.Target = enemy_nearest
+		#Master.Target.add_child(new_target_marker)
+#
+## Vehicle Inputs
+## TODO: Rotation bugs if mouse and keys simul
+#func _vehicle_move(delta):
+	#var input_forward = Input.get_axis("ui_up", "ui_down")
+	#var input_turn = Input.get_axis("ui_left", "ui_right")
+	#
+	#Master.turn_strength = lerp(Master.turn_strength,Master.max_turn_strength,delta*.1) * abs(input_turn)
+	##Global.Settings.debug_log['cart_turn_strength'] = turn_strength
+	#Master.rotate_y(deg_to_rad(-Master.turn_strength  * input_turn * Global.Settings.MOUSE_H_SENSITIVITY))
+	#Master.input_dir = (Master.transform.basis * Vector3(0,0,input_forward)).normalized()
+	#
+#func _vehicle_look(delta):
+	#if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	#if false and Master.can_look:
+		#if mouse_motion is InputEventMouseMotion:
+			#Master.turn_strength = lerp(Master.turn_strength,Master.max_turn_strength,delta)
+			#Master.rotate_y(deg_to_rad(-Master.turn_strength  * sign(mouse_motion.relative.x) * Global.Settings.MOUSE_H_SENSITIVITY))
+#
+#func _vehicle_action():
+	#pass
+#
+## Launcher Inputs
+#func _launcher_look(delta):
+	#if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED: return
+	#if Master.can_look:
+		#if mouse_motion is InputEventMouseMotion:
+			#input_look.x = Master.input_look.x - mouse_motion.relative.y * Global.Settings.MOUSE_V_SENSITIVITY * delta
+			#input_look.x = clamp(input_look.x, deg_to_rad(-45), deg_to_rad(45))
+			#input_look.y = Master.new_dir.y - mouse_motion.relative.x * Global.Settings.MOUSE_H_SENSITIVITY * delta
+#
+#func _launcher_action():
+	#if Master.can_shoot:
+		#if Input.is_action_just_pressed("left_click"):
+			#Master.did_shoot = true
+#
+## Zombie Inputs
+#func _zombie_move(_delta):
+	#if Master.Target and Master.can_move:
+		#input_move = Vector2(Master.dir_to_target.x, Master.dir_to_target.z)
+		#Master.input_dir = Master.dir_to_target
+#
+#func _zombie_look(_delta):
+	#input_look = Vector2(Master.dir_to_target.x, Master.dir_to_target.z)
+#
+#func _zombie_action():
+	#pass

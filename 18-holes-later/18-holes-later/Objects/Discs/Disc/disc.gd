@@ -66,8 +66,13 @@ func launch_disc():
 	
 	look_at(position + target_dir)
 
+	curve_primary = 0.0
+	curve_secondary = -1.0
+
 func _calculate_power(delta):
-	velocity = power * target_dir * delta
+	# Get the forward direction (-Z axis) based on current rotation
+	var forward_dir = -transform.basis.z.normalized()
+	velocity = power * forward_dir * delta
 	power -= stats["Resistance"] * delta * 10
 
 func _fight_gravity(delta):
@@ -77,22 +82,28 @@ func _fight_gravity(delta):
 		velocity.y += up_force * delta
 
 var push := Vector3.ZERO
+var curve_primary = 0.0
+var curve_secondary = -1.0
 
 func _calculate_drift(delta):
-	# Calculate power ratio to transition at 50% of flight
 	var power_ratio = power / power_init
 	
-	# Adjust the curve factors to work in the first/second half of flight
-	var turn_factor = stats["Turn"] * smoothstep(0.5, 1.0, power_ratio)  # Turn effect in first half
-	var fade_factor = stats["Fade"] * smoothstep(0.0, 0.5, power_ratio)  # Fade effect in second half
-	var glide_factor = stats["Glide"] * power_ratio
+	# Turn phase (early flight, high speed)
+	# More negative Turn = stronger initial turn right
+	var turn_force = -stats["Turn"] * 0.5  # Scale factor might need adjustment
 	
+	# Fade phase (late flight, low speed)
+	# Higher Fade = stronger hook left
+	var fade_force = stats["Fade"] * 0.5    # Scale factor might need adjustment
 	
-	var h_force = (turn_factor + fade_factor) * .25
-	push.x = h_force
-	print(push.x)
-	position -= push
-	#position.y += glide_factor
+	# Blend between turn and fade based on power
+	# At high power: more turn influence
+	# At low power: more fade influence
+	var blend = smoothstep(0.2, 0.8, power_ratio)
+	var net_force = lerp(fade_force, turn_force, blend)
+	
+	# Apply rotation based on current speed and force
+	rotation.y += net_force * (power/10.0) * delta
 
 func _twist_it(_delta):
 	rotation.z = push.z * 120
@@ -105,7 +116,7 @@ func _process(delta):
 		_twist_it(delta)
 		
 		# Update disc orientation to face travel direction
-		look_at(position + target_dir)
+		#look_at(position + target_dir)
 	
 	var collision = move_and_collide(velocity)
 	#Bounce off shit

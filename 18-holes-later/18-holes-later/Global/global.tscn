@@ -24,6 +24,8 @@ script = ExtResource("1_pokw4")
 collect_all = true
 draw_debug_lines = true
 follow_all_throws = true
+DISC_SPEED = 14
+DISC_FADE = 5
 
 [node name="SaveController" type="Node" parent="."]
 script = ExtResource("3_q4s14")

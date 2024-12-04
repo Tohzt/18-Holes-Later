@@ -36,7 +36,12 @@ func _process(_delta):
 	if !Input_Controller.mouse_motion: input_look.y = 0
 	Barrel_Pivot.rotation.x  = input_look.x
 	Barrel_Pivot.rotation.y += input_look.y
-	
+# NOTE
+	# Toggle ammo type between "CharacterBody3D" and "RigidBody3D"
+	if Input.is_action_just_pressed("tab"):
+		print("Toggle Ammo_Type")
+		ammo_type = "RigidBody3D" if ammo_type == "CharacterBody3D" else "CharacterBody3D"
+
 	if did_shoot:
 		did_shoot = false
 		throw_disc()
@@ -78,9 +83,10 @@ func throw_disc():
 	ammo.position = Barrel_Exit.global_position
 	ammo.target_dir = Barrel_Dir.global_transform.basis * -Barrel_Dir.target_position.normalized()
 	
+	ammo.stats = { "Speed": Global.Settings.DISC_SPEED, "Glide": Global.Settings.DISC_GLIDE, "Turn": Global.Settings.DISC_TURN, "Fade": Global.Settings.DISC_FADE, "Resistance": 0.5 }
 	ammo.power = 10
 	ammo.in_bag = false
 	ammo.in_hand = false
 	ammo.visible = true
-	ammo.is_launched = true
 	get_tree().root.add_child(ammo)
+	ammo.launch_disc()
