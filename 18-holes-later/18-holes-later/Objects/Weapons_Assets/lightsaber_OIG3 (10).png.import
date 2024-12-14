@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjjdipbbiha32"
+uid="uid://cf6aromar4bfj"
 path.s3tc="res://.godot/imported/lightsaber_OIG3 (10).png-1347c783a0eecaf514f7ff2ea4d750cf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "6faebaff13467d0ec3791bd264bd9092"
 }
 
 [deps]

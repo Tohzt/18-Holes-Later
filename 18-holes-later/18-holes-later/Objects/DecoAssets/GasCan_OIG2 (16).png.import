@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkvjurb1tvk4x"
+uid="uid://cpbc5ehv8sry1"
 path.s3tc="res://.godot/imported/GasCan_OIG2 (16).png-b36b2b8367b85fefad67857e21a263bf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "a9c153822b06d753bf7eb3efdf1f65e3"
 }
 
 [deps]

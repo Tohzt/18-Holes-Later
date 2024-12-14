@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn5uref2eib4u"
+uid="uid://tqf34dccjaxj"
 path.s3tc="res://.godot/imported/explosiveBarrel_OIG2 (18).png-36b2b30affe4bf4e2c99247c76591bb2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "f0ced9bea02a837f2ff434179987b6ef"
 }
 
 [deps]

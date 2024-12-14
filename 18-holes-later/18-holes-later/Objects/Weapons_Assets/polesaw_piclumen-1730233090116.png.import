@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eimgp3gq18fg"
+uid="uid://dxhmxlfku7kvi"
 path.s3tc="res://.godot/imported/polesaw_piclumen-1730233090116.png-0fc0622f42ee6f8cfe2e4915312cfb68.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "f29f7ee128465589fcf674f5edfb26e9"
 }
 
 [deps]

@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkeaghskffcyf"
+uid="uid://3tu054w2p7rs"
 path.s3tc="res://.godot/imported/lightsaber_OIG3 (10)_n.png-cc433aa11406f382b4319e554ae32b96.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "9b5706bf22ec2a4ddc7cac5d90d2e743"
 }
 
 [deps]
@@ -28,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Objects/Weapons/lightsaber_OIG3 (10)_n.png"
+roughness/src_normal="res://Objects/Weapons_Assets/lightsaber_OIG3 (10)_n.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
