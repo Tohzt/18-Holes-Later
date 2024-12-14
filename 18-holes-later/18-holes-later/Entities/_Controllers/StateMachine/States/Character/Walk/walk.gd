@@ -18,16 +18,10 @@ func monitor_state():
 func update_state(delta):
 	if Master.is_running:
 		Master.can_slide = true
-		Global.Cameraman.Camera.fov = lerp(Global.Cameraman.Camera.fov,120.0,delta*5)
-		Global.Player.Cam_Mount.position.z = lerp(Global.Player.Cam_Mount.position.z, -2.5, delta*5)
-		Global.Player.Cam_Mount.position.y = lerp(Global.Player.Cam_Mount.position.y,  1.2,   delta*5)
 		Master.anim_play("Sprint")
 		Master.SPEED_MULT = 2
 	else:
-		Master.can_slide = true
-		Global.Cameraman.Camera.fov = lerp(Global.Cameraman.Camera.fov,75.0,delta*10)
-		Global.Player.Cam_Mount.position.z = lerp(Global.Player.Cam_Mount.position.z, 1.0, delta*10)
-		Global.Player.Cam_Mount.position.y = lerp(Global.Player.Cam_Mount.position.y,  1.5,   delta*10)
+		Master.can_slide = false
 		Master.anim_play("Run")
 		Master.SPEED_MULT = 1
 	

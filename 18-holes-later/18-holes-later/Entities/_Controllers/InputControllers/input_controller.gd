@@ -89,6 +89,9 @@ func _character_look(delta):
 		if Master.is_charging:
 			h_sense = Global.Settings.MOUSE_H_SENSITIVITY/20
 			v_sense = Global.Settings.MOUSE_V_SENSITIVITY/20
+		if Master.is_running:
+			h_sense = Global.Settings.MOUSE_H_SENSITIVITY/10
+			v_sense = Global.Settings.MOUSE_V_SENSITIVITY/10
 		
 		if mouse_motion:
 			input_look.x = Master.input_look.x - mouse_motion.relative.y * v_sense * delta
