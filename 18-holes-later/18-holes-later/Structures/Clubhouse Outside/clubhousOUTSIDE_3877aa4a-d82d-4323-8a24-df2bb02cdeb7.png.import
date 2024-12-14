@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfksxxa6abltw"
+uid="uid://d0tp0covt5yo2"
 path.s3tc="res://.godot/imported/clubhousOUTSIDE_3877aa4a-d82d-4323-8a24-df2bb02cdeb7.png-d4cb3df40886ace5b7d2d583133df682.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "10f034bf0dceb70e1af2adbc6848d210"
 }
 
 [deps]

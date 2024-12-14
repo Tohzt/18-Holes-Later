@@ -33,9 +33,9 @@ func _follow_target(delta):
 	 
 	chase = Target.is_running if Target.is_in_group("Character") else false
 	if chase:
-		Camera.fov = lerp(Camera.fov, fov_max, delta * 5)
+		Camera.fov = lerp(Camera.fov, fov_max, delta * 2)
 	else:
-		Camera.fov = lerp(Camera.fov, fov_min, delta * 5)
+		Camera.fov = lerp(Camera.fov, fov_min, delta * 2)
 	position = follow_pos
 
 
