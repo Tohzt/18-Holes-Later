@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://cs41td5q7pd58"]
+[gd_scene load_steps=61 format=4 uid="uid://cs41td5q7pd58"]
 
 [ext_resource type="Script" path="res://Scenes/Holes/TESTING/testing_room.gd" id="1_bjwii"]
 [ext_resource type="PackedScene" uid="uid://dh5fq6dk3570u" path="res://Save/save.tscn" id="1_ogoy1"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://3ns6y7nxxgbs" path="res://Scenes/Holes/TESTING/src/grid_blue_512x512.png" id="4_cgeik"]
 [ext_resource type="Texture2D" uid="uid://1ydh8wyiul4n" path="res://Scenes/Holes/TESTING/src/grid_orange_512x512.png" id="5_c5cw1"]
 [ext_resource type="Texture2D" uid="uid://bpxxq8qh0ftxt" path="res://Scenes/Holes/TESTING/src/grid_cyan_512x512.png" id="6_jfdvq"]
-[ext_resource type="PackedScene" uid="uid://dq5k8n0rtk27y" path="res://Entities/Zombie/zombie.tscn" id="6_wfrjc"]
 [ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="7_llovg"]
 [ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="8_1k3xo"]
 [ext_resource type="PackedScene" uid="uid://c7xne0byhx4ij" path="res://Objects/vehicles/Golf Cart/golf_cart.tscn" id="9_5mk3v"]
@@ -324,12 +323,6 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -44.9893, 1.72853e-06, 
 hole = 1
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="Zombie" parent="Enemies" instance=ExtResource("6_wfrjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88054, 9.53674e-07, -10.9001)
-is_burried = true
-MAX_HP = 100
-SIGHT_RANGE = 10
 
 [node name="Baggy" parent="Enemies" instance=ExtResource("15_1jp3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0432, 0.134629, -15.0133)

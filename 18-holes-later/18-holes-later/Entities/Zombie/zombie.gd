@@ -31,8 +31,10 @@ func _process(delta):
 		timer.start()
 	
 	if Target:
-		dir_to_target = global_position.direction_to(Target.global_position)
-		dist_to_target = global_position.distance_to(Target.global_position)
+		# HACK: Removed Target
+		Target = Global.Player 
+		#dir_to_target = global_position.direction_to(Target.global_position)
+		#dist_to_target = global_position.distance_to(Target.global_position)
 	new_dir.y = input_look.y
 	if !is_burried: _update_velocity(delta)
 	if !Target: return

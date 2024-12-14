@@ -1,5 +1,5 @@
 class_name Disc_CharBod_Class
-extends CharacterBody3D
+extends Disc_Base_Class
 
 @onready var Cam_Mount = $Cam_Mount
 
@@ -19,15 +19,10 @@ var index = 1
 @export_category("Disc Combat Stats")
 @export var dmg = 5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var target_dir: Vector3
-var power: float
 var power_init: float
 
 var takeoff_pos: Vector3
 var in_throw = false
-var in_bag = false
-var in_hand = false
-var in_play = false
 
 # Needed for Cameraman to follow
 var look_forward = true

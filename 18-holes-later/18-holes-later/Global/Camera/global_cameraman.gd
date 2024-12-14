@@ -47,7 +47,7 @@ func _look_at_target(delta):
 		rotation.y = lerp_angle(rotation.y, follow_target.input_look.y, delta*10)
 		
 
-func set_target(new_target: Node3D):
+func set_target(new_target: Node3D = null):
 	if !new_target:
 		follow_target.queue_free()
 		look_target.queue_free()

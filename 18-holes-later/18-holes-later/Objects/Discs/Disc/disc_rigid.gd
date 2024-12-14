@@ -1,5 +1,5 @@
 class_name Disc_RigidBod_Class
-extends RigidBody3D
+extends Disc_Base_Class
 
 @onready var Cam_Mount = $Cam_Mount
 
@@ -17,14 +17,10 @@ var index = 1
 
 @export_category("Disc Combat Stats")
 @export var dmg = 5
-var target_dir: Vector3
-var power: float
 var power_init: float
 
 var takeoff_pos: Vector3
 var in_throw = false
-var in_bag = false
-var in_hand = false
 
 # Needed for Cameraman to follow
 var look_forward = true
@@ -73,10 +69,20 @@ func launch_disc():
 	in_hand = false
 	in_bag = false
 	
-	# Reset physics state
+	# Reset physics state with controlled initial orientation
 	rotation = Vector3.ZERO
 	linear_velocity = Vector3.ZERO
 	angular_velocity = Vector3.ZERO
+	
+	# Add initial stabilization
+	angular_damp = 8.0
+	
+	# Orient disc flat before launch
+	var launch_basis = Basis()
+	launch_basis.y = Vector3.UP
+	launch_basis.z = -target_dir.normalized()
+	launch_basis.x = launch_basis.y.cross(launch_basis.z)
+	transform.basis = launch_basis
 	
 	if not is_instance_valid(get_tree()):
 		return
@@ -121,7 +127,7 @@ func _physics_process(delta):
 	
 	_self_cull()
 
-func _apply_forces(delta):
+func _apply_forces(_delta):
 	if not in_hand and not in_bag:
 		# Calculate height difference from launch
 		var height_diff = abs(global_position.y - launch_height)
@@ -176,21 +182,28 @@ func _calculate_drift():
 	var horizontal_tilt = max_tilt_angle * sign(side_force) * (ramp_up + 0.15)
 	var vertical_tilt = max_vertical_tilt_angle * clamp(linear_velocity.y / 12.0, -0.8, 0.8)
 	
+	# Stronger initial stabilization
+	var stability_factor = exp(-flight_progress * 2.0)  # Stronger at start
+	
+	# More controlled rotation
 	var target_rotation = Vector3(
 		deg_to_rad(-vertical_tilt),
 		rotation.y,
 		deg_to_rad(-horizontal_tilt)
 	)
 	
-	# Much smoother torque application
+	# Stronger stabilization
 	var rotation_diff = target_rotation - rotation
-	var smooth_torque = rotation_diff * 3.0
-	smooth_torque = smooth_torque.limit_length(0.3)
-	smooth_torque.z += 0.03
+	var smooth_torque = rotation_diff * (8.0 * stability_factor)  # Stronger at start
+	smooth_torque = smooth_torque.limit_length(1.0)  # Increased torque limit
 	
-	# Add stabilizing torque
-	var stabilizing_torque = -angular_velocity * 2.0
-	apply_torque(smooth_torque + stabilizing_torque)
+	# Stronger stabilizing torque
+	var stabilizing_torque = -angular_velocity * (6.0 * stability_factor)
+	
+	# Stronger upright stabilization at start
+	var upright_correction = Vector3.UP.cross(transform.basis.y) * (4.0 * stability_factor)
+	
+	apply_torque(smooth_torque + stabilizing_torque + upright_correction)
 
 func _integrate_forces(state: PhysicsDirectBodyState3D):
 	if position.distance_to(takeoff_pos) > 1000:
@@ -200,8 +213,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 			var collider = state.get_contact_collider_object(i)
 			if collider and collider.is_in_group("Solid"):
 				# HACK: 
-				queue_free()
+				Global.Cameraman.set_target()
 				return
+				
 				var normal = state.get_contact_local_normal(i)
 				state.linear_velocity = state.linear_velocity.bounce(normal)
 				power *= 0.7

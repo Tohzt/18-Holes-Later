@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://blk03h6qr72ah"
-valid=false
+path="res://.godot/imported/IceCreamTruck.glb-57484d74b731680acb821cf46ec38f23.scn"
 
 [deps]
 
 source_file="res://Objects/DecoAssets/IceCreamTruck.glb"
+dest_files=["res://.godot/imported/IceCreamTruck.glb-57484d74b731680acb821cf46ec38f23.scn"]
 
 [params]
 
@@ -16,7 +17,6 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
-nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -28,7 +28,6 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
-animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
@@ -39,6 +38,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
 "save_to_file/path": "res://Structures/DecoAssets/truckTiresmesh.res"
 },
 "IceCreamTruck_Cylinder_001": {
@@ -48,6 +48,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
 "save_to_file/path": "res://Structures/DecoAssets/truckTires2mesh.res"
 },
 "IceCreamTruck_OIG2_F_gl3W8p5n7Q": {
@@ -57,6 +58,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
 "save_to_file/path": "res://Structures/DecoAssets/truckMesh.res"
 }
 }

@@ -9,6 +9,9 @@ class_name hud_disc
 var has_disc = false
 
 func _process(_delta):
+	# TODO: HACK: Broken while testing Rigid Discs
+	return
+	
 	label.text = Global.Player.Bag.discs[slot-1].disc_type[0]
 	if slot == Global.selected_disc:
 		gradient.set_color(0, Color.RED)
@@ -20,12 +23,9 @@ func _process(_delta):
 func _check_for_disc():
 	has_disc = false
 	
-	for _disc: Disc_RigidBod_Class in Global.Player.Bag.get_children():
+	for _disc: Disc_Base_Class in Global.Player.Bag.get_children():
 		if _disc.index == slot:
 			has_disc = true
-			
-	#for _disc: Disc_CharBod_Class in Global.Player.Bag.get_children():
-		#if _disc.index == slot:
-			#has_disc = true
+	
 	if !has_disc:
 		gradient.set_color(0, Color.BLACK)

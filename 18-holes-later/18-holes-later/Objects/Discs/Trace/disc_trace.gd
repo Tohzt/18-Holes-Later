@@ -1,3 +1,4 @@
+extends Disc_Base_Class
 #class_name DiscTraceClass
 #extends _Disc_CharBod_Class
 #

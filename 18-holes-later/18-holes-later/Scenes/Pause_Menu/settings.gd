@@ -72,6 +72,7 @@ func create_setting_control(var_name: String):
 					slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 					hbox.add_child(slider)
 					
+					
 					var value_label = Label.new()
 					value_label.text = "%.2f" % value
 					value_label.size_flags_horizontal = Control.SIZE_SHRINK_END
