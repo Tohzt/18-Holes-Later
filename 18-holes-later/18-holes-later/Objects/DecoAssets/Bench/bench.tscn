@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2acggxq7rkl0"]
+
+[ext_resource type="ArrayMesh" uid="uid://dxb2whj38kpcv" path="res://Objects/DecoAssets/Bench/BenchMesh.res" id="1_dx8cb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyrld"]
+albedo_color = Color(0.50204, 0.394867, 0.261904, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgwtx"]
+size = Vector3(0.784119, 0.716309, 2.05969)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8wft4"]
+size = Vector3(0.294067, 0.692932, 2.04712)
+
+[node name="Bench" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(103.685, 0, 0, 0, 103.685, 0, 0, 0, 103.685, 0, 0, 0)
+mesh = ExtResource("1_dx8cb")
+surface_material_override/0 = SubResource("StandardMaterial3D_kyrld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0630798, -0.319092, 0.00445557)
+shape = SubResource("BoxShape3D_xgwtx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352966, 0.222992, 0.00256348)
+shape = SubResource("BoxShape3D_8wft4")

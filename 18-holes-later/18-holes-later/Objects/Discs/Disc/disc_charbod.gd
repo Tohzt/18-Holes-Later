@@ -1,0 +1,2 @@
+class_name Disc_CharBod_Class
+extends Disc_Base_Class 

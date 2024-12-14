@@ -1,0 +1,140 @@
+[gd_scene load_steps=17 format=3 uid="uid://c501bn70mhy8j"]
+
+[ext_resource type="Terrain3DMaterial" uid="uid://d3pvbjb12n5yt" path="res://Scenes/Holes/Hole 01/matshole_3d.tres" id="1_mdr8j"]
+[ext_resource type="Terrain3DAssets" uid="uid://fpmbocqhcjem" path="res://Scenes/Holes/Hole 01/assetshole_3d.tres" id="2_uyc61"]
+[ext_resource type="PackedScene" uid="uid://2yhn28lxlayw" path="res://Objects/DecoAssets/Hole Sign/Sign_Hole_01.tscn" id="10_3aiwv"]
+[ext_resource type="PackedScene" uid="uid://dq5k8n0rtk27y" path="res://Entities/Zombie/zombie.tscn" id="14_wo8xa"]
+[ext_resource type="PackedScene" uid="uid://c1rj0op4jkqer" path="res://Global/Spawners/player_spawn.tscn" id="17_6bjc7"]
+[ext_resource type="PackedScene" uid="uid://c6roh5iu8v8u7" path="res://Structures/Clubhouse Outside/clubhous_outside.tscn" id="18_ihmlv"]
+[ext_resource type="PackedScene" uid="uid://b177kmpe8ky2j" path="res://Scenes/Clubhouse/Interior/door_exit.tscn" id="18_u1ylt"]
+[ext_resource type="PackedScene" uid="uid://b33laml6cwl5a" path="res://Objects/Tee Box/tee_box.tscn" id="19_5l52g"]
+[ext_resource type="PackedScene" uid="uid://dkxef55ge30tg" path="res://Objects/Basket/basket.tscn" id="28_10t6g"]
+[ext_resource type="PackedScene" uid="uid://b2acggxq7rkl0" path="res://Objects/DecoAssets/Bench/bench.tscn" id="29_cjnug"]
+[ext_resource type="PackedScene" uid="uid://caesuuayson0j" path="res://Objects/DecoAssets/rock_c.tscn" id="33_hy10l"]
+[ext_resource type="PackedScene" uid="uid://c43dv4kykpx6d" path="res://Objects/DecoAssets/rock_b.tscn" id="34_mmw2u"]
+[ext_resource type="Texture2D" uid="uid://b4tw8saglnfp0" path="res://Scenes/Holes/Hole 01/highhdri.png" id="37_pmh34"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qf1x1"]
+panorama = ExtResource("37_pmh34")
+
+[sub_resource type="Sky" id="Sky_byaew"]
+sky_material = SubResource("PanoramaSkyMaterial_qf1x1")
+
+[sub_resource type="Environment" id="Environment_yo78l"]
+background_mode = 2
+sky = SubResource("Sky_byaew")
+
+[node name="Hole3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_reverse_cull_face = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yo78l")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://Scenes/Holes/Hole 01/data"
+material = ExtResource("1_mdr8j")
+assets = ExtResource("2_uyc61")
+mesh_lods = 9
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Player_Spawn" parent="." instance=ExtResource("17_6bjc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.99, 1.55426, -104.869)
+
+[node name="Door_Exit" parent="." instance=ExtResource("18_u1ylt")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -120.052, 1.58641, -103.027)
+destination = "res://Scenes/Clubhouse/Interior/clubhouse_interior.tscn"
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Bench" parent="Obstacles" instance=ExtResource("29_cjnug")]
+transform = Transform3D(0.696902, 0, 0.717166, 0, 1, 0, -0.717166, 0, 0.696902, -130.302, 0.540486, -119.05)
+
+[node name="RockC" parent="Obstacles" instance=ExtResource("33_hy10l")]
+transform = Transform3D(1, 0, 0, 0, 0.0260722, -0.99966, 0, 0.99966, 0.0260722, -111.329, 0, -124.044)
+
+[node name="RockC2" parent="Obstacles/RockC" instance=ExtResource("33_hy10l")]
+transform = Transform3D(-0.596863, 0.788708, 0.147292, 0.797405, 0.603445, 7.45058e-09, -0.0888823, 0.117451, -0.989093, -20.3558, 70.3919, 2.36571)
+
+[node name="RockC3" parent="Obstacles/RockC" instance=ExtResource("33_hy10l")]
+transform = Transform3D(-0.211843, 2.32313, 1.7498, -0.614101, 1.67915, -2.30368, -2.84282, -0.535844, 0.367245, -194.042, 75.3561, 2.52615)
+
+[node name="RockC4" parent="Obstacles/RockC" instance=ExtResource("33_hy10l")]
+transform = Transform3D(-0.104747, 0.997021, -1.03634, -0.303645, -1.03099, -0.961186, -1.40565, 0.148415, 0.28486, -209.022, 95.666, 1.50484)
+
+[node name="RockC5" parent="Obstacles/RockC" instance=ExtResource("33_hy10l")]
+transform = Transform3D(-0.104747, 0.997021, -1.03634, -0.303645, -1.03099, -0.961186, -1.40565, 0.148415, 0.28486, -485.605, -3.69, 0.585823)
+
+[node name="RockB" parent="Obstacles/RockC" instance=ExtResource("34_mmw2u")]
+transform = Transform3D(-0.260488, 0.965477, 0, -0.965477, -0.260488, 0, 0, 0, 1, -10.8362, -9.91822, -1.79069)
+
+[node name="RockB2" parent="Obstacles/RockC" instance=ExtResource("34_mmw2u")]
+transform = Transform3D(-0.515427, 0.797218, -0.31429, -0.856933, -0.47951, 0.189039, 0, 0.366761, 0.930315, -6.23378, 42.5859, -1.79069)
+
+[node name="Clubhouse Outside" parent="." instance=ExtResource("18_ihmlv")]
+transform = Transform3D(-2.47487, 0, 2.47487, 0, 3.5, 0, -2.47487, 0, -2.47487, -121.04, -0.0578918, -103.94)
+
+[node name="Baskets and Tees" type="Node3D" parent="."]
+
+[node name="Basket2" parent="Baskets and Tees" instance=ExtResource("28_10t6g")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -404.338, 13.2908, -4.6415)
+hole = 2
+
+[node name="Basket" parent="Baskets and Tees" instance=ExtResource("28_10t6g")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -186.266, -11.2726, -207.809)
+hole = 1
+
+[node name="TeeBox2" parent="Baskets and Tees" instance=ExtResource("19_5l52g")]
+transform = Transform3D(2.96098, 0, 0, 0, 2.96098, 0, 0, 0, 2.96098, -331.576, -6.31922, -192.278)
+tee_number = 2
+
+[node name="TeeBox" parent="Baskets and Tees" instance=ExtResource("19_5l52g")]
+transform = Transform3D(1.25778, 0, -0.817311, 0, 1.5, 0, 0.817311, 0, 1.25778, -140.547, -0.736039, -119.667)
+tee_number = 1
+
+[node name="Signs" type="Node3D" parent="."]
+
+[node name="Sign_Hole_01" parent="Signs" instance=ExtResource("10_3aiwv")]
+transform = Transform3D(-0.0217451, 0, -0.999764, 0, 1, 0, 0.999764, 0, -0.0217451, -135.043, 0, -120.218)
+
+[node name="Sign_Hole_02" parent="Signs" instance=ExtResource("10_3aiwv")]
+transform = Transform3D(0.206631, 0, -0.978419, 0, 1, 0, 0.978419, 0, 0.206631, -199.862, -10.5486, -218.151)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Zombie2" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.868, -28.9995, -175.494)
+is_burried = true
+
+[node name="Zombie3" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.269, -28.9995, -174.306)
+is_burried = true
+
+[node name="Zombie4" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.891, -28.9995, -173.206)
+is_burried = true
+
+[node name="Zombie5" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.571, -28.9995, -173.886)
+is_burried = true
+
+[node name="Zombie6" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.876, -28.9995, -175.922)
+is_burried = true
+
+[node name="Zombie7" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.218, -28.9995, -175.698)
+is_burried = true
+
+[node name="Zombie8" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.707, -28.9995, -171.935)
+is_burried = true
+
+[node name="Zombie9" parent="Enemies" instance=ExtResource("14_wo8xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.469, 0.227932, -111.771)
+is_burried = true

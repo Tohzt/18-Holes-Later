@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8g4cw8dgto1"]
+
+[ext_resource type="PackedScene" uid="uid://dwi464epr4yx3" path="res://Objects/Weapons_Assets/sword.glb" id="1_ohen7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bndpv"]
+size = Vector3(0.235291, 1, 0.249268)
+
+[node name="Sword" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="sword" parent="." instance=ExtResource("1_ohen7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160217, 0, -0.0196533)
+shape = SubResource("BoxShape3D_bndpv")

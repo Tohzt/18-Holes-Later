@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://cotl2jkn87f1f"]
+
+[ext_resource type="Script" path="res://Objects/Discs/Disc/disc_rigid.gd" id="1_4bxdj"]
+[ext_resource type="Script" path="res://Objects/Discs/Mesh/Mesh.gd" id="2_g1sfq"]
+[ext_resource type="PackedScene" uid="uid://cvfoujqikvtev" path="res://Objects/Discs/Mesh/classic_retro_disc_mesh.tscn" id="3_r6l7l"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="4_gip7m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qv5ik"]
+radius = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vqxx"]
+transparency = 1
+albedo_color = Color(0, 0.760784, 1, 0.321569)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bbabv"]
+material = SubResource("StandardMaterial3D_4vqxx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c10o5"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.321569)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fdjm6"]
+material = SubResource("StandardMaterial3D_c10o5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jikcp"]
+transparency = 1
+albedo_color = Color(0, 1, 0, 0.321569)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ku7n6"]
+material = SubResource("StandardMaterial3D_jikcp")
+
+[node name="Disc" type="RigidBody3D" groups=["Disc"]]
+collision_layer = 4
+collision_mask = 9
+custom_integrator = true
+linear_damp = 0.1
+angular_damp = 5.0
+script = ExtResource("1_4bxdj")
+
+[node name="Attributes" type="Node" parent="."]
+
+[node name="Mesh" type="Node3D" parent="."]
+script = ExtResource("2_g1sfq")
+
+[node name="Sphere" parent="Mesh" instance=ExtResource("3_r6l7l")]
+script = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00724372, 0)
+shape = SubResource("SphereShape3D_qv5ik")
+
+[node name="Cam_Mount" parent="." instance=ExtResource("4_gip7m")]
+
+[node name="Z Axis" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, -1.31134e-07, -0.05, 0, 3, -2.18557e-09, 0, 0, 0)
+mesh = SubResource("CylinderMesh_bbabv")
+
+[node name="X Axis" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.18557e-09, 3, -2.18557e-09, 0, -1.31134e-07, -0.05, -0.05, -1.31134e-07, 2.7317e-16, 0, 0, 0)
+mesh = SubResource("CylinderMesh_fdjm6")
+
+[node name="Y Axis" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 3, -2.22045e-16, 0, 0, 0.05, 0, 0, 0)
+mesh = SubResource("CylinderMesh_ku7n6")

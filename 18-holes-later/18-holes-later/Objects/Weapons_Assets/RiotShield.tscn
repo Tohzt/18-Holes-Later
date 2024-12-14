@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://caxs7javpugv5"]
+
+[ext_resource type="PackedScene" uid="uid://ettldbi4gdn5" path="res://Objects/Weapons_Assets/riotshield.glb" id="1_5cjs3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n1cfl"]
+size = Vector3(0.26178, 0.744263, 0.562866)
+
+[node name="RiotShield" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="riotshield" parent="." instance=ExtResource("1_5cjs3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0108337, -0.127869, -0.0217896)
+shape = SubResource("BoxShape3D_n1cfl")

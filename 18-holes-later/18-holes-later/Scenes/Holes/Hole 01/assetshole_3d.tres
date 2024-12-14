@@ -1,0 +1,256 @@
+[gd_resource type="Terrain3DAssets" load_steps=50 format=3 uid="uid://fpmbocqhcjem"]
+
+[ext_resource type="Texture2D" uid="uid://dw7qnn40jbaam" path="res://Scenes/Holes/Hole 01/Foilage/Branch1.png" id="1_ovf70"]
+[ext_resource type="Texture2D" uid="uid://b5xl5hg6py6pf" path="res://Scenes/Holes/Hole 01/Foilage/grass4.png" id="2_uqgyk"]
+[ext_resource type="Texture2D" uid="uid://ttqfi47kfihi" path="res://Scenes/Holes/Hole 01/Foilage/leaves.png" id="3_w2jqc"]
+[ext_resource type="Texture2D" uid="uid://bwi4jgumqsriy" path="res://Scenes/Holes/Hole 01/Foilage/nush3.png" id="4_fvncr"]
+[ext_resource type="Texture2D" uid="uid://ndqhlibyt8ja" path="res://Scenes/Holes/Hole 01/Foilage/PineNeedles.png" id="5_ec3ho"]
+[ext_resource type="Texture2D" uid="uid://diqb32mgk1g5n" path="res://Scenes/Holes/Hole 01/Foilage/report136347717617404118244b22ef7a-9508-497a-9bfc-ecf0d2d75a31_piclumen_contentRefer_31565_.png" id="6_ku6he"]
+[ext_resource type="Texture2D" uid="uid://d030pvr40j4b0" path="res://Scenes/Holes/Hole 01/Foilage/Tree21000.png" id="7_txug3"]
+[ext_resource type="Texture2D" uid="uid://2fs4onc7bv4t" path="res://Scenes/Holes/Hole 01/Foilage/WheatGrass.png" id="8_fhmrg"]
+[ext_resource type="Texture2D" uid="uid://cqrvxyfsp83lv" path="res://Scenes/Holes/Hole 01/Textures/GrassForestpacked_albedo_height.png" id="9_bn843"]
+[ext_resource type="Texture2D" uid="uid://d3rsgbgt32edo" path="res://Scenes/Holes/Hole 01/Textures/GrassForestpacked_normal_roughness.png" id="10_ihs14"]
+[ext_resource type="Texture2D" uid="uid://rkmnsuvahj3o" path="res://Scenes/Holes/Hole 01/Textures/rckpacked_albedo_height.png" id="11_auv6p"]
+[ext_resource type="Texture2D" uid="uid://b85s2dkds0m5g" path="res://Scenes/Holes/Hole 01/Textures/rockypacked_albedo_height.png" id="12_qshdp"]
+[ext_resource type="Texture2D" uid="uid://dwkrjto58kc5c" path="res://Scenes/Holes/Hole 01/Textures/rockypacked_normal_roughness.png" id="13_yaqa4"]
+[ext_resource type="Texture2D" uid="uid://b1xcnn35rghdl" path="res://Scenes/Holes/Hole 01/Textures/Grass2packed_albedo_height.png" id="14_ksih2"]
+[ext_resource type="Texture2D" uid="uid://drujra60nccbf" path="res://Scenes/Holes/Hole 01/Textures/Grass2packed_normal_roughness.png" id="15_w4il6"]
+[ext_resource type="Texture2D" uid="uid://c563behq2f6o5" path="res://Scenes/Holes/Hole 01/Textures/rvrpacked_albedo_height.png" id="16_g3nrn"]
+[ext_resource type="Texture2D" uid="uid://cacbpv4nb6twg" path="res://Scenes/Holes/Hole 01/Textures/rvrpacked_normal_roughness.png" id="17_oej4m"]
+[ext_resource type="Texture2D" uid="uid://bal2vju3j0340" path="res://Scenes/Holes/Hole 01/Textures/cliffpacked_albedo_height.png" id="18_78n0o"]
+[ext_resource type="Texture2D" uid="uid://nsphis2jdly0" path="res://Scenes/Holes/Hole 01/Textures/cliffpacked_normal_roughness.png" id="19_pky1c"]
+[ext_resource type="Texture2D" uid="uid://dic2u85mn4tbm" path="res://Scenes/Holes/Hole 01/Textures/gpacked_albedo_height.png" id="20_qwiyo"]
+[ext_resource type="Texture2D" uid="uid://d38av558e2ggg" path="res://Scenes/Holes/Hole 01/Textures/gpacked_normal_roughness.png" id="21_ntvca"]
+[ext_resource type="Texture2D" uid="uid://buxvpynk41j13" path="res://Scenes/Holes/Hole 01/Textures/sandpacked_albedo_height.png" id="22_bnhvw"]
+[ext_resource type="Texture2D" uid="uid://coi5a8h06p8oc" path="res://Scenes/Holes/Hole 01/Textures/sandpacked_normal_roughness.png" id="23_j6hm8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4j2l"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ovf70")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_ht2j3"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_b4j2l")
+generated_type = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_firvr"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_uqgyk")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_30vci"]
+id = 1
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_firvr")
+generated_type = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcqkw"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_w2jqc")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_jjmon"]
+id = 2
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_fcqkw")
+generated_type = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkf1q"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_fvncr")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_8nl4u"]
+id = 3
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_rkf1q")
+generated_type = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipbqo"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_ec3ho")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_w1245"]
+id = 4
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_ipbqo")
+generated_type = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7nsp"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_ku6he")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_od0ch"]
+id = 5
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_o7nsp")
+generated_type = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ktf7"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_txug3")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_e7l17"]
+id = 6
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_3ktf7")
+generated_type = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wkcf"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("7_txug3")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+texture_filter = 0
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_spfg8"]
+id = 7
+height_offset = 0.5
+density = 10.0
+cast_shadows = 0
+material_override = SubResource("StandardMaterial3D_1wkcf")
+generated_type = 1
+generated_size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mghgg"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("8_fhmrg")
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 960.0
+distance_fade_max_distance = 480.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_s1amt"]
+id = 8
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_mghgg")
+generated_type = 1
+generated_faces = 1
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_gnks1"]
+name = "GrassForestpacked_albedo_height"
+albedo_texture = ExtResource("9_bn843")
+normal_texture = ExtResource("10_ihs14")
+uv_scale = 0.051
+resource_local_to_scene = true
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_rjbc6"]
+name = "rckpacked_albedo_height"
+id = 1
+albedo_texture = ExtResource("11_auv6p")
+normal_texture = ExtResource("11_auv6p")
+uv_scale = 0.027
+detiling = 0.311
+resource_local_to_scene = true
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_5m8d5"]
+name = "rockypacked_normal_roughness"
+id = 2
+albedo_texture = ExtResource("12_qshdp")
+normal_texture = ExtResource("13_yaqa4")
+resource_local_to_scene = true
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_2gn3h"]
+name = "Grass2packed_albedo_height"
+id = 3
+albedo_texture = ExtResource("14_ksih2")
+normal_texture = ExtResource("15_w4il6")
+resource_local_to_scene = true
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_77evt"]
+name = "rvrpacked_albedo_height"
+id = 4
+albedo_texture = ExtResource("16_g3nrn")
+normal_texture = ExtResource("17_oej4m")
+uv_scale = 0.063
+detiling = 0.311
+resource_local_to_scene = true
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_8aucm"]
+name = "rockypacked_albedo_height"
+id = 5
+albedo_texture = ExtResource("18_78n0o")
+normal_texture = ExtResource("19_pky1c")
+resource_local_to_scene = true
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_k56v8"]
+name = "gpacked_albedo_height"
+id = 6
+albedo_texture = ExtResource("20_qwiyo")
+normal_texture = ExtResource("21_ntvca")
+uv_scale = 0.137
+detiling = 0.39
+resource_local_to_scene = true
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_rhjyu"]
+name = "sandpacked_albedo_height"
+id = 7
+albedo_texture = ExtResource("22_bnhvw")
+normal_texture = ExtResource("23_j6hm8")
+resource_local_to_scene = true
+
+[resource]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_ht2j3"), SubResource("Terrain3DMeshAsset_30vci"), SubResource("Terrain3DMeshAsset_jjmon"), SubResource("Terrain3DMeshAsset_8nl4u"), SubResource("Terrain3DMeshAsset_w1245"), SubResource("Terrain3DMeshAsset_od0ch"), SubResource("Terrain3DMeshAsset_e7l17"), SubResource("Terrain3DMeshAsset_spfg8"), SubResource("Terrain3DMeshAsset_s1amt")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_gnks1"), SubResource("Terrain3DTextureAsset_rjbc6"), SubResource("Terrain3DTextureAsset_5m8d5"), SubResource("Terrain3DTextureAsset_2gn3h"), SubResource("Terrain3DTextureAsset_77evt"), SubResource("Terrain3DTextureAsset_8aucm"), SubResource("Terrain3DTextureAsset_k56v8"), SubResource("Terrain3DTextureAsset_rhjyu")])

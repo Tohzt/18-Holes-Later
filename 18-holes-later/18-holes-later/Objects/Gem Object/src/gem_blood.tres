@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://drco6b57o132g"]
+
+[ext_resource type="Texture2D" uid="uid://c6mrvrqup0i2i" path="res://Objects/Gem Object/Gem_Texture.png" id="1_vsloq"]
+
+[resource]
+albedo_texture = ExtResource("1_vsloq")
+albedo_texture_force_srgb = true
+metallic_specular = 0.11
+roughness = 0.36
+emission_energy_multiplier = 5.13
+normal_scale = -16.0
+clearcoat = 0.71
+clearcoat_roughness = 1.0

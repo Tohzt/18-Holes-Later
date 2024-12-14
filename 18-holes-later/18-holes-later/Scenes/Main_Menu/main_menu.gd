@@ -1,0 +1,38 @@
+extends Control
+@onready var Menu_Container = $MenuContainer
+@onready var Character_Container = $"CharacterContainer"
+@onready var Course_Container = $CourseContainer
+@onready var Profile_Container = $ProfileContainer
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		Menu_Container.toggle_slide(true)
+		Character_Container.toggle_slide(false)
+		Course_Container.toggle_slide(false)
+
+func _on_btn_new_game_pressed():
+	Global.go_to_course(Global.Refs.SCENE_COURSE, Global.Refs.CLUBHOUSE_INTERIOR, "Clubhouse_Interior")
+ 
+func _on_btn_continue_pressed():
+	# TODO: Default Test Profile 1.. Remove later
+	Global.Profile = "Profile 1"
+	Global.should_load = true
+	Global.go_to_scene(Global.Refs.SCENE_COURSE)
+
+func _on_btn_load_pressed():
+	if Profile_Container.visible:
+		Profile_Container.hide()
+	else:
+		Course_Container.hide()
+		Profile_Container.show()
+
+func _on_btn_options_pressed():
+	if Course_Container.visible:
+		Course_Container.hide()
+	else:
+		Profile_Container.hide()
+		Course_Container.show()
+
+
+func _on_btn_exit_pressed():
+	get_tree().quit()

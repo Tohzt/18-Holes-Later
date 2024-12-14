@@ -1,0 +1,38 @@
+# COMBAT STATE
+extends CharacterStateClass
+
+var input: Array[String]
+
+func init_state():
+	Master.Combat.set_collision_layer_value(2,true)
+	State_Controller.state_options = state_options
+	if Master.is_attacking:
+		Master.anim_play("Jab")
+	else:
+		Master.anim_play("Idle_Fight")
+	#Master.can_move = false
+	#Master.is_moving = false
+
+func update_state(_delta):
+	var path = Master.Anim_Controller.anim_state.get_travel_path()
+	var current = Master.Anim_Controller.anim_state.get_current_node()
+	
+	if Master.Input_Array and Master.Input_Array[0] == "left_click":
+		if current == "Idle_Fight":
+			Master.anim_play("Jab")
+		if current == "Jab":
+			Master.anim_play("Slice")
+		if current == "Slice":
+			Master.anim_play("Compasso")
+		if current == "Compasso":
+			Master.anim_play("KickUp")
+		if current == "KickUp":
+			Master.anim_play("Cheat720")
+	
+	if !path and current == "Idle":
+		exit_state("Idle")
+
+func exit_state(next_state: String):
+	Master.Combat.set_collision_layer_value(2,false)
+	Master.in_combat = false
+	State_Controller.state_next = next_state

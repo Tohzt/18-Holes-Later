@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjtft5f54y6vh"]
+
+[ext_resource type="PackedScene" uid="uid://00id5f583lu4" path="res://Objects/Weapons_Assets/axe.glb" id="1_85jv7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ur7y"]
+size = Vector3(0.344238, 1.21094, 0.678711)
+
+[node name="Axe" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="axe" parent="." instance=ExtResource("1_85jv7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0490723, -0.105469, 0.0493164)
+shape = SubResource("BoxShape3D_7ur7y")

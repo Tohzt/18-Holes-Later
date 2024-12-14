@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cq0eakw0nkek0"]
+
+[ext_resource type="Script" path="res://Objects/Discs/Disc/disc.gd" id="1_bf7l0"]
+[ext_resource type="Script" path="res://Objects/Discs/Mesh/Mesh.gd" id="2_hmyqc"]
+[ext_resource type="PackedScene" uid="uid://cvfoujqikvtev" path="res://Objects/Discs/Mesh/classic_retro_disc_mesh.tscn" id="3_mhpng"]
+[ext_resource type="PackedScene" uid="uid://c2tblnm0ylwef" path="res://Global/Camera/cam_mount.tscn" id="4_ys0wv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qv5ik"]
+radius = 0.15
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3c452"]
+
+[node name="Disc" type="CharacterBody3D" groups=["Disc"]]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_bf7l0")
+h_strafe_min = -0.6
+h_strafe_max = 0.6
+h_strafe_rate = 0.02
+
+[node name="Attributes" type="Node" parent="."]
+
+[node name="Mesh" type="Node3D" parent="."]
+script = ExtResource("2_hmyqc")
+
+[node name="Sphere" parent="Mesh" instance=ExtResource("3_mhpng")]
+script = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00724372, 0)
+shape = SubResource("SphereShape3D_qv5ik")
+
+[node name="Cam_Mount" parent="." instance=ExtResource("4_ys0wv")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.155708, 0, 0, 0, -4.37114e-08, 0.156981, 0, -1, -6.86188e-09, 0, 0, -1.19992)
+mesh = SubResource("CylinderMesh_3c452")

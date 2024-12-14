@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc1tfuex0nwni"]
+
+[ext_resource type="PackedScene" uid="uid://dotsys30knbys" path="res://Objects/Weapons_Assets/pistolbyme.glb" id="1_3ndr1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d2cnl"]
+size = Vector3(0.37561, 1, 1)
+
+[node name="Pistol" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="pistolbyme" parent="." instance=ExtResource("1_3ndr1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0592651, 0, 0)
+shape = SubResource("BoxShape3D_d2cnl")

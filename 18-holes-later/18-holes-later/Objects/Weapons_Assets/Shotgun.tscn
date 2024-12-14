@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpfrp0deu6254"]
+
+[ext_resource type="PackedScene" uid="uid://sm5w2qemc7ry" path="res://Objects/Weapons_Assets/shotgun.glb" id="1_mqi8a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3bf0"]
+size = Vector3(0.357422, 0.505432, 1)
+
+[node name="Shotgun" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="shotgun" parent="." instance=ExtResource("1_mqi8a")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0195313, -0.0748596, 0)
+shape = SubResource("BoxShape3D_p3bf0")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwrgqx177vt4t"]
+
+[ext_resource type="Script" path="res://Entities/_Controllers/StateMachine/States/Character/Idle/idle.gd" id="1_75oai"]
+
+[node name="Idle" type="Node"]
+script = ExtResource("1_75oai")

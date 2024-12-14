@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0q51qtpksi37"]
+
+[ext_resource type="PackedScene" uid="uid://cdv74ct7gqv11" path="res://Objects/Weapons_Assets/grenadelauncher.glb" id="1_he58j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_04wvt"]
+size = Vector3(0.483337, 0.730957, 1)
+
+[node name="GrenadeLauncher" type="Area3D" groups=["Interact"]]
+collision_layer = 4
+collision_mask = 3
+
+[node name="grenadelauncher" parent="." instance=ExtResource("1_he58j")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160217, -0.134521, 0)
+shape = SubResource("BoxShape3D_04wvt")
